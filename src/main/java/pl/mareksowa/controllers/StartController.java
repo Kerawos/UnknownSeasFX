@@ -1,0 +1,44 @@
+package pl.mareksowa.controllers;
+
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import pl.mareksowa.models.ships.Ship;
+import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+
+
+public class StartController implements Initializable{
+
+    @FXML
+    private ImageView ivStartPage;
+
+    @FXML
+    private Button btnBeginNewJourney;
+
+    @FXML
+    private Button btnExit;
+
+    private Image backgroundImage;
+
+    public void initialize(URL location, ResourceBundle resources) {
+        backgroundImage = new Image("img/StartPage.png");
+        ivStartPage.setImage(backgroundImage);
+        ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
+        ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
+        btnExit.setOnMouseClicked(e-> Menu.getInstance().exitGame());
+        btnBeginNewJourney.setOnMouseClicked(e-> {
+            Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
+            Menu.getInstance().sceneChange(nextStage, "scenes/dockyard.fxml");
+        });
+    }
+
+
+
+
+}

@@ -6,13 +6,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
 
 public class StartGame extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("startPage.fxml"));
-        primaryStage.initStyle(StageStyle.DECORATED);
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("scenes/startPage.fxml"));
+        //primaryStage.initStyle(StageStyle.DECORATED);
         primaryStage.setTitle("Unknown Seas 0.1a");
         primaryStage.setScene(new Scene(root, 800, 640));
         primaryStage.setResizable(false);
