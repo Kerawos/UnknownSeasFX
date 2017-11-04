@@ -3,6 +3,7 @@ package pl.mareksowa.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -30,8 +31,45 @@ public class DockyardController implements Initializable{
     @FXML
     private Label lblPlayerGold;
 
-    private Image backgroundImage;
+    @FXML
+    private Label lblPlayerFood;
 
+    @FXML
+    private Label lblPlayerAmmo;
+
+
+    @FXML
+    private Button btStorage1;
+
+    @FXML
+    private Button btStorage2;
+
+    @FXML
+    private Button btStorage3;
+
+    @FXML
+    private Button btStorage4;
+
+    @FXML
+    private Button btStorage5;
+
+    @FXML
+    private Button btStorage6;
+
+    @FXML
+    private Button btStorage7;
+
+    @FXML
+    private Button btStorage8;
+
+    @FXML
+    private Button btStorage9;
+
+    @FXML
+    private Button btStorage10;
+
+
+    private Image backgroundImage;
     private ShipDaoImpl shipDao;
     private Ship playerShip;
 
@@ -39,7 +77,22 @@ public class DockyardController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         shipDao = ShipDaoImpl.getInstance();
         playerShip = shipDao.getAllShips().get(0);
-        lblPlayerGold.setText("Your Gold $" + playerShip.getGold());
+        lblPlayerGold.setText(String.valueOf(playerShip.getGold()));
+        lblPlayerFood.setText(String.valueOf(playerShip.getFood()));
+        lblPlayerAmmo.setText(String.valueOf(playerShip.getAmmo()));
+
+        btStorage1.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage2.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage3.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage4.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage5.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage6.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage7.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage8.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage9.setGraphic(new ImageView("img/StorageEmpty.png"));
+        btStorage10.setGraphic(new ImageView("img/StorageEmpty.png"));
+
+
         //lblPlayerGold.setText(shipDao.getAllShips().size() + " licza statkow");
         backgroundImage = new Image("img/BackGroundLine.png");
         ivBackGround.setImage(backgroundImage);
@@ -49,4 +102,5 @@ public class DockyardController implements Initializable{
         lblTitle.setText("Ship Dockyard");
         lblUpperText.setText("Hello capitan, just indicate what you want to add to your ship");
     }
+
 }
