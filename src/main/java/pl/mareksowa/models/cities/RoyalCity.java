@@ -2,8 +2,8 @@ package pl.mareksowa.models.cities;
 
 public class RoyalCity extends City {
 
-    public RoyalCity(String cityName) {
-        super(cityName);
+    public RoyalCity() {
+        cityName = "Royal City";
         foodRequest = 1;
         ammoRequest = 1;
         crewRequest = 1;
