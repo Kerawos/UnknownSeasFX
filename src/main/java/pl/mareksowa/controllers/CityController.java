@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 public class CityController implements Initializable {
+
     @FXML ImageView ivBackGround;
 
     @FXML private Label lblUpperText;
@@ -119,7 +120,7 @@ public class CityController implements Initializable {
         cities = Arrays.asList(new RoyalCity());
         updateCity(getCityState());
         shipDao = ShipDaoImpl.getInstance();
-        playerShip = shipDao.getAllShips().get(0);
+        playerShip = ShipDaoImpl.getInstance().getAllShips().get(0);
         updatePlayerShip();
 
         ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
@@ -134,17 +135,11 @@ public class CityController implements Initializable {
         });
 
         btnAddStorageSpace.setOnMouseClicked(e->{
-            int storagePrice = ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity()
-                    *ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity()
-                    +ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity();
-
-            if (ShipDaoImpl.getInstance().getAllShips().get(0).getGold()> storagePrice){
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
-                        .getGold()- storagePrice);
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setStorageCapacity(ShipDaoImpl.getInstance()
-                        .getAllShips().get(0).getStorageCapacity()+1);
+            int storagePrice = playerShip.getStorageCapacity() * playerShip.getStorageCapacity()
+                    +playerShip.getStorageCapacity();
+            if (playerShip.getGold()> storagePrice){
+                playerShip.setGold(playerShip.getGold()- storagePrice);
+                playerShip.setStorageCapacity(playerShip.getStorageCapacity()+1);
                 updatePlayerShip();
                 updateCity(getCityState());
             } else {
@@ -154,17 +149,11 @@ public class CityController implements Initializable {
         });
 
         btnAddCabin.setOnMouseClicked(e->{
-            int cabinPrice = ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()
-                    *ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()
-                    +ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()+1;
-
-            if (ShipDaoImpl.getInstance().getAllShips().get(0).getGold()> cabinPrice){
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
-                        .getGold()- cabinPrice);
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setCabinCapacity(ShipDaoImpl.getInstance()
-                        .getAllShips().get(0).getCabinCapacity()+1);
+            int cabinPrice = playerShip.getCabinCapacity() * playerShip.getCabinCapacity()
+                    + playerShip.getCabinCapacity()+1;
+            if (playerShip.getGold()> cabinPrice){
+                playerShip.setGold(playerShip.getGold()- cabinPrice);
+                playerShip.setCabinCapacity(playerShip.getCabinCapacity()+1);
                 updatePlayerShip();
                 updateCity(getCityState());
             } else {
@@ -173,17 +162,14 @@ public class CityController implements Initializable {
         });
 
         btnAddSailSpace.setOnMouseClicked(e->{
-            int sailPrice = ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()
-                    *ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()
-                    +ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()+10;
+            int sailPrice = playerShip.getSailCapacity()
+                    *playerShip.getSailCapacity()
+                    +playerShip.getSailCapacity()+10;
 
-            if (ShipDaoImpl.getInstance().getAllShips().get(0).getGold()> sailPrice){
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
+            if (playerShip.getGold()> sailPrice){
+                playerShip.setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
                         .getGold()- sailPrice);
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setSailCapacity(ShipDaoImpl.getInstance()
-                        .getAllShips().get(0).getSailCapacity()+1);
+                playerShip.setSailCapacity(playerShip.getSailCapacity()+1);
                 updatePlayerShip();
                 updateCity(getCityState());
             } else {
@@ -192,23 +178,66 @@ public class CityController implements Initializable {
         });
 
         btnAddCannonSpace.setOnMouseClicked(e->{
-            int cannonPrice = ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()
-                    *ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()
-                    +ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()+5;
+            int cannonPrice = playerShip.getCannonCapacity() * playerShip.getCannonCapacity()
+                    +playerShip.getCannonCapacity()+5;
 
-            if (ShipDaoImpl.getInstance().getAllShips().get(0).getGold()> cannonPrice){
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
-                        .getGold()- cannonPrice);
-
-                ShipDaoImpl.getInstance().getAllShips().get(0).setCannonCapacity(ShipDaoImpl.getInstance()
-                        .getAllShips().get(0).getCannonCapacity()+1);
+            if (playerShip.getGold()> cannonPrice){
+                playerShip.setGold(playerShip.getGold()- cannonPrice);
+                playerShip.setCannonCapacity(playerShip.getCannonCapacity()+1);
                 updatePlayerShip();
                 updateCity(getCityState());
             } else {
                 lblUpperText.setText("You don't have enough gold..");
             }
         });
+
+        btnRepair1.setOnMouseClicked(e->{
+            if (playerShip.getCurrentEndurance() < playerShip.getEndurance()){
+                if (playerShip.getGold() > 1){
+                    playerShip.setGold(playerShip.getGold()-1);
+                    playerShip.setCurrentEndurance(playerShip.getCurrentEndurance() + 1);
+                    updatePlayerShip();
+                    updateCityStateSmith();
+                } else {
+                    lblUpperText.setText("You haven't enough gold to repair..");
+                }
+            } else {
+
+                lblUpperText.setText("There is nothing to repair..");
+            }
+        });
+
+        btnRepair2.setOnMouseClicked(e->{
+            if (playerShip.getCurrentEndurance() < playerShip.getEndurance() - 5){
+                if (playerShip.getGold() > 5){
+                    playerShip.setGold(playerShip.getGold()-5);
+                    playerShip.setCurrentEndurance(playerShip.getCurrentEndurance() + 5);
+                    updatePlayerShip();
+                    updateCityStateSmith();
+                } else {
+                    lblUpperText.setText("You haven't enough gold to repair 5 points ..");
+                }
+            } else {
+                lblUpperText.setText("You cannot repair so much..");
+            }
+        });
+
+        btnRepair3.setOnMouseClicked(e->{
+            int toRepair = playerShip.getEndurance() - playerShip.getCurrentEndurance();
+            if (playerShip.getCurrentEndurance() < playerShip.getEndurance()){
+                if (playerShip.getGold() > toRepair){
+                    playerShip.setGold(playerShip.getGold()-toRepair);
+                    playerShip.setCurrentEndurance(playerShip.getCurrentEndurance() + toRepair);
+                    updatePlayerShip();
+                    updateCityStateSmith();
+                } else {
+                    lblUpperText.setText("You haven't enough gold to repair " + toRepair + " points" );
+                }
+            } else {
+                lblUpperText.setText("There is nothing to repair..");
+            }
+        });
+
 
         btnBack.setOnMouseClicked(e-> {
             setCityState("main");
