@@ -1,13 +1,25 @@
 package pl.mareksowa.models.sails;
 
 public abstract class Sail {
-    private int price;
-    private int speed;
-    private int maneuver;
+    protected int price;
+    protected int speed;
+    protected int maneuver;
 
-    public Sail(int price, int speed, int maneuver) {
-        this.price = price;
-        this.speed = speed;
-        this.maneuver = maneuver;
+    public Sail() {
+        price = 0;
+        speed = 0;
+        maneuver = 0;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public int getSpeed() {
+        return speed;
+    }
+
+    public int getManeuver() {
+        return maneuver;
     }
 }

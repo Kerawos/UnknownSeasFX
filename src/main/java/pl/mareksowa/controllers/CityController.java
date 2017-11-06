@@ -9,11 +9,11 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.RoyalCity;
+import pl.mareksowa.models.sails.*;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -332,13 +332,15 @@ public class CityController implements Initializable {
                 +ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()+5));
 
         btnAddSail1.setVisible(true);
-        btnAddSail1.setText("$20");
+        btnAddSail1.setText("$" + new SailSmall().getPrice());
+        btnAddSail1.setGraphic(new ImageView(new Image("img/SailNormal.png")));
         btnAddSail2.setVisible(true);
-        btnAddSail2.setText("$20");
+        btnAddSail2.setText("$" + new SailPirate().getPrice());
+        btnAddSail2.setGraphic(new ImageView(new Image("img/SailPirate.png")));
         btnAddSail3.setVisible(true);
-        btnAddSail3.setText("$20");
+        btnAddSail3.setText("$" + new SailBig().getPrice());
         btnAddSail4.setVisible(true);
-        btnAddSail4.setText("$20");
+        btnAddSail4.setText("$" + new SailSharp().getPrice());
 
         btnRepair1.setVisible(true);
         btnRepair1.setGraphic(new ImageView(new Image("img/Anvil.png")));
