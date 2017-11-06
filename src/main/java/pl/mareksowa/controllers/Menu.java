@@ -28,6 +28,7 @@ public class Menu {
 
     }
 
+    public String cityName;
 
 
     public void exitGame(){
@@ -127,4 +128,11 @@ public class Menu {
         /// TODO: 06.11.2017
     }
 
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
 }

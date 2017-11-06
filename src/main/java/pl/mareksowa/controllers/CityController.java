@@ -111,5 +111,13 @@ public class CityController implements Initializable {
                 ivCannon7, ivCannon8, ivCannon9, ivCannon10);
     }
 
+    private void updateCity( String cityName){
+        switch (cityName){
+            case "RoyalCity":{
+                break;
+            }
+        }
+    }
+
 
 }

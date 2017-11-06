@@ -32,6 +32,7 @@ public class StartController implements Initializable{
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
         btnExit.setOnMouseClicked(e-> Menu.getInstance().exitGame());
+        Menu.getInstance().setCityName("RoyalCity");
         btnBeginNewJourney.setOnMouseClicked(e-> {
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
             Menu.getInstance().sceneChange(nextStage, "scenes/city.fxml");
