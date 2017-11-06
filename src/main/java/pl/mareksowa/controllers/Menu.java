@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -12,6 +14,7 @@ import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 public class Menu {
 
@@ -24,6 +27,8 @@ public class Menu {
     private Menu(){
 
     }
+
+
 
     public void exitGame(){
         Platform.exit();
@@ -41,38 +46,85 @@ public class Menu {
         }
     }
 
-    @FXML
-    private ImageView ivStorage1;
 
-    @FXML
-    private ImageView ivStorage2;
 
-    @FXML
-    private ImageView ivStorage3;
+    public void updateGold(Label lblPlayerGold){
+        lblPlayerGold.setText(String.valueOf(ShipDaoImpl.getInstance().getAllShips().get(0).getGold()));
+    }
 
-    @FXML
-    private ImageView ivStorage4;
+    public void updateFood(Label lblPlayerFood){
+        lblPlayerFood.setText(String.valueOf(ShipDaoImpl.getInstance().getAllShips().get(0).getFood()));
+    }
 
-    @FXML
-    private ImageView ivStorage5;
+    public void updateAmmo(Label lblPlayerAmmo){
+        lblPlayerAmmo.setText(String.valueOf(ShipDaoImpl.getInstance().getAllShips().get(0).getAmmo()));
+    }
 
-    @FXML
-    private ImageView ivStorage6;
+    public void updateHp(Label lblPlayerHp, ProgressBar pbShipHp){
+        int maxHp = ShipDaoImpl.getInstance().getAllShips().get(0).getEndurance();
+        int curHp = ShipDaoImpl.getInstance().getAllShips().get(0).getCurrentEndurance();
+        pbShipHp.setProgress((curHp*100)/maxHp);
+        lblPlayerHp.setText(""+(curHp*100)/maxHp);
+    }
 
-    @FXML
-    private ImageView ivStorage7;
+    public void updateStorage(ImageView ... storages ){
+        System.out.println("wielkosc magazynowa = " + ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity());
+        System.out.println("wielkosc storages = " + storages.length);
+        for (int i = 0; i < ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity(); i++) {
+            storages[i].setImage(new Image("img/StorageEmpty.png"));
+            System.out.println("tutaj powienien dodac pierwszy obrazaek");
+            if (ShipDaoImpl.getInstance().getAllShips().get(0).getStorage().size()>0 ||
+                    ShipDaoImpl.getInstance().getAllShips().get(0).getStorage().size()>i){
+                System.out.println("z kolei tutaj jakbysmy mieli jakies dobra");
+                /// TODO: 06.11.2017 adding proper good
+            }
+        }
+    }
 
-    @FXML
-    private ImageView ivStorage8;
 
-    @FXML
-    private ImageView ivStorage9;
+    public void updateCrew(ImageView ... crews){
+        System.out.println("wielkosc zalogowego miejsca = " + ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity());
+        System.out.println("wielkosc zalogowych labeli = " + crews.length);
+        for (int i = 0; i < ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity(); i++) {
+            crews[i].setImage(new Image("img/CrewEmpty.png"));
+            System.out.println("tutaj powienien dodac pierwszy obrazaek crew");
+            if (ShipDaoImpl.getInstance().getAllShips().get(0).getCrewList().size()>0 ||
+                    ShipDaoImpl.getInstance().getAllShips().get(0).getCrewList().size()>i){
+                System.out.println("z kolei tutaj jakbysmy mieli jakias zaloge");
+                /// TODO: 06.11.2017 adding proper good
+            }
+        }
+        /// TODO: 06.11.2017
+    }
 
-    @FXML
-    private ImageView ivStorage10;
+    public void updateSail(ImageView ... sails){
+        System.out.println("wielkosc miejsca na zagle = " + ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity());
+        System.out.println("wielkosc zaglowych labeli = " + sails.length);
+        for (int i = 0; i < ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity(); i++) {
+            sails[i].setImage(new Image("img/SailEmpty.png"));
+            System.out.println("tutaj powienien dodac pierwszy obrazaek sail");
+            if (ShipDaoImpl.getInstance().getAllShips().get(0).getSailList().size()>0 ||
+                    ShipDaoImpl.getInstance().getAllShips().get(0).getSailList().size()>i){
+                System.out.println("z kolei tutaj jakbysmy mieli jakias zagiel");
+                /// TODO: 06.11.2017 adding proper good
+            }
+        }
+        /// TODO: 06.11.2017
+    }
 
-    public void loadStorage(){
-
+    public void updateCannon(ImageView ... cannons){
+        System.out.println("wielkosc armatniego miejsca = " + ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity());
+        System.out.println("wielkosc armatnich labeli = " + cannons.length);
+        for (int i = 0; i < ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity(); i++) {
+            cannons[i].setImage(new Image("img/CannonEmpty.png"));
+            System.out.println("tutaj powienien dodac pierwszy obrazaek cannon");
+            if (ShipDaoImpl.getInstance().getAllShips().get(0).getCannonList().size()>0 ||
+                    ShipDaoImpl.getInstance().getAllShips().get(0).getCannonList().size()>i){
+                System.out.println("z kolei tutaj jakbysmy mieli jakias cannon");
+                /// TODO: 06.11.2017 adding proper good
+            }
+        }
+        /// TODO: 06.11.2017
     }
 
 }

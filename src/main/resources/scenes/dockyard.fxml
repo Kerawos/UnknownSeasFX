@@ -34,15 +34,15 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btStorage1" layoutX="272.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage2" layoutX="321.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage3" layoutX="370.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage4" layoutX="419.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage5" layoutX="468.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage6" layoutX="517.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage7" layoutX="566.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage8" layoutX="615.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage9" layoutX="664.0" layoutY="432.0" mnemonicParsing="false" />
-      <Button fx:id="btStorage10" layoutX="713.0" layoutY="432.0" mnemonicParsing="false" />
+      <ImageView fx:id="ivStorage1" fitHeight="45.0" fitWidth="45.0" layoutX="272.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage2" fitHeight="45.0" fitWidth="45.0" layoutX="321.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage3" fitHeight="45.0" fitWidth="45.0" layoutX="370.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage4" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage5" fitHeight="45.0" fitWidth="45.0" layoutX="468.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage6" fitHeight="45.0" fitWidth="45.0" layoutX="517.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage7" fitHeight="45.0" fitWidth="45.0" layoutX="566.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

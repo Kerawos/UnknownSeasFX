@@ -5,6 +5,7 @@ import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.crews.Crew;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Ship {
@@ -32,6 +33,10 @@ public class Ship {
         this.gold = gold;
         this.food = food;
         this.ammo = ammo;
+        storage = new ArrayList<>();
+        crewList = new ArrayList<>();
+        cannonList = new ArrayList<>();
+        sailList = new ArrayList<>();
     }
 
     public int getStorageCapacity() {

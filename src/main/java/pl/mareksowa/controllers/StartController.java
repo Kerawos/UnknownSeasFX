@@ -34,7 +34,7 @@ public class StartController implements Initializable{
         btnExit.setOnMouseClicked(e-> Menu.getInstance().exitGame());
         btnBeginNewJourney.setOnMouseClicked(e-> {
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
-            Menu.getInstance().sceneChange(nextStage, "scenes/dockyard.fxml");
+            Menu.getInstance().sceneChange(nextStage, "scenes/city.fxml");
         });
     }
 

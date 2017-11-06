@@ -22,7 +22,7 @@ public class ShipDaoImpl implements ShipDao {
 
     private ShipDaoImpl() {
         ships = new ArrayList<>();
-        ships.add(new Ship(5,5,1,100,100,1,100,5,0));
+        ships.add(new Ship(1,1,1,100,100,1,100,5,0));
     }
 
     @Override
