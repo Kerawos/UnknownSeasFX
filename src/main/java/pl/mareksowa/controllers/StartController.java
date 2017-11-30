@@ -15,14 +15,11 @@ import java.util.ResourceBundle;
 
 public class StartController implements Initializable{
 
-    @FXML
-    private ImageView ivStartPage;
+    @FXML private ImageView ivStartPage;
 
-    @FXML
-    private Button btnBeginNewJourney;
+    @FXML private Button btnBeginNewJourney;
 
-    @FXML
-    private Button btnExit;
+    @FXML private Button btnExit;
 
     private Image backgroundImage;
 
