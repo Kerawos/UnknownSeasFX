@@ -142,4 +142,23 @@ public class Ship {
     public void setAmmo(int ammo) {
         this.ammo = ammo;
     }
+
+    @Override
+    public String toString() {
+        return "Ship{" +
+                "storageCapacity=" + storageCapacity +
+                ", storage=" + storage +
+                ", cabinCapacity=" + cabinCapacity +
+                ", crewList=" + crewList +
+                ", cannonCapacity=" + cannonCapacity +
+                ", cannonList=" + cannonList +
+                ", endurance=" + endurance +
+                ", currentEndurance=" + currentEndurance +
+                ", sailCapacity=" + sailCapacity +
+                ", sailList=" + sailList +
+                ", gold=" + gold +
+                ", food=" + food +
+                ", ammo=" + ammo +
+                '}';
+    }
 }

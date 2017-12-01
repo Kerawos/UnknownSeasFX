@@ -32,14 +32,15 @@ public class CityController extends PlayerShipController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        backgroundImage = new Image("img/BackgroundLine.png");
         PLAYER_SHIP = SceneManager.getInstance().getPLAYER_SHIP();
         shipFun = SceneManager.getInstance().getShipFunctionality();
         scene = SceneManager.getInstance();
-
+        updateScene();
         ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivBackGround.fitHeightProperty().setValue(backgroundImage.getHeight());
         lblUpperText.setWrapText(true);
-        updateScene();
+
 
         btnSmith.setOnMouseClicked(click -> {
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
@@ -88,7 +89,9 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setVisible(true);
         btnStore.setVisible(true);
         btnTavern.setVisible(true);
-        lblTitle.setText(scene.getCURRENT_CITY().getCityName().toString());
+        //String cityna = scene.getCURRENT_CITY().getCityName().toString();
+        //System.out.println(cityna);
+        lblTitle.setText("dupa");
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
         btnStore.setGraphic(new ImageView(new Image("img/Store.png")));

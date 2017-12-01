@@ -35,8 +35,4 @@ public class StartController implements Initializable{
             SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
         });
     }
-
-
-
-
 }

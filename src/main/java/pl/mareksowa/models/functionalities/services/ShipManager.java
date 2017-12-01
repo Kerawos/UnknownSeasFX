@@ -18,12 +18,10 @@ import java.util.List;
 public class ShipManager implements ShipFunctionality {
 
     private List<Ship> ships;
-    //private Ship PLAYER0SHIP;
 
     public ShipManager() {
         ships = new ArrayList<>();
-        ships.add(new StartingShip().getStartingShip());
-        //PLAYER0SHIP = ships.get(0);
+        addShip(new StartingShip().getStartingShip());
     }
 
     @Override
@@ -33,6 +31,7 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void addShip(Ship shipToAdd) {
+
         ships.add(shipToAdd);
     }
 

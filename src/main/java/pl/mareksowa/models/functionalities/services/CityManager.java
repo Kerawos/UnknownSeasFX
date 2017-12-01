@@ -27,4 +27,10 @@ public class CityManager implements CityFunctionality {
     public void updateCity(City city) {
 
     }
+
+    @Override
+    public String convertCityName(CityName cityName) {
+
+        return null;
+    }
 }

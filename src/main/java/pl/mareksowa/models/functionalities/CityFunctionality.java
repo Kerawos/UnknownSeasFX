@@ -8,4 +8,5 @@ import java.util.List;
 public interface CityFunctionality {
     List<City> getAllCities();
     void updateCity(City city);
+    String convertCityName(CityName cityName);
 }

@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.omg.CORBA.PRIVATE_MEMBER;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.CityName;
 import pl.mareksowa.models.functionalities.CityFunctionality;
@@ -26,8 +25,8 @@ public class SceneManager {
     private CityFunctionality cityFunctionality;
 
     private SceneManager(){
-        shipFunctionality = new ShipManager();
-        cityFunctionality = new CityManager();
+        setShipFunctionality(new ShipManager());
+        setCityFunctionality(new CityManager());
     }
 
     public static SceneManager getInstance(){
