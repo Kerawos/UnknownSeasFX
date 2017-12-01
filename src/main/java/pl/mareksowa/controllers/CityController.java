@@ -35,29 +35,46 @@ public class CityController extends PlayerShipController implements Initializabl
         shipFun = SceneManager.getInstance().getShipFunctionality();
         scene = SceneManager.getInstance();
         PLAYER_SHIP = scene.getPLAYER_SHIP();
-        lblUpperText.setWrapText(true);
         updateScene();
+        buttonsRegister();
+    }
 
+    private void buttonsRegister(){
+        btnRegSmith();
+        btnRegStore();
+        btnRegMarket();
+        btnRegTavern();
+        btnRegBack();
+    }
+
+    private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
             scene.sceneChange(dockyard, "scenes/dockyard.fxml");
         });
+    }
 
+    private void btnRegStore(){
         btnStore.setOnMouseClicked(click->{
             //todo
             System.out.println("store");
 //            Stage store = (Stage) btnStore.getScene().getWindow();
 //            scene.sceneChange(store, "scenes/xxx.fxml");
         });
+    }
 
-        btnTavern.setOnMouseClicked(click->{
-            //todo
-        });
-
+    private void btnRegMarket(){
         btnMarket.setOnMouseClicked(click->{
             //todo
         });
+    }
+    private void btnRegTavern(){
+        btnTavern.setOnMouseClicked(click->{
+            //todo
+        });
+    }
 
+    private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             //todo
         });
@@ -86,6 +103,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setVisible(true);
         btnStore.setVisible(true);
         btnTavern.setVisible(true);
+        lblUpperText.setWrapText(true);
         lblTitle.setText(scene.getCityFunctionality().convertCityNameToString(scene.getCURRENT_CITY().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
