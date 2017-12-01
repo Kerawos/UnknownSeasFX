@@ -7,9 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.SceneManager;
-import pl.mareksowa.models.functionalities.ShipFunctionality;
-import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,16 +22,12 @@ public class CityController extends PlayerShipController implements Initializabl
     @FXML private Button btnStore;
     @FXML private Button btnBack;
 
-    private Image backgroundImage;
-    private Ship PLAYER_SHIP;
-    private ShipFunctionality shipFun;
-    private SceneManager scene;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        shipFun = SceneManager.getInstance().getShipFunctionality();
-        scene = SceneManager.getInstance();
-        PLAYER_SHIP = scene.getPLAYER_SHIP();
+
         updateScene();
         buttonsRegister();
     }
@@ -50,7 +43,7 @@ public class CityController extends PlayerShipController implements Initializabl
     private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
-            scene.sceneChange(dockyard, "scenes/dockyard.fxml");
+            getScene().sceneChange(dockyard, "scenes/dockyard.fxml");
         });
     }
 
@@ -80,15 +73,14 @@ public class CityController extends PlayerShipController implements Initializabl
         });
     }
 
-
     private void updateScene(){
         disableAllViews();
         updateAllViews();
-        updatePlayerShip();
+        updatePlayerShip(getPLAYER_SHIP());
     }
 
     private void disableAllViews(){
-        backgroundImage = null;
+        setBackgroundImage(null);
         btnBack.setVisible(false);
         btnMarket.setVisible(false);
         btnSmith.setVisible(false);
@@ -104,66 +96,16 @@ public class CityController extends PlayerShipController implements Initializabl
         btnStore.setVisible(true);
         btnTavern.setVisible(true);
         lblUpperText.setWrapText(true);
-        lblTitle.setText(scene.getCityFunctionality().convertCityNameToString(scene.getCURRENT_CITY().getCityName()));
+        lblTitle.setText(getScene().getCityFunctionality().convertCityNameToString(getScene().getCURRENT_CITY().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
         btnStore.setGraphic(new ImageView(new Image("img/Store.png")));
         btnTavern.setGraphic(new ImageView(new Image("img/Tavern.png")));
-        backgroundImage = new Image("img/CityRoyal.png");
-        ivBackGround.setImage(backgroundImage);
-        ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
-        ivBackGround.fitHeightProperty().setValue(backgroundImage.getHeight());
-        updateShipBacgroundView();
+        setBackgroundImage(new Image("img/CityRoyal.png"));
+        ivBackGround.setImage(getBackgroundImage());
+        ivBackGround.fitWidthProperty().setValue(getBackgroundImage().getWidth());
+        ivBackGround.fitHeightProperty().setValue(getBackgroundImage().getHeight());
+        updateShipBackgroundView();
         lblUpperText.setText("Hello capitan, just indicate what you want to do by clicking");
     }
-
-
-    public void updatePlayerShip(){
-        updateGold();
-        updateFood();
-        updateAmmo();
-        updateHp();
-        updateStorage();
-        updateCrew();
-        updateSail();
-        updateCannon();
-    }
-
-    private void updateGold(){
-        shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
-    }
-
-    private void updateFood(){
-        shipFun.updateFood(PLAYER_SHIP, getLblPlayerFood());
-    }
-
-    private void updateAmmo(){
-        shipFun.updateAmmo(PLAYER_SHIP, getLblPlayerAmmo());
-    }
-
-    private void updateHp(){
-        shipFun.updateHp(PLAYER_SHIP, getLblPlayerHp(), getPbShipHp());
-    }
-
-    private void updateStorage(){
-        shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(), getIvStorage5(),
-                getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
-    }
-
-    private void updateCrew(){
-        shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(), getIvCrew6(),
-                getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
-    }
-
-    private void updateSail(){
-        shipFun.updateSail(PLAYER_SHIP, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
-                getIvSail6(), getIvSail7(), getIvSail8(), getIvSail9(), getIvSail10());
-    }
-
-    private void updateCannon(){
-        shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(), getIvCannon5(),
-                getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
-    }
-
-
 }

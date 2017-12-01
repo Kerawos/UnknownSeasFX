@@ -5,8 +5,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.functionalities.ShipFunctionality;
+import pl.mareksowa.models.ships.Ship;
 
 public abstract class PlayerShipController {
+
+    private Image backgroundImage;
+    private ShipFunctionality shipFun = SceneManager.getInstance().getShipFunctionality();
+    private SceneManager scene = SceneManager.getInstance();
+    private Ship PLAYER_SHIP = scene.getPLAYER_SHIP();
 
     @FXML private Label lblPlayerGold;
     @FXML private Label lblPlayerFood;
@@ -61,8 +69,55 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerHp;
     @FXML private ProgressBar pbShipHp;
 
-    public void updateShipBacgroundView(){
+    public void updateShipBackgroundView(){
         ivBackGroundShip.setImage(getBgShipImage());
+    }
+
+    public void updatePlayerShip(Ship PLAYER_SHIP){
+        updateGold(PLAYER_SHIP);
+        updateFood(PLAYER_SHIP);
+        updateAmmo(PLAYER_SHIP);
+        updateHp(PLAYER_SHIP);
+        updateStorage(PLAYER_SHIP);
+        updateCrew(PLAYER_SHIP);
+        updateSail(PLAYER_SHIP);
+        updateCannon(PLAYER_SHIP);
+    }
+
+    private void updateGold(Ship PLAYER_SHIP){
+        shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
+    }
+
+    private void updateFood(Ship PLAYER_SHIP){
+        shipFun.updateFood(PLAYER_SHIP, getLblPlayerFood());
+    }
+
+    private void updateAmmo(Ship PLAYER_SHIP){
+        shipFun.updateAmmo(PLAYER_SHIP, getLblPlayerAmmo());
+    }
+
+    private void updateHp(Ship PLAYER_SHIP){
+        shipFun.updateHp(PLAYER_SHIP, getLblPlayerHp(), getPbShipHp());
+    }
+
+    private void updateStorage(Ship PLAYER_SHIP){
+        shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(), getIvStorage5(),
+                getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
+    }
+
+    private void updateCrew(Ship PLAYER_SHIP){
+        shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(), getIvCrew6(),
+                getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
+    }
+
+    private void updateSail(Ship PLAYER_SHIP){
+        shipFun.updateSail(PLAYER_SHIP, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
+                getIvSail6(), getIvSail7(), getIvSail8(), getIvSail9(), getIvSail10());
+    }
+
+    private void updateCannon(Ship PLAYER_SHIP){
+        shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(), getIvCannon5(),
+                getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
     }
 
     public Label getLblPlayerGold() {
@@ -253,5 +308,25 @@ public abstract class PlayerShipController {
 
     public ProgressBar getPbShipHp() {
         return pbShipHp;
+    }
+
+    public Image getBackgroundImage() {
+        return backgroundImage;
+    }
+
+    public void setBackgroundImage(Image backgroundImage) {
+        this.backgroundImage = backgroundImage;
+    }
+
+    public ShipFunctionality getShipFun() {
+        return shipFun;
+    }
+
+    public SceneManager getScene() {
+        return scene;
+    }
+
+    public Ship getPLAYER_SHIP() {
+        return PLAYER_SHIP;
     }
 }
