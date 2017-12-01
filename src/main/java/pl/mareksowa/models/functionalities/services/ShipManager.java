@@ -1,4 +1,4 @@
-package pl.mareksowa.models.ships.dao.impl;
+package pl.mareksowa.models.functionalities.services;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -8,23 +8,22 @@ import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.StartingShip;
-import pl.mareksowa.models.ships.dao.ShipFunctionalities;
+import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShipManager implements ShipFunctionalities {
+public class ShipManager implements ShipFunctionality {
 
     private List<Ship> ships;
-    private Ship PLAYER0SHIP;
-
+    //private Ship PLAYER0SHIP;
 
     public ShipManager() {
         ships = new ArrayList<>();
         ships.add(new StartingShip().getStartingShip());
-        PLAYER0SHIP = ships.get(0);
+        //PLAYER0SHIP = ships.get(0);
     }
 
     @Override
@@ -47,12 +46,12 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void addStorage() {
+    public void addStorage(Ship PLAYER0SHIP) {
 
     }
 
     @Override
-    public void updateStorage(ImageView... storages) {
+    public void updateStorage(Ship PLAYER0SHIP, ImageView... storages) {
 //        System.out.println("wielkosc magazynowa = " + PLAYER0.getStorageCapacity());
 //        System.out.println("wielkosc storages = " + storages.length);
         for (int i = 0; i < PLAYER0SHIP.getStorageCapacity(); i++) {
@@ -67,12 +66,12 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void addCannon(Cannon cannonToAdd) {
+    public void addCannon(Ship PLAYER0SHIP, Cannon cannonToAdd) {
 
     }
 
     @Override
-    public void updateCannon(ImageView... cannons) {
+    public void updateCannon(Ship PLAYER0SHIP, ImageView... cannons) {
         //System.out.println("wielkosc armatniego miejsca = " + PLAYER0.getCannonCapacity());
         //System.out.println("wielkosc armatnich labeli = " + cannons.length);
         for (int i = 0; i < PLAYER0SHIP.getCannonCapacity(); i++) {
@@ -88,12 +87,12 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void addCrew(Crew crewToAdd) {
+    public void addCrew(Ship PLAYER0SHIP, Crew crewToAdd) {
 
     }
 
     @Override
-    public void updateCrew(ImageView... crews) {
+    public void updateCrew(Ship PLAYER0SHIP, ImageView... crews) {
         //System.out.println("wielkosc zalogowego miejsca = " + PLAYER0.getStorageCapacity());
         //System.out.println("wielkosc zalogowych labeli = " + crews.length);
         for (int i = 0; i < PLAYER0SHIP.getCabinCapacity(); i++) {
@@ -109,12 +108,12 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void addSail(Sail sailToAdd) {
+    public void addSail(Ship PLAYER0SHIP, Sail sailToAdd) {
 
     }
 
     @Override
-    public void updateSail(ImageView... sails) {
+    public void updateSail(Ship PLAYER0SHIP, ImageView... sails) {
         //System.out.println("wielkosc miejsca na zagle = " + PLAYER0.getSailCapacity());
         //System.out.println("wielkosc zaglowych labeli = " + sails.length);
         for (int i = 0; i < PLAYER0SHIP.getSailCapacity(); i++) {
@@ -130,27 +129,27 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void addGood(Good goodToAdd) {
+    public void addGood(Ship PLAYER0SHIP, Good goodToAdd) {
 
     }
 
     @Override
-    public void updateGold(Label lblPlayerGold) {
+    public void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold) {
         lblPlayerGold.setText(String.valueOf(PLAYER0SHIP.getGold()));
     }
 
     @Override
-    public void updateFood(Label lblPlayerFood) {
+    public void updateFood(Ship PLAYER0SHIP, Label lblPlayerFood) {
         lblPlayerFood.setText(String.valueOf(PLAYER0SHIP.getFood()));
     }
 
     @Override
-    public void updateAmmo(Label lblPlayerAmmo) {
+    public void updateAmmo(Ship PLAYER0SHIP, Label lblPlayerAmmo) {
         lblPlayerAmmo.setText(String.valueOf(PLAYER0SHIP.getAmmo()));
     }
 
     @Override
-    public void updateHp(Label lblPlayerHp, ProgressBar pbShipHp) {
+    public void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp) {
         int maxHp = PLAYER0SHIP.getEndurance();
         int curHp = PLAYER0SHIP.getCurrentEndurance();
         pbShipHp.setProgress((curHp*100)/maxHp);
@@ -158,7 +157,7 @@ public class ShipManager implements ShipFunctionalities {
     }
 
     @Override
-    public void takeDmg(int dmgTaken) {
+    public void takeDmg(Ship PLAYER0SHIP, int dmgTaken) {
 
     }
 }

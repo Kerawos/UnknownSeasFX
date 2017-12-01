@@ -7,6 +7,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.cities.CityName;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,10 +29,10 @@ public class StartController implements Initializable{
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
         btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
-        ShipManager.getInstance().setCityName("RoyalCity");
         btnBeginNewJourney.setOnMouseClicked(e-> {
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
             SceneManager.getInstance().sceneChange(nextStage, "scenes/city.fxml");
+            SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
         });
     }
 
