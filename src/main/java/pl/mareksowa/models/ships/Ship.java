@@ -1,5 +1,7 @@
 package pl.mareksowa.models.ships;
-
+/**
+ * Import section
+ */
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
@@ -7,7 +9,9 @@ import pl.mareksowa.models.crews.Crew;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Model Class
+ */
 public class Ship {
     private int storageCapacity;
     private List<Good> storage;
@@ -23,6 +27,9 @@ public class Ship {
     private int food;
     private int ammo;
 
+    /**
+     * Constructor of Class
+     */
     public Ship(int storageCapacity, int cabinCapacity, int cannonCapacity, int endurance, int currentEndurance, int sailCapacity, int gold, int food, int ammo) {
         this.storageCapacity = storageCapacity;
         this.cabinCapacity = cabinCapacity;
@@ -39,6 +46,9 @@ public class Ship {
         sailList = new ArrayList<>();
     }
 
+    /**
+     * Getters and Setters section
+     */
     public int getStorageCapacity() {
         return storageCapacity;
     }
@@ -143,6 +153,9 @@ public class Ship {
         this.ammo = ammo;
     }
 
+    /**
+     * To compare or print city statistics
+     */
     @Override
     public String toString() {
         return "Ship{" +

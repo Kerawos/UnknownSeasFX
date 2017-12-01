@@ -23,8 +23,6 @@ public class CityController extends PlayerShipController implements Initializabl
     @FXML private Button btnBack;
 
 
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScene();
@@ -41,6 +39,7 @@ public class CityController extends PlayerShipController implements Initializabl
 
     private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
+            getScene().setBackStage("scenes/city.fxml");
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
             getScene().sceneChange(dockyard, "scenes/dockyard.fxml");
         });
@@ -89,6 +88,10 @@ public class CityController extends PlayerShipController implements Initializabl
         lblUpperText.setText("");
     }
 
+    /**
+     * Method hide all FX functionality before showing results. To prevent of 'glitches' or 'duplicates' causing
+     * from time to time by java FX.
+     */
     private void updateAllViews(){
         btnMarket.setVisible(true);
         btnSmith.setVisible(true);

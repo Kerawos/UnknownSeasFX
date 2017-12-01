@@ -1,5 +1,8 @@
 package pl.mareksowa.models.sails;
 
+/**
+ * Model Class
+ */
 public abstract class Sail {
     protected int price;
     protected int speed;

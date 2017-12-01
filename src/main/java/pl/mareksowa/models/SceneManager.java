@@ -1,4 +1,7 @@
 package pl.mareksowa.models;
+/**
+ * Imports section
+ */
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
@@ -15,20 +18,32 @@ import pl.mareksowa.models.ships.Ship;
 
 import java.io.IOException;
 
+/**
+ * Singleton class which contain all managers. Holding current scene info, current state of player ship. Calling Scene
+ * manager we can change directly scene also manage player ship.
+ */
 public class SceneManager {
-
+    /**
+     * Variables declarations
+     */
     private static SceneManager ourInstance = null;
     public String backStage = null;
     private Ship PLAYER_SHIP;
     private City CURRENT_CITY;
     private ShipFunctionality shipFunctionality;
     private CityFunctionality cityFunctionality;
-
+    
+    /**
+     * Managers already set
+     */
     private SceneManager(){
         setShipFunctionality(new ShipManager());
         setCityFunctionality(new CityManager());
     }
 
+    /**
+     * singleton construction
+     */
     public static SceneManager getInstance(){
         if (ourInstance==null){
             ourInstance = new SceneManager();
@@ -36,6 +51,11 @@ public class SceneManager {
         return ourInstance;
     }
 
+    /**
+     * Basic method to change scene from one to another
+     * @param stageName name for scene.
+     * @param sceneName real name of fxml file holding scene view.
+     */
     public void sceneChange(Stage stageName, String sceneName){
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(sceneName));
@@ -48,7 +68,6 @@ public class SceneManager {
         }
     }
 
-
     public String getBackStage() {
         return backStage;
     }
@@ -57,6 +76,9 @@ public class SceneManager {
         this.backStage = backStage;
     }
 
+    /**
+     * Method allowing exit program.
+     */
     public static void exitGame(){
         Platform.exit();
         System.exit(1);

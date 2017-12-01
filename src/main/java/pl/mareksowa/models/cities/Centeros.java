@@ -1,7 +1,11 @@
 package pl.mareksowa.models.cities;
-
+/**
+ * Model Class
+ */
 public class Centeros extends City {
-
+    /**
+     * Variable of standard Model Class
+     */
     public Centeros(){
         setCityName(CityName.CENTEROS);
         setFoodRequest(1);

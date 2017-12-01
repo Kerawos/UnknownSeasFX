@@ -1,5 +1,7 @@
 package pl.mareksowa.models.cannons;
-
+/**
+ * Model Class
+ */
 public abstract class Cannon {
     private int price;
     private int strength;

@@ -1,5 +1,7 @@
 package pl.mareksowa.models.crews;
-
+/**
+ * Model Class
+ */
 public abstract class Crew {
     private int strength;
     private int salary;

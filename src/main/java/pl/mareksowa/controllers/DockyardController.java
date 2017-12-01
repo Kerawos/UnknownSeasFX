@@ -6,6 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import pl.mareksowa.models.sails.SailBig;
 import pl.mareksowa.models.sails.SailPirate;
 import pl.mareksowa.models.sails.SailSharp;
@@ -53,6 +54,10 @@ public class DockyardController extends PlayerShipController implements Initiali
         updatePlayerShip(getPLAYER_SHIP());
     }
 
+    /**
+     * Method hide all FX functionality before showing results. To prevent of 'glitches' or 'duplicates' causing
+     * from time to time by java FX.
+     */
     private void disableAllViews(){
         setBackgroundImage(null);
         btnBack.setVisible(false);
@@ -143,7 +148,8 @@ public class DockyardController extends PlayerShipController implements Initiali
 
     private void btnRegBack(){
         btnBack.setOnMouseClicked(e-> {
-            //todo
+            Stage dockyard = (Stage) btnBack.getScene().getWindow();
+            getScene().sceneChange(dockyard, getScene().getBackStage());
         });
     }
 

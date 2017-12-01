@@ -12,7 +12,6 @@ import pl.mareksowa.models.SceneManager;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.ships.Ship;
 
-
 /**
  * Lot of Controllers will using player ship functionality. Class is shortcut between implementations tons of repeat
  *stuff. Every controller using player ship need extend this controller.
@@ -140,8 +139,8 @@ public abstract class PlayerShipController {
      * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateStorage(Ship PLAYER_SHIP){
-        shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(), getIvStorage5(),
-                getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
+        shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(),
+                getIvStorage5(), getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
     }
 
     /**
@@ -149,8 +148,8 @@ public abstract class PlayerShipController {
      * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateCrew(Ship PLAYER_SHIP){
-        shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(), getIvCrew6(),
-                getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
+        shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(),
+                getIvCrew6(), getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
     }
 
     /**
@@ -167,8 +166,8 @@ public abstract class PlayerShipController {
      * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateCannon(Ship PLAYER_SHIP){
-        shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(), getIvCannon5(),
-                getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
+        shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(),
+                getIvCannon5(), getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
     }
 
     /**

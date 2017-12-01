@@ -1,7 +1,12 @@
 package pl.mareksowa.models.cities;
-
+/**
+ * Model Class
+ */
 public abstract class City {
-
+    /**
+     * Fundamental city requests for general wares that player will be operating. Each field will specify city.
+     * Each city should be very unique. In one case some cities will value spices, other not etc.
+     */
     private CityName cityName;
     private double foodRequest;
     private double ammoRequest;
@@ -19,9 +24,15 @@ public abstract class City {
 
     private double slaveRequest;
 
+    /**
+     * Empty constructor
+     */
     public City() {
     }
 
+    /**
+     * Constructor of City
+     */
     public City(CityName cityName, double foodRequest, double ammoRequest, double crewRequest, double sailRequest,
                 double cannonRequest, double wheatRequest, double clothesRequest, double wineRequest, double mahoganyRequest,
                 double decorationsRequest, double silkRequest, double spicesRequest, double slaveRequest) {
@@ -41,6 +52,9 @@ public abstract class City {
         this.slaveRequest = slaveRequest;
     }
 
+    /**
+     * Getters and Setters section
+     */
     public CityName getCityName() {
         return cityName;
     }
@@ -153,6 +167,9 @@ public abstract class City {
         this.slaveRequest = slaveRequest;
     }
 
+    /**
+     * To compare or print city statistics
+     */
     @Override
     public String toString() {
         return "City{" +
