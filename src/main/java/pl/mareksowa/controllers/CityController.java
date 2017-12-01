@@ -63,6 +63,7 @@ public class CityController extends PlayerShipController implements Initializabl
         });
     }
 
+
     private void updateScene(){
         disableAllViews();
         updateAllViews();

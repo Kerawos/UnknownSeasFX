@@ -24,15 +24,31 @@ public class StartController implements Initializable{
     private Image backgroundImage;
 
     public void initialize(URL location, ResourceBundle resources) {
+        updateView();
+        buttonsRegister();
+    }
+
+    private void updateView(){
         backgroundImage = new Image("img/StartPage.png");
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
-        btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
+    }
+
+    private void buttonsRegister(){
+        btnRegBeginNewJourney();
+        btnRegExit();
+    }
+
+    private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
             SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
             SceneManager.getInstance().sceneChange(nextStage, "scenes/city.fxml");
         });
+    }
+
+    private void btnRegExit(){
+        btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
     }
 }
