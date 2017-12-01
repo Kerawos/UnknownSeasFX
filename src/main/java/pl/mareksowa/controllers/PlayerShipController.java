@@ -1,4 +1,7 @@
 package pl.mareksowa.controllers;
+/**
+ * Imports section.
+ */
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -9,19 +12,31 @@ import pl.mareksowa.models.SceneManager;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.ships.Ship;
 
-public abstract class PlayerShipController {
 
+/**
+ * Lot of Controllers will using player ship functionality. Class is shortcut between implementations tons of repeat
+ *stuff. Every controller using player ship need extend this controller.
+ */
+public abstract class PlayerShipController {
+    /**
+     * some variables have default unchangeable initialization as 'scene'. Only getters for already initiate variables.
+     */
     private Image backgroundImage;
+    private Image bgShipImage = new Image("img/BackgroundShip.png");
     private ShipFunctionality shipFun = SceneManager.getInstance().getShipFunctionality();
     private SceneManager scene = SceneManager.getInstance();
     private Ship PLAYER_SHIP = scene.getPLAYER_SHIP();
 
+    /**
+     * FX implementations
+     */
     @FXML private Label lblPlayerGold;
     @FXML private Label lblPlayerFood;
     @FXML private Label lblPlayerAmmo;
+    @FXML private Label lblPlayerHp;
+    @FXML private ProgressBar pbShipHp;
 
     @FXML private ImageView ivBackGroundShip = new ImageView();
-    private Image bgShipImage = new Image("img/BackgroundShip.png");
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
     @FXML private ImageView ivStorage3;
@@ -66,13 +81,17 @@ public abstract class PlayerShipController {
     @FXML private ImageView ivSail9;
     @FXML private ImageView ivSail10;
 
-    @FXML private Label lblPlayerHp;
-    @FXML private ProgressBar pbShipHp;
-
+    /**
+     * This method will change current scene background image
+     */
     public void updateShipBackgroundView(){
         ivBackGroundShip.setImage(getBgShipImage());
     }
 
+    /**
+     * Method will update every changeable variables connected with player ship
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     public void updatePlayerShip(Ship PLAYER_SHIP){
         updateGold(PLAYER_SHIP);
         updateFood(PLAYER_SHIP);
@@ -84,42 +103,77 @@ public abstract class PlayerShipController {
         updateCannon(PLAYER_SHIP);
     }
 
+    /**
+     * Method will update gold displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateGold(Ship PLAYER_SHIP){
         shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
     }
 
+    /**
+     * Method will update food displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateFood(Ship PLAYER_SHIP){
         shipFun.updateFood(PLAYER_SHIP, getLblPlayerFood());
     }
 
+    /**
+     * Method will update ammo displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateAmmo(Ship PLAYER_SHIP){
         shipFun.updateAmmo(PLAYER_SHIP, getLblPlayerAmmo());
     }
 
+    /**
+     * Method will update hit points displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateHp(Ship PLAYER_SHIP){
         shipFun.updateHp(PLAYER_SHIP, getLblPlayerHp(), getPbShipHp());
     }
 
+    /**
+     * Method will update storage of ship displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateStorage(Ship PLAYER_SHIP){
         shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(), getIvStorage5(),
                 getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
     }
 
+    /**
+     * Method will update crew of ship displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateCrew(Ship PLAYER_SHIP){
         shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(), getIvCrew6(),
                 getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
     }
 
+    /**
+     * Method will update sails of ship displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateSail(Ship PLAYER_SHIP){
         shipFun.updateSail(PLAYER_SHIP, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
                 getIvSail6(), getIvSail7(), getIvSail8(), getIvSail9(), getIvSail10());
     }
 
+    /**
+     * Method will update cannons of ship displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
     private void updateCannon(Ship PLAYER_SHIP){
         shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(), getIvCannon5(),
                 getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
     }
 
+    /**
+     * Getters section
+     */
     public Label getLblPlayerGold() {
         return lblPlayerGold;
     }
@@ -135,8 +189,6 @@ public abstract class PlayerShipController {
     public ImageView getIvBackGroundShip() {
         return ivBackGroundShip;
     }
-
-
 
     public Label getLblPlayerAmmo() {
         return lblPlayerAmmo;
