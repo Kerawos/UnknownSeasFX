@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 
 public class CityController extends PlayerShipController implements Initializable {
 
-    @FXML ImageView ivBackGround;
+    @FXML private ImageView ivBackGround;
     @FXML private Label lblUpperText;
     @FXML private Label lblTitle;
     @FXML private Button btnMarket;
@@ -33,9 +33,9 @@ public class CityController extends PlayerShipController implements Initializabl
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         backgroundImage = new Image("img/BackgroundLine.png");
-        PLAYER_SHIP = SceneManager.getInstance().getPLAYER_SHIP();
         shipFun = SceneManager.getInstance().getShipFunctionality();
         scene = SceneManager.getInstance();
+        PLAYER_SHIP = scene.getPLAYER_SHIP();
         updateScene();
         ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivBackGround.fitHeightProperty().setValue(backgroundImage.getHeight());
@@ -113,6 +113,7 @@ public class CityController extends PlayerShipController implements Initializabl
     }
 
     private void updateGold(){
+        //shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
         shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
     }
 

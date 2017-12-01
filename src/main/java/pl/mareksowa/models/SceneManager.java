@@ -64,7 +64,7 @@ public class SceneManager {
 
 
     public Ship getPLAYER_SHIP() {
-        return PLAYER_SHIP;
+        return shipFunctionality.getAllShips().get(0);
     }
 
     public void setPLAYER_SHIP(Ship PLAYER_SHIP) {
