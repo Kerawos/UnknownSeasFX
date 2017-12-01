@@ -6,8 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.ships.Ship;
-import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
+import pl.mareksowa.models.SceneManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,11 +27,11 @@ public class StartController implements Initializable{
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
-        btnExit.setOnMouseClicked(e-> Menu.getInstance().exitGame());
-        Menu.getInstance().setCityName("RoyalCity");
+        btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
+        ShipManager.getInstance().setCityName("RoyalCity");
         btnBeginNewJourney.setOnMouseClicked(e-> {
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
-            Menu.getInstance().sceneChange(nextStage, "scenes/city.fxml");
+            SceneManager.getInstance().sceneChange(nextStage, "scenes/city.fxml");
         });
     }
 

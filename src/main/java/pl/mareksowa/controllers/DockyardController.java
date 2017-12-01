@@ -6,7 +6,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import pl.mareksowa.models.sails.SailBig;
@@ -14,7 +13,7 @@ import pl.mareksowa.models.sails.SailPirate;
 import pl.mareksowa.models.sails.SailSharp;
 import pl.mareksowa.models.sails.SailSmall;
 import pl.mareksowa.models.ships.Ship;
-import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
+import pl.mareksowa.models.ships.dao.impl.ShipManager;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -102,7 +101,7 @@ public class DockyardController implements Initializable{
 
 
     private Image backgroundImage;
-    private ShipDaoImpl shipDao;
+    private ShipManager shipDao;
     private Ship playerShip;
 
     private String cityState;
@@ -110,7 +109,7 @@ public class DockyardController implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         //updatePlayerShip();
-        shipDao = ShipDaoImpl.getInstance();
+        shipDao = ShipManager.getInstance();
         playerShip = shipDao.getAllShips().get(0);
         backgroundImage = new Image("img/BackGroundLine.png");
         ivBackGround.setImage(backgroundImage);
@@ -153,7 +152,7 @@ public class DockyardController implements Initializable{
                     +playerShip.getSailCapacity()+10;
 
             if (playerShip.getGold()> sailPrice){
-                playerShip.setGold(ShipDaoImpl.getInstance().getAllShips().get(0)
+                playerShip.setGold(ShipManager.getInstance().getAllShips().get(0)
                         .getGold()- sailPrice);
                 playerShip.setSailCapacity(playerShip.getSailCapacity()+1);
                 updatePlayerShip();
@@ -305,27 +304,27 @@ public class DockyardController implements Initializable{
 
         btnAddStorageSpace.setVisible(true);
         btnAddStorageSpace.setGraphic(new ImageView(new Image("img/StorageEmpty.png")));
-        btnAddStorageSpace.setText("$" + (ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity()
-                *ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity()
-                +ShipDaoImpl.getInstance().getAllShips().get(0).getStorageCapacity()));
+        btnAddStorageSpace.setText("$" + (ShipManager.getInstance().getAllShips().get(0).getStorageCapacity()
+                * ShipManager.getInstance().getAllShips().get(0).getStorageCapacity()
+                + ShipManager.getInstance().getAllShips().get(0).getStorageCapacity()));
 
         btnAddCabin.setVisible(true);
         btnAddCabin.setGraphic(new ImageView(new Image("img/CrewEmpty.png")));
-        btnAddCabin.setText("$" + (ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()
-                *ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()
-                +ShipDaoImpl.getInstance().getAllShips().get(0).getCabinCapacity()+1));
+        btnAddCabin.setText("$" + (ShipManager.getInstance().getAllShips().get(0).getCabinCapacity()
+                * ShipManager.getInstance().getAllShips().get(0).getCabinCapacity()
+                + ShipManager.getInstance().getAllShips().get(0).getCabinCapacity()+1));
 
         btnAddSailSpace.setVisible(true);
         btnAddSailSpace.setGraphic(new ImageView(new Image("img/SailEmpty.png")));
-        btnAddSailSpace.setText("$" + (ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()
-                *ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()
-                +ShipDaoImpl.getInstance().getAllShips().get(0).getSailCapacity()+10));
+        btnAddSailSpace.setText("$" + (ShipManager.getInstance().getAllShips().get(0).getSailCapacity()
+                * ShipManager.getInstance().getAllShips().get(0).getSailCapacity()
+                + ShipManager.getInstance().getAllShips().get(0).getSailCapacity()+10));
 
         btnAddCannonSpace.setVisible(true);
         btnAddCannonSpace.setGraphic(new ImageView(new Image("img/CannonEmpty.png")));
-        btnAddCannonSpace.setText("$" + (ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()
-                *ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()
-                +ShipDaoImpl.getInstance().getAllShips().get(0).getCannonCapacity()+5));
+        btnAddCannonSpace.setText("$" + (ShipManager.getInstance().getAllShips().get(0).getCannonCapacity()
+                * ShipManager.getInstance().getAllShips().get(0).getCannonCapacity()
+                + ShipManager.getInstance().getAllShips().get(0).getCannonCapacity()+5));
 
         btnAddSail1.setVisible(true);
         btnAddSail1.setText("$" + new SailSmall().getPrice());
@@ -346,8 +345,8 @@ public class DockyardController implements Initializable{
         btnRepair2.setText("$5");
         btnRepair3.setVisible(true);
         btnRepair3.setGraphic(new ImageView(new Image("img/Anvil.png")));
-        btnRepair3.setText("$" + (ShipDaoImpl.getInstance().getAllShips().get(0).getEndurance()
-                - ShipDaoImpl.getInstance().getAllShips().get(0).getCurrentEndurance()));
+        btnRepair3.setText("$" + (ShipManager.getInstance().getAllShips().get(0).getEndurance()
+                - ShipManager.getInstance().getAllShips().get(0).getCurrentEndurance()));
 
         btnBack.setVisible(true);
     }

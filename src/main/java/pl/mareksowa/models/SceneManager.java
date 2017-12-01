@@ -16,7 +16,7 @@ public class SceneManager {
     private SceneManager(){
     }
 
-    public SceneManager getInstance(){
+    public static SceneManager getInstance(){
         if (ourInstance==null){
             ourInstance = new SceneManager();
         }
@@ -27,7 +27,7 @@ public class SceneManager {
         try {
             Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(sceneName));
             stageName.setScene(new Scene(root, 800, 640));
-            stageName.setOnCloseRequest(stage-> gameClose());
+            stageName.setOnCloseRequest(stage-> exitGame());
             stageName.setResizable(false);
             stageName.show();
         } catch (IOException e) {
@@ -44,7 +44,7 @@ public class SceneManager {
         this.backStage = backStage;
     }
 
-    public static void gameClose(){
+    public static void exitGame(){
         Platform.exit();
         System.exit(1);
     }

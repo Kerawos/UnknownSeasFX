@@ -9,9 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.RoyalCity;
-import pl.mareksowa.models.sails.*;
 import pl.mareksowa.models.ships.Ship;
-import pl.mareksowa.models.ships.dao.impl.ShipDaoImpl;
+import pl.mareksowa.models.ships.dao.impl.ShipManager;
 
 import java.net.URL;
 import java.util.Arrays;
@@ -28,9 +27,6 @@ public class CityController implements Initializable {
     @FXML private Label lblPlayerGold;
     @FXML private Label lblPlayerFood;
     @FXML private Label lblPlayerAmmo;
-    @FXML private Label lblUpgrdeRepair;
-    @FXML private Label lblUpgrdeSail;
-    @FXML private Label lblUpgrdeShip;
 
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
@@ -90,7 +86,7 @@ public class CityController implements Initializable {
 
 
     private Image backgroundImage;
-    private ShipDaoImpl shipDao;
+    private ShipManager shipDao;
     private Ship playerShip;
     private List<City> cities;
 
@@ -101,8 +97,8 @@ public class CityController implements Initializable {
         setCityState("main");
         cities = Arrays.asList(new RoyalCity());
         updateCity(getCityState());
-        shipDao = ShipDaoImpl.getInstance();
-        playerShip = ShipDaoImpl.getInstance().getAllShips().get(0);
+        shipDao = ShipManager.getInstance();
+        playerShip = ShipManager.getInstance().getAllShips().get(0);
         updatePlayerShip();
 
         ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
@@ -124,17 +120,17 @@ public class CityController implements Initializable {
     }
 
     public void updatePlayerShip(){
-        Menu.getInstance().updateGold(lblPlayerGold);
-        Menu.getInstance().updateFood(lblPlayerFood);
-        Menu.getInstance().updateAmmo(lblPlayerAmmo);
-        Menu.getInstance().updateHp(lblPlayerHp, pbShipHp);
-        Menu.getInstance().updateStorage(ivStorage1, ivStorage2, ivStorage3, ivStorage4, ivStorage5, ivStorage6,
+        ShipManager.getInstance().updateGold(lblPlayerGold);
+        ShipManager.getInstance().updateFood(lblPlayerFood);
+        ShipManager.getInstance().updateAmmo(lblPlayerAmmo);
+        ShipManager.getInstance().updateHp(lblPlayerHp, pbShipHp);
+        ShipManager.getInstance().updateStorage(ivStorage1, ivStorage2, ivStorage3, ivStorage4, ivStorage5, ivStorage6,
                 ivStorage7, ivStorage8, ivStorage9, ivStorage10);
-        Menu.getInstance().updateCrew(ivCrew1, ivCrew2, ivCrew3, ivCrew4, ivCrew5, ivCrew6, ivCrew7, ivCrew8,
+        ShipManager.getInstance().updateCrew(ivCrew1, ivCrew2, ivCrew3, ivCrew4, ivCrew5, ivCrew6, ivCrew7, ivCrew8,
                 ivCrew9, ivCrew10);
-        Menu.getInstance().updateSail(ivSail1, ivSail2, ivSail3, ivSail4, ivSail5, ivSail6, ivSail7, ivSail8,
+        ShipManager.getInstance().updateSail(ivSail1, ivSail2, ivSail3, ivSail4, ivSail5, ivSail6, ivSail7, ivSail8,
                 ivSail9, ivSail10);
-        Menu.getInstance().updateCannon(ivCannon1, ivCannon2, ivCannon3, ivCannon4, ivCannon5, ivCannon6,
+        ShipManager.getInstance().updateCannon(ivCannon1, ivCannon2, ivCannon3, ivCannon4, ivCannon5, ivCannon6,
                 ivCannon7, ivCannon8, ivCannon9, ivCannon10);
     }
 
