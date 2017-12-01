@@ -32,15 +32,11 @@ public class CityController extends PlayerShipController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        backgroundImage = new Image("img/BackgroundLine.png");
         shipFun = SceneManager.getInstance().getShipFunctionality();
         scene = SceneManager.getInstance();
         PLAYER_SHIP = scene.getPLAYER_SHIP();
-        updateScene();
-        ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
-        ivBackGround.fitHeightProperty().setValue(backgroundImage.getHeight());
         lblUpperText.setWrapText(true);
-
+        updateScene();
 
         btnSmith.setOnMouseClicked(click -> {
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
@@ -89,14 +85,16 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setVisible(true);
         btnStore.setVisible(true);
         btnTavern.setVisible(true);
-        //String cityna = scene.getCURRENT_CITY().getCityName().toString();
-        //System.out.println(cityna);
-        lblTitle.setText("dupa");
+        lblTitle.setText(scene.getCityFunctionality().convertCityNameToString(scene.getCURRENT_CITY().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
         btnStore.setGraphic(new ImageView(new Image("img/Store.png")));
         btnTavern.setGraphic(new ImageView(new Image("img/Tavern.png")));
         backgroundImage = new Image("img/CityRoyal.png");
+        ivBackGround.setImage(backgroundImage);
+        ivBackGround.fitWidthProperty().setValue(backgroundImage.getWidth());
+        ivBackGround.fitHeightProperty().setValue(backgroundImage.getHeight());
+        updateShipBacgroundView();
         lblUpperText.setText("Hello capitan, just indicate what you want to do by clicking");
     }
 
@@ -113,7 +111,6 @@ public class CityController extends PlayerShipController implements Initializabl
     }
 
     private void updateGold(){
-        //shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
         shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
     }
 

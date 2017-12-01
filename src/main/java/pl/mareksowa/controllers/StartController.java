@@ -25,15 +25,14 @@ public class StartController implements Initializable{
 
     public void initialize(URL location, ResourceBundle resources) {
         backgroundImage = new Image("img/StartPage.png");
-        System.out.println(SceneManager.getInstance().getShipFunctionality().getAllShips().get(0).getGold());
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
         btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
         btnBeginNewJourney.setOnMouseClicked(e-> {
+            SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
             SceneManager.getInstance().sceneChange(nextStage, "scenes/city.fxml");
-            SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
         });
     }
 }

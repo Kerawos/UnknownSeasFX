@@ -3,6 +3,7 @@ package pl.mareksowa.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public abstract class PlayerShipController {
@@ -11,6 +12,8 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerFood;
     @FXML private Label lblPlayerAmmo;
 
+    @FXML private ImageView ivBackGroundShip = new ImageView();
+    private Image bgShipImage = new Image("img/BackgroundShip.png");
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
     @FXML private ImageView ivStorage3;
@@ -58,6 +61,10 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerHp;
     @FXML private ProgressBar pbShipHp;
 
+    public void updateShipBacgroundView(){
+        ivBackGroundShip.setImage(getBgShipImage());
+    }
+
     public Label getLblPlayerGold() {
         return lblPlayerGold;
     }
@@ -65,6 +72,16 @@ public abstract class PlayerShipController {
     public Label getLblPlayerFood() {
         return lblPlayerFood;
     }
+
+    public Image getBgShipImage() {
+        return bgShipImage;
+    }
+
+    public ImageView getIvBackGroundShip() {
+        return ivBackGroundShip;
+    }
+
+
 
     public Label getLblPlayerAmmo() {
         return lblPlayerAmmo;

@@ -29,8 +29,9 @@ public class CityManager implements CityFunctionality {
     }
 
     @Override
-    public String convertCityName(CityName cityName) {
-
-        return null;
+    public String convertCityNameToString(CityName cityName) {
+        String result;
+        result = String.valueOf(cityName);
+        return result;
     }
 }
