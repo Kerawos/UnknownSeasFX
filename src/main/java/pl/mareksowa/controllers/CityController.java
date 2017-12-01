@@ -27,7 +27,6 @@ public class CityController extends PlayerShipController implements Initializabl
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         updateScene();
         buttonsRegister();
     }
