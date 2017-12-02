@@ -2,7 +2,6 @@ package pl.mareksowa.models;
 /**
  * Imports section
  */
-
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -32,7 +31,7 @@ public class SceneManager {
     private City CURRENT_CITY;
     private ShipFunctionality shipFunctionality;
     private CityFunctionality cityFunctionality;
-    
+
     /**
      * Managers already set
      */
@@ -68,14 +67,6 @@ public class SceneManager {
         }
     }
 
-    public String getBackStage() {
-        return backStage;
-    }
-
-    public void setBackStage(String backStage) {
-        this.backStage = backStage;
-    }
-
     /**
      * Method allowing exit program.
      */
@@ -84,6 +75,16 @@ public class SceneManager {
         System.exit(1);
     }
 
+    /**
+     * Getters and Setters section
+     */
+    public String getBackStage() {
+        return backStage;
+    }
+
+    public void setBackStage(String backStage) {
+        this.backStage = backStage;
+    }
 
     public Ship getPLAYER_SHIP() {
         return shipFunctionality.getAllShips().get(0);

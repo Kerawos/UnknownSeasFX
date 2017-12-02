@@ -75,6 +75,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRepair1.setVisible(false);
         btnRepair2.setVisible(false);
         btnRepair3.setVisible(false);
+        lblUpgrdeShip.setText("");
+        lblUpgrdeSail.setText("");
+        lblUpgrdeRepair.setText("");
     }
 
     private void updateSmithDockyardView(){
@@ -85,7 +88,10 @@ public class DockyardController extends PlayerShipController implements Initiali
         lblUpperText.setWrapText(true);
         lblTitle.setText("Ship Dockyard");
         lblUpperText.setText("Hello capitan, just indicate what you want to add to your ship");
-        lblUpperText.setText("click to add improvement");
+        lblUpperText.setText("click image to add item to ship");
+        lblUpgrdeShip.setText("Click to upgrade");
+        lblUpgrdeSail.setText("Click to buy");
+        lblUpgrdeRepair.setText("Click to repair");
 
 
         btnAddStorageSpace.setVisible(true);

@@ -148,6 +148,21 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
+    public void updateCharge(Ship PLAYER0SHIP, Label lblPlayerCharge) {
+        lblPlayerCharge.setText(String.valueOf(calcShipCharge(PLAYER0SHIP)));
+    }
+
+    @Override
+    public void updatePower(Ship PLAYER0SHIP, Label lblPlayerPower) {
+        lblPlayerPower.setText(String.valueOf(calcShipPower(PLAYER0SHIP)));
+    }
+
+    @Override
+    public void updateSpeed(Ship PLAYER0SHIP, Label lblPlayerSpeed) {
+        lblPlayerSpeed.setText(String.valueOf(calcShipSpeed(PLAYER0SHIP)));
+    }
+
+    @Override
     public void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp) {
         int maxHp = PLAYER0SHIP.getEndurance();
         int curHp = PLAYER0SHIP.getCurrentEndurance();
@@ -159,4 +174,40 @@ public class ShipManager implements ShipFunctionality {
     public void takeDmg(Ship PLAYER0SHIP, int dmgTaken) {
 
     }
+
+    private int calcShipCharge(Ship PLAYER0SHIP) throws IllegalArgumentException {
+        if (PLAYER0SHIP.getCrewList()==null){
+            throw new IllegalArgumentException("Crew are null");
+        }
+        int charge = 0;
+        for (Crew crew : PLAYER0SHIP.getCrewList()) {
+            charge+=crew.getStrength();
+        }
+        return charge + 5; // 5 is Capitan charge power
+    }
+
+
+    private int calcShipSpeed(Ship PLAYER0SHIP) throws IllegalArgumentException{
+        if (PLAYER0SHIP.getSailList()==null){
+            throw new IllegalArgumentException("Sails are null");
+        }
+        int speed = 0;
+        for (Sail sail : PLAYER0SHIP.getSailList()) {
+            speed+=sail.getSpeed();
+        }
+        return speed > 0 ? speed : 1;
+    }
+
+    private int calcShipPower(Ship PLAYER0SHIP) throws IllegalArgumentException{
+        if (PLAYER0SHIP.getCannonList()==null){
+            throw new IllegalArgumentException("Cannons are null");
+        }
+        int power = 0;
+        for (Cannon cannon : PLAYER0SHIP.getCannonList()) {
+            power+=cannon.getStrength();
+        }
+        return power;
+    }
+
+
 }

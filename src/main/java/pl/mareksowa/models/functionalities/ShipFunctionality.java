@@ -27,7 +27,11 @@ public interface ShipFunctionality {
     void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold);
     void updateFood(Ship PLAYER0SHIP, Label lblPlayerFood);
     void updateAmmo(Ship PLAYER0SHIP, Label lblPlayerAmmo);
+    void updateCharge(Ship PLAYER0SHIP, Label lblPlayerCharge);
+    void updatePower(Ship PLAYER0SHIP, Label lblPlayerPower);
+    void updateSpeed(Ship PLAYER0SHIP, Label lblPlayerSpeed);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
+
 
 }

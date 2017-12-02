@@ -33,6 +33,10 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerFood;
     @FXML private Label lblPlayerAmmo;
     @FXML private Label lblPlayerHp;
+    @FXML private Label lblPlayerSpeed;
+    @FXML private Label lblPlayerPower;
+    @FXML private Label lblPlayerCharge;
+
     @FXML private ProgressBar pbShipHp;
 
     @FXML private ImageView ivBackGroundShip = new ImageView();
@@ -96,6 +100,9 @@ public abstract class PlayerShipController {
         updateFood(PLAYER_SHIP);
         updateAmmo(PLAYER_SHIP);
         updateHp(PLAYER_SHIP);
+        updateCharge(PLAYER_SHIP);
+        updatePower(PLAYER_SHIP);
+        updateSpeed(PLAYER_SHIP);
         updateStorage(PLAYER_SHIP);
         updateCrew(PLAYER_SHIP);
         updateSail(PLAYER_SHIP);
@@ -132,6 +139,30 @@ public abstract class PlayerShipController {
      */
     private void updateHp(Ship PLAYER_SHIP){
         shipFun.updateHp(PLAYER_SHIP, getLblPlayerHp(), getPbShipHp());
+    }
+
+    /**
+     * Method will update ship power displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updatePower(Ship PLAYER_SHIP) {
+        shipFun.updatePower(PLAYER_SHIP, lblPlayerPower);
+    }
+
+    /**
+     * Method will update crew charge potential displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateCharge(Ship PLAYER_SHIP) {
+        shipFun.updateCharge(PLAYER_SHIP, lblPlayerCharge);
+    }
+
+    /**
+     * Method will update ship speed displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateSpeed(Ship PLAYER_SHIP){
+        shipFun.updateSpeed(PLAYER_SHIP, lblPlayerSpeed);
     }
 
     /**
@@ -179,6 +210,18 @@ public abstract class PlayerShipController {
 
     public Label getLblPlayerFood() {
         return lblPlayerFood;
+    }
+
+    public Label getLblPlayerSpeed() {
+        return lblPlayerSpeed;
+    }
+
+    public Label getLblPlayerPower() {
+        return lblPlayerPower;
+    }
+
+    public Label getLblPlayerCharge() {
+        return lblPlayerCharge;
     }
 
     public Image getBgShipImage() {
