@@ -166,7 +166,7 @@ public class ShipManager implements ShipFunctionality {
     public void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp) {
         int maxHp = PLAYER0SHIP.getEndurance();
         int curHp = PLAYER0SHIP.getCurrentEndurance();
-        pbShipHp.setProgress((curHp*100)/maxHp);
+        pbShipHp.setProgress((double)curHp/maxHp);
         lblPlayerHp.setText(""+(curHp*100)/maxHp);
     }
 
