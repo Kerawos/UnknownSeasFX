@@ -1,5 +1,8 @@
 package pl.mareksowa.controllers;
 
+/**
+ * Import section
+ */
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,8 +18,14 @@ import pl.mareksowa.models.sails.SailSmall;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Control dockyard behaviour. Response for upgrades of player ship, repairs.
+ */
 public class DockyardController extends PlayerShipController implements Initializable{
 
+    /**
+     * Labels
+     */
     @FXML ImageView ivBackGround;
 
     @FXML private Label lblUpperText;
@@ -42,12 +51,19 @@ public class DockyardController extends PlayerShipController implements Initiali
 
     @FXML private Button btnBack;
 
+    /**
+     * Initializator
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScene();
         buttonsRegister();
     }
 
+    /**
+     * Update this scene after any changes. Started from refresh every views, disable and turn on everything to prevent
+     * glitches. Enable only necessary functions to user. At the end update player ship.
+     */
     private void updateScene(){
         disableAllViews();
         updateSmithDockyardView();
@@ -80,6 +96,10 @@ public class DockyardController extends PlayerShipController implements Initiali
         lblUpgrdeRepair.setText("");
     }
 
+    /**
+     * Method hide all FX functionality before showing results. To prevent of 'glitches' or 'duplicates' causing
+     * from time to time by java FX.
+     */
     private void updateSmithDockyardView(){
         setBackgroundImage(new Image("img/BackGroundLine.png"));
         ivBackGround.setImage(getBackgroundImage());
@@ -139,6 +159,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnBack.setVisible(true);
     }
 
+    /**
+     * Logic of behaviour of all buttons in city scene
+     */
     private void buttonsRegister(){
         btnRegAddStorageSpace();
         btnRegAddCabin();
@@ -150,8 +173,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRegBack();
     }
 
-
-
+    /**
+     * Responsible for getting back to city view
+     */
     private void btnRegBack(){
         btnBack.setOnMouseClicked(e-> {
             Stage dockyard = (Stage) btnBack.getScene().getWindow();
@@ -159,6 +183,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for add new empty storage space to player ship instead of gold
+     */
     private void btnRegAddStorageSpace(){
         btnAddStorageSpace.setOnMouseClicked(e->{
             int storagePrice = getPLAYER_SHIP().getStorageCapacity() * getPLAYER_SHIP().getStorageCapacity()
@@ -174,6 +201,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for add new empty cabin space to player ship instead of gold
+     */
     private void btnRegAddCabin(){
         btnAddCabin.setOnMouseClicked(e->{
             int cabinPrice = getPLAYER_SHIP().getCabinCapacity() * getPLAYER_SHIP().getCabinCapacity()
@@ -188,6 +218,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for add new empty sail place to player ship instead of gold
+     */
     private void btnRegAddSailSpace(){
         btnAddSailSpace.setOnMouseClicked(e->{
             int sailPrice = getPLAYER_SHIP().getSailCapacity()
@@ -203,6 +236,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for add new empty cannon space to player ship instead of gold
+     */
     private void btnRegAddCannonSpace(){
         btnAddCannonSpace.setOnMouseClicked(e->{
             int cannonPrice = getPLAYER_SHIP().getCannonCapacity() * getPLAYER_SHIP().getCannonCapacity()
@@ -218,6 +254,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for ship repair instead of gold
+     */
     private void btnRegRepair1(){
         btnRepair1.setOnMouseClicked(e->{
             if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance()){
@@ -236,6 +275,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for ship repair instead of gold
+     */
     private void btnRegRepair2(){
         btnRepair2.setOnMouseClicked(e->{
             if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance() - 5){
@@ -253,6 +295,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
+    /**
+     * Responsible for ship total repair instead of gold
+     */
     private void btnRegRepair3(){
         btnRepair3.setOnMouseClicked(e->{
             int toRepair = getPLAYER_SHIP().getEndurance() - getPLAYER_SHIP().getCurrentEndurance();

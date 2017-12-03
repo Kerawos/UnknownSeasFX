@@ -44,6 +44,16 @@ public class CityController extends PlayerShipController implements Initializabl
     }
 
     /**
+     * Update this scene after any changes. Started from refresh every views, disable and turn on everything to prevent
+     * glitches. Enable only necessary functions to user. At the end update player ship.
+     */
+    private void updateScene(){
+        disableAllViews();
+        updateAllViews();
+        updatePlayerShip(getPLAYER_SHIP());
+    }
+
+    /**
      * Logic of behaviour of all buttons in city scene
      */
     private void buttonsRegister(){
@@ -107,16 +117,6 @@ public class CityController extends PlayerShipController implements Initializabl
         btnBack.setOnMouseClicked(click->{
             //todo
         });
-    }
-
-    /**
-     * Update this scene after any changes. Started from refresh every views, disable and turn on everything to prevent
-     * glitches. Enable only necessary functions to user. At the end update player ship.
-     */
-    private void updateScene(){
-        disableAllViews();
-        updateAllViews();
-        updatePlayerShip(getPLAYER_SHIP());
     }
 
     /**
