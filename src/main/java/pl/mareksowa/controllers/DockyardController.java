@@ -101,7 +101,7 @@ public class DockyardController extends PlayerShipController implements Initiali
      * from time to time by java FX.
      */
     private void updateSmithDockyardView(){
-        setBackgroundImage(new Image("img/BackGroundLine.png"));
+        setBackgroundImage(new Image("img/BackGround.png"));
         ivBackGround.setImage(getBackgroundImage());
         ivBackGround.fitWidthProperty().setValue(getBackgroundImage().getWidth());
         ivBackGround.fitHeightProperty().setValue(getBackgroundImage().getHeight());
@@ -157,6 +157,7 @@ public class DockyardController extends PlayerShipController implements Initiali
                 - getPLAYER_SHIP().getCurrentEndurance()));
 
         btnBack.setVisible(true);
+        updateShipBackgroundView();
     }
 
     /**

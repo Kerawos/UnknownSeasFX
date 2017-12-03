@@ -9,6 +9,7 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.DockyardController">
    <children>
       <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="lblUpperText" layoutX="43.0" layoutY="361.0" prefHeight="43.0" prefWidth="699.0" text="Label" wrapText="true">
          <font>
             <Font name="Segoe Print" size="18.0" />
