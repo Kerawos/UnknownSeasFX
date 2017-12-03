@@ -1,4 +1,7 @@
 package pl.mareksowa.controllers;
+/**
+ * Import section
+ */
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,8 +14,15 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+/**
+ * Control specific city behaviours. Responsible for change city scenes like: go to dockyard, store etc. Also view
+ * player ship statistics.
+ */
 public class CityController extends PlayerShipController implements Initializable {
 
+    /**
+     * Lables
+     */
     @FXML private ImageView ivBackGround;
     @FXML private Label lblUpperText;
     @FXML private Label lblTitle;
@@ -22,13 +32,20 @@ public class CityController extends PlayerShipController implements Initializabl
     @FXML private Button btnStore;
     @FXML private Button btnBack;
 
-
+    /**
+     * Initialize scene
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateScene();
         buttonsRegister();
     }
 
+    /**
+     * Logic of behaviour of all buttons in city scene
+     */
     private void buttonsRegister(){
         btnRegSmith();
         btnRegStore();
@@ -37,6 +54,10 @@ public class CityController extends PlayerShipController implements Initializabl
         btnRegBack();
     }
 
+    /**
+     * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
+     * getting back to city view.
+     */
     private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
             getScene().setBackStage("scenes/city.fxml");
@@ -45,6 +66,10 @@ public class CityController extends PlayerShipController implements Initializabl
         });
     }
 
+    /**
+     * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
+     * getting back to city view.
+     */
     private void btnRegStore(){
         btnStore.setOnMouseClicked(click->{
             //todo
@@ -54,29 +79,49 @@ public class CityController extends PlayerShipController implements Initializabl
         });
     }
 
+    /**
+     * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
+     * getting back to city view.
+     */
     private void btnRegMarket(){
         btnMarket.setOnMouseClicked(click->{
             //todo
         });
     }
+
+    /**
+     * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
+     * getting back to city view.
+     */
     private void btnRegTavern(){
         btnTavern.setOnMouseClicked(click->{
             //todo
         });
     }
 
+    /**
+     * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
+     * getting back to city view.
+     */
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             //todo
         });
     }
 
+    /**
+     * Update this scene after any changes. Started from refresh every views, disable and turn on everything to prevent
+     * glitches. Enable only necessary functions to user. At the end update player ship.
+     */
     private void updateScene(){
         disableAllViews();
         updateAllViews();
         updatePlayerShip(getPLAYER_SHIP());
     }
 
+    /**
+     * Disable all views
+     */
     private void disableAllViews(){
         setBackgroundImage(null);
         btnBack.setVisible(false);
