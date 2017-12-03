@@ -5,14 +5,17 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.SceneNameEquivalent;
 
 public class StartGame extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("scenes/startPage.fxml"));
+        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(
+                SceneManager.getInstance().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.START_PAGE)));
         //primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.setTitle("Unknown Seas 0.1a");
+        primaryStage.setTitle("Unknown Seas 0.2a");
         primaryStage.setScene(new Scene(root, 800, 640));
         primaryStage.setResizable(false);
         primaryStage.show();

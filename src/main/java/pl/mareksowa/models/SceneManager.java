@@ -16,6 +16,7 @@ import pl.mareksowa.models.functionalities.services.ShipManager;
 import pl.mareksowa.models.ships.Ship;
 
 import java.io.IOException;
+import java.util.Map;
 
 /**
  * Singleton class which contain all managers. Holding current scene info, current state of player ship. Calling Scene
@@ -31,6 +32,7 @@ public class SceneManager {
     private City CURRENT_CITY;
     private ShipFunctionality shipFunctionality;
     private CityFunctionality cityFunctionality;
+    private SceneNameEquivalent sceneNameEquivalent;
 
     /**
      * Managers already set
@@ -38,6 +40,7 @@ public class SceneManager {
     private SceneManager(){
         setShipFunctionality(new ShipManager());
         setCityFunctionality(new CityManager());
+        sceneNameEquivalent = new SceneNameEquivalent();
     }
 
     /**
@@ -65,6 +68,21 @@ public class SceneManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * Method allowed find proper scene name as string inputed predefined enum scene name. Condition: map scene names
+     * must be predefined earlier.
+     * @param enumName predefined enum scene name
+     * @return predefined already existed scene name as a string
+     */
+    public String sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName enumName){
+        for (Map.Entry<Enum, String> element : sceneNameEquivalent.getSceneNameMap().entrySet()){
+            if (element.getKey()==enumName){
+                return element.getValue();
+            }
+        }
+        throw new IllegalArgumentException("Map does not contain proper enum name yet..");
     }
 
     /**

@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.CityName;
 
 import java.net.URL;
@@ -29,11 +30,13 @@ public class StartController implements Initializable{
     @FXML private Button btnExit;
 
     private Image backgroundImage;
+    private SceneManager scene;
 
     /**
      * Initializator
      */
     public void initialize(URL location, ResourceBundle resources) {
+        scene = SceneManager.getInstance();
         updateView();
         buttonsRegister();
     }
@@ -61,9 +64,9 @@ public class StartController implements Initializable{
      */
     private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
-            SceneManager.getInstance().setCURRENT_CITY(CityName.CENTEROS);
+            scene.setCURRENT_CITY(CityName.CENTEROS);
             Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
-            SceneManager.getInstance().sceneChange(nextStage, "scenes/city.fxml");
+            scene.sceneChange(nextStage, scene.sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
         });
     }
 

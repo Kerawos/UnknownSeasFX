@@ -11,12 +11,12 @@ public class SceneNameEquivalent {
     /**
      * enums equivalents names
      */
-    private enum sceneEnumName {START_PAGE, CITY, DOCKYARD}
+    public enum sceneEnumName {START_PAGE, CITY, DOCKYARD}
 
     /**
      * Map storing scene names and enums equivalents
      */
-    private HashMap<String, Enum> sceneNameMap;
+    private HashMap<Enum, String> sceneNameMap;
 
     /**
      * Constructor with loaded already generated map
@@ -29,11 +29,18 @@ public class SceneNameEquivalent {
      * Map generator
      * @return predefined map
      */
-    private HashMap<String, Enum> sceneNameMapGenerator(){
-        HashMap<String, Enum> resultMap = new HashMap<>();
-        resultMap.put("scenes/startPage.fxml", sceneEnumName.START_PAGE);
-        resultMap.put("scenes/dockyard.fxml", sceneEnumName.DOCKYARD);
-        resultMap.put("scenes/city.fxml", sceneEnumName.CITY);
+    private HashMap<Enum, String> sceneNameMapGenerator(){
+        HashMap<Enum, String> resultMap = new HashMap<>();
+        resultMap.put(sceneEnumName.START_PAGE, "scenes/startPage.fxml");
+        resultMap.put(sceneEnumName.DOCKYARD, "scenes/dockyard.fxml");
+        resultMap.put(sceneEnumName.CITY, "scenes/city.fxml");
         return resultMap;
+    }
+
+    /**
+     * Getter section
+     */
+    public HashMap<Enum, String> getSceneNameMap() {
+        return sceneNameMap;
     }
 }
