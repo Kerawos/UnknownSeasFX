@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pl.mareksowa.models.SceneNameEquivalent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -72,7 +73,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setOnMouseClicked(click -> {
             getScene().setBackStage("scenes/city.fxml");
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
-            getScene().sceneChange(dockyard, "scenes/dockyard.fxml");
+            getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD));
         });
     }
 
