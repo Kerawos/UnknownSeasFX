@@ -31,9 +31,9 @@ public class DockyardController extends PlayerShipController implements Initiali
     @FXML private Label lblUpperText;
     @FXML private Label lblTitle;
 
-    @FXML private Label lblUpgardeRepair;
-    @FXML private Label lblUpgardeSail;
-    @FXML private Label lblUpgardeShip;
+    @FXML private Label lblUpgradeRepair;
+    @FXML private Label lblUpgradeSail;
+    @FXML private Label lblUpgradeShip;
 
     @FXML private Button btnAddStorageSpace;
     @FXML private Button btnAddCabin;
@@ -91,9 +91,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRepair1.setVisible(false);
         btnRepair2.setVisible(false);
         btnRepair3.setVisible(false);
-        lblUpgardeShip.setText("");
-        lblUpgardeSail.setText("");
-        lblUpgardeRepair.setText("");
+        lblUpgradeShip.setText("");
+        lblUpgradeSail.setText("");
+        lblUpgradeRepair.setText("");
     }
 
     /**
@@ -109,9 +109,9 @@ public class DockyardController extends PlayerShipController implements Initiali
         lblTitle.setText("Ship Dockyard");
         lblUpperText.setText("Hello capitan, just indicate what you want to add to your ship");
         lblUpperText.setText("click image to add item to ship");
-        lblUpgardeShip.setText("Click to upgrade");
-        lblUpgardeSail.setText("Click to buy");
-        lblUpgardeRepair.setText("Click to repair");
+        lblUpgradeShip.setText("Click to upgrade");
+        lblUpgradeSail.setText("Click to buy");
+        lblUpgradeRepair.setText("Click to repair");
 
 
         btnAddStorageSpace.setVisible(true);
