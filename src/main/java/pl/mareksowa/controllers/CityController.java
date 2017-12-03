@@ -71,7 +71,7 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
-            getScene().setBackStage("scenes/city.fxml");
+            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
             getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD));
         });

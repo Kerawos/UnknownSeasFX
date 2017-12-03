@@ -27,7 +27,7 @@ public class SceneManager {
      * Variables declarations
      */
     private static SceneManager ourInstance = null;
-    public String backStage = null;
+    public SceneNameEquivalent.sceneEnumName backStage;
     private Ship PLAYER_SHIP;
     private City CURRENT_CITY;
     private ShipFunctionality shipFunctionality;
@@ -96,11 +96,11 @@ public class SceneManager {
     /**
      * Getters and Setters section
      */
-    public String getBackStage() {
+    public SceneNameEquivalent.sceneEnumName getBackStage() {
         return backStage;
     }
 
-    public void setBackStage(String backStage) {
+    public void setBackStage(SceneNameEquivalent.sceneEnumName backStage) {
         this.backStage = backStage;
     }
 

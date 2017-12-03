@@ -179,7 +179,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void btnRegBack(){
         btnBack.setOnMouseClicked(e-> {
             Stage dockyard = (Stage) btnBack.getScene().getWindow();
-            getScene().sceneChange(dockyard, getScene().getBackStage());
+            getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(getScene().getBackStage()));
         });
     }
 
