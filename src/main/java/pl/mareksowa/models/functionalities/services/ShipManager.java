@@ -108,7 +108,7 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void addSail(Ship PLAYER0SHIP, Sail sailToAdd) {
-
+        System.out.println("dodawanie saila");
     }
 
     @Override
@@ -116,12 +116,20 @@ public class ShipManager implements ShipFunctionality {
         //System.out.println("wielkosc miejsca na zagle = " + PLAYER0.getSailCapacity());
         //System.out.println("wielkosc zaglowych labeli = " + sails.length);
         for (int i = 0; i < PLAYER0SHIP.getSailCapacity(); i++) {
-            sails[i].setImage(new Image("img/SailEmpty.png"));
             //System.out.println("tutaj powienien dodac pierwszy obrazaek sail");
-            if (PLAYER0SHIP.getSailList().size()>0 ||
-                    PLAYER0SHIP.getSailList().size()>i){
+            System.out.println("sail capacity :" + PLAYER0SHIP.getSailCapacity());
+            System.out.println("sail size :" + PLAYER0SHIP.getSailList().size());
+            if (PLAYER0SHIP.getSailList().size() > 0){
+                switch (PLAYER0SHIP.getSailList().get(1).getClass().getName()){
+                    case "SailSmall":{
+                        sails[i].setImage(new Image("img/SailSmall.png"));
+                        break;
+                    }
+                }
                 //System.out.println("z kolei tutaj jakbysmy mieli jakias zagiel");
                 /// TODO: 06.11.2017 adding proper good
+            } else {
+                sails[i].setImage(new Image("img/SailEmpty.png"));
             }
         }
         /// TODO: 06.11.2017

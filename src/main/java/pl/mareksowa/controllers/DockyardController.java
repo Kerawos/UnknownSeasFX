@@ -172,6 +172,7 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRegRepair2();
         btnRegRepair3();
         btnRegBack();
+        btnRegAddSailSmall();
     }
 
     /**
@@ -313,6 +314,24 @@ public class DockyardController extends PlayerShipController implements Initiali
                 }
             } else {
                 lblUpperText.setText("There is nothing to repair..");
+            }
+        });
+    }
+
+    private void btnRegAddSailSmall(){
+        btnAddSail1.setOnMouseClicked(e->{
+            int sailPrice = new SailSmall().getPrice();
+
+            if (getPLAYER_SHIP().getGold()> sailPrice){
+                if (getPLAYER_SHIP().getSailCapacity() > getPLAYER_SHIP().getSailList().size()){
+                    getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
+                    getShipFun().addSail(getPLAYER_SHIP(), new SailSmall());
+                    updateScene();
+                }else {
+                    lblUpperText.setText("You don't have enough space..");
+                }
+            } else {
+                lblUpperText.setText("You don't have enough gold..");
             }
         });
     }
