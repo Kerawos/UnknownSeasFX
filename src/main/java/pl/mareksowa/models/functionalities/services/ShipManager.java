@@ -108,31 +108,29 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void addSail(Ship PLAYER0SHIP, Sail sailToAdd) {
-        System.out.println("dodawanie saila");
+        List<Sail> sailList = new ArrayList<>();
+        if (PLAYER0SHIP.getSailList()==null){
+            PLAYER0SHIP.setSailList(sailList);
+        }
+        PLAYER0SHIP.getSailList().add(sailToAdd);
     }
 
     @Override
     public void updateSail(Ship PLAYER0SHIP, ImageView... sails) {
-        //System.out.println("wielkosc miejsca na zagle = " + PLAYER0.getSailCapacity());
-        //System.out.println("wielkosc zaglowych labeli = " + sails.length);
-        for (int i = 0; i < PLAYER0SHIP.getSailCapacity(); i++) {
-            //System.out.println("tutaj powienien dodac pierwszy obrazaek sail");
-            System.out.println("sail capacity :" + PLAYER0SHIP.getSailCapacity());
-            System.out.println("sail size :" + PLAYER0SHIP.getSailList().size());
-            if (PLAYER0SHIP.getSailList().size() > 0){
-                switch (PLAYER0SHIP.getSailList().get(1).getClass().getName()){
+        for (int i = 1; i <= PLAYER0SHIP.getSailCapacity(); i++) {
+            if (PLAYER0SHIP.getSailList().size() >= i && PLAYER0SHIP.getSailList().size()>0){
+                String shipName = PLAYER0SHIP.getSailList().get(i-1).getClass().getName();
+                switch (shipName.substring(shipName.lastIndexOf(".")+1, shipName.length())){
                     case "SailSmall":{
-                        sails[i].setImage(new Image("img/SailSmall.png"));
+                        sails[i-1].setImage(new Image("img/SailSmall.png"));
                         break;
                     }
                 }
-                //System.out.println("z kolei tutaj jakbysmy mieli jakias zagiel");
-                /// TODO: 06.11.2017 adding proper good
+
             } else {
-                sails[i].setImage(new Image("img/SailEmpty.png"));
+                sails[i-1].setImage(new Image("img/SailEmpty.png"));
             }
         }
-        /// TODO: 06.11.2017
     }
 
     @Override
