@@ -85,8 +85,6 @@ public class CityController extends PlayerShipController implements Initializabl
         btnStore.setOnMouseClicked(click->{
             //todo
             System.out.println("store");
-//            Stage store = (Stage) btnStore.getScene().getWindow();
-//            scene.sceneChange(store, "scenes/xxx.fxml");
         });
     }
 
@@ -98,7 +96,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnMarket.setOnMouseClicked(click->{
             getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage market = (Stage) btnMarket.getScene().getWindow();
-            getScene().sceneChange(market, "scenes/market.fxml");
+            getScene().sceneChange(market, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.MARKET));
         });
     }
 

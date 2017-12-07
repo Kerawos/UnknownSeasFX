@@ -64,9 +64,9 @@ public class StartController implements Initializable{
      */
     private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
-            scene.setCURRENT_CITY(CityName.CENTEROS);
-            Stage nextStage = (Stage) btnBeginNewJourney.getScene().getWindow();
-            scene.sceneChange(nextStage, scene.sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
+            //scene.setCURRENT_CITY(CityName.CENTEROS);
+            Stage worldMap = (Stage) btnBeginNewJourney.getScene().getWindow();
+            scene.sceneChange(worldMap, scene.sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });
     }
 
