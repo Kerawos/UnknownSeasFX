@@ -156,18 +156,18 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnAddSail2.setVisible(true);
         btnAddSail2.setText("$" + new SailPirate().getPrice());
         btnAddSail2.setGraphic(new ImageView(new Image("img/SailPirate.png")));
-        lblUpgradeSail2Speed.setText("speed: " + new SailSmall().getSpeed());
-        lblUpgradeSail2Manu.setText("maneuver: " + new SailSmall().getManeuver());
+        lblUpgradeSail2Speed.setText("speed: " + new SailPirate().getSpeed());
+        lblUpgradeSail2Manu.setText("maneuver: " + new SailPirate().getManeuver());
         btnAddSail3.setVisible(true);
-        btnAddSail3.setText("$" + new SailBig().getPrice());
+        btnAddSail3.setText("$" + new SailSharp().getPrice());
         btnAddSail3.setGraphic(new ImageView(new Image("img/SailSharp.png")));
-        lblUpgradeSail3Speed.setText("speed: " + new SailSmall().getSpeed());
-        lblUpgradeSail3Manu.setText("maneuver: " + new SailSmall().getManeuver());
+        lblUpgradeSail3Speed.setText("speed: " + new SailSharp().getSpeed());
+        lblUpgradeSail3Manu.setText("maneuver: " + new SailSharp().getManeuver());
         btnAddSail4.setVisible(true);
-        btnAddSail4.setText("$" + new SailSharp().getPrice());
+        btnAddSail4.setText("$" + new SailBig().getPrice());
         btnAddSail4.setGraphic(new ImageView(new Image("img/SailBig.png")));
-        lblUpgradeSail4Speed.setText("speed: " + new SailSmall().getSpeed());
-        lblUpgradeSail4Manu.setText("maneuver: " + new SailSmall().getManeuver());
+        lblUpgradeSail4Speed.setText("speed: " + new SailBig().getSpeed());
+        lblUpgradeSail4Manu.setText("maneuver: " + new SailBig().getManeuver());
 
         btnRepair1.setVisible(true);
         btnRepair1.setGraphic(new ImageView(new Image("img/Anvil.png")));
