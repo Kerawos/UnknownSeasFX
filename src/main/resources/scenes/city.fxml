@@ -92,17 +92,22 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="lblPlayerSpeed" layoutX="231.0" layoutY="606.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
+      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="592.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerPower" layoutX="231.0" layoutY="549.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
+      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="549.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerCharge" layoutX="231.0" layoutY="497.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
+      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="497.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerManeuver" layoutX="227.0" layoutY="617.0" prefHeight="22.0" prefWidth="37.0" text="manu" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>

@@ -127,6 +127,18 @@ public class ShipManager implements ShipFunctionality {
                         sails[i-1].setImage(new Image("img/SailSmall.png"));
                         break;
                     }
+                    case "SailPirate":{
+                        sails[i-1].setImage(new Image("img/SailPirate.png"));
+                        break;
+                    }
+                    case "SailSharp":{
+                        sails[i-1].setImage(new Image("img/SailSharp.png"));
+                        break;
+                    }
+                    case "SailBig":{
+                        sails[i-1].setImage(new Image("img/SailBig.png"));
+                        break;
+                    }
                 }
 
             } else {
@@ -172,6 +184,11 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
+    public void updateManeuver(Ship PLAYER0SHIP, Label lblPLayerManeuver) {
+        lblPLayerManeuver.setText(String.valueOf(calcShipManeuver(PLAYER0SHIP)));
+    }
+
+    @Override
     public void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp) {
         int maxHp = PLAYER0SHIP.getEndurance();
         int curHp = PLAYER0SHIP.getCurrentEndurance();
@@ -205,6 +222,17 @@ public class ShipManager implements ShipFunctionality {
             speed+=sail.getSpeed();
         }
         return speed > 0 ? speed : 1;
+    }
+
+    private int calcShipManeuver(Ship PLAYER0SHIP) throws IllegalArgumentException {
+        if (PLAYER0SHIP.getSailList()==null){
+            throw new IllegalArgumentException("Sails are null");
+        }
+        int manu = 0;
+        for (Sail sail : PLAYER0SHIP.getSailList()) {
+            manu+=sail.getManeuver();
+        }
+        return manu;
     }
 
     private int calcShipPower(Ship PLAYER0SHIP) throws IllegalArgumentException{

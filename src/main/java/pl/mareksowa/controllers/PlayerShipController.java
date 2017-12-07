@@ -34,6 +34,7 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerAmmo;
     @FXML private Label lblPlayerHp;
     @FXML private Label lblPlayerSpeed;
+    @FXML private Label lblPlayerManeuver;
     @FXML private Label lblPlayerPower;
     @FXML private Label lblPlayerCharge;
 
@@ -103,6 +104,7 @@ public abstract class PlayerShipController {
         updateCharge(PLAYER_SHIP);
         updatePower(PLAYER_SHIP);
         updateSpeed(PLAYER_SHIP);
+        updateManeuver(PLAYER_SHIP);
         updateStorage(PLAYER_SHIP);
         updateCrew(PLAYER_SHIP);
         updateSail(PLAYER_SHIP);
@@ -166,6 +168,14 @@ public abstract class PlayerShipController {
     }
 
     /**
+     * Method will update ship speed displayed to user.
+     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateManeuver(Ship PLAYER_SHIP) {
+        shipFun.updateManeuver(PLAYER_SHIP, lblPlayerManeuver);
+    }
+
+    /**
      * Method will update storage of ship displayed to user.
      * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
      */
@@ -222,6 +232,10 @@ public abstract class PlayerShipController {
 
     public Label getLblPlayerCharge() {
         return lblPlayerCharge;
+    }
+
+    public Label getLblPlayerManeuver() {
+        return lblPlayerManeuver;
     }
 
     public Image getBgShipImage() {

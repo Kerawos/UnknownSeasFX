@@ -30,6 +30,7 @@ public interface ShipFunctionality {
     void updateCharge(Ship PLAYER0SHIP, Label lblPlayerCharge);
     void updatePower(Ship PLAYER0SHIP, Label lblPlayerPower);
     void updateSpeed(Ship PLAYER0SHIP, Label lblPlayerSpeed);
+    void updateManeuver(Ship PLYER0SHIP, Label lblPLayerManeuver);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
 

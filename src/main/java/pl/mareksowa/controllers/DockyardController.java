@@ -39,9 +39,17 @@ public class DockyardController extends PlayerShipController implements Initiali
     @FXML private Button btnAddCannonSpace;
 
     @FXML private Button btnAddSail1;
+    @FXML private Label lblUpgradeSail1Speed;
+    @FXML private Label lblUpgradeSail1Manu;
     @FXML private Button btnAddSail2;
+    @FXML private Label lblUpgradeSail2Speed;
+    @FXML private Label lblUpgradeSail2Manu;
     @FXML private Button btnAddSail3;
+    @FXML private Label lblUpgradeSail3Speed;
+    @FXML private Label lblUpgradeSail3Manu;
     @FXML private Button btnAddSail4;
+    @FXML private Label lblUpgradeSail4Speed;
+    @FXML private Label lblUpgradeSail4Manu;
 
     @FXML private Button btnRepair1;
     @FXML private Button btnRepair2;
@@ -83,9 +91,17 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnAddSailSpace.setVisible(false);
         btnAddCannonSpace.setVisible(false);
         btnAddSail1.setVisible(false);
+        lblUpgradeSail1Speed.setText("");
+        lblUpgradeSail1Manu.setText("");
         btnAddSail2.setVisible(false);
+        lblUpgradeSail2Speed.setText("");
+        lblUpgradeSail2Manu.setText("");
         btnAddSail3.setVisible(false);
+        lblUpgradeSail3Speed.setText("");
+        lblUpgradeSail3Manu.setText("");
         btnAddSail4.setVisible(false);
+        lblUpgradeSail4Speed.setText("");
+        lblUpgradeSail4Manu.setText("");
         btnRepair1.setVisible(false);
         btnRepair2.setVisible(false);
         btnRepair3.setVisible(false);
@@ -134,14 +150,24 @@ public class DockyardController extends PlayerShipController implements Initiali
 
         btnAddSail1.setVisible(true);
         btnAddSail1.setText("$" + new SailSmall().getPrice());
-        btnAddSail1.setGraphic(new ImageView(new Image("img/SailNormal.png")));
+        btnAddSail1.setGraphic(new ImageView(new Image("img/SailSmall.png")));
+        lblUpgradeSail1Speed.setText("speed: " + new SailSmall().getSpeed());
+        lblUpgradeSail1Manu.setText("maneuver: " + new SailSmall().getManeuver());
         btnAddSail2.setVisible(true);
         btnAddSail2.setText("$" + new SailPirate().getPrice());
         btnAddSail2.setGraphic(new ImageView(new Image("img/SailPirate.png")));
+        lblUpgradeSail2Speed.setText("speed: " + new SailSmall().getSpeed());
+        lblUpgradeSail2Manu.setText("maneuver: " + new SailSmall().getManeuver());
         btnAddSail3.setVisible(true);
         btnAddSail3.setText("$" + new SailBig().getPrice());
+        btnAddSail3.setGraphic(new ImageView(new Image("img/SailSharp.png")));
+        lblUpgradeSail3Speed.setText("speed: " + new SailSmall().getSpeed());
+        lblUpgradeSail3Manu.setText("maneuver: " + new SailSmall().getManeuver());
         btnAddSail4.setVisible(true);
         btnAddSail4.setText("$" + new SailSharp().getPrice());
+        btnAddSail4.setGraphic(new ImageView(new Image("img/SailBig.png")));
+        lblUpgradeSail4Speed.setText("speed: " + new SailSmall().getSpeed());
+        lblUpgradeSail4Manu.setText("maneuver: " + new SailSmall().getManeuver());
 
         btnRepair1.setVisible(true);
         btnRepair1.setGraphic(new ImageView(new Image("img/Anvil.png")));
@@ -172,6 +198,8 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRegBack();
         btnRegAddSailSmall();
         btnRegAddSailPirate();
+        btnRegAddSailSharp();
+        btnRegAddSailBig();
     }
 
     /**
@@ -191,7 +219,7 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnAddStorageSpace.setOnMouseClicked(e->{
             int storagePrice = getPLAYER_SHIP().getStorageCapacity() * getPLAYER_SHIP().getStorageCapacity()
                     + getPLAYER_SHIP().getStorageCapacity();
-            if (getPLAYER_SHIP().getGold()> storagePrice){
+            if (getPLAYER_SHIP().getGold()>= storagePrice){
                 getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- storagePrice);
                 getPLAYER_SHIP().setStorageCapacity(getPLAYER_SHIP().getStorageCapacity()+1);
                 updateScene();
@@ -209,7 +237,7 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnAddCabin.setOnMouseClicked(e->{
             int cabinPrice = getPLAYER_SHIP().getCabinCapacity() * getPLAYER_SHIP().getCabinCapacity()
                     + getPLAYER_SHIP().getCabinCapacity()+1;
-            if (getPLAYER_SHIP().getGold()> cabinPrice){
+            if (getPLAYER_SHIP().getGold()>= cabinPrice){
                 getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- cabinPrice);
                 getPLAYER_SHIP().setCabinCapacity(getPLAYER_SHIP().getCabinCapacity()+1);
                 updateScene();
@@ -227,7 +255,7 @@ public class DockyardController extends PlayerShipController implements Initiali
             int sailPrice = getPLAYER_SHIP().getSailCapacity()
                     * getPLAYER_SHIP().getSailCapacity() + getPLAYER_SHIP().getSailCapacity()+10;
 
-            if (getPLAYER_SHIP().getGold()> sailPrice){
+            if (getPLAYER_SHIP().getGold()>= sailPrice){
                 getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
                 getPLAYER_SHIP().setSailCapacity(getPLAYER_SHIP().getSailCapacity() + 1);
                 updateScene();
@@ -245,7 +273,7 @@ public class DockyardController extends PlayerShipController implements Initiali
             int cannonPrice = getPLAYER_SHIP().getCannonCapacity() * getPLAYER_SHIP().getCannonCapacity()
                     + getPLAYER_SHIP().getCannonCapacity()+5;
 
-            if (getPLAYER_SHIP().getGold()> cannonPrice){
+            if (getPLAYER_SHIP().getGold()>= cannonPrice){
                 getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- cannonPrice);
                 getPLAYER_SHIP().setCannonCapacity(getPLAYER_SHIP().getCannonCapacity() + 1);
                 updateScene();
@@ -261,7 +289,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void btnRegRepair1(){
         btnRepair1.setOnMouseClicked(e->{
             if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance()){
-                if (getPLAYER_SHIP().getGold() > 1){
+                if (getPLAYER_SHIP().getGold() >= 1){
                     getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-1);
                     getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + 1);
                     updatePlayerShip(getPLAYER_SHIP());
@@ -282,7 +310,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void btnRegRepair2(){
         btnRepair2.setOnMouseClicked(e->{
             if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance() - 5){
-                if (getPLAYER_SHIP().getGold() > 5){
+                if (getPLAYER_SHIP().getGold() >= 5){
                     getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-5);
                     getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + 5);
                     updatePlayerShip(getPLAYER_SHIP());
@@ -303,7 +331,7 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRepair3.setOnMouseClicked(e->{
             int toRepair = getPLAYER_SHIP().getEndurance() - getPLAYER_SHIP().getCurrentEndurance();
             if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance()){
-                if (getPLAYER_SHIP().getGold() > toRepair){
+                if (getPLAYER_SHIP().getGold() >= toRepair){
                     getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-toRepair);
                     getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + toRepair);
                     updatePlayerShip(getPLAYER_SHIP());
@@ -320,7 +348,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void addNewSail(Sail sailToAdd){
         int sailPrice = sailToAdd.getPrice();
 
-        if (getPLAYER_SHIP().getGold()> sailPrice){
+        if (getPLAYER_SHIP().getGold()>= sailPrice){
             if (getPLAYER_SHIP().getSailCapacity() > getPLAYER_SHIP().getSailList().size()){
                 getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
                 getShipFun().addSail(getPLAYER_SHIP(), sailToAdd);
@@ -334,10 +362,19 @@ public class DockyardController extends PlayerShipController implements Initiali
     }
 
     private void btnRegAddSailSmall(){
-        btnAddSail1.setOnMouseClicked(e-> addNewSail(new SailSmall()));
+        btnAddSail1.setOnMouseClicked(click-> addNewSail(new SailSmall()));
     }
 
     private void btnRegAddSailPirate(){
-        btnAddSail2.setOnMouseClicked(e-> addNewSail(new SailPirate()));
+        btnAddSail2.setOnMouseClicked(click-> addNewSail(new SailPirate()));
     }
+
+    private void btnRegAddSailSharp(){
+        btnAddSail3.setOnMouseClicked(click-> addNewSail(new SailSharp()));
+    }
+
+    private void btnRegAddSailBig(){
+        btnAddSail4.setOnMouseClicked(click-> addNewSail(new SailBig()));
+    }
+
 }
