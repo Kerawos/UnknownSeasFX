@@ -96,7 +96,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegMarket(){
         btnMarket.setOnMouseClicked(click->{
-            //todo
+            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            Stage market = (Stage) btnMarket.getScene().getWindow();
+            getScene().sceneChange(market, "scenes/market.fxml");
         });
     }
 

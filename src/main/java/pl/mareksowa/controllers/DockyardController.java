@@ -11,7 +11,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.sails.*;
-import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
