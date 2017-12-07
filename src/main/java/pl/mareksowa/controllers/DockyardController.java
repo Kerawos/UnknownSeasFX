@@ -10,10 +10,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.sails.SailBig;
-import pl.mareksowa.models.sails.SailPirate;
-import pl.mareksowa.models.sails.SailSharp;
-import pl.mareksowa.models.sails.SailSmall;
+import pl.mareksowa.models.sails.*;
+import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -173,6 +171,7 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRegRepair3();
         btnRegBack();
         btnRegAddSailSmall();
+        btnRegAddSailPirate();
     }
 
     /**
@@ -318,21 +317,27 @@ public class DockyardController extends PlayerShipController implements Initiali
         });
     }
 
-    private void btnRegAddSailSmall(){
-        btnAddSail1.setOnMouseClicked(e->{
-            int sailPrice = new SailSmall().getPrice();
+    private void addNewSail(Sail sailToAdd){
+        int sailPrice = sailToAdd.getPrice();
 
-            if (getPLAYER_SHIP().getGold()> sailPrice){
-                if (getPLAYER_SHIP().getSailCapacity() > getPLAYER_SHIP().getSailList().size()){
-                    getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
-                    getShipFun().addSail(getPLAYER_SHIP(), new SailSmall());
-                    updateScene();
-                }else {
-                    lblUpperText.setText("You don't have enough space..");
-                }
-            } else {
-                lblUpperText.setText("You don't have enough gold..");
+        if (getPLAYER_SHIP().getGold()> sailPrice){
+            if (getPLAYER_SHIP().getSailCapacity() > getPLAYER_SHIP().getSailList().size()){
+                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
+                getShipFun().addSail(getPLAYER_SHIP(), sailToAdd);
+                updateScene();
+            }else {
+                lblUpperText.setText("You don't have enough space..");
             }
-        });
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+        }
+    }
+
+    private void btnRegAddSailSmall(){
+        btnAddSail1.setOnMouseClicked(e-> addNewSail(new SailSmall()));
+    }
+
+    private void btnRegAddSailPirate(){
+        btnAddSail2.setOnMouseClicked(e-> addNewSail(new SailPirate()));
     }
 }

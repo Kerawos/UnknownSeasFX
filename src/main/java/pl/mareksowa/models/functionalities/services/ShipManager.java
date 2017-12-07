@@ -13,7 +13,9 @@ import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShipManager implements ShipFunctionality {
 
@@ -131,6 +133,7 @@ public class ShipManager implements ShipFunctionality {
                 sails[i-1].setImage(new Image("img/SailEmpty.png"));
             }
         }
+
     }
 
     @Override
