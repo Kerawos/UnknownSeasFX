@@ -115,7 +115,23 @@ public class MapController extends PlayerShipController implements Initializable
      * Method to managing all buttons and their actions
      */
     private void buttonsRegister(){
+        ivRegField1GothShai();
+        ivRegField2();
+        ivRegField3();
         ivRegField4Masumba();
+        ivRegField5();
+        ivRegField6MilaDoce();
+        ivRegField7();
+        ivRegField8();
+        ivRegField9();
+        ivRegField10Balados();
+        ivRegField11();
+        ivRegField12();
+        ivRegField13();
+        ivRegField14Centeros();
+        ivRegField15();
+        ivRegField16();
+        ivRegField17Zihlu();
         btnRegMainMenu();
         btnRegMapInfo();
     }
