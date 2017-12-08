@@ -26,4 +26,21 @@ public class ShipPosition {
         this.layoutY = layoutY;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        ShipPosition that = (ShipPosition) o;
+
+        if (layoutX != that.layoutX) return false;
+        return layoutY == that.layoutY;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = layoutX;
+        result = 31 * result + layoutY;
+        return result;
+    }
 }

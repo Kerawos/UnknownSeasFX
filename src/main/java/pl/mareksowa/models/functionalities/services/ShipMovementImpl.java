@@ -38,7 +38,7 @@ public class ShipMovementImpl implements ShipMovement {
 
     @Override
     public ShipPosition getPositionField2() {
-        return new ShipPosition(50,260);
+        return new ShipPosition(50,245);
     }
 
     @Override
@@ -48,102 +48,120 @@ public class ShipMovementImpl implements ShipMovement {
 
     @Override
     public ShipPosition getPositionField4() {
-        return new ShipPosition(65,70);
+        return new ShipPosition(70,75);
     }
 
     @Override
     public ShipPosition getPositionField5() {
-        return new ShipPosition(310,65);
+        return new ShipPosition(200,60);
     }
 
     @Override
     public ShipPosition getPositionField6() {
-        return new ShipPosition(410,100);
+        return new ShipPosition(295,60);
     }
 
     @Override
     public ShipPosition getPositionField7() {
-        return new ShipPosition(500,85);
+        return new ShipPosition(380,75);
     }
 
     @Override
     public ShipPosition getPositionField8() {
-        return new ShipPosition(570,80);
+        return new ShipPosition(470,65);
     }
 
     @Override
     public ShipPosition getPositionField9() {
-        return new ShipPosition(640,35);
+        return new ShipPosition(550,60);
     }
 
     @Override
     public ShipPosition getPositionField10() {
-        return new ShipPosition(640,35);
+        return new ShipPosition(640,5);
     }
 
     @Override
     public ShipPosition getPositionField11() {
-        return new ShipPosition(705,120);
+        return new ShipPosition(690,100);
     }
 
     @Override
     public ShipPosition getPositionField12() {
-        return new ShipPosition(615,170);
+        return new ShipPosition(605,150);
     }
 
     @Override
     public ShipPosition getPositionField13() {
-        return new ShipPosition(540,230);
+        return new ShipPosition(535,215);
     }
 
     @Override
     public ShipPosition getPositionField14() {
-        return new ShipPosition(380,230);
+        return new ShipPosition(380,255);
     }
 
     @Override
     public ShipPosition getPositionField15() {
-        return new ShipPosition(400,31705);
+        return new ShipPosition(375,155);
     }
 
     @Override
     public ShipPosition getPositionField16() {
-        return new ShipPosition(550,330);
+        return new ShipPosition(550,320);
     }
 
     @Override
     public ShipPosition getPositionField17() {
-        return new ShipPosition(650,315);
+        return new ShipPosition(640,335);
     }
 
     @Override
     public boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination) {
-        for (int i = 1; i <= getFields().size(); i++) {
-            if (getFields().get(i-1).equals(currentPosition)){
-                if (i==1){
-                    if (destination.equals(getFields().get(i))){
+        for (int i = 0; i < getFields().size(); i++) {
+            if (getFields().get(i).equals(currentPosition)){
+                System.out.println("current position to : " + i);
+                if (i==0){
+                    if (destination.equals(getFields().get(i+1))){
                         return true;
                     }
+                    break;
                 }
-                if (i==17){
-                    if (destination.equals(getFields().get(i-2))){
+                if (i==16){
+                    if (destination.equals(getFields().get(i-1))){
                         return true;
                     }
+                    break;
                 }
-                if (destination.equals(getFields().get(i-2)) || destination.equals(getFields().get(i))){
+                if (destination.equals(getFields().get(i-1)) || destination.equals(getFields().get(i+1))){
                     return true;
                 }
                 //exc
-                if (i==7){
-                    if (destination.equals(getFields().get(13))){
+                if (i==6){
+                    if (destination.equals(getFields().get(14))){
                         return true;
                     }
+                    break;
                 }
-                if (i==13){
+                if (i==14){
+                    if (destination.equals(getFields().get(6))){
+                        return true;
+                    }
+                    break;
+                }
+                if (i==12){
                     if (destination.equals(getFields().get(15))){
                         return true;
                     }
+                    break;
                 }
+                if (i==15){
+                    if (destination.equals(getFields().get(12))){
+                        return true;
+                    }
+                    break;
+                }
+
             }
         }
         return false;

@@ -227,8 +227,10 @@ public class MapController extends PlayerShipController implements Initializable
     private void updatePlayerShipPosition(){
         ivPlayerCurrentPosition.setImage(bgPlayerShipOnMap);
         if (!getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
-            getScene().getShipMovement().setShipPosition(getPLAYER_SHIP(), getScene().getShipMovement().getPositionField14(), ivPlayerCurrentPosition);
+            move.setShipPosition(getPLAYER_SHIP(), move.getPositionField14(), ivPlayerCurrentPosition);
             getPLAYER_SHIP().getAchievement().setFirstTimeInWorldMap(true);
+        } else {
+         move.setShipPosition(getPLAYER_SHIP(), getPLAYER_SHIP().getShipPosition(), ivPlayerCurrentPosition);
         }
     }
 
