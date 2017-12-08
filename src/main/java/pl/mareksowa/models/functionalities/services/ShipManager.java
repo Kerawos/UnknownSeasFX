@@ -19,12 +19,12 @@ import java.util.List;
 public class ShipManager implements ShipFunctionality {
 
     private List<Ship> ships;
-    private ShipMovement shipMovement;
+    private ShipMovementImpl shipMovementImpl;
 
     public ShipManager() {
         ships = new ArrayList<>();
         addShip(new StartingShip().getStartingShip());
-        shipMovement = new ShipMovement();
+        shipMovementImpl = new ShipMovementImpl();
     }
 
     @Override
@@ -202,11 +202,6 @@ public class ShipManager implements ShipFunctionality {
 
     }
 
-    @Override
-    public void setShipPosition(ShipPosition shipPosition, ImageView ivBgPlayerShip) {
-        ivBgPlayerShip.setX(shipPosition.getLayoutX());
-        ivBgPlayerShip.setY(shipPosition.getLayoutY());
-    }
 
     private int calcShipCharge(Ship PLAYER0SHIP) throws IllegalArgumentException {
         if (PLAYER0SHIP.getCrewList()==null){
@@ -253,5 +248,7 @@ public class ShipManager implements ShipFunctionality {
         return power;
     }
 
-
+    public ShipMovementImpl getShipMovementImpl() {
+        return shipMovementImpl;
+    }
 }

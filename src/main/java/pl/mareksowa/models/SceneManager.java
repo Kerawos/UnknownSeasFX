@@ -11,8 +11,10 @@ import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.CityName;
 import pl.mareksowa.models.functionalities.CityFunctionality;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
+import pl.mareksowa.models.functionalities.ShipMovement;
 import pl.mareksowa.models.functionalities.services.CityManager;
 import pl.mareksowa.models.functionalities.services.ShipManager;
+import pl.mareksowa.models.functionalities.services.ShipMovementImpl;
 import pl.mareksowa.models.ships.Ship;
 
 import java.io.IOException;
@@ -31,6 +33,7 @@ public class SceneManager {
     private Ship PLAYER_SHIP;
     private City CURRENT_CITY;
     private ShipFunctionality shipFunctionality;
+    private ShipMovement shipMovement;
     private CityFunctionality cityFunctionality;
     private SceneNameEquivalent sceneNameEquivalent;
 
@@ -39,6 +42,7 @@ public class SceneManager {
      */
     private SceneManager(){
         setShipFunctionality(new ShipManager());
+        setShipMovement(new ShipMovementImpl());
         setCityFunctionality(new CityManager());
         sceneNameEquivalent = new SceneNameEquivalent();
     }
@@ -126,6 +130,14 @@ public class SceneManager {
         } else {
             throw new IllegalArgumentException("City no exist");
         }
+    }
+
+    public ShipMovement getShipMovement() {
+        return shipMovement;
+    }
+
+    public void setShipMovement(ShipMovement shipMovement) {
+        this.shipMovement = shipMovement;
     }
 
     public boolean isCityExist(CityName cityName){

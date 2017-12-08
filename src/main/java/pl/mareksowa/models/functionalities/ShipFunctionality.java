@@ -34,6 +34,6 @@ public interface ShipFunctionality {
     void updateManeuver(Ship PLYER0SHIP, Label lblPLayerManeuver);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
-    void setShipPosition(ShipPosition shipPosition, ImageView ivBgPlayerShip);
+
 
 }

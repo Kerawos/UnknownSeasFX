@@ -1,5 +1,8 @@
 package pl.mareksowa.models.functionalities.services;
 
+import javafx.scene.image.ImageView;
+import pl.mareksowa.models.functionalities.ShipMovement;
+import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
 
 import java.util.List;
@@ -7,7 +10,7 @@ import java.util.List;
 /**
  * Class responsible for ship movement, possible moves, current position, allowed moves.
  */
-public class ShipMovement {
+public class ShipMovementImpl implements ShipMovement{
 
     /**
      * Variable declaration
@@ -33,6 +36,19 @@ public class ShipMovement {
 
 
     private List<ShipPosition> safd;
+
+
+    @Override
+    public ShipPosition getShipPosition(Ship PLAYER_SHIP) {
+        return PLAYER_SHIP.getShipPosition();
+    }
+
+    @Override
+    public void setShipPosition(Ship PLAYER_SHIP, ShipPosition shipPosition, ImageView ivBgPlayerShip) {
+        PLAYER_SHIP.setShipPosition(shipPosition);
+        ivBgPlayerShip.setX(PLAYER_SHIP.getShipPosition().getLayoutX());
+        ivBgPlayerShip.setY(PLAYER_SHIP.getShipPosition().getLayoutY());
+    }
 
     public ShipPosition getFIELD_1() {
         return new ShipPosition(370,250);
@@ -109,4 +125,6 @@ public class ShipMovement {
     public void setCurrentPosition(ShipPosition currentPosition) {
         this.currentPosition = currentPosition;
     }
+
+
 }
