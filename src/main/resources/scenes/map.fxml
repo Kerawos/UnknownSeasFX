@@ -99,5 +99,15 @@
          </font>
       </Label>
       <ImageView fx:id="ivMasumba" fitHeight="80.0" fitWidth="176.0" layoutX="49.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnMapInfo" layoutX="491.0" layoutY="283.0" mnemonicParsing="false" text="Map Info">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnMainMenu" layoutX="603.0" layoutY="31.0" mnemonicParsing="false" text="Main Menu">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Button>
    </children>
 </Pane>
