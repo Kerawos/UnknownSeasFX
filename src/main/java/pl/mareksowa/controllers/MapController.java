@@ -24,6 +24,9 @@ public class MapController extends PlayerShipController implements Initializable
     @FXML private ImageView ivField1GothShai;
     @FXML private ImageView ivField4Masumba;
     @FXML private ImageView ivField6MilaDoce;
+    @FXML private ImageView ivField10Balados;
+    @FXML private ImageView ivField14Centeros;
+    @FXML private ImageView ivField17Zihlu;
     @FXML private Button btnMainMenu;
     @FXML private Button btnMapInfo;
 
@@ -55,7 +58,9 @@ public class MapController extends PlayerShipController implements Initializable
     private void updateAllViews(){
         ivBackGround.setImage(bgMapImage);
         updateShipBackgroundView();
-        ivField4Masumba.setImage(new Image("img/ForMap.png"));
+        ivField4Masumba.setImage(new Image("img/map/MapYellow.png"));
+        ivField6MilaDoce.setImage(new Image("img/map/MapYellow.png"));
+        ivField1GothShai.setImage(new Image("img/map/MapYellow.png"));
     }
 
     /**
