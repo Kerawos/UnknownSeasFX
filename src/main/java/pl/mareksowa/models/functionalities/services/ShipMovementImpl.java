@@ -25,8 +25,8 @@ public class ShipMovementImpl implements ShipMovement {
     }
 
     @Override
-    public void setShipPosition(Ship PLAYER_SHIP, ShipPosition shipPosition, ImageView ivBgPlayerShip) {
-        PLAYER_SHIP.setShipPosition(shipPosition);
+    public void setShipPosition(Ship PLAYER_SHIP, ShipPosition destination, ImageView ivBgPlayerShip) {
+        PLAYER_SHIP.setShipPosition(destination);
         ivBgPlayerShip.setX(PLAYER_SHIP.getShipPosition().getLayoutX());
         ivBgPlayerShip.setY(PLAYER_SHIP.getShipPosition().getLayoutY());
     }
@@ -144,7 +144,7 @@ public class ShipMovementImpl implements ShipMovement {
                         return true;
                     }
                 }
-            } 
+            }
         }
         return false;
     }

@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import pl.mareksowa.models.functionalities.ShipMovement;
+import pl.mareksowa.models.ships.ShipPosition;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -48,6 +50,7 @@ public class MapController extends PlayerShipController implements Initializable
     private Image indicatorGreen;
     private Image indicatorYellow;
     private Image indicatorRed;
+    private ShipMovement move;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,6 +59,7 @@ public class MapController extends PlayerShipController implements Initializable
         indicatorGreen = new Image("img/map/MapGreen.png");
         indicatorYellow = new Image("img/map/MapYellow.png");
         indicatorRed = new Image("img/map/MapRed.png");
+        move = getScene().getShipMovement();
         updateScene();
         buttonsRegister();
     }
@@ -121,21 +125,78 @@ public class MapController extends PlayerShipController implements Initializable
      */
 
     private void ivRegField1GothShai(){
-        ivField1GothShai.setOnMouseClicked(click->{
-            System.out.println("goth clicked");
-        });
+        ivField1GothShai.setOnMouseClicked(click-> shipMove(move.getPositionField1()));
+    }
+
+    private void ivRegField2(){
+        ivField2.setOnMouseClicked(click-> shipMove(move.getPositionField2()));
+    }
+    private void ivRegField3(){
+        ivField3.setOnMouseClicked(click-> shipMove(move.getPositionField3()));
     }
 
     private void ivRegField4Masumba(){
-        ivField4Masumba.setOnMouseClicked(click->{
-            System.out.println("masumba clicked");
-        });
+        ivField4Masumba.setOnMouseClicked(click-> shipMove(move.getPositionField4()));
+    }
+
+    private void ivRegField5(){
+        ivField5.setOnMouseClicked(click-> shipMove(move.getPositionField5()));
     }
 
     private void ivRegField6MilaDoce(){
-        ivField6MilaDoce.setOnMouseClicked(click->{
-            System.out.println("mila clicked");
-        });
+        ivField6MilaDoce.setOnMouseClicked(click-> shipMove(move.getPositionField6()));
+    }
+
+    private void ivRegField7(){
+        ivField7.setOnMouseClicked(click-> shipMove(move.getPositionField7()));
+    }
+
+    private void ivRegField8(){
+        ivField8.setOnMouseClicked(click-> shipMove(move.getPositionField8()));
+    }
+
+    private void ivRegField9(){
+        ivField9.setOnMouseClicked(click-> shipMove(move.getPositionField9()));
+    }
+
+    private void ivRegField10Balados(){
+        ivField10Balados.setOnMouseClicked(click-> shipMove(move.getPositionField10()));
+    }
+
+    private void ivRegField11(){
+        ivField11.setOnMouseClicked(click-> shipMove(move.getPositionField11()));
+    }
+
+    private void ivRegField12(){
+        ivField12.setOnMouseClicked(click-> shipMove(move.getPositionField12()));
+    }
+
+    private void ivRegField13(){
+        ivField13.setOnMouseClicked(click-> shipMove(move.getPositionField13()));
+    }
+
+    private void ivRegField14Centeros(){
+        ivField14Centeros.setOnMouseClicked(click-> shipMove(move.getPositionField14()));
+    }
+
+    private void ivRegField15(){
+        ivField15.setOnMouseClicked(click-> shipMove(move.getPositionField15()));
+    }
+
+    private void ivRegField16(){
+        ivField16.setOnMouseClicked(click-> shipMove(move.getPositionField16()));
+    }
+
+    private void ivRegField17Zihlu(){
+        ivField17Zihlu.setOnMouseClicked(click-> shipMove(move.getPositionField17()));
+    }
+
+    private void shipMove(ShipPosition destination){
+        System.out.println(move.isMoveAllowed(move.getShipPosition(getPLAYER_SHIP()), destination));
+        if (move.isMoveAllowed(move.getShipPosition(getPLAYER_SHIP()), destination)){
+            move.setShipPosition(getPLAYER_SHIP(), destination, ivPlayerCurrentPosition);
+            //todo zabranie ruchu w tej turze.
+        }
     }
 
 

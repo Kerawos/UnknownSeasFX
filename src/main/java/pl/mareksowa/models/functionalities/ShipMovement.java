@@ -6,7 +6,7 @@ import pl.mareksowa.models.ships.ShipPosition;
 
 public interface ShipMovement {
     ShipPosition getShipPosition(Ship PLAYER_SHIP);
-    void setShipPosition(Ship PLAYER_SHIP, ShipPosition shipPosition, ImageView ivBgPlayerShip);
+    void setShipPosition(Ship PLAYER_SHIP, ShipPosition destination, ImageView ivBgPlayerShip);
     ShipPosition getPositionField1();
     ShipPosition getPositionField2();
     ShipPosition getPositionField3();
