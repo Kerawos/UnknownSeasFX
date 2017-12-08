@@ -1,8 +1,6 @@
 package pl.mareksowa.models.functionalities.services;
 
-import pl.mareksowa.models.cities.Centeros;
-import pl.mareksowa.models.cities.City;
-import pl.mareksowa.models.cities.CityName;
+import pl.mareksowa.models.cities.*;
 import pl.mareksowa.models.functionalities.CityFunctionality;
 
 import java.util.ArrayList;
@@ -14,7 +12,12 @@ public class CityManager implements CityFunctionality {
 
     public CityManager() {
         cities = new ArrayList<>();
+        cities.add(new GothShai());
+        cities.add(new Masumba());
+        cities.add(new MilaDoce());
+        cities.add(new Balados());
         cities.add(new Centeros());
+        cities.add(new Zihlu());
     }
 
     @Override

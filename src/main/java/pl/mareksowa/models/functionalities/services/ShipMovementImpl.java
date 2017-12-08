@@ -120,7 +120,6 @@ public class ShipMovementImpl implements ShipMovement {
     public boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination) {
         for (int i = 0; i < getFields().size(); i++) {
             if (getFields().get(i).equals(currentPosition)){
-                System.out.println("current position to : " + i);
                 if (i==0){
                     if (destination.equals(getFields().get(i+1))){
                         return true;
@@ -163,6 +162,14 @@ public class ShipMovementImpl implements ShipMovement {
                 }
 
             }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean isEnterCityAllowed(ShipPosition currentPosition, ShipPosition cityToEnterPosition) {
+        if (currentPosition.equals(cityToEnterPosition)){
+            return true;
         }
         return false;
     }

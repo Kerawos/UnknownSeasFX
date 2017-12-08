@@ -1,14 +1,12 @@
 package pl.mareksowa.models.cities;
-/**
- * Model Class
- */
-public class Centeros extends City {
+
+public class Masumba extends City {
     /**
      * Variable of standard Model Class
      */
-    public Centeros(){
-        setCityName(CityName.CENTEROS);
-        setCityPosition(shipMovement.getPositionField14());
+    public Masumba(){
+        setCityName(CityName.MASUMBA);
+        setCityPosition(shipMovement.getPositionField4());
         setFoodRequest(1);
         setAmmoRequest(1);
         setCrewRequest(1);

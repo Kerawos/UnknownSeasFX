@@ -1,4 +1,9 @@
 package pl.mareksowa.models.cities;
+
+import pl.mareksowa.models.functionalities.ShipMovement;
+import pl.mareksowa.models.functionalities.services.ShipMovementImpl;
+import pl.mareksowa.models.ships.ShipPosition;
+
 /**
  * Model Class
  */
@@ -8,6 +13,7 @@ public abstract class City {
      * Each city should be very unique. In one case some cities will value spices, other not etc.
      */
     private CityName cityName;
+    private ShipPosition cityPosition;
     private double foodRequest;
     private double ammoRequest;
     private double crewRequest;
@@ -24,6 +30,8 @@ public abstract class City {
 
     private double slaveRequest;
 
+    public ShipMovement shipMovement = new ShipMovementImpl();
+
     /**
      * Empty constructor
      */
@@ -33,10 +41,11 @@ public abstract class City {
     /**
      * Constructor of City
      */
-    public City(CityName cityName, double foodRequest, double ammoRequest, double crewRequest, double sailRequest,
-                double cannonRequest, double wheatRequest, double clothesRequest, double wineRequest, double mahoganyRequest,
-                double decorationsRequest, double silkRequest, double spicesRequest, double slaveRequest) {
+    public City(CityName cityName, ShipPosition cityPosition, double foodRequest, double ammoRequest, double crewRequest,
+                double sailRequest, double cannonRequest, double wheatRequest, double clothesRequest, double wineRequest,
+                double mahoganyRequest, double decorationsRequest, double silkRequest, double spicesRequest, double slaveRequest) {
         this.cityName = cityName;
+        this.cityPosition = cityPosition;
         this.foodRequest = foodRequest;
         this.ammoRequest = ammoRequest;
         this.crewRequest = crewRequest;
@@ -50,7 +59,9 @@ public abstract class City {
         this.silkRequest = silkRequest;
         this.spicesRequest = spicesRequest;
         this.slaveRequest = slaveRequest;
+
     }
+
 
     /**
      * Getters and Setters section
@@ -61,6 +72,14 @@ public abstract class City {
 
     public void setCityName(CityName cityName) {
         this.cityName = cityName;
+    }
+
+    public ShipPosition getCityPosition() {
+        return cityPosition;
+    }
+
+    public void setCityPosition(ShipPosition cityPosition) {
+        this.cityPosition = cityPosition;
     }
 
     public double getFoodRequest() {

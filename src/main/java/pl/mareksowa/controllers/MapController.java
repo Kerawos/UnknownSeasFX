@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.functionalities.ShipMovement;
 import pl.mareksowa.models.ships.ShipPosition;
 
@@ -62,6 +63,15 @@ public class MapController extends PlayerShipController implements Initializable
         move = getScene().getShipMovement();
         updateScene();
         buttonsRegister();
+        showTutorial();
+    }
+
+    private void showTutorial(){
+        if (getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
+            //todo show info about world map
+            System.out.println("show info about world map");
+            getPLAYER_SHIP().getAchievement().setFirstTimeInWorldMap(true);
+        }
     }
 
     /**
@@ -192,7 +202,11 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void ivRegField14Centeros(){
-        ivField14Centeros.setOnMouseClicked(click-> shipMove(move.getPositionField14()));
+        ivField14Centeros.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(0));
+            shipMove(move.getPositionField14());
+                });
+
     }
 
     private void ivRegField15(){
@@ -213,6 +227,13 @@ public class MapController extends PlayerShipController implements Initializable
             move.setShipPosition(getPLAYER_SHIP(), destination, ivPlayerCurrentPosition);
             //todo zabranie ruchu w tej turze.
         }
+    }
+
+    private void enterCity(City city){
+        if (move.isEnterCityAllowed(getPLAYER_SHIP().getShipPosition(), city.getCityPosition())){
+            System.out.println("wchodzimy do miasta");
+        }
+        System.out.println("nie wchodzimy");
     }
 
 
