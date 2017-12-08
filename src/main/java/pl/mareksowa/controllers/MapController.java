@@ -20,22 +20,42 @@ public class MapController extends PlayerShipController implements Initializable
     /**
      * Variables declarations
      */
+    @FXML private ImageView ivPlayerCurrentPosition;
     @FXML private ImageView ivBackGround;
     @FXML private ImageView ivField1GothShai;
+    @FXML private ImageView ivField2;
+    @FXML private ImageView ivField3;
     @FXML private ImageView ivField4Masumba;
+    @FXML private ImageView ivField5;
     @FXML private ImageView ivField6MilaDoce;
+    @FXML private ImageView ivField7;
+    @FXML private ImageView ivField8;
+    @FXML private ImageView ivField9;
     @FXML private ImageView ivField10Balados;
+    @FXML private ImageView ivField11;
+    @FXML private ImageView ivField12;
+    @FXML private ImageView ivField13;
     @FXML private ImageView ivField14Centeros;
+    @FXML private ImageView ivField15;
+    @FXML private ImageView ivField16;
     @FXML private ImageView ivField17Zihlu;
     @FXML private Button btnMainMenu;
     @FXML private Button btnMapInfo;
 
 
+    private Image bgPlayerShipOnMap;
     private Image bgMapImage;
+    private Image indicatorGreen;
+    private Image indicatorYellow;
+    private Image indicatorRed;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        bgPlayerShipOnMap = new Image("img/PlayerShipOnMap.png");
         bgMapImage = new Image("img/map/Map.png");
+        indicatorGreen = new Image("img/map/MapGreen.png");
+        indicatorYellow = new Image("img/map/MapYellow.png");
+        indicatorRed = new Image("img/map/MapRed.png");
         updateScene();
         buttonsRegister();
     }
@@ -46,6 +66,8 @@ public class MapController extends PlayerShipController implements Initializable
     private void updateScene(){
         updateAllViews();
         updatePlayerShip(getPLAYER_SHIP());
+        updatePlayerShipPosition();
+
     }
 
     private void disableAllViews(){
@@ -57,10 +79,32 @@ public class MapController extends PlayerShipController implements Initializable
      */
     private void updateAllViews(){
         ivBackGround.setImage(bgMapImage);
+        updateFieldIndicatorView();
         updateShipBackgroundView();
-        ivField4Masumba.setImage(new Image("img/map/MapYellow.png"));
-        ivField6MilaDoce.setImage(new Image("img/map/MapYellow.png"));
-        ivField1GothShai.setImage(new Image("img/map/MapYellow.png"));
+
+    }
+
+    /**
+     * Method managing displaying proper field indicators, their colors and possible moves
+     */
+    private void updateFieldIndicatorView(){
+        ivField1GothShai.setImage(indicatorRed);
+        ivField2.setImage(indicatorRed);
+        ivField3.setImage(indicatorRed);
+        ivField4Masumba.setImage(indicatorYellow);
+        ivField5.setImage(indicatorYellow);
+        ivField6MilaDoce.setImage(indicatorGreen);
+        ivField7.setImage(indicatorYellow);
+        ivField8.setImage(indicatorYellow);
+        ivField9.setImage(indicatorYellow);
+        ivField10Balados.setImage(indicatorYellow);
+        ivField11.setImage(indicatorRed);
+        ivField12.setImage(indicatorRed);
+        ivField13.setImage(indicatorGreen);
+        ivField14Centeros.setImage(indicatorGreen);
+        ivField15.setImage(indicatorGreen);
+        ivField16.setImage(indicatorGreen);
+        ivField17Zihlu.setImage(indicatorGreen);
     }
 
     /**
@@ -101,6 +145,15 @@ public class MapController extends PlayerShipController implements Initializable
 
     private void btnRegMainMenu(){
         btnMainMenu.setOnMouseClicked(click-> System.out.println("main menu clicked"));
+    }
+
+    private void updatePlayerShipPosition(){
+        ivPlayerCurrentPosition.setImage(bgPlayerShipOnMap);
+        if (!getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
+            ivPlayerCurrentPosition.setX(380);
+            ivPlayerCurrentPosition.setY(245);
+            getPLAYER_SHIP().getAchievement().setFirstTimeInWorldMap(true);
+        }
     }
 
 }

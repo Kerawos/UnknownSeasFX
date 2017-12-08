@@ -26,6 +26,8 @@ public class Ship {
     private int gold;
     private int food;
     private int ammo;
+    private ShipAchievement achievement;
+    private ShipPosition shipPosition;
 
     /**
      * Constructor of Class
@@ -44,6 +46,8 @@ public class Ship {
         crewList = new ArrayList<>();
         cannonList = new ArrayList<>();
         sailList = new ArrayList<>();
+        achievement = new ShipAchievement();
+        shipPosition = new ShipPosition();
     }
 
     /**
@@ -151,6 +155,22 @@ public class Ship {
 
     public void setAmmo(int ammo) {
         this.ammo = ammo;
+    }
+
+    public ShipAchievement getAchievement() {
+        return achievement;
+    }
+
+    public void setAchievement(ShipAchievement achievement) {
+        this.achievement = achievement;
+    }
+
+    public ShipPosition getShipPosition() {
+        return shipPosition;
+    }
+
+    public void setShipPosition(ShipPosition shipPosition) {
+        this.shipPosition = shipPosition;
     }
 
     /**

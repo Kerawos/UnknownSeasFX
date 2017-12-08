@@ -105,10 +105,22 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Button>
-      <ImageView fx:id="ivField6MilaDoce" fitHeight="74.0" fitWidth="93.0" layoutX="299.0" layoutY="56.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivField1GothShai" fitHeight="85.0" fitWidth="171.0" layoutX="166.0" layoutY="274.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivField14Centeros" fitHeight="94.0" fitWidth="112.0" layoutX="392.0" layoutY="201.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivField10Balados" fitHeight="94.0" fitWidth="112.0" layoutX="604.0" layoutY="43.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivField17Zihlu" fitHeight="94.0" fitWidth="112.0" layoutX="615.0" layoutY="308.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField6MilaDoce" fitHeight="74.0" fitWidth="83.0" layoutX="299.0" layoutY="56.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField1GothShai" fitHeight="85.0" fitWidth="207.0" layoutX="156.0" layoutY="278.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField14Centeros" fitHeight="111.0" fitWidth="155.0" layoutX="370.0" layoutY="223.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField10Balados" fitHeight="74.0" fitWidth="112.0" layoutX="631.0" layoutY="24.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField17Zihlu" fitHeight="94.0" fitWidth="112.0" layoutX="644.0" layoutY="308.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField2" fitHeight="117.0" fitWidth="93.0" layoutX="44.0" layoutY="246.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField3" fitHeight="85.0" fitWidth="103.0" layoutX="47.0" layoutY="144.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField5" fitHeight="52.0" fitWidth="93.0" layoutX="201.0" layoutY="69.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField7" fitHeight="52.0" fitWidth="70.0" layoutX="393.0" layoutY="93.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField8" fitHeight="39.0" fitWidth="70.0" layoutX="487.0" layoutY="79.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField9" fitHeight="74.0" fitWidth="58.0" layoutX="566.0" layoutY="71.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField15" fitHeight="52.0" fitWidth="70.0" layoutX="393.0" layoutY="161.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField13" fitHeight="74.0" fitWidth="103.0" layoutX="532.0" layoutY="222.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField16" fitHeight="62.0" fitWidth="83.0" layoutX="542.0" layoutY="324.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField12" fitHeight="52.0" fitWidth="83.0" layoutX="603.0" layoutY="161.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivField11" fitHeight="62.0" fitWidth="58.0" layoutX="694.0" layoutY="114.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivPlayerCurrentPosition" fitHeight="30.0" fitWidth="58.0" layoutX="15.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>
