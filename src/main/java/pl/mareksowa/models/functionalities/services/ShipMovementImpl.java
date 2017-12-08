@@ -5,6 +5,7 @@ import pl.mareksowa.models.functionalities.ShipMovement;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -113,6 +114,61 @@ public class ShipMovementImpl implements ShipMovement {
     @Override
     public ShipPosition getPositionField17() {
         return null;
+    }
+
+    @Override
+    public boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination) {
+        for (int i = 1; i <= getFields().size(); i++) {
+            if (getFields().get(i).equals(currentPosition)){
+                if (i==1){
+                    if (destination.equals(getFields().get(i+1))){
+                        return true;
+                    }
+                }
+                if (i==17){
+                    if (destination.equals(getFields().get(i-1))){
+                        return true;
+                    }
+                }
+                if (destination.equals(getFields().get(i-1)) || destination.equals(getFields().get(i+1))){
+                    return true;
+                }
+                //exc
+                if (i==7){
+                    if (destination.equals(getFields().get(15))){
+                        return true;
+                    }
+                }
+                if (i==13){
+                    if (destination.equals(getFields().get(16))){
+                        return true;
+                    }
+                }
+            } 
+        }
+        return false;
+    }
+
+    private List<ShipPosition> getFields(){
+        List<ShipPosition> fields = new ArrayList<>();
+        fields.add(getPositionField1());
+        fields.add(getPositionField2());
+        fields.add(getPositionField3());
+        fields.add(getPositionField4());
+        fields.add(getPositionField5());
+        fields.add(getPositionField6());
+        fields.add(getPositionField7());
+        fields.add(getPositionField8());
+        fields.add(getPositionField9());
+        fields.add(getPositionField10());
+        fields.add(getPositionField11());
+        fields.add(getPositionField12());
+        fields.add(getPositionField13());
+        fields.add(getPositionField14());
+        fields.add(getPositionField15());
+        fields.add(getPositionField16());
+        fields.add(getPositionField17());
+        return fields;
     }
 
 

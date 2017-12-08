@@ -24,4 +24,6 @@ public interface ShipMovement {
     ShipPosition getPositionField15();
     ShipPosition getPositionField16();
     ShipPosition getPositionField17();
+    boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination);
+
 }
