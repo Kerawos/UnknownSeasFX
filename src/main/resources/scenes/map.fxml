@@ -10,11 +10,6 @@
    <children>
       <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblUpperText" layoutX="43.0" layoutY="361.0" prefHeight="43.0" prefWidth="699.0" text="Label" wrapText="true">
-         <font>
-            <Font name="Segoe Print" size="18.0" />
-         </font>
-      </Label>
       <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="31.0" text="gold" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="12.0" />
@@ -99,15 +94,16 @@
          </font>
       </Label>
       <ImageView fx:id="ivMasumba" fitHeight="80.0" fitWidth="176.0" layoutX="49.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnMapInfo" layoutX="491.0" layoutY="283.0" mnemonicParsing="false" text="Map Info">
+      <Button fx:id="btnMapInfo" layoutX="237.0" layoutY="223.0" mnemonicParsing="false" text="Map Info">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnMainMenu" layoutX="603.0" layoutY="31.0" mnemonicParsing="false" text="Main Menu">
+      <Button fx:id="btnMainMenu" layoutX="422.0" layoutY="355.0" mnemonicParsing="false" text="Main Menu">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Button>
+      <Button layoutX="49.0" layoutY="46.0" mnemonicParsing="false" prefHeight="113.0" prefWidth="130.0" text="Button" />
    </children>
 </Pane>
