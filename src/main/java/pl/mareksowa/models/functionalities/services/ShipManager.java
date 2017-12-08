@@ -7,23 +7,24 @@ import javafx.scene.image.ImageView;
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
+import pl.mareksowa.models.ships.ShipPosition;
 import pl.mareksowa.models.ships.StartingShip;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class ShipManager implements ShipFunctionality {
 
     private List<Ship> ships;
+    private ShipMovement shipMovement;
 
     public ShipManager() {
         ships = new ArrayList<>();
         addShip(new StartingShip().getStartingShip());
+        shipMovement = new ShipMovement();
     }
 
     @Override
@@ -199,6 +200,12 @@ public class ShipManager implements ShipFunctionality {
     @Override
     public void takeDmg(Ship PLAYER0SHIP, int dmgTaken) {
 
+    }
+
+    @Override
+    public void setShipPosition(ShipPosition shipPosition, ImageView ivBgPlayerShip) {
+        ivBgPlayerShip.setX(shipPosition.getLayoutX());
+        ivBgPlayerShip.setY(shipPosition.getLayoutY());
     }
 
     private int calcShipCharge(Ship PLAYER0SHIP) throws IllegalArgumentException {

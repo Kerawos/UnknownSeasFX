@@ -5,6 +5,11 @@ public class ShipPosition {
     private int layoutX;
     private int layoutY;
 
+    public ShipPosition(int layoutX, int layoutY) {
+        this.layoutX = layoutX;
+        this.layoutY = layoutY;
+    }
+
     public int getLayoutX() {
         return layoutX;
     }
@@ -20,4 +25,5 @@ public class ShipPosition {
     public void setLayoutY(int layoutY) {
         this.layoutY = layoutY;
     }
+
 }

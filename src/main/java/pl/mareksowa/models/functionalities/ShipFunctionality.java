@@ -8,6 +8,7 @@ import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.ships.Ship;
+import pl.mareksowa.models.ships.ShipPosition;
 
 import java.util.List;
 
@@ -33,6 +34,6 @@ public interface ShipFunctionality {
     void updateManeuver(Ship PLYER0SHIP, Label lblPLayerManeuver);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
-
+    void setShipPosition(ShipPosition shipPosition, ImageView ivBgPlayerShip);
 
 }
