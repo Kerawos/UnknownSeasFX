@@ -21,7 +21,9 @@ public class MapController extends PlayerShipController implements Initializable
      * Variables declarations
      */
     @FXML private ImageView ivBackGround;
-    @FXML private ImageView ivMasumba;
+    @FXML private ImageView ivField1GothShai;
+    @FXML private ImageView ivField4Masumba;
+    @FXML private ImageView ivField6MilaDoce;
     @FXML private Button btnMainMenu;
     @FXML private Button btnMapInfo;
 
@@ -30,7 +32,7 @@ public class MapController extends PlayerShipController implements Initializable
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        bgMapImage = new Image("img/Map.png");
+        bgMapImage = new Image("img/map/Map.png");
         updateScene();
         buttonsRegister();
     }
@@ -52,27 +54,41 @@ public class MapController extends PlayerShipController implements Initializable
      */
     private void updateAllViews(){
         ivBackGround.setImage(bgMapImage);
-
         updateShipBackgroundView();
+        ivField4Masumba.setImage(new Image("img/ForMap.png"));
     }
 
     /**
      * Method to managing all buttons and their actions
      */
     private void buttonsRegister(){
-        ivRegMasumba();
+        ivRegField4Masumba();
         btnRegMainMenu();
         btnRegMapInfo();
     }
 
     /**
-     * Method managing button clicking
+     * Method managing field on the map clicking
      */
-    private void ivRegMasumba(){
-        ivMasumba.setOnMouseClicked(click->{
+
+    private void ivRegField1GothShai(){
+        ivField1GothShai.setOnMouseClicked(click->{
+            System.out.println("goth clicked");
+        });
+    }
+
+    private void ivRegField4Masumba(){
+        ivField4Masumba.setOnMouseClicked(click->{
             System.out.println("masumba clicked");
         });
     }
+
+    private void ivRegField6MilaDoce(){
+        ivField6MilaDoce.setOnMouseClicked(click->{
+            System.out.println("mila clicked");
+        });
+    }
+
 
     private void btnRegMapInfo(){
         btnMapInfo.setOnMouseClicked(click-> System.out.println("map info clicked"));
