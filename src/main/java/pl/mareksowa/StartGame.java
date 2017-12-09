@@ -15,7 +15,7 @@ public class StartGame extends Application {
         Parent root = FXMLLoader.load(getClass().getClassLoader().getResource(
                 SceneManager.getInstance().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.START_PAGE)));
         //primaryStage.initStyle(StageStyle.DECORATED);
-        primaryStage.setTitle("Unknown Seas 0.2a");
+        primaryStage.setTitle("Unknown Seas 0.3a");
         primaryStage.setScene(new Scene(root, 800, 640));
         primaryStage.setResizable(false);
         primaryStage.show();
