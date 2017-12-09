@@ -151,7 +151,10 @@ public class MapController extends PlayerShipController implements Initializable
      */
 
     private void ivRegField1GothShai(){
-        ivField1GothShai.setOnMouseClicked(click-> shipMove(move.getPositionField1()));
+        ivField1GothShai.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(0));
+            shipMove(move.getPositionField1());
+        });
     }
 
     private void ivRegField2(){
@@ -162,7 +165,10 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void ivRegField4Masumba(){
-        ivField4Masumba.setOnMouseClicked(click-> shipMove(move.getPositionField4()));
+        ivField4Masumba.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(1));
+            shipMove(move.getPositionField4());
+        });
     }
 
     private void ivRegField5(){
@@ -170,7 +176,10 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void ivRegField6MilaDoce(){
-        ivField6MilaDoce.setOnMouseClicked(click-> shipMove(move.getPositionField6()));
+        ivField6MilaDoce.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(2));
+            shipMove(move.getPositionField6());
+        });
     }
 
     private void ivRegField7(){
@@ -186,7 +195,10 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void ivRegField10Balados(){
-        ivField10Balados.setOnMouseClicked(click-> shipMove(move.getPositionField10()));
+        ivField10Balados.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(3));
+            shipMove(move.getPositionField10());
+        });
     }
 
     private void ivRegField11(){
@@ -203,7 +215,7 @@ public class MapController extends PlayerShipController implements Initializable
 
     private void ivRegField14Centeros(){
         ivField14Centeros.setOnMouseClicked(click-> {
-            enterCity(getScene().getCityFunctionality().getAllCities().get(0));
+            enterCity(getScene().getCityFunctionality().getAllCities().get(4));
             shipMove(move.getPositionField14());
                 });
 
@@ -218,11 +230,13 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void ivRegField17Zihlu(){
-        ivField17Zihlu.setOnMouseClicked(click-> shipMove(move.getPositionField17()));
+        ivField17Zihlu.setOnMouseClicked(click-> {
+            enterCity(getScene().getCityFunctionality().getAllCities().get(5));
+            shipMove(move.getPositionField17());
+        });
     }
 
     private void shipMove(ShipPosition destination){
-        System.out.println(move.isMoveAllowed(move.getShipPosition(getPLAYER_SHIP()), destination));
         if (move.isMoveAllowed(move.getShipPosition(getPLAYER_SHIP()), destination)){
             move.setShipPosition(getPLAYER_SHIP(), destination, ivPlayerCurrentPosition);
             //todo zabranie ruchu w tej turze.
@@ -231,9 +245,10 @@ public class MapController extends PlayerShipController implements Initializable
 
     private void enterCity(City city){
         if (move.isEnterCityAllowed(getPLAYER_SHIP().getShipPosition(), city.getCityPosition())){
-            System.out.println("wchodzimy do miasta");
+            System.out.println("wchodzimy do miasta : " + city.getCityName());
+        } else {
+            System.out.println("Witaj w porcie w miesice: " + city.getCityName());
         }
-        System.out.println("nie wchodzimy");
     }
 
 
