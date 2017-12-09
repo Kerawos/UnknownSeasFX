@@ -117,6 +117,8 @@ public class CityController extends PlayerShipController implements Initializabl
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             //todo
+            Stage worldMap = (Stage) btnBack.getScene().getWindow();
+            getScene().sceneChange(worldMap, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });
     }
 
@@ -143,6 +145,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setVisible(true);
         btnStore.setVisible(true);
         btnTavern.setVisible(true);
+        btnBack.setVisible(true);
         lblUpperText.setWrapText(true);
         lblTitle.setText(getScene().getCityFunctionality().convertCityNameToString(getScene().getCURRENT_CITY().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
