@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.functionalities.ShipMovement;
 import pl.mareksowa.models.ships.ShipPosition;
@@ -245,9 +247,10 @@ public class MapController extends PlayerShipController implements Initializable
 
     private void enterCity(City city){
         if (move.isEnterCityAllowed(getPLAYER_SHIP().getShipPosition(), city.getCityPosition())){
+            //todo wchdozenie do miasta
             System.out.println("wchodzimy do miasta : " + city.getCityName());
-        } else {
-            System.out.println("Witaj w porcie w miesice: " + city.getCityName());
+            getScene().setCURRENT_CITY(city.getCityName());
+            getScene().sceneChange(new Stage(), getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
         }
     }
 
