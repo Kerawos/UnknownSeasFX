@@ -68,6 +68,9 @@ public class MapController extends PlayerShipController implements Initializable
         showTutorial();
     }
 
+    /**
+     * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
+     */
     private void showTutorial(){
         if (getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
             //todo show info about world map

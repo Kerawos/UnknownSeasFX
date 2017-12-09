@@ -15,15 +15,30 @@ public class MarketController extends PlayerShipController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        updateScene();
+        buttonsRegister();
+        showTutorial();
+    }
 
+    /**
+     * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
+     */
+    private void showTutorial(){
+        if (getPLAYER_SHIP().getAchievement().isFirstTimeInMarket()){
+            //todo show info about city dockyard
+            System.out.println("show info about city market");
+            getPLAYER_SHIP().getAchievement().setFirstTimeInMarket(true);
+        }
     }
 
     private void updateScene(){
 
+        updatePlayerShip(getPLAYER_SHIP());
     }
 
     private void buttonsRegister(){
 
+        btnRegBack();
     }
 
     private void btnRegBack(){
@@ -32,8 +47,5 @@ public class MarketController extends PlayerShipController implements Initializa
             getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(getScene().getBackStage()));
         });
     }
-
-    public Button getBtnBack() {
-        return btnBack;
-    }
+    
 }

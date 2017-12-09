@@ -63,6 +63,18 @@ public class DockyardController extends PlayerShipController implements Initiali
     public void initialize(URL location, ResourceBundle resources) {
         updateScene();
         buttonsRegister();
+        showTutorial();
+    }
+
+    /**
+     * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
+     */
+    private void showTutorial(){
+        if (getPLAYER_SHIP().getAchievement().isFirstTimeInDockyard()){
+            //todo show info about city dockyard
+            System.out.println("show info about city dockyard");
+            getPLAYER_SHIP().getAchievement().setFirstTimeInDockyard(true);
+        }
     }
 
     /**

@@ -84,7 +84,7 @@
       <ImageView fx:id="ivSail9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivSail10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnAddFood" layoutX="40.0" layoutY="29.0" mnemonicParsing="false" />
-      <Button fx:id="btnBack" layoutX="677.0" layoutY="295.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="btnBack" layoutX="661.0" layoutY="368.0" mnemonicParsing="false" text="To City Centre">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>

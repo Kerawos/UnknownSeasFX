@@ -87,7 +87,7 @@
       <Button fx:id="btnAddCabin" layoutX="40.0" layoutY="99.0" mnemonicParsing="false" />
       <Button fx:id="btnAddCannonSpace" layoutX="40.0" layoutY="166.0" mnemonicParsing="false" />
       <Button fx:id="btnAddSailSpace" layoutX="40.0" layoutY="231.0" mnemonicParsing="false" />
-      <Button fx:id="btnBack" layoutX="677.0" layoutY="295.0" mnemonicParsing="false" text="Back">
+      <Button fx:id="btnBack" layoutX="661.0" layoutY="368.0" mnemonicParsing="false" text="To City Centre">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>

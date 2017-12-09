@@ -14,7 +14,7 @@ Game project write by Marek Sowa 2017
  
  #v0.2a:
  - scene manager 
- - add scene name equiwalent
+ - add scene name equivalent
  - city dockyard manager
  - upgrade of the ship logic
  - goods imgs
@@ -23,7 +23,7 @@ Game project write by Marek Sowa 2017
  - add world map logic
  - add ship movement
  - update dockyard logic
- - add ship repair mecahnic
+ - add ship repair mechanic
  - add entering city from map and vice versa
  - add and update player general controller
  - add map indicators and its imgs
