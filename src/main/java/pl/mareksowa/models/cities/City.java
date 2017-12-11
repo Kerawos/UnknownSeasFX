@@ -1,5 +1,6 @@
 package pl.mareksowa.models.cities;
 
+import pl.mareksowa.models.Price;
 import pl.mareksowa.models.functionalities.ShipMovement;
 import pl.mareksowa.models.functionalities.services.ShipMovementImpl;
 import pl.mareksowa.models.ships.ShipPosition;
@@ -30,6 +31,8 @@ public abstract class City {
 
     private int slaveRequest;
 
+    private Price prices;
+
     public ShipMovement shipMovement = new ShipMovementImpl();
 
     /**
@@ -42,8 +45,9 @@ public abstract class City {
      * Constructor of City
      */
     public City(CityName cityName, ShipPosition cityPosition, int foodRequest, int ammoRequest, int crewRequest,
-                int sailRequest, int cannonRequest, int wheatRequest, int clothesRequest, int wineRequest, int mahoganyRequest,
-                int decorationsRequest, int silkRequest, int spicesRequest, int slaveRequest, ShipMovement shipMovement) {
+                int sailRequest, int cannonRequest, int wheatRequest, int clothesRequest, int wineRequest,
+                int mahoganyRequest, int decorationsRequest, int silkRequest, int spicesRequest, int slaveRequest,
+                Price prices, ShipMovement shipMovement) {
         this.cityName = cityName;
         this.cityPosition = cityPosition;
         this.foodRequest = foodRequest;
@@ -59,6 +63,7 @@ public abstract class City {
         this.silkRequest = silkRequest;
         this.spicesRequest = spicesRequest;
         this.slaveRequest = slaveRequest;
+        this.prices = new Price();
         this.shipMovement = shipMovement;
     }
 
@@ -191,6 +196,14 @@ public abstract class City {
 
     public void setShipMovement(ShipMovement shipMovement) {
         this.shipMovement = shipMovement;
+    }
+
+    public Price getPrices() {
+        return prices;
+    }
+
+    public void setPrices(Price prices) {
+        this.prices = prices;
     }
 
     /**

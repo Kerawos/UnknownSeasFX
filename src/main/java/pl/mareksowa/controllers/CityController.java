@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.SceneNameEquivalent;
+import pl.mareksowa.models.cities.City;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,6 +41,7 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getScene().getCityFunctionality().updateCity(getScene().getCURRENT_CITY());
         updateScene();
         buttonsRegister();
         showTutorial();

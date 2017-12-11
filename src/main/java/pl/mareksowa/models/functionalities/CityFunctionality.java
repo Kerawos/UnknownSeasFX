@@ -11,4 +11,5 @@ public interface CityFunctionality {
     void updateCity(City city);
     String convertCityNameToString(CityName cityName);
     Price generatePrices(City city);
+    void updatePrices(City city);
 }

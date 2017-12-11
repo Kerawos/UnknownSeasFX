@@ -51,7 +51,12 @@ public class CityManager implements CityFunctionality {
         result.setDecorations(generateRandom(5, 9) + city.getDecorationsRequest());
         result.setSilk(generateRandom(6, 11) + city.getSilkRequest());
         result.setSpices(generateRandom(7, 13) + city.getSpicesRequest());
-        return null;
+        return result;
+    }
+
+    @Override
+    public void updatePrices(City city) {
+        city.setPrices(generatePrices(city));
     }
 
     private int generateRandom(int min, int max){
