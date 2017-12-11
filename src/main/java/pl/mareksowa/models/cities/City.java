@@ -14,21 +14,21 @@ public abstract class City {
      */
     private CityName cityName;
     private ShipPosition cityPosition;
-    private double foodRequest;
-    private double ammoRequest;
-    private double crewRequest;
-    private double sailRequest;
-    private double cannonRequest;
+    private int foodRequest;
+    private int ammoRequest;
+    private int crewRequest;
+    private int sailRequest;
+    private int cannonRequest;
 
-    private double wheatRequest;
-    private double clothesRequest;
-    private double wineRequest;
-    private double mahoganyRequest;
-    private double decorationsRequest;
-    private double silkRequest;
-    private double spicesRequest;
+    private int wheatRequest;
+    private int clothesRequest;
+    private int wineRequest;
+    private int mahoganyRequest;
+    private int decorationsRequest;
+    private int silkRequest;
+    private int spicesRequest;
 
-    private double slaveRequest;
+    private int slaveRequest;
 
     public ShipMovement shipMovement = new ShipMovementImpl();
 
@@ -41,9 +41,9 @@ public abstract class City {
     /**
      * Constructor of City
      */
-    public City(CityName cityName, ShipPosition cityPosition, double foodRequest, double ammoRequest, double crewRequest,
-                double sailRequest, double cannonRequest, double wheatRequest, double clothesRequest, double wineRequest,
-                double mahoganyRequest, double decorationsRequest, double silkRequest, double spicesRequest, double slaveRequest) {
+    public City(CityName cityName, ShipPosition cityPosition, int foodRequest, int ammoRequest, int crewRequest,
+                int sailRequest, int cannonRequest, int wheatRequest, int clothesRequest, int wineRequest, int mahoganyRequest,
+                int decorationsRequest, int silkRequest, int spicesRequest, int slaveRequest, ShipMovement shipMovement) {
         this.cityName = cityName;
         this.cityPosition = cityPosition;
         this.foodRequest = foodRequest;
@@ -59,9 +59,8 @@ public abstract class City {
         this.silkRequest = silkRequest;
         this.spicesRequest = spicesRequest;
         this.slaveRequest = slaveRequest;
-
+        this.shipMovement = shipMovement;
     }
-
 
     /**
      * Getters and Setters section
@@ -82,108 +81,116 @@ public abstract class City {
         this.cityPosition = cityPosition;
     }
 
-    public double getFoodRequest() {
+    public int getFoodRequest() {
         return foodRequest;
     }
 
-    public void setFoodRequest(double foodRequest) {
+    public void setFoodRequest(int foodRequest) {
         this.foodRequest = foodRequest;
     }
 
-    public double getAmmoRequest() {
+    public int getAmmoRequest() {
         return ammoRequest;
     }
 
-    public void setAmmoRequest(double ammoRequest) {
+    public void setAmmoRequest(int ammoRequest) {
         this.ammoRequest = ammoRequest;
     }
 
-    public double getCrewRequest() {
+    public int getCrewRequest() {
         return crewRequest;
     }
 
-    public void setCrewRequest(double crewRequest) {
+    public void setCrewRequest(int crewRequest) {
         this.crewRequest = crewRequest;
     }
 
-    public double getSailRequest() {
+    public int getSailRequest() {
         return sailRequest;
     }
 
-    public void setSailRequest(double sailRequest) {
+    public void setSailRequest(int sailRequest) {
         this.sailRequest = sailRequest;
     }
 
-    public double getCannonRequest() {
+    public int getCannonRequest() {
         return cannonRequest;
     }
 
-    public void setCannonRequest(double cannonRequest) {
+    public void setCannonRequest(int cannonRequest) {
         this.cannonRequest = cannonRequest;
     }
 
-    public double getWheatRequest() {
+    public int getWheatRequest() {
         return wheatRequest;
     }
 
-    public void setWheatRequest(double wheatRequest) {
+    public void setWheatRequest(int wheatRequest) {
         this.wheatRequest = wheatRequest;
     }
 
-    public double getClothesRequest() {
+    public int getClothesRequest() {
         return clothesRequest;
     }
 
-    public void setClothesRequest(double clothesRequest) {
+    public void setClothesRequest(int clothesRequest) {
         this.clothesRequest = clothesRequest;
     }
 
-    public double getWineRequest() {
+    public int getWineRequest() {
         return wineRequest;
     }
 
-    public void setWineRequest(double wineRequest) {
+    public void setWineRequest(int wineRequest) {
         this.wineRequest = wineRequest;
     }
 
-    public double getMahoganyRequest() {
+    public int getMahoganyRequest() {
         return mahoganyRequest;
     }
 
-    public void setMahoganyRequest(double mahoganyRequest) {
+    public void setMahoganyRequest(int mahoganyRequest) {
         this.mahoganyRequest = mahoganyRequest;
     }
 
-    public double getDecorationsRequest() {
+    public int getDecorationsRequest() {
         return decorationsRequest;
     }
 
-    public void setDecorationsRequest(double decorationsRequest) {
+    public void setDecorationsRequest(int decorationsRequest) {
         this.decorationsRequest = decorationsRequest;
     }
 
-    public double getSilkRequest() {
+    public int getSilkRequest() {
         return silkRequest;
     }
 
-    public void setSilkRequest(double silkRequest) {
+    public void setSilkRequest(int silkRequest) {
         this.silkRequest = silkRequest;
     }
 
-    public double getSpicesRequest() {
+    public int getSpicesRequest() {
         return spicesRequest;
     }
 
-    public void setSpicesRequest(double spicesRequest) {
+    public void setSpicesRequest(int spicesRequest) {
         this.spicesRequest = spicesRequest;
     }
 
-    public double getSlaveRequest() {
+    public int getSlaveRequest() {
         return slaveRequest;
     }
 
-    public void setSlaveRequest(double slaveRequest) {
+    public void setSlaveRequest(int slaveRequest) {
         this.slaveRequest = slaveRequest;
+    }
+
+    public ShipMovement getShipMovement() {
+        return shipMovement;
+    }
+
+    public void setShipMovement(ShipMovement shipMovement) {
+        this.shipMovement = shipMovement;
     }
 
     /**
