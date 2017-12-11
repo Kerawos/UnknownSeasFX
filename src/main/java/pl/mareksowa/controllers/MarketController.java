@@ -46,6 +46,7 @@ public class MarketController extends PlayerShipController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        imgLoader();
         updateScene();
         buttonsRegister();
         showTutorial();
@@ -75,7 +76,7 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void updateScene(){
-
+        updateMarketView();
         updatePlayerShip(getPLAYER_SHIP());
     }
 
