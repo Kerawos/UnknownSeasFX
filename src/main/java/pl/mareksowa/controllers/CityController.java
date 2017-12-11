@@ -41,7 +41,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        getScene().getCityFunctionality().updateCity(getScene().getCURRENT_CITY());
+        System.out.println("miasto to: " + getScene().getCURRENT_CITY().getCityName());
+        getScene().getCityFunctionality().updatePrices(getScene().getCURRENT_CITY());
+        System.out.println("Cena wina to: " + getScene().getCURRENT_CITY().getPrices().getWine());
         updateScene();
         buttonsRegister();
         showTutorial();

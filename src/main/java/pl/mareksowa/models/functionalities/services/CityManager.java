@@ -27,12 +27,6 @@ public class CityManager implements CityFunctionality {
         return cities;
     }
 
-
-    @Override
-    public void updateCity(City city) {
-
-    }
-
     @Override
     public String convertCityNameToString(CityName cityName) {
         String result;

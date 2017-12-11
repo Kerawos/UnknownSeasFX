@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pl.mareksowa.models.Price;
 
 
 import java.net.URL;
@@ -43,6 +44,8 @@ public class MarketController extends PlayerShipController implements Initializa
     private Image imgDecorations;
     private Image imgSilk;
     private Image imgSpices;
+
+    private Price price = getScene().getCURRENT_CITY().getPrices();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -91,7 +94,19 @@ public class MarketController extends PlayerShipController implements Initializa
         btnAddDecorations.setGraphic(new ImageView(imgDecorations));
         btnAddSilk.setGraphic(new ImageView(imgSilk));
         btnAddSpices.setGraphic(new ImageView(imgSpices));
+        updateLabels();
         updateShipBackgroundView();
+    }
+
+    private void updateLabels(){
+        lblPriceFood.setText("Food: " + price.getFood() + "gold");
+        lblPriceWheat.setText("Wheat: "+price.getWheat() + "gold");
+        lblPriceClothes.setText("Clothes: "+price.getClothes() + "gold");
+        lblPriceWine.setText("Wine: "+price.getWine() + "gold");
+        lblPriceMahogany.setText("Mahogany: "+price.getMahogany() + "gold");
+        lblPriceDecorations.setText("Decorations: "+price.getDecorations() + "gold");
+        lblPriceSilk.setText("Silk: "+price.getSilk() + "gold");
+        lblPriceSpices.setText("Spices: "+price.getSpices() + "gold");
     }
 
     private void buttonsRegister(){
