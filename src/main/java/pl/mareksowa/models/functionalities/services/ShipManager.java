@@ -150,11 +150,6 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
-    public void addGood(Ship PLAYER0SHIP, Good goodToAdd) {
-
-    }
-
-    @Override
     public void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold) {
         lblPlayerGold.setText(String.valueOf(PLAYER0SHIP.getGold()));
     }
@@ -200,6 +195,25 @@ public class ShipManager implements ShipFunctionality {
     @Override
     public void takeDmg(Ship PLAYER0SHIP, int dmgTaken) {
 
+    }
+
+    @Override
+    public void buyGood(Ship PLAYER0SHIP, Good goodToBuy) {
+        if (PLAYER0SHIP.getStorageCapacity()>PLAYER0SHIP.getStorage().size()){
+            PLAYER0SHIP.getStorage().add(goodToBuy);
+        }
+    }
+
+    @Override
+    public void sellGood(Ship PLAYER0SHIP, Good goodToSell) {
+        if (PLAYER0SHIP.getStorage().size()>0){
+            for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
+                if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
+                    PLAYER0SHIP.getStorage().remove(i);
+                    break;
+                }
+            }
+        }
     }
 
 

@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.functionalities.services.SceneManager;
 import pl.mareksowa.models.SceneNameEquivalent;
 
 public class StartGame extends Application {

@@ -138,7 +138,6 @@ public class DockyardController extends PlayerShipController implements Initiali
         lblUpgradeSail.setText("Click to buy");
         lblUpgradeRepair.setText("Click to repair");
 
-
         btnAddStorageSpace.setVisible(true);
         btnAddStorageSpace.setGraphic(new ImageView(new Image("img/StorageEmpty.png")));
         btnAddStorageSpace.setText("$" + (getPLAYER_SHIP().getStorageCapacity()

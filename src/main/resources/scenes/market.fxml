@@ -136,12 +136,12 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblPriceMahogany" layoutX="56.0" layoutY="265.0" prefHeight="18.0" prefWidth="152.0" text="price" wrapText="true">
+      <Label fx:id="lblPriceMahogany" layoutX="55.0" layoutY="274.0" prefHeight="18.0" prefWidth="152.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblPriceDecorations" layoutX="296.0" layoutY="274.0" prefHeight="18.0" prefWidth="140.0" text="price" wrapText="true">
+      <Label fx:id="lblPriceDecorations" layoutX="296.0" layoutY="292.0" prefHeight="18.0" prefWidth="140.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
@@ -151,7 +151,7 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblPriceSpices" layoutX="664.0" layoutY="265.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
+      <Label fx:id="lblPriceSpices" layoutX="664.0" layoutY="274.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>

@@ -107,6 +107,7 @@ public class MarketController extends PlayerShipController implements Initializa
         lblPriceDecorations.setText("Decorations: "+price.getDecorations() + "gold");
         lblPriceSilk.setText("Silk: "+price.getSilk() + "gold");
         lblPriceSpices.setText("Spices: "+price.getSpices() + "gold");
+        lblUpperText.setText("Click good to buy it, to sell click equivalent in your ship");
     }
 
     private void buttonsRegister(){

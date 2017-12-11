@@ -24,7 +24,6 @@ public interface ShipFunctionality {
     void updateCrew(Ship PLAYER0SHIP, ImageView ... crews);
     void addSail(Ship PLAYER0SHIP, Sail sailToAdd);
     void updateSail(Ship PLAYER0SHIP, ImageView ... sails);
-    void addGood(Ship PLAYER0SHIP, Good goodToAdd);
     void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold);
     void updateFood(Ship PLAYER0SHIP, Label lblPlayerFood);
     void updateAmmo(Ship PLAYER0SHIP, Label lblPlayerAmmo);
@@ -34,6 +33,7 @@ public interface ShipFunctionality {
     void updateManeuver(Ship PLYER0SHIP, Label lblPLayerManeuver);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
-
+    void buyGood(Ship PLAYER0SHIP, Good goodToBuy);
+    void sellGood(Ship PLAYER0SHIP, Good goodToSell);
 
 }

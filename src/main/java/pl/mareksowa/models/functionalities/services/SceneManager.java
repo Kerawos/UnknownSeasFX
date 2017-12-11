@@ -1,4 +1,4 @@
-package pl.mareksowa.models;
+package pl.mareksowa.models.functionalities.services;
 /**
  * Imports section
  */
@@ -7,14 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.CityName;
 import pl.mareksowa.models.functionalities.CityFunctionality;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.functionalities.ShipMovement;
-import pl.mareksowa.models.functionalities.services.CityManager;
-import pl.mareksowa.models.functionalities.services.ShipManager;
-import pl.mareksowa.models.functionalities.services.ShipMovementImpl;
 import pl.mareksowa.models.ships.Ship;
 
 import java.io.IOException;

@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import pl.mareksowa.models.SceneManager;
+import pl.mareksowa.models.functionalities.services.SceneManager;
 import pl.mareksowa.models.functionalities.ShipFunctionality;
 import pl.mareksowa.models.ships.Ship;
 
