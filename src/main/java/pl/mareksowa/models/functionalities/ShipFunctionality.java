@@ -35,6 +35,7 @@ public interface ShipFunctionality {
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
     boolean canBuyGood(Ship PLAYER0SHIP, Good goodToBuy);
     void buyGood(Ship PLAYER0SHIP, Good goodToBuy);
+    boolean canSellGood(Ship PLAYER0SHIP, Good goodToSell);
     void sellGood(Ship PLAYER0SHIP, Good goodToSell);
 
 }

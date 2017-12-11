@@ -7,8 +7,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pl.mareksowa.models.functionalities.CityFunctionality;
+import pl.mareksowa.models.functionalities.services.CityManager;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
+import pl.mareksowa.models.ships.Ship;
 
 
 import java.net.URL;
@@ -44,6 +47,7 @@ public class MarketController extends PlayerShipController implements Initializa
     private Image imgDecorations;
     private Image imgSilk;
     private Image imgSpices;
+    private CityFunctionality cityManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -96,36 +100,60 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void updateLabels(){
-        lblPriceWheat.setText("Wheat: "+ priceOf(GoodName.WHEAT) + "gold");
-        lblPriceClothes.setText("Clothes: "+ priceOf(GoodName.CLOTHES) + "gold");
-        lblPriceWine.setText("Wine: "+ priceOf(GoodName.WINE) + "gold");
-        lblPriceMahogany.setText("Mahogany: "+ priceOf(GoodName.MAHOGANY) + "gold");
-        lblPriceDecorations.setText("Decorations: "+ priceOf(GoodName.DECORATIONS) + "gold");
-        lblPriceSilk.setText("Silk: "+ priceOf(GoodName.SILK) + "gold");
-        lblPriceSpices.setText("Spices: "+ priceOf(GoodName.SPICES) + "gold");
+        cityManager = getScene().getCityFunctionality();
+        lblPriceWheat.setText("Wheat: "+ cityManager.priceOf(GoodName.WHEAT) + "gold");
+        lblPriceClothes.setText("Clothes: "+ cityManager.priceOf(GoodName.CLOTHES) + "gold");
+        lblPriceWine.setText("Wine: "+ cityManager.priceOf(GoodName.WINE) + "gold");
+        lblPriceMahogany.setText("Mahogany: "+ cityManager.priceOf(GoodName.MAHOGANY) + "gold");
+        lblPriceDecorations.setText("Decorations: "+ cityManager.priceOf(GoodName.DECORATIONS) + "gold");
+        lblPriceSilk.setText("Silk: "+ cityManager.priceOf(GoodName.SILK) + "gold");
+        lblPriceSpices.setText("Spices: "+ cityManager.priceOf(GoodName.SPICES) + "gold");
         lblUpperText.setText("Click good to buy it, to sell click equivalent in your ship");
     }
 
-    private int priceOf(GoodName goodName){
-        List<Good> goodList = getScene().getCURRENT_CITY().getGoodList();
-        for (int i = 0; i < goodList.size(); i++) {
-            if (goodList.get(i).getName()==goodName){
-                return goodList.get(i).getPrice();
-            }
-        }
-        return 999;
-    }
+
 
     private void buttonsRegister(){
-
+        setBtnAddWheat();
+        setBtnAddClothes();
+        setBtnAddWine();
         btnRegBack();
     }
 
-    private void setBtnAddWheat(){
-        btnAddWheat.setOnMouseClicked(click->{
-            getScene().getShipFunctionality().buyGood(getPLAYER_SHIP(), new Good(GoodName.WHEAT));
-        });
+    private void buyGood(Ship playerShip, Good good){
+        if (getScene().getShipFunctionality().canBuyGood(playerShip, good)){
+            getScene().getShipFunctionality().buyGood(playerShip, good);
+        }
     }
+
+    private void setBtnAddWheat(){
+        btnAddWheat.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.WHEAT)));
+    }
+
+    private void setBtnAddClothes(){
+        btnAddClothes.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(),cityManager.getExistedGood(GoodName.CLOTHES)));
+    }
+
+    private void setBtnAddWine(){
+        btnAddWine.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.WINE)));
+    }
+
+    private void setBtnAddMahogany(){
+        btnAddMahogany.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.MAHOGANY)));
+    }
+
+    private void setBtnAddSilk(){
+        btnAddSilk.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.SILK)));
+    }
+
+    private void setBtnAddDecorations(){
+        btnAddDecorations.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.DECORATIONS)));
+    }
+
+    private void setBtnAddSpices(){
+        btnAddSpices.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.SPICES)));
+    }
+
 
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{

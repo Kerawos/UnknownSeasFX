@@ -199,7 +199,8 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public boolean canBuyGood(Ship PLAYER0SHIP, Good goodToBuy) {
-        if (PLAYER0SHIP.getStorageCapacity()>PLAYER0SHIP.getStorage().size()){
+        if (PLAYER0SHIP.getStorageCapacity()>PLAYER0SHIP.getStorage().size() &&
+                PLAYER0SHIP.getGold()>=goodToBuy.getPrice()){
             return true;
         }
         return false;
@@ -207,19 +208,32 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void buyGood(Ship PLAYER0SHIP, Good goodToBuy) {
-        if (PLAYER0SHIP.getStorageCapacity()>PLAYER0SHIP.getStorage().size()){
-            PLAYER0SHIP.getStorage().add(goodToBuy);
+        System.out.println("gold: " + PLAYER0SHIP.getGold());
+        System.out.println("towar: " + goodToBuy.getPrice());
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - goodToBuy.getPrice());
+        PLAYER0SHIP.getStorage().add(goodToBuy);
+        System.out.println("gold: " + PLAYER0SHIP.getGold());
+    }
+
+    @Override
+    public boolean canSellGood(Ship PLAYER0SHIP, Good goodToSell) {
+        if (PLAYER0SHIP.getStorage().size()>0){
+            for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
+                if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
+                    return true;
+                }
+            }
         }
+        return false;
     }
 
     @Override
     public void sellGood(Ship PLAYER0SHIP, Good goodToSell) {
-        if (PLAYER0SHIP.getStorage().size()>0){
-            for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
-                if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
-                    PLAYER0SHIP.getStorage().remove(i);
-                    break;
-                }
+        for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
+            if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
+                PLAYER0SHIP.getStorage().remove(i);
+                PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() + goodToSell.getPrice());
+                break;
             }
         }
     }

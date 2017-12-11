@@ -50,6 +50,26 @@ public class CityManager implements CityFunctionality {
         city.setGoodList(goodList);
     }
 
+    @Override
+    public int priceOf(GoodName goodName){
+        List<Good> goodList = SceneManager.getInstance().getCURRENT_CITY().getGoodList();
+        for (int i = 0; i < goodList.size(); i++) {
+            if (goodList.get(i).getName()==goodName){
+                return goodList.get(i).getPrice();
+            }
+        }
+        return 999;
+    }
+
+    @Override
+    public Good getExistedGood(GoodName goodName) {
+        for (Good good : SceneManager.getInstance().getCURRENT_CITY().getGoodList()) {
+            if (good.getName()==goodName){
+                return good;
+            }
+        }
+        return null;
+    }
 
     private int generateRandom(int min, int max){
         return new Random().nextInt(max-min)+min;
