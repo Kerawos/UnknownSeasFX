@@ -253,7 +253,8 @@ public class MapController extends PlayerShipController implements Initializable
             //todo wchdozenie do miasta
             System.out.println("wchodzimy do miasta : " + city.getCityName());
             getScene().setCURRENT_CITY(city.getCityName());
-            getScene().sceneChange(new Stage(), getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
+            Stage cityStage = (Stage) btnMainMenu.getScene().getWindow();
+            getScene().sceneChange(cityStage, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
         }
     }
 
