@@ -36,4 +36,16 @@ Game project write by Marek Sowa 2017
  #v.03a:
  - update controllers
  - update templates
+ - add good model
+ - add price list to every city
+ - add price generator
+ - add good buy mechanic 
+ - add good sell mechanic
+ - update market template
+ - repair market controller
+ - update city and ship manager
+ 
+ Player can move thru cities on the map and buy/sell goods between them.
+ 
+ #v.0.4
  - 
