@@ -71,6 +71,17 @@ public class CityManager implements CityFunctionality {
         return null;
     }
 
+    @Override
+    public int getCitySellPrice(Good good) {
+        for (Good g : SceneManager.getInstance().getCURRENT_CITY().getGoodList()) {
+            if (g.getName().equals(good.getName())){
+                return g.getPrice();
+            }
+        }
+        System.out.println("towaru nie znalezniono");
+        return 999;
+    }
+
     private int generateRandom(int min, int max){
         return new Random().nextInt(max-min)+min;
     }

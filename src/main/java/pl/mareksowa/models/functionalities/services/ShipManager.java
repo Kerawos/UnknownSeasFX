@@ -256,11 +256,11 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
-    public void sellGood(Ship PLAYER0SHIP, Good goodToSell) {
+    public void sellGood(Ship PLAYER0SHIP, Good goodToSell, int sellPrice) {
         for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
             if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
                 PLAYER0SHIP.getStorage().remove(i);
-                PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() + goodToSell.getPrice());
+                PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() + sellPrice);
                 break;
             }
         }

@@ -13,4 +13,5 @@ public interface CityFunctionality {
     void updateCityGoods(City city);
     int priceOf(GoodName goodName);
     Good getExistedGood(GoodName goodName);
+    int getCitySellPrice(Good good);
 }

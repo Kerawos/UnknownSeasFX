@@ -36,6 +36,6 @@ public interface ShipFunctionality {
     boolean canBuyGood(Ship PLAYER0SHIP, Good goodToBuy);
     void buyGood(Ship PLAYER0SHIP, Good goodToBuy);
     boolean canSellGood(Ship PLAYER0SHIP, Good goodToSell);
-    void sellGood(Ship PLAYER0SHIP, Good goodToSell);
+    void sellGood(Ship PLAYER0SHIP, Good goodToSell, int sellPrice);
 
 }
