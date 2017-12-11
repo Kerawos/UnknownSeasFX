@@ -37,8 +37,10 @@ public class CityManager implements CityFunctionality {
     @Override
     public Price generatePrices(City city) {
         Price result = new Price();
-        result.setFood(generateRandom(1, 2) + city.getFoodRequest());
-        result.setWheat(generateRandom(1, 5) + city.getWheatRequest());
+        int priceTemp = generateRandom(1, 2) + city.getFoodRequest();
+        result.setFood(priceTemp>0?priceTemp:1);
+        priceTemp = generateRandom(1, 5) + city.getWheatRequest();
+        result.setWheat(priceTemp>0?priceTemp:1);
         result.setClothes(generateRandom(2, 6) + city.getClothesRequest());
         result.setWine(generateRandom(3, 7) + city.getWineRequest());
         result.setMahogany(generateRandom(4, 8) + city.getMahoganyRequest());
