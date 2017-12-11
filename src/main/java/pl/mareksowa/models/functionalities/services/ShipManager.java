@@ -57,12 +57,40 @@ public class ShipManager implements ShipFunctionality {
 //        System.out.println("wielkosc magazynowa = " + PLAYER0.getStorageCapacity());
 //        System.out.println("wielkosc storages = " + storages.length);
         for (int i = 0; i < PLAYER0SHIP.getStorageCapacity(); i++) {
-            storages[i].setImage(new Image("img/StorageEmpty.png"));
-            //System.out.println("tutaj powienien dodac pierwszy obrazaek");
-            if (PLAYER0SHIP.getStorage().size()>0 ||
+            if (PLAYER0SHIP.getStorage().size()>0 &&
                     PLAYER0SHIP.getStorage().size()>i){
-                System.out.println("z kolei tutaj jakbysmy mieli jakies dobra");
-                /// TODO: 06.11.2017 adding proper good
+                switch (PLAYER0SHIP.getStorage().get(i).getName()){
+                    case WHEAT:{
+                        storages[i].setImage(new Image("img/goods/Wheat.png"));
+                        break;
+                    }
+                    case CLOTHES:{
+                        storages[i].setImage(new Image("img/goods/Clothes.png"));
+                        break;
+                    }
+                    case WINE:{
+                        storages[i].setImage(new Image("img/goods/Wine.png"));
+                        break;
+                    }
+                    case MAHOGANY:{
+                        storages[i].setImage(new Image("img/goods/Mahogany.png"));
+                        break;
+                    }
+                    case SILK:{
+                        storages[i].setImage(new Image("img/goods/Silk.png"));
+                        break;
+                    }
+                    case DECORATIONS:{
+                        storages[i].setImage(new Image("img/goods/Decorations.png"));
+                        break;
+                    }
+                    case SPICES:{
+                        storages[i].setImage(new Image("img/goods/Spices.png"));
+                        break;
+                    }
+                }
+            } else {
+                storages[i].setImage(new Image("img/StorageEmpty.png"));
             }
         }
     }

@@ -51,7 +51,6 @@ public class MarketController extends PlayerShipController implements Initializa
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        imgLoader();
         updateScene();
         buttonsRegister();
         showTutorial();
@@ -86,6 +85,7 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void updateMarketView(){
+        imgLoader();
         lblTitle.setText("Market");
         ivBackGround.setImage(getBackgroundImage());
         btnAddWheat.setGraphic(new ImageView(imgWheat));
@@ -117,12 +117,17 @@ public class MarketController extends PlayerShipController implements Initializa
         setBtnAddWheat();
         setBtnAddClothes();
         setBtnAddWine();
+        setBtnAddMahogany();
+        setBtnAddSilk();
+        setBtnAddDecorations();
+        setBtnAddSpices();
         btnRegBack();
     }
 
     private void buyGood(Ship playerShip, Good good){
         if (getScene().getShipFunctionality().canBuyGood(playerShip, good)){
             getScene().getShipFunctionality().buyGood(playerShip, good);
+            updateScene();
         }
     }
 
