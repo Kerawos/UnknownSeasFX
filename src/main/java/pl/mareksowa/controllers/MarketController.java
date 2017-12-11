@@ -7,10 +7,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.Price;
+import pl.mareksowa.models.goods.Good;
+import pl.mareksowa.models.goods.GoodName;
 
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class MarketController extends PlayerShipController implements Initializable {
@@ -18,7 +20,6 @@ public class MarketController extends PlayerShipController implements Initializa
     @FXML private ImageView ivBackGround;
     @FXML private Label lblTitle;
     @FXML private Label lblUpperText;
-    @FXML private Label lblPriceFood;
     @FXML private Label lblPriceWheat;
     @FXML private Label lblPriceClothes;
     @FXML private Label lblPriceWine;
@@ -26,7 +27,6 @@ public class MarketController extends PlayerShipController implements Initializa
     @FXML private Label lblPriceDecorations;
     @FXML private Label lblPriceSilk;
     @FXML private Label lblPriceSpices;
-    @FXML private Button btnAddFood;
     @FXML private Button btnAddWheat;
     @FXML private Button btnAddClothes;
     @FXML private Button btnAddWine;
@@ -44,8 +44,6 @@ public class MarketController extends PlayerShipController implements Initializa
     private Image imgDecorations;
     private Image imgSilk;
     private Image imgSpices;
-
-    private Price price = getScene().getCURRENT_CITY().getPrices();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -86,7 +84,6 @@ public class MarketController extends PlayerShipController implements Initializa
     private void updateMarketView(){
         lblTitle.setText("Market");
         ivBackGround.setImage(getBackgroundImage());
-        btnAddFood.setGraphic(new ImageView(imgFood));
         btnAddWheat.setGraphic(new ImageView(imgWheat));
         btnAddClothes.setGraphic(new ImageView(imgClothes));
         btnAddWine.setGraphic(new ImageView(imgWine));
@@ -99,20 +96,35 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void updateLabels(){
-        lblPriceFood.setText("Food: " + price.getFood() + "gold");
-        lblPriceWheat.setText("Wheat: "+price.getWheat() + "gold");
-        lblPriceClothes.setText("Clothes: "+price.getClothes() + "gold");
-        lblPriceWine.setText("Wine: "+price.getWine() + "gold");
-        lblPriceMahogany.setText("Mahogany: "+price.getMahogany() + "gold");
-        lblPriceDecorations.setText("Decorations: "+price.getDecorations() + "gold");
-        lblPriceSilk.setText("Silk: "+price.getSilk() + "gold");
-        lblPriceSpices.setText("Spices: "+price.getSpices() + "gold");
+        lblPriceWheat.setText("Wheat: "+ priceOf(GoodName.WHEAT) + "gold");
+        lblPriceClothes.setText("Clothes: "+ priceOf(GoodName.CLOTHES) + "gold");
+        lblPriceWine.setText("Wine: "+ priceOf(GoodName.WINE) + "gold");
+        lblPriceMahogany.setText("Mahogany: "+ priceOf(GoodName.MAHOGANY) + "gold");
+        lblPriceDecorations.setText("Decorations: "+ priceOf(GoodName.DECORATIONS) + "gold");
+        lblPriceSilk.setText("Silk: "+ priceOf(GoodName.SILK) + "gold");
+        lblPriceSpices.setText("Spices: "+ priceOf(GoodName.SPICES) + "gold");
         lblUpperText.setText("Click good to buy it, to sell click equivalent in your ship");
+    }
+
+    private int priceOf(GoodName goodName){
+        List<Good> goodList = getScene().getCURRENT_CITY().getGoodList();
+        for (int i = 0; i < goodList.size(); i++) {
+            if (goodList.get(i).getName()==goodName){
+                return goodList.get(i).getPrice();
+            }
+        }
+        return 999;
     }
 
     private void buttonsRegister(){
 
         btnRegBack();
+    }
+
+    private void setBtnAddWheat(){
+        btnAddWheat.setOnMouseClicked(click->{
+            getScene().getShipFunctionality().buyGood(getPLAYER_SHIP(), new Good(GoodName.WHEAT));
+        });
     }
 
     private void btnRegBack(){

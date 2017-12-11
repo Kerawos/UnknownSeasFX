@@ -33,6 +33,7 @@ public interface ShipFunctionality {
     void updateManeuver(Ship PLYER0SHIP, Label lblPLayerManeuver);
     void updateHp(Ship PLAYER0SHIP, Label lblPlayerHp, ProgressBar pbShipHp);
     void takeDmg(Ship PLAYER0SHIP, int dmgTaken);
+    boolean canBuyGood(Ship PLAYER0SHIP, Good goodToBuy);
     void buyGood(Ship PLAYER0SHIP, Good goodToBuy);
     void sellGood(Ship PLAYER0SHIP, Good goodToSell);
 

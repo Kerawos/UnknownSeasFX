@@ -61,7 +61,7 @@ public class ShipManager implements ShipFunctionality {
             //System.out.println("tutaj powienien dodac pierwszy obrazaek");
             if (PLAYER0SHIP.getStorage().size()>0 ||
                     PLAYER0SHIP.getStorage().size()>i){
-                //System.out.println("z kolei tutaj jakbysmy mieli jakies dobra");
+                System.out.println("z kolei tutaj jakbysmy mieli jakies dobra");
                 /// TODO: 06.11.2017 adding proper good
             }
         }
@@ -195,6 +195,14 @@ public class ShipManager implements ShipFunctionality {
     @Override
     public void takeDmg(Ship PLAYER0SHIP, int dmgTaken) {
 
+    }
+
+    @Override
+    public boolean canBuyGood(Ship PLAYER0SHIP, Good goodToBuy) {
+        if (PLAYER0SHIP.getStorageCapacity()>PLAYER0SHIP.getStorage().size()){
+            return true;
+        }
+        return false;
     }
 
     @Override

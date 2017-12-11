@@ -83,7 +83,6 @@
       <ImageView fx:id="ivSail8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivSail9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivSail10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="btnAddFood" layoutX="40.0" layoutY="29.0" mnemonicParsing="false" />
       <Button fx:id="btnBack" layoutX="661.0" layoutY="368.0" mnemonicParsing="false" text="To City Centre">
          <font>
             <Font name="Segoe Print" size="12.0" />
@@ -103,11 +102,6 @@
       <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="592.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
-         </font>
-      </Label>
-      <Label fx:id="lblPriceFood" layoutX="44.0" layoutY="87.0" prefHeight="18.0" prefWidth="106.0" text="price" wrapText="true">
-         <font>
-            <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
       <Label fx:id="lblPlayerManeuver" layoutX="227.0" layoutY="617.0" prefHeight="22.0" prefWidth="37.0" text="manu" wrapText="true">
