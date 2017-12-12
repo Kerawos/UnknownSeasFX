@@ -38,15 +38,15 @@ public class CityManager implements CityFunctionality {
     @Override
     public void updateCityGoods(City city) {
         List<Good> goodList = new ArrayList<>();
-        int priceTemp = generateRandom(1, 5) + city.getWheatRequest();
+        int priceTemp = generateRandom(1, 3) + city.getWheatRequest();
         goodList.add(new Good(GoodName.WHEAT, priceTemp>0?priceTemp:1));
-        priceTemp = generateRandom(2, 6) + city.getClothesRequest();
+        priceTemp = generateRandom(2, 4) + city.getClothesRequest();
         goodList.add(new Good(GoodName.CLOTHES, priceTemp>0?priceTemp:1));
-        goodList.add(new Good(GoodName.WINE, generateRandom(3, 7) + city.getWineRequest()));
-        goodList.add(new Good(GoodName.MAHOGANY, generateRandom(4, 8) + city.getMahoganyRequest()));
-        goodList.add(new Good(GoodName.DECORATIONS, generateRandom(5, 9) + city.getDecorationsRequest()));
-        goodList.add(new Good(GoodName.SILK, generateRandom(6, 11) + city.getSilkRequest()));
-        goodList.add(new Good(GoodName.SPICES, generateRandom(7, 13) + city.getSpicesRequest()));
+        goodList.add(new Good(GoodName.WINE, generateRandom(3, 5) + city.getWineRequest()));
+        goodList.add(new Good(GoodName.MAHOGANY, generateRandom(4, 6) + city.getMahoganyRequest()));
+        goodList.add(new Good(GoodName.DECORATIONS, generateRandom(5, 7) + city.getDecorationsRequest()));
+        goodList.add(new Good(GoodName.SILK, generateRandom(6, 8) + city.getSilkRequest()));
+        goodList.add(new Good(GoodName.SPICES, generateRandom(7, 9) + city.getSpicesRequest()));
         city.setGoodList(goodList);
     }
 

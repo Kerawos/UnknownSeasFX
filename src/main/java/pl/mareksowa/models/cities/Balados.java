@@ -12,10 +12,10 @@ public class Balados extends City {
         setCannonRequest(0);
         setWheatRequest(0);
         setClothesRequest(0);
-        setWineRequest(2);
+        setWineRequest(1);
         setMahoganyRequest(0);
         setDecorationsRequest(0);
-        setSilkRequest(2);
+        setSilkRequest(1);
         setSpicesRequest(0);
         setSlaveRequest(0);
     }

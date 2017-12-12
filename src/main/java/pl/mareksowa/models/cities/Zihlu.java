@@ -13,12 +13,12 @@ public class Zihlu extends City {
         setSailRequest(0);
         setCannonRequest(0);
         setWheatRequest(0);
-        setClothesRequest(2);
+        setClothesRequest(1);
         setWineRequest(0);
-        setMahoganyRequest(2);
+        setMahoganyRequest(1);
         setDecorationsRequest(0);
         setSilkRequest(0);
-        setSpicesRequest(-3);
+        setSpicesRequest(-1);
         setSlaveRequest(0);
     }
 }

@@ -14,7 +14,7 @@ public class MilaDoce extends City {
         setClothesRequest(-1);
         setWineRequest(0);
         setMahoganyRequest(0);
-        setDecorationsRequest(-2);
+        setDecorationsRequest(-1);
         setSilkRequest(0);
         setSpicesRequest(0);
         setSlaveRequest(0);

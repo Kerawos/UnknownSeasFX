@@ -15,10 +15,10 @@ public class Masumba extends City {
         setWheatRequest(1);
         setClothesRequest(0);
         setWineRequest(0);
-        setMahoganyRequest(-2);
+        setMahoganyRequest(-1);
         setDecorationsRequest(0);
         setSilkRequest(0);
         setSpicesRequest(0);
-        setSlaveRequest(2);
+        setSlaveRequest(1);
     }
 }

@@ -20,7 +20,7 @@ public class Centeros extends City {
         setClothesRequest(0);
         setWineRequest(-1);
         setMahoganyRequest(0);
-        setDecorationsRequest(2);
+        setDecorationsRequest(1);
         setSilkRequest(0);
         setSpicesRequest(0);
         setSlaveRequest(-10);

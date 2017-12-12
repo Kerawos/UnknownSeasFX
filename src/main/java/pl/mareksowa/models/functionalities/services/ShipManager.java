@@ -236,18 +236,15 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void buyGood(Ship PLAYER0SHIP, Good goodToBuy) {
-        System.out.println("gold: " + PLAYER0SHIP.getGold());
-        System.out.println("towar: " + goodToBuy.getPrice());
         PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - goodToBuy.getPrice());
         PLAYER0SHIP.getStorage().add(goodToBuy);
-        System.out.println("gold: " + PLAYER0SHIP.getGold());
     }
 
     @Override
-    public boolean canSellGood(Ship PLAYER0SHIP, Good goodToSell) {
+    public boolean canSellGood(Ship PLAYER0SHIP, int storageListNo) {
         if (PLAYER0SHIP.getStorage().size()>0){
             for (int i = 0; i < PLAYER0SHIP.getStorage().size(); i++) {
-                if (PLAYER0SHIP.getStorage().get(i).getName()==goodToSell.getName()){
+                if (PLAYER0SHIP.getStorage().get(i).getName()==PLAYER0SHIP.getStorage().get(storageListNo).getName()){
                     return true;
                 }
             }

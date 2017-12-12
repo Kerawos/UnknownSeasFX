@@ -14,11 +14,11 @@ public class GothShai extends City {
         setCannonRequest(0);
         setWheatRequest(0);
         setClothesRequest(0);
-        setWineRequest(2);
+        setWineRequest(1);
         setMahoganyRequest(0);
-        setDecorationsRequest(2);
-        setSilkRequest(-2);
-        setSpicesRequest(3);
+        setDecorationsRequest(1);
+        setSilkRequest(-1);
+        setSpicesRequest(1);
         setSlaveRequest(1);
     }
 }

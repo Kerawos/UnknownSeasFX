@@ -141,9 +141,10 @@ public class MarketController extends PlayerShipController implements Initializa
         }
     }
 
-    private void sellGood(Ship playerShip, Good good){
-        if (getScene().getShipFunctionality().canSellGood(playerShip, good)){
-            getScene().getShipFunctionality().sellGood(playerShip, good, cityManager.getCitySellPrice(good));
+    private void sellGood(Ship playerShip, int storageListNo){
+        if (getScene().getShipFunctionality().canSellGood(playerShip, storageListNo)){
+            getScene().getShipFunctionality().sellGood(playerShip, getPLAYER_SHIP().getStorage().get(storageListNo),
+                    cityManager.getCitySellPrice(getPLAYER_SHIP().getStorage().get(storageListNo)));
             updateScene();
         }
     }
@@ -177,44 +178,45 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void setIvStorage1(){
-        getIvStorage1().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(0)));
+        getIvStorage1().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 0));
     }
 
     private void setIvStorage2(){
-        getIvStorage2().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(1)));
+        getIvStorage2().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 1));
     }
 
     private void setIvStorage3(){
-        getIvStorage3().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(2)));
+        getIvStorage3().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 2));
     }
 
     private void setIvStorage4(){
-        getIvStorage4().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(3)));
+        getIvStorage4().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 3));
     }
 
     private void setIvStorage5(){
-        getIvStorage5().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(4)));
+        getIvStorage5().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 4));
     }
 
     private void setIvStorage6(){
-        getIvStorage6().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(5)));
+        getIvStorage6().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 5));
     }
 
     private void setIvStorage7(){
-        getIvStorage7().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(6)));
+        getIvStorage7().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 6));
     }
 
     private void setIvStorage8(){
-        getIvStorage8().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(7)));
+        getIvStorage8().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 7));
     }
 
     private void setIvStorage9(){
-        getIvStorage9().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(8)));
+        getIvStorage9().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 8));
     }
 
     private void setIvStorage10(){
-        getIvStorage10().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), getPLAYER_SHIP().getStorage().get(9)));
+        getIvStorage10().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 9));
     }
+
 
 
     private void btnRegBack(){
