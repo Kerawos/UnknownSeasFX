@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.sails.*;
+import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -210,6 +211,16 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRegAddSailPirate();
         btnRegAddSailSharp();
         btnRegAddSailBig();
+        btnRegSail1();
+        btnRegSail2();
+        btnRegSail3();
+        btnRegSail4();
+        btnRegSail5();
+        btnRegSail6();
+        btnRegSail7();
+        btnRegSail8();
+        btnRegSail9();
+        btnRegSail10();
     }
 
     /**
@@ -297,63 +308,31 @@ public class DockyardController extends PlayerShipController implements Initiali
      * Responsible for ship repair instead of gold
      */
     private void btnRegRepair1(){
-        btnRepair1.setOnMouseClicked(e->{
-            if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance()){
-                if (getPLAYER_SHIP().getGold() >= 1){
-                    getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-1);
-                    getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + 1);
-                    updatePlayerShip(getPLAYER_SHIP());
-                    updateScene();
-                } else {
-                    lblUpperText.setText("You haven't enough gold to repair..");
-                }
-            } else {
-
-                lblUpperText.setText("There is nothing to repair..");
-            }
-        });
+        btnRepair1.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(), 1));
     }
 
     /**
      * Responsible for ship repair instead of gold
      */
     private void btnRegRepair2(){
-        btnRepair2.setOnMouseClicked(e->{
-            if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance() - 5){
-                if (getPLAYER_SHIP().getGold() >= 5){
-                    getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-5);
-                    getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + 5);
-                    updatePlayerShip(getPLAYER_SHIP());
-                    updateScene();
-                } else {
-                    lblUpperText.setText("You haven't enough gold to repair 5 points ..");
-                }
-            } else {
-                lblUpperText.setText("You cannot repair so much..");
-            }
-        });
+        btnRepair2.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(), 5));
     }
 
     /**
      * Responsible for ship total repair instead of gold
      */
     private void btnRegRepair3(){
-        btnRepair3.setOnMouseClicked(e->{
-            int toRepair = getPLAYER_SHIP().getEndurance() - getPLAYER_SHIP().getCurrentEndurance();
-            if (getPLAYER_SHIP().getCurrentEndurance() < getPLAYER_SHIP().getEndurance()){
-                if (getPLAYER_SHIP().getGold() >= toRepair){
-                    getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()-toRepair);
-                    getPLAYER_SHIP().setCurrentEndurance(getPLAYER_SHIP().getCurrentEndurance() + toRepair);
-                    updatePlayerShip(getPLAYER_SHIP());
-                    updateScene();
-                } else {
-                    lblUpperText.setText("You haven't enough gold to repair " + toRepair + " points" );
-                }
-            } else {
-                lblUpperText.setText("There is nothing to repair..");
-            }
-        });
+        btnRepair3.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(),
+                getPLAYER_SHIP().getEndurance() - getPLAYER_SHIP().getCurrentEndurance()));
     }
+
+    private void repairShip(Ship playerShip, int toRepair){
+        if (getShipFun().canRepair(playerShip, toRepair, lblUpperText)){
+            getShipFun().repair(playerShip, toRepair);
+            updateScene();
+        }
+    }
+
 
     private void addNewSail(Sail sailToAdd){
        if (getShipFun().canBuySail(getPLAYER_SHIP(), sailToAdd, lblUpperText)){
@@ -361,6 +340,54 @@ public class DockyardController extends PlayerShipController implements Initiali
            updateScene();
        }
     }
+
+    private void sellSail(Ship playerShip, int sailListNo){
+        if (getScene().getShipFunctionality().canSellSail(playerShip, sailListNo)){
+            getScene().getShipFunctionality().sellSail(playerShip, getPLAYER_SHIP().getSailList().get(sailListNo));
+            updateScene();
+        }
+    }
+
+    private void btnRegSail1(){
+        getIvSail1().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 0));
+    }
+
+    private void btnRegSail2(){
+        getIvSail2().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 1));
+    }
+
+    private void btnRegSail3(){
+        getIvSail3().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 2));
+    }
+
+    private void btnRegSail4(){
+        getIvSail4().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 3));
+    }
+
+    private void btnRegSail5(){
+        getIvSail5().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 4));
+    }
+
+    private void btnRegSail6(){
+        getIvSail6().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 5));
+    }
+
+    private void btnRegSail7(){
+        getIvSail7().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 6));
+    }
+
+    private void btnRegSail8(){
+        getIvSail8().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 7));
+    }
+
+    private void btnRegSail9(){
+        getIvSail9().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 8));
+    }
+
+    private void btnRegSail10(){
+        getIvSail10().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 9));
+    }
+
 
 
 

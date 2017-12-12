@@ -24,7 +24,7 @@ public interface ShipFunctionality {
     void updateCrew(Ship PLAYER0SHIP, ImageView ... crews);
     boolean canBuySail(Ship PLAYER0SHIP, Sail sailToBuy, Label lblUpperText);
     void buySail(Ship PLAYER0SHIP, Sail sailToBuy);
-    boolean canSellSail(Ship PLAYER0SHIP, Sail sailToSell);
+    boolean canSellSail(Ship PLAYER0SHIP, int sailsListNo);
     void sellSail(Ship PLAYER0SHIP, Sail sailToSell);
     void updateSail(Ship PLAYER0SHIP, ImageView ... sails);
     void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold);
@@ -40,5 +40,7 @@ public interface ShipFunctionality {
     void buyGood(Ship PLAYER0SHIP, Good goodToBuy);
     boolean canSellGood(Ship PLAYER0SHIP, int storageListNo);
     void sellGood(Ship PLAYER0SHIP, Good goodToSell, int sellPrice);
+    boolean canRepair(Ship PLAYER0SHIP, int toRepair, Label lblUpperText);
+    void repair(Ship PLAYER0SHIP, int toRepair);
 
 }

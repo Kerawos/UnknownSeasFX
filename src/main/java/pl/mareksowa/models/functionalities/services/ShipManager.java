@@ -162,13 +162,30 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
-    public boolean canSellSail(Ship PLAYER0SHIP, Sail sailToSell) {
+    public boolean canSellSail(Ship PLAYER0SHIP, int sailsListNo) {
+        if (PLAYER0SHIP.getSailList().size()>0){
+            String givenSailName = PLAYER0SHIP.getSailList().get(sailsListNo).getClass().getName();
+            givenSailName = givenSailName.substring(givenSailName.lastIndexOf(".")+1, givenSailName.length());
+            for (int i = 0; i < PLAYER0SHIP.getSailList().size(); i++) {
+                String currentSailName = PLAYER0SHIP.getSailList().get(i).getClass().getName();
+                currentSailName = currentSailName.substring(currentSailName.lastIndexOf(".")+1, currentSailName.length());
+                if (currentSailName.equals(givenSailName)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public void sellSail(Ship PLAYER0SHIP, Sail sailToSell) {
-
+        for (int i = 0; i < PLAYER0SHIP.getSailList().size(); i++) {
+            if (PLAYER0SHIP.getSailList().get(i).equals(sailToSell)){
+                PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() + sailToSell.getPrice());
+                PLAYER0SHIP.getSailList().remove(i);
+                break;
+            }
+        }
     }
 
     @Override
@@ -200,6 +217,27 @@ public class ShipManager implements ShipFunctionality {
             }
         }
 
+    }
+
+    @Override
+    public boolean canRepair(Ship PLAYER0SHIP, int toRepair, Label lblUpperText) {
+        if (PLAYER0SHIP.getCurrentEndurance() < PLAYER0SHIP.getEndurance()){
+            if (PLAYER0SHIP.getGold() >= toRepair){
+                return true;
+            } else {
+                lblUpperText.setText("You haven't enough gold to repair " + toRepair + " points" );
+                return false;
+            }
+        } else {
+            lblUpperText.setText("There is nothing to repair..");
+            return false;
+        }
+    }
+
+    @Override
+    public void repair(Ship PLAYER0SHIP, int toRepair) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - toRepair);
+        PLAYER0SHIP.setCurrentEndurance(PLAYER0SHIP.getCurrentEndurance() + toRepair);
     }
 
     @Override
