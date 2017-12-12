@@ -19,10 +19,16 @@ public interface ShipFunctionality {
     boolean canBuyStorage(Ship PLAYER0SHIP, Label lblUpperText);
     void addStorage(Ship PLAYER0SHIP);
     void updateStorage(Ship PLAYER0SHIP, ImageView... storages );
+    boolean canBuyCannonSpace(Ship PLAYER0SHIP, Label lblUpperText);
+    void addCannonSpace(Ship PLAYER0SHIP);
     void addCannon(Ship PLAYER0SHIP, Cannon cannonToAdd);
     void updateCannon(Ship PLAYER0SHIP, ImageView ... cannons);
+    boolean canBuyCabin(Ship PLAYER0SHIP, Label lblUpperText);
+    void addCabin(Ship PLAYER0SHIP);
     void addCrew(Ship PLAYER0SHIP, Crew crewToAdd);
     void updateCrew(Ship PLAYER0SHIP, ImageView ... crews);
+    boolean canBuySailSpace(Ship PLAYER0SHIP, Label lblUpperText);
+    void addSailSpace(Ship PLAYER0SHIP);
     boolean canBuySail(Ship PLAYER0SHIP, Sail sailToBuy, Label lblUpperText);
     void buySail(Ship PLAYER0SHIP, Sail sailToBuy);
     boolean canSellSail(Ship PLAYER0SHIP, int sailsListNo);

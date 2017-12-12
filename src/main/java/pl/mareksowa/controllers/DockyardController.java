@@ -237,47 +237,36 @@ public class DockyardController extends PlayerShipController implements Initiali
      * Responsible for add new empty storage space to player ship instead of gold
      */
     private void btnRegAddStorageSpace(){
-        btnAddStorageSpace.setOnMouseClicked(click->addStorage(getPLAYER_SHIP()));
+        btnAddStorageSpace.setOnMouseClicked(click->{
+            if (getShipFun().canBuyStorage(getPLAYER_SHIP(), lblUpperText)){
+                getShipFun().addStorage(getPLAYER_SHIP());
+                updateScene();
+            }
+        });
     }
 
-    private void addStorage(Ship playerShip){
-        if (getShipFun().canBuyStorage(playerShip, lblUpperText)){
-            getShipFun().addStorage(playerShip);
-            updateScene();
-        }
-    }
 
     /**
      * Responsible for add new empty cabin space to player ship instead of gold
      */
     private void btnRegAddCabin(){
         btnAddCabin.setOnMouseClicked(e->{
-            int cabinPrice = getPLAYER_SHIP().getCabinCapacity() * getPLAYER_SHIP().getCabinCapacity()
-                    + getPLAYER_SHIP().getCabinCapacity()+1;
-            if (getPLAYER_SHIP().getGold()>= cabinPrice){
-                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- cabinPrice);
-                getPLAYER_SHIP().setCabinCapacity(getPLAYER_SHIP().getCabinCapacity()+1);
+            if (getShipFun().canBuyCabin(getPLAYER_SHIP(), lblUpperText)){
+                getShipFun().addCabin(getPLAYER_SHIP());
                 updateScene();
-            } else {
-                lblUpperText.setText("You don't have enough gold..");
             }
         });
     }
+
 
     /**
      * Responsible for add new empty sail place to player ship instead of gold
      */
     private void btnRegAddSailSpace(){
         btnAddSailSpace.setOnMouseClicked(e->{
-            int sailPrice = getPLAYER_SHIP().getSailCapacity()
-                    * getPLAYER_SHIP().getSailCapacity() + getPLAYER_SHIP().getSailCapacity()+10;
-
-            if (getPLAYER_SHIP().getGold()>= sailPrice){
-                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
-                getPLAYER_SHIP().setSailCapacity(getPLAYER_SHIP().getSailCapacity() + 1);
+            if (getShipFun().canBuySailSpace(getPLAYER_SHIP(), lblUpperText)){
+                getShipFun().addSailSpace(getPLAYER_SHIP());
                 updateScene();
-            } else {
-                lblUpperText.setText("You don't have enough gold..");
             }
         });
     }
@@ -287,15 +276,9 @@ public class DockyardController extends PlayerShipController implements Initiali
      */
     private void btnRegAddCannonSpace(){
         btnAddCannonSpace.setOnMouseClicked(e->{
-            int cannonPrice = getPLAYER_SHIP().getCannonCapacity() * getPLAYER_SHIP().getCannonCapacity()
-                    + getPLAYER_SHIP().getCannonCapacity()+5;
-
-            if (getPLAYER_SHIP().getGold()>= cannonPrice){
-                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- cannonPrice);
-                getPLAYER_SHIP().setCannonCapacity(getPLAYER_SHIP().getCannonCapacity() + 1);
+            if (getShipFun().canBuyCannonSpace(getPLAYER_SHIP(), lblUpperText)){
+                getShipFun().addCannonSpace(getPLAYER_SHIP());
                 updateScene();
-            } else {
-                lblUpperText.setText("You don't have enough gold..");
             }
         });
     }

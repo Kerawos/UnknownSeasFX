@@ -111,6 +111,25 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
+    public boolean canBuyCannonSpace(Ship PLAYER0SHIP, Label lblUpperText) {
+        int cannonPrice = PLAYER0SHIP.getCannonCapacity() * PLAYER0SHIP.getCannonCapacity()
+                + PLAYER0SHIP.getCannonCapacity()+5;
+        if (PLAYER0SHIP.getGold()>= cannonPrice){
+            return true;
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
+    }
+
+    @Override
+    public void addCannonSpace(Ship PLAYER0SHIP) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold()- PLAYER0SHIP.getCannonCapacity() * PLAYER0SHIP.getCannonCapacity()
+                + PLAYER0SHIP.getCannonCapacity()+5);
+        PLAYER0SHIP.setCannonCapacity(PLAYER0SHIP.getCannonCapacity() + 1);
+    }
+
+    @Override
     public void addCannon(Ship PLAYER0SHIP, Cannon cannonToAdd) {
 
     }
@@ -132,6 +151,25 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
+    public boolean canBuyCabin(Ship PLAYER0SHIP, Label lblUpperText) {
+        int cabinPrice = PLAYER0SHIP.getCabinCapacity() * PLAYER0SHIP.getCabinCapacity()
+                + PLAYER0SHIP.getCabinCapacity()+1;
+        if (PLAYER0SHIP.getGold()>= cabinPrice){
+           return true;
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
+    }
+
+    @Override
+    public void addCabin(Ship PLAYER0SHIP) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold()- PLAYER0SHIP.getCabinCapacity() * PLAYER0SHIP.getCabinCapacity()
+                + PLAYER0SHIP.getCabinCapacity()+1);
+        PLAYER0SHIP.setCabinCapacity(PLAYER0SHIP.getCabinCapacity()+1);
+    }
+
+    @Override
     public void addCrew(Ship PLAYER0SHIP, Crew crewToAdd) {
 
     }
@@ -150,6 +188,25 @@ public class ShipManager implements ShipFunctionality {
             }
         }
         /// TODO: 06.11.2017
+    }
+
+    @Override
+    public boolean canBuySailSpace(Ship PLAYER0SHIP, Label lblUpperText) {
+        int sailPrice = PLAYER0SHIP.getSailCapacity()
+                * PLAYER0SHIP.getSailCapacity() + PLAYER0SHIP.getSailCapacity()+10;
+        if (PLAYER0SHIP.getGold()>= sailPrice){
+            return true;
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
+    }
+
+    @Override
+    public void addSailSpace(Ship PLAYER0SHIP) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - PLAYER0SHIP.getSailCapacity()
+                * PLAYER0SHIP.getSailCapacity() + PLAYER0SHIP.getSailCapacity()+10);
+        PLAYER0SHIP.setSailCapacity(PLAYER0SHIP.getSailCapacity() + 1);
     }
 
     @Override
