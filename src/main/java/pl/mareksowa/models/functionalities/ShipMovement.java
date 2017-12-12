@@ -26,4 +26,7 @@ public interface ShipMovement {
     ShipPosition getPositionField17();
     boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination);
     boolean isEnterCityAllowed(ShipPosition currentPosition, ShipPosition cityToEnterPosition);
+    boolean canShipMove(Ship PLAYER_SHIP, int moveToPerform);
+    void updateShipMove(Ship PLAYER_SHIP, int moveToPerform);
+    void refreshShipMove(Ship PLAYER_SHIP);
 }

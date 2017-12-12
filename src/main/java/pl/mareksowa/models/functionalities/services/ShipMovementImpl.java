@@ -2,6 +2,7 @@ package pl.mareksowa.models.functionalities.services;
 
 import javafx.scene.image.ImageView;
 import pl.mareksowa.models.functionalities.ShipMovement;
+import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
 
@@ -196,6 +197,28 @@ public class ShipMovementImpl implements ShipMovement {
         return fields;
     }
 
+    @Override
+    public boolean canShipMove(Ship PLAYER_SHIP, int moveToPerform) {
+        if (PLAYER_SHIP.getMovePossibility()>=moveToPerform){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void updateShipMove(Ship PLAYER_SHIP, int moveToPerform) {
+        PLAYER_SHIP.setMovePossibility(PLAYER_SHIP.getMovePossibility() - moveToPerform);
+    }
+
+    @Override
+    public void refreshShipMove(Ship PLAYER_SHIP) {
+        int move = 0;
+        for (Sail sail : PLAYER_SHIP.getSailList()) {
+            move+=sail.getSpeed();
+        }
+        PLAYER_SHIP.setMovePossibility(move>0?1:move);
+    }
+
 
     public ShipPosition getCurrentPosition() {
         return currentPosition;
@@ -204,6 +227,7 @@ public class ShipMovementImpl implements ShipMovement {
     public void setCurrentPosition(ShipPosition currentPosition) {
         this.currentPosition = currentPosition;
     }
+
 
 
 }

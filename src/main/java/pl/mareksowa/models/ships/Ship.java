@@ -28,6 +28,7 @@ public class Ship {
     private int ammo;
     private ShipAchievement achievement;
     private ShipPosition shipPosition;
+    private int movePossibility;
 
     /**
      * Constructor of Class
@@ -171,6 +172,14 @@ public class Ship {
 
     public void setShipPosition(ShipPosition shipPosition) {
         this.shipPosition = shipPosition;
+    }
+
+    public int getMovePossibility() {
+        return movePossibility;
+    }
+
+    public void setMovePossibility(int movePossibility) {
+        this.movePossibility = movePossibility;
     }
 
     /**
