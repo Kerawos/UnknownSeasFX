@@ -16,6 +16,7 @@ public interface ShipFunctionality {
     List<Ship> getAllShips();
     void addShip(Ship shipToAdd);
     void removeShip(Ship shipToRemove);
+    boolean canBuyStorage(Ship PLAYER0SHIP, Label lblUpperText);
     void addStorage(Ship PLAYER0SHIP);
     void updateStorage(Ship PLAYER0SHIP, ImageView... storages );
     void addCannon(Ship PLAYER0SHIP, Cannon cannonToAdd);

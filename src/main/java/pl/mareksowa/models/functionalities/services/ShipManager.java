@@ -49,7 +49,22 @@ public class ShipManager implements ShipFunctionality {
 
     @Override
     public void addStorage(Ship PLAYER0SHIP) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold()- PLAYER0SHIP.getStorageCapacity() * PLAYER0SHIP.getStorageCapacity()
+                + PLAYER0SHIP.getStorageCapacity());
+        PLAYER0SHIP.setStorageCapacity(PLAYER0SHIP.getStorageCapacity()+1);
 
+    }
+
+    @Override
+    public boolean canBuyStorage(Ship PLAYER0SHIP,  Label lblUpperText) {
+        int storagePrice = PLAYER0SHIP.getStorageCapacity() * PLAYER0SHIP.getStorageCapacity()
+                + PLAYER0SHIP.getStorageCapacity();
+        if (PLAYER0SHIP.getGold()>= storagePrice){
+            return true;
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
     }
 
     @Override

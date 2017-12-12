@@ -237,18 +237,14 @@ public class DockyardController extends PlayerShipController implements Initiali
      * Responsible for add new empty storage space to player ship instead of gold
      */
     private void btnRegAddStorageSpace(){
-        btnAddStorageSpace.setOnMouseClicked(e->{
-            int storagePrice = getPLAYER_SHIP().getStorageCapacity() * getPLAYER_SHIP().getStorageCapacity()
-                    + getPLAYER_SHIP().getStorageCapacity();
-            if (getPLAYER_SHIP().getGold()>= storagePrice){
-                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- storagePrice);
-                getPLAYER_SHIP().setStorageCapacity(getPLAYER_SHIP().getStorageCapacity()+1);
-                updateScene();
-            } else {
-                lblUpperText.setText("You don't have enough gold..");
-            }
+        btnAddStorageSpace.setOnMouseClicked(click->addStorage(getPLAYER_SHIP()));
+    }
 
-        });
+    private void addStorage(Ship playerShip){
+        if (getShipFun().canBuyStorage(playerShip, lblUpperText)){
+            getShipFun().addStorage(playerShip);
+            updateScene();
+        }
     }
 
     /**
