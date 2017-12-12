@@ -6,6 +6,7 @@ package pl.mareksowa.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -46,6 +47,7 @@ public class MapController extends PlayerShipController implements Initializable
     @FXML private ImageView ivField17Zihlu;
     @FXML private Button btnMainMenu;
     @FXML private Button btnMapInfo;
+    @FXML private Label lblGameTime;
 
 
     private Image bgPlayerShipOnMap;
@@ -100,6 +102,7 @@ public class MapController extends PlayerShipController implements Initializable
         ivBackGround.setImage(bgMapImage);
         updateFieldIndicatorView();
         updateShipBackgroundView();
+        lblGameTime.setText(String.valueOf(getScene().getGameTime()));
 
     }
 

@@ -367,9 +367,6 @@ public class DockyardController extends PlayerShipController implements Initiali
         getIvSail10().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 9));
     }
 
-
-
-
     private void btnRegAddSailSmall(){
         btnAddSail1.setOnMouseClicked(click-> addNewSail(new SailSmall()));
     }

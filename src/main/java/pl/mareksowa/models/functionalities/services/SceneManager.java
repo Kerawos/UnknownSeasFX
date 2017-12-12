@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.CityName;
@@ -34,6 +35,7 @@ public class SceneManager {
     private ShipMovement shipMovement;
     private CityFunctionality cityFunctionality;
     private SceneNameEquivalent sceneNameEquivalent;
+    private GameTime gameTime;
 
     /**
      * Managers already set
@@ -43,6 +45,7 @@ public class SceneManager {
         setShipMovement(new ShipMovementImpl());
         setCityFunctionality(new CityManager());
         sceneNameEquivalent = new SceneNameEquivalent();
+        gameTime = new GameTime();
     }
 
     /**
@@ -161,5 +164,13 @@ public class SceneManager {
 
     public void setCityFunctionality(CityFunctionality cityFunctionality) {
         this.cityFunctionality = cityFunctionality;
+    }
+
+    public GameTime getGameTime() {
+        return gameTime;
+    }
+
+    public void setGameTime(GameTime gameTime) {
+        this.gameTime = gameTime;
     }
 }
