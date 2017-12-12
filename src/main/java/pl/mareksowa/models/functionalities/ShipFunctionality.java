@@ -22,7 +22,10 @@ public interface ShipFunctionality {
     void updateCannon(Ship PLAYER0SHIP, ImageView ... cannons);
     void addCrew(Ship PLAYER0SHIP, Crew crewToAdd);
     void updateCrew(Ship PLAYER0SHIP, ImageView ... crews);
-    void addSail(Ship PLAYER0SHIP, Sail sailToAdd);
+    boolean canBuySail(Ship PLAYER0SHIP, Sail sailToBuy, Label lblUpperText);
+    void buySail(Ship PLAYER0SHIP, Sail sailToBuy);
+    boolean canSellSail(Ship PLAYER0SHIP, Sail sailToSell);
+    void sellSail(Ship PLAYER0SHIP, Sail sailToSell);
     void updateSail(Ship PLAYER0SHIP, ImageView ... sails);
     void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold);
     void updateFood(Ship PLAYER0SHIP, Label lblPlayerFood);

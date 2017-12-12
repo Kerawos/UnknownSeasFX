@@ -356,20 +356,13 @@ public class DockyardController extends PlayerShipController implements Initiali
     }
 
     private void addNewSail(Sail sailToAdd){
-        int sailPrice = sailToAdd.getPrice();
-
-        if (getPLAYER_SHIP().getGold()>= sailPrice){
-            if (getPLAYER_SHIP().getSailCapacity() > getPLAYER_SHIP().getSailList().size()){
-                getPLAYER_SHIP().setGold(getPLAYER_SHIP().getGold()- sailPrice);
-                getShipFun().addSail(getPLAYER_SHIP(), sailToAdd);
-                updateScene();
-            }else {
-                lblUpperText.setText("You don't have enough space..");
-            }
-        } else {
-            lblUpperText.setText("You don't have enough gold..");
-        }
+       if (getShipFun().canBuySail(getPLAYER_SHIP(), sailToAdd, lblUpperText)){
+           getShipFun().buySail(getPLAYER_SHIP(), sailToAdd);
+           updateScene();
+       }
     }
+
+
 
     private void btnRegAddSailSmall(){
         btnAddSail1.setOnMouseClicked(click-> addNewSail(new SailSmall()));

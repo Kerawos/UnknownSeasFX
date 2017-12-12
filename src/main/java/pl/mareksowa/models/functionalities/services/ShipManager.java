@@ -138,12 +138,37 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
-    public void addSail(Ship PLAYER0SHIP, Sail sailToAdd) {
-        List<Sail> sailList = new ArrayList<>();
+    public void buySail(Ship PLAYER0SHIP, Sail sailToBuy) {
+        PLAYER0SHIP.getSailList().add(sailToBuy);
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold()- sailToBuy.getPrice());
+    }
+
+    @Override
+    public boolean canBuySail(Ship PLAYER0SHIP, Sail sailToBuy, Label lblUpperText) {
         if (PLAYER0SHIP.getSailList()==null){
-            PLAYER0SHIP.setSailList(sailList);
+            PLAYER0SHIP.setSailList(new ArrayList<>());
         }
-        PLAYER0SHIP.getSailList().add(sailToAdd);
+        if (PLAYER0SHIP.getGold()>= sailToBuy.getPrice()){
+            if (PLAYER0SHIP.getSailCapacity() > PLAYER0SHIP.getSailList().size()){
+                return true;
+            }else {
+                lblUpperText.setText("You don't have enough space..");
+                return false;
+            }
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
+    }
+
+    @Override
+    public boolean canSellSail(Ship PLAYER0SHIP, Sail sailToSell) {
+        return false;
+    }
+
+    @Override
+    public void sellSail(Ship PLAYER0SHIP, Sail sailToSell) {
+
     }
 
     @Override
