@@ -36,6 +36,7 @@ public class SceneManager {
     private CityFunctionality cityFunctionality;
     private SceneNameEquivalent sceneNameEquivalent;
     private GameTime gameTime;
+    private int lastDayInVisitedCity;
 
     /**
      * Managers already set
@@ -170,7 +171,15 @@ public class SceneManager {
         return gameTime;
     }
 
-    public void setGameTime(GameTime gameTime) {
-        this.gameTime = gameTime;
+    public void setGameTime(int dayToAdd) {
+        this.gameTime.setDay(this.gameTime.getDay() + dayToAdd);
+    }
+
+    public int getLastDayInVisitedCity() {
+        return lastDayInVisitedCity;
+    }
+
+    public void setLastDayInVisitedCity(int lastDayInVisitedCity) {
+        this.lastDayInVisitedCity = lastDayInVisitedCity;
     }
 }

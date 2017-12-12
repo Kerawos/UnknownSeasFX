@@ -198,8 +198,14 @@ public class ShipMovementImpl implements ShipMovement {
     }
 
     @Override
+    public int getRemainShipMove(Ship PLAYER_SHIP) {
+        //return PLAYER_SHIP.getMovePossibility()>0?PLAYER_SHIP.getMovePossibility():1;
+        return PLAYER_SHIP.getMovePossibility();
+    }
+
+    @Override
     public boolean canShipMove(Ship PLAYER_SHIP, int moveToPerform) {
-        if (PLAYER_SHIP.getMovePossibility()>=moveToPerform){
+        if (getRemainShipMove(PLAYER_SHIP)>=moveToPerform){
             return true;
         }
         return false;
@@ -216,7 +222,7 @@ public class ShipMovementImpl implements ShipMovement {
         for (Sail sail : PLAYER_SHIP.getSailList()) {
             move+=sail.getSpeed();
         }
-        PLAYER_SHIP.setMovePossibility(move>0?1:move);
+        PLAYER_SHIP.setMovePossibility((move/10)>0?(move/10):1);
     }
 
 

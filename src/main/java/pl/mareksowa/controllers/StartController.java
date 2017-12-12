@@ -64,6 +64,7 @@ public class StartController implements Initializable{
     private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
             //scene.setCURRENT_CITY(CityName.CENTEROS);
+            scene.getShipMovement().refreshShipMove(scene.getPLAYER_SHIP());
             Stage worldMap = (Stage) btnBeginNewJourney.getScene().getWindow();
             scene.sceneChange(worldMap, scene.sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });

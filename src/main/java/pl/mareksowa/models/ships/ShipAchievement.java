@@ -3,10 +3,10 @@ package pl.mareksowa.models.ships;
 public class ShipAchievement {
 
     private boolean firstTimeInGame;
-    private boolean firstTimeInWorldMap;
+    private boolean firstTimeInWorldMap = false;
     private boolean firstTimeInCity;
     private boolean firstTimeInMarket;
-    private boolean firstTimeInStorage;
+    private boolean firstTimeInArmory;
     private boolean firstTimeInTavern;
     private boolean firstTimeInDockyard;
     private boolean firstTimeInBattle;
@@ -47,12 +47,12 @@ public class ShipAchievement {
         this.firstTimeInMarket = firstTimeInMarket;
     }
 
-    public boolean isFirstTimeInStorage() {
-        return firstTimeInStorage;
+    public boolean isFirstTimeInArmory() {
+        return firstTimeInArmory;
     }
 
-    public void setFirstTimeInStorage(boolean firstTimeInStorage) {
-        this.firstTimeInStorage = firstTimeInStorage;
+    public void setFirstTimeInArmory(boolean firstTimeInArmory) {
+        this.firstTimeInArmory = firstTimeInArmory;
     }
 
     public boolean isFirstTimeInTavern() {

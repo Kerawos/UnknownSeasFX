@@ -48,6 +48,7 @@ public class MapController extends PlayerShipController implements Initializable
     @FXML private Button btnMainMenu;
     @FXML private Button btnMapInfo;
     @FXML private Label lblGameTime;
+    @FXML private Label lblMovePoints;
 
 
     private Image bgPlayerShipOnMap;
@@ -74,7 +75,7 @@ public class MapController extends PlayerShipController implements Initializable
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
+        if (!getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
             //todo show info about world map
             System.out.println("show info about world map");
             getPLAYER_SHIP().getAchievement().setFirstTimeInWorldMap(true);
@@ -88,7 +89,16 @@ public class MapController extends PlayerShipController implements Initializable
         updateAllViews();
         updatePlayerShip(getPLAYER_SHIP());
         updatePlayerShipPosition();
+        checkEncounter();
+    }
 
+    private void checkEncounter(){
+        if (move.getRemainShipMove(getPLAYER_SHIP())<1){
+            System.out.println("spotkanie losowe na morzu");
+            getScene().setGameTime(+1);
+            move.refreshShipMove(getPLAYER_SHIP());
+            updateScene();
+        }
     }
 
     private void disableAllViews(){
@@ -102,8 +112,14 @@ public class MapController extends PlayerShipController implements Initializable
         ivBackGround.setImage(bgMapImage);
         updateFieldIndicatorView();
         updateShipBackgroundView();
-        lblGameTime.setText(String.valueOf(getScene().getGameTime()));
+        lblGameTime.setText("Day: " + getScene().getGameTime().getDay());
+        lblMovePoints.setText("Move: " + move.getRemainShipMove(getPLAYER_SHIP()));
+    }
 
+    private void updateMovePoints(){
+        if (move.canShipMove(getPLAYER_SHIP(), 1)){
+            move.updateShipMove(getPLAYER_SHIP(), 1);
+        }
     }
 
     /**
@@ -247,16 +263,17 @@ public class MapController extends PlayerShipController implements Initializable
     private void shipMove(ShipPosition destination){
         if (move.isMoveAllowed(move.getShipPosition(getPLAYER_SHIP()), destination)){
             move.setShipPosition(getPLAYER_SHIP(), destination, ivPlayerCurrentPosition);
-            //todo zabranie ruchu w tej turze.
+            updateMovePoints();
+            updateScene();
         }
     }
 
     private void enterCity(City city){
         if (move.isEnterCityAllowed(getPLAYER_SHIP().getShipPosition(), city.getCityPosition())){
-            //todo wchdozenie do miasta
-            System.out.println("wchodzimy do miasta : " + city.getCityName());
             getScene().setCURRENT_CITY(city.getCityName());
-            getScene().getCityFunctionality().updateCityGoods(getScene().getCURRENT_CITY());
+            if (getScene().getLastDayInVisitedCity()!=getScene().getGameTime().getDay()){
+                getScene().getCityFunctionality().updateCityGoods(getScene().getCURRENT_CITY());
+            }
             Stage cityStage = (Stage) btnMainMenu.getScene().getWindow();
             getScene().sceneChange(cityStage, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
         }
@@ -275,7 +292,6 @@ public class MapController extends PlayerShipController implements Initializable
         ivPlayerCurrentPosition.setImage(bgPlayerShipOnMap);
         if (!getPLAYER_SHIP().getAchievement().isFirstTimeInWorldMap()){
             move.setShipPosition(getPLAYER_SHIP(), move.getPositionField14(), ivPlayerCurrentPosition);
-            getPLAYER_SHIP().getAchievement().setFirstTimeInWorldMap(true);
         } else {
          move.setShipPosition(getPLAYER_SHIP(), getPLAYER_SHIP().getShipPosition(), ivPlayerCurrentPosition);
         }

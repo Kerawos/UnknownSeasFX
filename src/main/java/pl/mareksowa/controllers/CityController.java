@@ -50,7 +50,7 @@ public class CityController extends PlayerShipController implements Initializabl
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (getPLAYER_SHIP().getAchievement().isFirstTimeInCity()){
+        if (!getPLAYER_SHIP().getAchievement().isFirstTimeInCity()){
             //todo show info about city
             System.out.println("show info about city");
             getPLAYER_SHIP().getAchievement().setFirstTimeInCity(true);
@@ -62,6 +62,7 @@ public class CityController extends PlayerShipController implements Initializabl
      * glitches. Enable only necessary functions to user. At the end update player ship.
      */
     private void updateScene(){
+        getScene().setLastDayInVisitedCity(getScene().getGameTime().getDay());
         disableAllViews();
         updateAllViews();
         updatePlayerShip(getPLAYER_SHIP());
@@ -130,6 +131,7 @@ public class CityController extends PlayerShipController implements Initializabl
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             //todo
+            getScene().getShipMovement().refreshShipMove(getPLAYER_SHIP());
             Stage worldMap = (Stage) btnBack.getScene().getWindow();
             getScene().sceneChange(worldMap, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });

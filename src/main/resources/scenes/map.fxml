@@ -122,5 +122,15 @@
       <ImageView fx:id="ivField12" fitHeight="52.0" fitWidth="83.0" layoutX="603.0" layoutY="161.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivField11" fitHeight="62.0" fitWidth="58.0" layoutX="694.0" layoutY="114.0" opacity="0.2" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivPlayerCurrentPosition" fitHeight="30.0" fitWidth="58.0" layoutX="15.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblGameTime" layoutX="45.0" layoutY="375.0" prefHeight="22.0" prefWidth="103.0" text="time" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblMovePoints" layoutX="202.0" layoutY="436.0" prefHeight="22.0" prefWidth="70.0" text="move" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>
