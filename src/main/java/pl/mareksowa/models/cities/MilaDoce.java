@@ -4,7 +4,7 @@ public class MilaDoce extends City {
 
     public MilaDoce() {
         setCityName(CityName.MILA_DOCE);
-        setCityPosition(shipMovement.getPositionField6());
+        setCityPosition(shipMovementManager.getPositionField6());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

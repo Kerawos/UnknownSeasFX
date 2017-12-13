@@ -4,7 +4,7 @@ public class Balados extends City {
 
     public Balados(){
         setCityName(CityName.BALADOS);
-        setCityPosition(shipMovement.getPositionField10());
+        setCityPosition(shipMovementManager.getPositionField10());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

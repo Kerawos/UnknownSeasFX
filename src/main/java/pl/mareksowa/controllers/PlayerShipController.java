@@ -8,8 +8,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import pl.mareksowa.models.functionalities.services.SceneManager;
-import pl.mareksowa.models.functionalities.ShipFunctionality;
+import pl.mareksowa.models.managers.services.SceneManagerImpl;
+import pl.mareksowa.models.managers.ShipGeneralManager;
 import pl.mareksowa.models.ships.Ship;
 
 /**
@@ -22,8 +22,8 @@ public abstract class PlayerShipController {
      */
     private Image backgroundImage;
     private Image bgShipImage = new Image("img/BackgroundShip.png");
-    private ShipFunctionality shipFun = SceneManager.getInstance().getShipFunctionality();
-    private SceneManager scene = SceneManager.getInstance();
+    private ShipGeneralManager shipFun = SceneManagerImpl.getInstance().getShipFunctionality();
+    private SceneManagerImpl scene = SceneManagerImpl.getInstance();
     private Ship PLAYER_SHIP = scene.getPLAYER_SHIP();
 
     /**
@@ -426,11 +426,11 @@ public abstract class PlayerShipController {
         this.backgroundImage = backgroundImage;
     }
 
-    public ShipFunctionality getShipFun() {
+    public ShipGeneralManager getShipFun() {
         return shipFun;
     }
 
-    public SceneManager getScene() {
+    public SceneManagerImpl getScene() {
         return scene;
     }
 

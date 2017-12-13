@@ -1,4 +1,4 @@
-package pl.mareksowa.models.functionalities.services;
+package pl.mareksowa.models.managers.services;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -7,21 +7,21 @@ import pl.mareksowa.models.cities.CityName;
 
 import static org.junit.Assert.*;
 
-public class CityManagerTest {
+public class CityManagerImplTest {
 
-    private static CityManager cityManager;
+    private static CityManagerImpl cityManagerImpl;
 
     @BeforeClass public static void start() {
-        cityManager = new CityManager();
+        cityManagerImpl = new CityManagerImpl();
     }
 
     @AfterClass public static void stop() throws Exception {
-        cityManager = null;
+        cityManagerImpl = null;
     }
 
     @Test public void testConvertEnumToString() throws Exception {
         String expected = "CENTEROS";
-        String actual = cityManager.convertCityNameToString(CityName.CENTEROS);
+        String actual = cityManagerImpl.convertCityNameToString(CityName.CENTEROS);
         assertEquals(expected, actual);
     }
 }

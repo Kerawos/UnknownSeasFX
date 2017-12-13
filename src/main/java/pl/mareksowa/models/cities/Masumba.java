@@ -6,7 +6,7 @@ public class Masumba extends City {
      */
     public Masumba(){
         setCityName(CityName.MASUMBA);
-        setCityPosition(shipMovement.getPositionField4());
+        setCityPosition(shipMovementManager.getPositionField4());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

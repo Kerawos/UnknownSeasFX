@@ -1,8 +1,8 @@
 package pl.mareksowa.models.cities;
 
 import pl.mareksowa.models.goods.Good;
-import pl.mareksowa.models.functionalities.ShipMovement;
-import pl.mareksowa.models.functionalities.services.ShipMovementImpl;
+import pl.mareksowa.models.managers.ShipMovementManager;
+import pl.mareksowa.models.managers.services.ShipMovementManagerImpl;
 import pl.mareksowa.models.ships.ShipPosition;
 
 import java.util.List;
@@ -35,7 +35,7 @@ public abstract class City {
 
     private List<Good> goodList;
 
-    public ShipMovement shipMovement = new ShipMovementImpl();
+    public ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
 
     /**
      * Empty constructor
@@ -167,12 +167,12 @@ public abstract class City {
         this.slaveRequest = slaveRequest;
     }
 
-    public ShipMovement getShipMovement() {
-        return shipMovement;
+    public ShipMovementManager getShipMovementManager() {
+        return shipMovementManager;
     }
 
-    public void setShipMovement(ShipMovement shipMovement) {
-        this.shipMovement = shipMovement;
+    public void setShipMovementManager(ShipMovementManager shipMovementManager) {
+        this.shipMovementManager = shipMovementManager;
     }
 
     public List<Good> getGoodList() {

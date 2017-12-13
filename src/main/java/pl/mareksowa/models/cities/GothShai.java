@@ -6,7 +6,7 @@ public class GothShai extends City {
      */
     public GothShai(){
         setCityName(CityName.GOTH_SHAI);
-        setCityPosition(shipMovement.getPositionField1());
+        setCityPosition(shipMovementManager.getPositionField1());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

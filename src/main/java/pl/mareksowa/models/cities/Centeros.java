@@ -9,7 +9,7 @@ public class Centeros extends City {
     public Centeros(){
 
         setCityName(CityName.CENTEROS);
-        setCityPosition(shipMovement.getPositionField14());
+        setCityPosition(shipMovementManager.getPositionField14());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

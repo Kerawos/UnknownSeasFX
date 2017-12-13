@@ -1,12 +1,12 @@
-package pl.mareksowa.models.functionalities;
+package pl.mareksowa.models.managers;
 
 import javafx.scene.image.ImageView;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
 
-public interface ShipMovement {
-    ShipPosition getShipPosition(Ship PLAYER_SHIP);
-    void setShipPosition(Ship PLAYER_SHIP, ShipPosition destination, ImageView ivBgPlayerShip);
+public interface ShipMovementManager {
+    ShipPosition getShipPosition(Ship shipPlayer);
+    void setShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);
     ShipPosition getPositionField1();
     ShipPosition getPositionField2();
     ShipPosition getPositionField3();
@@ -26,8 +26,8 @@ public interface ShipMovement {
     ShipPosition getPositionField17();
     boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination);
     boolean isEnterCityAllowed(ShipPosition currentPosition, ShipPosition cityToEnterPosition);
-    int getRemainShipMove(Ship PLAYER_SHIP);
-    boolean canShipMove(Ship PLAYER_SHIP, int moveToPerform);
-    void updateShipMove(Ship PLAYER_SHIP, int moveToPerform);
-    void refreshShipMove(Ship PLAYER_SHIP);
+    int getRemainShipMove(Ship shipPlayer);
+    boolean canShipMove(Ship shipPlayer, int moveToPerform);
+    void updateShipMove(Ship shipPlayer, int moveToPerform);
+    void refreshShipMove(Ship shipPlayer);
 }

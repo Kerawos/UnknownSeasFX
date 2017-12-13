@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
-import pl.mareksowa.models.functionalities.ShipMovement;
+import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.ships.ShipPosition;
 
 import java.net.URL;
@@ -56,7 +56,7 @@ public class MapController extends PlayerShipController implements Initializable
     private Image indicatorGreen;
     private Image indicatorYellow;
     private Image indicatorRed;
-    private ShipMovement move;
+    private ShipMovementManager move;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

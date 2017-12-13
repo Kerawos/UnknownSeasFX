@@ -7,15 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.functionalities.CityFunctionality;
-import pl.mareksowa.models.functionalities.services.CityManager;
+import pl.mareksowa.models.managers.CityManager;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
 import pl.mareksowa.models.ships.Ship;
 
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class MarketController extends PlayerShipController implements Initializable {
@@ -47,7 +45,7 @@ public class MarketController extends PlayerShipController implements Initializa
     private Image imgDecorations;
     private Image imgSilk;
     private Image imgSpices;
-    private CityFunctionality cityManager;
+    private CityManager cityManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

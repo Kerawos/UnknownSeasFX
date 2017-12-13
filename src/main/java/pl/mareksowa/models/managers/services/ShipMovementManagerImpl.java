@@ -1,7 +1,8 @@
-package pl.mareksowa.models.functionalities.services;
+package pl.mareksowa.models.managers.services;
 
 import javafx.scene.image.ImageView;
-import pl.mareksowa.models.functionalities.ShipMovement;
+import org.springframework.stereotype.Service;
+import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
@@ -10,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class responsible for ship movement, possible moves, current position, allowed moves.
+ * Service responsible for ship movement, possible moves, current position, allowed moves.
  */
-public class ShipMovementImpl implements ShipMovement {
+@Service
+public class ShipMovementManagerImpl implements ShipMovementManager {
 
     /**
      * Variable declaration
@@ -21,15 +23,15 @@ public class ShipMovementImpl implements ShipMovement {
 
 
     @Override
-    public ShipPosition getShipPosition(Ship PLAYER_SHIP) {
-        return PLAYER_SHIP.getShipPosition();
+    public ShipPosition getShipPosition(Ship shipPlayer) {
+        return shipPlayer.getShipPosition();
     }
 
     @Override
-    public void setShipPosition(Ship PLAYER_SHIP, ShipPosition destination, ImageView ivBgPlayerShip) {
-        PLAYER_SHIP.setShipPosition(destination);
-        ivBgPlayerShip.setX(PLAYER_SHIP.getShipPosition().getLayoutX());
-        ivBgPlayerShip.setY(PLAYER_SHIP.getShipPosition().getLayoutY());
+    public void setShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setShipPosition(destination);
+        ivBgPlayerShip.setX(shipPlayer.getShipPosition().getLayoutX());
+        ivBgPlayerShip.setY(shipPlayer.getShipPosition().getLayoutY());
     }
 
     @Override
@@ -198,31 +200,31 @@ public class ShipMovementImpl implements ShipMovement {
     }
 
     @Override
-    public int getRemainShipMove(Ship PLAYER_SHIP) {
-        //return PLAYER_SHIP.getMovePossibility()>0?PLAYER_SHIP.getMovePossibility():1;
-        return PLAYER_SHIP.getMovePossibility();
+    public int getRemainShipMove(Ship shipPlayer) {
+        //return shipPlayer.getMovePossibility()>0?shipPlayer.getMovePossibility():1;
+        return shipPlayer.getMovePossibility();
     }
 
     @Override
-    public boolean canShipMove(Ship PLAYER_SHIP, int moveToPerform) {
-        if (getRemainShipMove(PLAYER_SHIP)>=moveToPerform){
+    public boolean canShipMove(Ship shipPlayer, int moveToPerform) {
+        if (getRemainShipMove(shipPlayer)>=moveToPerform){
             return true;
         }
         return false;
     }
 
     @Override
-    public void updateShipMove(Ship PLAYER_SHIP, int moveToPerform) {
-        PLAYER_SHIP.setMovePossibility(PLAYER_SHIP.getMovePossibility() - moveToPerform);
+    public void updateShipMove(Ship shipPlayer, int moveToPerform) {
+        shipPlayer.setMovePossibility(shipPlayer.getMovePossibility() - moveToPerform);
     }
 
     @Override
-    public void refreshShipMove(Ship PLAYER_SHIP) {
+    public void refreshShipMove(Ship shipPlayer) {
         int move = 0;
-        for (Sail sail : PLAYER_SHIP.getSailList()) {
+        for (Sail sail : shipPlayer.getSailList()) {
             move+=sail.getSpeed();
         }
-        PLAYER_SHIP.setMovePossibility((move/10)>0?(move/10):1);
+        shipPlayer.setMovePossibility((move/10)>0?(move/10):1);
     }
 
 

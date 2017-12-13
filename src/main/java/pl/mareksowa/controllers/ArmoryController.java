@@ -14,8 +14,7 @@ import javafx.stage.Stage;
 import pl.mareksowa.models.cannons.BigCannon;
 import pl.mareksowa.models.cannons.LongCannon;
 import pl.mareksowa.models.cannons.ShortCannon;
-import pl.mareksowa.models.functionalities.ShipFunctionality;
-import pl.mareksowa.models.functionalities.services.ShipManager;
+import pl.mareksowa.models.managers.ShipGeneralManager;
 import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
@@ -44,7 +43,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
     @FXML private Button btnAddAmmo2;
     @FXML private Button btnBack;
 
-    private ShipFunctionality shipFun = getScene().getShipFunctionality();
+    private ShipGeneralManager shipFun = getScene().getShipFunctionality();
 
 
     /**

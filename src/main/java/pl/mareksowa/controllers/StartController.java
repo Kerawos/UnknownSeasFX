@@ -10,7 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.functionalities.services.SceneManager;
+import pl.mareksowa.models.managers.services.SceneManagerImpl;
 import pl.mareksowa.models.SceneNameEquivalent;
 
 import java.net.URL;
@@ -29,13 +29,13 @@ public class StartController implements Initializable{
     @FXML private Button btnExit;
 
     private Image backgroundImage;
-    private SceneManager scene;
+    private SceneManagerImpl scene;
 
     /**
      * Initializator
      */
     public void initialize(URL location, ResourceBundle resources) {
-        scene = SceneManager.getInstance();
+        scene = SceneManagerImpl.getInstance();
         updateView();
         buttonsRegister();
     }
@@ -74,6 +74,6 @@ public class StartController implements Initializable{
      * Responsible for exit game
      */
     private void btnRegExit(){
-        btnExit.setOnMouseClicked(e-> SceneManager.getInstance().exitGame());
+        btnExit.setOnMouseClicked(e-> SceneManagerImpl.getInstance().exitGame());
     }
 }
