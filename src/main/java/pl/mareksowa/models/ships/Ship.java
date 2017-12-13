@@ -49,6 +49,7 @@ public class Ship {
         sailList = new ArrayList<>();
         achievement = new ShipAchievement();
         shipPosition = new ShipPosition(0,0);
+
     }
 
     /**

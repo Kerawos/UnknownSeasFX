@@ -31,7 +31,7 @@ public class CityController extends PlayerShipController implements Initializabl
     @FXML private Button btnMarket;
     @FXML private Button btnSmith;
     @FXML private Button btnTavern;
-    @FXML private Button btnStore;
+    @FXML private Button btnArmory;
     @FXML private Button btnBack;
 
     /**
@@ -73,7 +73,7 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void buttonsRegister(){
         btnRegSmith();
-        btnRegStore();
+        btnRegArmory();
         btnRegMarket();
         btnRegTavern();
         btnRegBack();
@@ -95,10 +95,11 @@ public class CityController extends PlayerShipController implements Initializabl
      * Behaviour scene after clicking this button. It will change proper scene with saving previous scene to later
      * getting back to city view.
      */
-    private void btnRegStore(){
-        btnStore.setOnMouseClicked(click->{
-            //todo
-            System.out.println("store");
+    private void btnRegArmory(){
+        btnArmory.setOnMouseClicked(click->{
+            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            Stage market = (Stage) btnArmory.getScene().getWindow();
+            getScene().sceneChange(market, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ARMORY));
         });
     }
 
@@ -145,7 +146,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnBack.setVisible(false);
         btnMarket.setVisible(false);
         btnSmith.setVisible(false);
-        btnStore.setVisible(false);
+        btnArmory.setVisible(false);
         btnTavern.setVisible(false);
         lblTitle.setText("");
         lblUpperText.setText("");
@@ -158,14 +159,14 @@ public class CityController extends PlayerShipController implements Initializabl
     private void updateAllViews(){
         btnMarket.setVisible(true);
         btnSmith.setVisible(true);
-        btnStore.setVisible(true);
+        btnArmory.setVisible(true);
         btnTavern.setVisible(true);
         btnBack.setVisible(true);
         lblUpperText.setWrapText(true);
         lblTitle.setText(getScene().getCityFunctionality().convertCityNameToString(getScene().getCURRENT_CITY().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
-        btnStore.setGraphic(new ImageView(new Image("img/Store.png")));
+        btnArmory.setGraphic(new ImageView(new Image("img/Armory.png")));
         btnTavern.setGraphic(new ImageView(new Image("img/Tavern.png")));
         setBackgroundImage(new Image("img/CityRoyal.png"));
         ivBackGround.setImage(getBackgroundImage());

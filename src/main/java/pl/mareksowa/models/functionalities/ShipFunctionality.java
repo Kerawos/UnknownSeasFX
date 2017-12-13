@@ -37,6 +37,9 @@ public interface ShipFunctionality {
     void updateGold(Ship PLAYER0SHIP, Label lblPlayerGold);
     void updateFood(Ship PLAYER0SHIP, Label lblPlayerFood);
     void updateAmmo(Ship PLAYER0SHIP, Label lblPlayerAmmo);
+    boolean canBuyAmmo(Ship PLAYER0SHIP, int ammoQty, Label lblPlayerAmmo);
+    void buyAmmo(Ship PLAYER0SHIP, int ammoQty);
+    void buyAmmo6(Ship PLAYER0SHIP);
     void updateCharge(Ship PLAYER0SHIP, Label lblPlayerCharge);
     void updatePower(Ship PLAYER0SHIP, Label lblPlayerPower);
     void updateSpeed(Ship PLAYER0SHIP, Label lblPlayerSpeed);

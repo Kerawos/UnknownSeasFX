@@ -328,6 +328,27 @@ public class ShipManager implements ShipFunctionality {
     }
 
     @Override
+    public boolean canBuyAmmo(Ship PLAYER0SHIP,int ammoQty, Label lblPlayerAmmo) {
+        if (PLAYER0SHIP.getGold()>=ammoQty){
+            return true;
+        }
+        lblPlayerAmmo.setText("you don't have enough gold..");
+        return false;
+    }
+
+    @Override
+    public void buyAmmo(Ship PLAYER0SHIP, int ammoQty) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - ammoQty);
+        PLAYER0SHIP.setAmmo(PLAYER0SHIP.getAmmo() + ammoQty);
+    }
+
+    @Override
+    public void buyAmmo6(Ship PLAYER0SHIP) {
+        PLAYER0SHIP.setGold(PLAYER0SHIP.getGold() - 5);
+        PLAYER0SHIP.setAmmo(PLAYER0SHIP.getAmmo() + 6);
+    }
+
+    @Override
     public void updateCharge(Ship PLAYER0SHIP, Label lblPlayerCharge) {
         lblPlayerCharge.setText(String.valueOf(calcShipCharge(PLAYER0SHIP)));
     }

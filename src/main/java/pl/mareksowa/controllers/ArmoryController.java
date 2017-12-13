@@ -4,12 +4,48 @@ package pl.mareksowa.controllers;
  * Imports
  */
 
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
+import pl.mareksowa.models.cannons.BigCannon;
+import pl.mareksowa.models.cannons.LongCannon;
+import pl.mareksowa.models.cannons.ShortCannon;
+import pl.mareksowa.models.functionalities.ShipFunctionality;
+import pl.mareksowa.models.functionalities.services.ShipManager;
+import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ArmoryController extends PlayerShipController implements Initializable{
+
+
+    @FXML ImageView ivBackGround;
+    @FXML private Label lblUpperText;
+    @FXML private Label lblTitle;
+    @FXML private Label lblAddCannon;
+    @FXML private Label lblAddArmor;
+    @FXML private Label lblAddAmmo;
+    @FXML private Label lblCannon1Str;
+    @FXML private Label lblCannon2Str;
+    @FXML private Label lblCannon3Str;
+    @FXML private Label lblAmmo1;
+    @FXML private Label lblAmmo2;
+    @FXML private Label lblArmor;
+    @FXML private Button btnAddCannon1;
+    @FXML private Button btnAddCannon2;
+    @FXML private Button btnAddCannon3;
+    @FXML private Button btnAddArmor;
+    @FXML private Button btnAddAmmo1;
+    @FXML private Button btnAddAmmo2;
+    @FXML private Button btnBack;
+
+    private ShipFunctionality shipFun = getScene().getShipFunctionality();
+
 
     /**
      * Initializator
@@ -47,6 +83,35 @@ public class ArmoryController extends PlayerShipController implements Initializa
      * from time to time by java FX.
      */
     private void updateArmoryView(){
+        setBackgroundImage(new Image("img/BackGround.png"));
+        ivBackGround.setImage(getBackgroundImage());
+        lblTitle.setText("Armory");
+        lblUpperText.setText("indicate part to add it to your ship");
+        lblAddCannon.setText("click to buy special cannon");
+        lblCannon1Str.setText("fire power: " + new ShortCannon().getStrength());
+        lblCannon2Str.setText("fire power: " + new LongCannon().getStrength());
+        lblCannon3Str.setText("fire power: " + new BigCannon().getStrength());
+        btnAddCannon1.setText("$" + new ShortCannon().getPrice());
+        btnAddCannon2.setText("$" + new LongCannon().getPrice());
+        btnAddCannon3.setText("$" + new BigCannon().getPrice());
+        btnAddCannon1.setGraphic(new ImageView(new Image("img/ShortCannon.png")));
+        btnAddCannon2.setGraphic(new ImageView(new Image("img/LongCannon.png")));
+        btnAddCannon3.setGraphic(new ImageView(new Image("img/BigCannon.png")));
+
+        lblAddAmmo.setText("click to buy ammo");
+        btnAddAmmo1.setText("$1");
+        lblAmmo1.setText("+1 ammo");
+        btnAddAmmo1.setGraphic(new ImageView(new Image("img/Ammo.png")));
+        btnAddAmmo2.setText("$5");
+        lblAmmo2.setText("+6 ammo");
+        btnAddAmmo2.setGraphic(new ImageView(new Image("img/Ammo6.png")));
+
+        lblAddArmor.setText("click to buy extra armor");
+        lblArmor.setText("+10% resistance");
+        btnAddArmor.setText("$20");
+        btnAddArmor.setGraphic(new ImageView(new Image("img/Armor.png")));
+
+
         updateShipBackgroundView();
     }
 
@@ -54,6 +119,59 @@ public class ArmoryController extends PlayerShipController implements Initializa
      * Logic of behaviour of all buttons in city scene
      */
     private void buttonsRegister(){
+        btnRegAddAmmo1();
+        btnRegAddAmmo2();
+        btnRegAddArmor();
+        btnRegAddCannon1();
+        btnRegAddCannon2();
+        btnRegAddCannon3();
+        btnRegBack();
+    }
+
+    private void btnRegBack(){
+        btnBack.setOnMouseClicked(e-> {
+            Stage armory = (Stage) btnBack.getScene().getWindow();
+            getScene().sceneChange(armory, getScene().sceneNameFinderByEnum(getScene().getBackStage()));
+        });
+    }
+
+    private void btnRegAddArmor(){
+
+    }
+
+    private void btnRegAddAmmo1(){
+        btnAddAmmo1.setOnMouseClicked(click->buyAmmo(getPLAYER_SHIP(), 1));
+    }
+
+    private void btnRegAddAmmo2(){
+        btnAddAmmo2.setOnMouseClicked(click->buyAmmo6(getPLAYER_SHIP(), 5));
+    }
+
+    private void buyAmmo(Ship playerShip, int ammoQty){
+        if (shipFun.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
+            shipFun.buyAmmo(playerShip, ammoQty);
+            updateScene();
+        }
+    }
+
+    private void buyAmmo6(Ship playerShip, int ammoQty){
+        if (shipFun.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
+            shipFun.buyAmmo6(playerShip);
+            updateScene();
+        }
+    }
+
+
+
+    private void btnRegAddCannon1(){
+
+    }
+
+    private void btnRegAddCannon2(){
+
+    }
+
+    private void btnRegAddCannon3(){
 
     }
 }

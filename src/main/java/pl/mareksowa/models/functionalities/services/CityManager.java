@@ -1,5 +1,6 @@
 package pl.mareksowa.models.functionalities.services;
 
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cities.*;
 import pl.mareksowa.models.functionalities.CityFunctionality;
 import pl.mareksowa.models.goods.Good;
@@ -8,6 +9,7 @@ import pl.mareksowa.models.goods.GoodName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
 
 public class CityManager implements CityFunctionality {
 

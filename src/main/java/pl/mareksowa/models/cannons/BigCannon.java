@@ -5,10 +5,8 @@ package pl.mareksowa.models.cannons;
 public class BigCannon extends Cannon {
     /**
      * Variable of standard Model Class
-     * @param price
-     * @param strength
      */
-    public BigCannon(int price, int strength) {
-        super(50, 10);
+    public BigCannon() {
+        super(35, 10);
     }
 }
