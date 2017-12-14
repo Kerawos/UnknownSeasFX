@@ -24,4 +24,8 @@ public interface SceneManager {
      * Method allowing exit program.
      */
     void exitGame();
+
+    SceneNameEquivalent.sceneEnumName getBackStage();
+
+    void setBackStage(SceneNameEquivalent.sceneEnumName backStage);
 }

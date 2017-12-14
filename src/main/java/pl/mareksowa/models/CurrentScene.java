@@ -1,7 +1,9 @@
 package pl.mareksowa.models;
 
+/**
+ * Imports section
+ */
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.managers.*;
 import pl.mareksowa.models.ships.Ship;
@@ -30,6 +32,8 @@ public class CurrentScene
      * Variables declarations, from this class indicated from capital letter
      */
     private Ship shipPlayer1;
+    private Ship shipPlayerCurrent;
+
     private City currentCity;
 
     /**
@@ -53,6 +57,15 @@ public class CurrentScene
 
     public void setShipPlayer1(Ship shipPlayer1) {
         this.shipPlayer1 = shipPlayer1;
+    }
+
+    public Ship getShipPlayerCurrent() {
+        //todo players change
+        return getShipPlayer1();
+    }
+
+    public void setShipPlayerCurrent(Ship shipPlayerCurrent) {
+        this.shipPlayerCurrent = shipPlayerCurrent;
     }
 
     public City getCurrentCity() {
@@ -94,4 +107,5 @@ public class CurrentScene
     public ShipTradeManager getShipTradeManager() {
         return shipTradeManager;
     }
+
 }

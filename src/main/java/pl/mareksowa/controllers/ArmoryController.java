@@ -1,9 +1,8 @@
 package pl.mareksowa.controllers;
 
 /**
- * Imports
+ * Imports section
  */
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,14 +10,16 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import pl.mareksowa.models.cannons.BigCannon;
 import pl.mareksowa.models.cannons.LongCannon;
 import pl.mareksowa.models.cannons.ShortCannon;
-import pl.mareksowa.models.managers.ShipGeneralManager;
+import pl.mareksowa.models.managers.ShipTradeManager;
 import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class ArmoryController extends PlayerShipController implements Initializable{
 
@@ -43,8 +44,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
     @FXML private Button btnAddAmmo2;
     @FXML private Button btnBack;
 
-    private ShipGeneralManager shipFun = getScene().getShipFunctionality();
-
+    @Autowired private ShipTradeManager shipTradeManagerManager;
 
     /**
      * Initializator
@@ -61,10 +61,10 @@ public class ArmoryController extends PlayerShipController implements Initializa
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (getPLAYER_SHIP().getAchievement().isFirstTimeInArmory()){
+        if (getShipPlayer1().getAchievement().isFirstTimeInArmory()){
             //todo show info about city armory
             System.out.println("show info about city armory");
-            getPLAYER_SHIP().getAchievement().setFirstTimeInArmory(true);
+            getShipPlayer1().getAchievement().setFirstTimeInArmory(true);
         }
     }
 
@@ -74,7 +74,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
      */
     private void updateScene(){
         updateArmoryView();
-        updatePlayerShip(getPLAYER_SHIP());
+        updatePlayerShip(getShipPlayer1());
     }
 
     /**
@@ -139,23 +139,23 @@ public class ArmoryController extends PlayerShipController implements Initializa
     }
 
     private void btnRegAddAmmo1(){
-        btnAddAmmo1.setOnMouseClicked(click->buyAmmo(getPLAYER_SHIP(), 1));
+        btnAddAmmo1.setOnMouseClicked(click->buyAmmo(getShipPlayer1(), 1));
     }
 
     private void btnRegAddAmmo2(){
-        btnAddAmmo2.setOnMouseClicked(click->buyAmmo6(getPLAYER_SHIP(), 5));
+        btnAddAmmo2.setOnMouseClicked(click->buyAmmo6(getShipPlayer1(), 5));
     }
 
     private void buyAmmo(Ship playerShip, int ammoQty){
-        if (shipFun.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
-            shipFun.buyAmmo(playerShip, ammoQty);
+        if (shipTradeManagerManager.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
+            shipTradeManagerManager.buyAmmo(playerShip, ammoQty);
             updateScene();
         }
     }
 
     private void buyAmmo6(Ship playerShip, int ammoQty){
-        if (shipFun.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
-            shipFun.buyAmmo6(playerShip);
+        if (shipTradeManagerManager.canBuyAmmo(playerShip, ammoQty, lblUpperText)){
+            shipTradeManagerManager.buyAmmo6(playerShip);
             updateScene();
         }
     }

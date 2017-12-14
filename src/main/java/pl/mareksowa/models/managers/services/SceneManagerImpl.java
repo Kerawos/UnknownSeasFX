@@ -70,17 +70,19 @@ public class SceneManagerImpl implements SceneManager {
         System.exit(1);
     }
 
-    /**
-     * Getters and Setters section
-     */
+    @Override
     public SceneNameEquivalent.sceneEnumName getBackStage() {
         return backStage;
     }
 
+    @Override
     public void setBackStage(SceneNameEquivalent.sceneEnumName backStage) {
         this.backStage = backStage;
     }
 
+    /**
+     * Getters and Setters section
+     */
     public GameTime getGameTime() {
         return gameTime;
     }
