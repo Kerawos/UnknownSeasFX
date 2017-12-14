@@ -8,6 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.springframework.beans.factory.annotation.Autowired;
+import pl.mareksowa.models.CurrentScene;
+import pl.mareksowa.models.managers.SceneManager;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
 import pl.mareksowa.models.managers.ShipGeneralManager;
 import pl.mareksowa.models.ships.Ship;
@@ -17,17 +20,23 @@ import pl.mareksowa.models.ships.Ship;
  *stuff. Every controller using player ship need extend this controller.
  */
 public abstract class PlayerShipController {
+
     /**
      * some variables have default unchangeable initialization as 'scene'. Only getters for already initiate variables.
      */
     private Image backgroundImage;
     private Image bgShipImage = new Image("img/BackgroundShip.png");
-    private ShipGeneralManager shipFun = SceneManagerImpl.getInstance().getShipFunctionality();
-    private SceneManagerImpl scene = SceneManagerImpl.getInstance();
-    private Ship PLAYER_SHIP = scene.getPLAYER_SHIP();
+    private Ship shipPlayer1 = CurrentScene.getInstance().getShipPlayer1();
 
     /**
-     * FX implementations
+     * Services initialization
+     */
+    @Autowired private ShipGeneralManager shipFun;
+    @Autowired private SceneManager scene;
+
+
+    /**
+     * FX declarations
      */
     @FXML private Label lblPlayerGold;
     @FXML private Label lblPlayerFood;
@@ -40,6 +49,7 @@ public abstract class PlayerShipController {
 
     @FXML private ProgressBar pbShipHp;
 
+    //todo delete this initialization of image view
     @FXML private ImageView ivBackGroundShip = new ImageView();
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
@@ -94,120 +104,120 @@ public abstract class PlayerShipController {
 
     /**
      * Method will update every changeable variables connected with player ship
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    public void updatePlayerShip(Ship PLAYER_SHIP){
-        updateGold(PLAYER_SHIP);
-        updateFood(PLAYER_SHIP);
-        updateAmmo(PLAYER_SHIP);
-        updateHp(PLAYER_SHIP);
-        updateCharge(PLAYER_SHIP);
-        updatePower(PLAYER_SHIP);
-        updateSpeed(PLAYER_SHIP);
-        updateManeuver(PLAYER_SHIP);
-        updateStorage(PLAYER_SHIP);
-        updateCrew(PLAYER_SHIP);
-        updateSail(PLAYER_SHIP);
-        updateCannon(PLAYER_SHIP);
+    public void updatePlayerShip(Ship shipPlayer){
+        updateGold(shipPlayer);
+        updateFood(shipPlayer);
+        updateAmmo(shipPlayer);
+        updateHp(shipPlayer);
+        updateCharge(shipPlayer);
+        updatePower(shipPlayer);
+        updateSpeed(shipPlayer);
+        updateManeuver(shipPlayer);
+        updateStorage(shipPlayer);
+        updateCrew(shipPlayer);
+        updateSail(shipPlayer);
+        updateCannon(shipPlayer);
     }
 
     /**
      * Method will update gold displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateGold(Ship PLAYER_SHIP){
-        shipFun.updateGold(PLAYER_SHIP, getLblPlayerGold());
+    private void updateGold(Ship shipPlayer){
+        shipFun.updateGold(shipPlayer, getLblPlayerGold());
     }
 
     /**
      * Method will update food displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateFood(Ship PLAYER_SHIP){
-        shipFun.updateFood(PLAYER_SHIP, getLblPlayerFood());
+    private void updateFood(Ship shipPlayer){
+        shipFun.updateFood(shipPlayer, getLblPlayerFood());
     }
 
     /**
      * Method will update ammo displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateAmmo(Ship PLAYER_SHIP){
-        shipFun.updateAmmo(PLAYER_SHIP, getLblPlayerAmmo());
+    private void updateAmmo(Ship shipPlayer){
+        shipFun.updateAmmo(shipPlayer, getLblPlayerAmmo());
     }
 
     /**
      * Method will update hit points displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateHp(Ship PLAYER_SHIP){
-        shipFun.updateHp(PLAYER_SHIP, getLblPlayerHp(), getPbShipHp());
+    private void updateHp(Ship shipPlayer){
+        shipFun.updateHp(shipPlayer, getLblPlayerHp(), getPbShipHp());
     }
 
     /**
      * Method will update ship power displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updatePower(Ship PLAYER_SHIP) {
-        shipFun.updatePower(PLAYER_SHIP, lblPlayerPower);
+    private void updatePower(Ship shipPlayer) {
+        shipFun.updatePower(shipPlayer, lblPlayerPower);
     }
 
     /**
      * Method will update crew charge potential displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateCharge(Ship PLAYER_SHIP) {
-        shipFun.updateCharge(PLAYER_SHIP, lblPlayerCharge);
+    private void updateCharge(Ship shipPlayer) {
+        shipFun.updateCharge(shipPlayer, lblPlayerCharge);
     }
 
     /**
      * Method will update ship speed displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateSpeed(Ship PLAYER_SHIP){
-        shipFun.updateSpeed(PLAYER_SHIP, lblPlayerSpeed);
+    private void updateSpeed(Ship shipPlayer){
+        shipFun.updateSpeed(shipPlayer, lblPlayerSpeed);
     }
 
     /**
      * Method will update ship speed displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateManeuver(Ship PLAYER_SHIP) {
-        shipFun.updateManeuver(PLAYER_SHIP, lblPlayerManeuver);
+    private void updateManeuver(Ship shipPlayer) {
+        shipFun.updateManeuver(shipPlayer, lblPlayerManeuver);
     }
 
     /**
      * Method will update storage of ship displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateStorage(Ship PLAYER_SHIP){
-        shipFun.updateStorage(PLAYER_SHIP, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(),
+    private void updateStorage(Ship shipPlayer){
+        shipFun.updateStorage(shipPlayer, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(),
                 getIvStorage5(), getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
     }
 
     /**
      * Method will update crew of ship displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateCrew(Ship PLAYER_SHIP){
-        shipFun.updateCrew(PLAYER_SHIP, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(),
+    private void updateCrew(Ship shipPlayer){
+        shipFun.updateCrew(shipPlayer, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(),
                 getIvCrew6(), getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
     }
 
     /**
      * Method will update sails of ship displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateSail(Ship PLAYER_SHIP){
-        shipFun.updateSail(PLAYER_SHIP, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
+    private void updateSail(Ship shipPlayer){
+        shipFun.updateSail(shipPlayer, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
                 getIvSail6(), getIvSail7(), getIvSail8(), getIvSail9(), getIvSail10());
     }
 
     /**
      * Method will update cannons of ship displayed to user.
-     * @param PLAYER_SHIP indicate which player will be updating. *for later possibility of multiplayer.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
-    private void updateCannon(Ship PLAYER_SHIP){
-        shipFun.updateCannon(PLAYER_SHIP, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(),
+    private void updateCannon(Ship shipPlayer){
+        shipFun.updateCannon(shipPlayer, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(),
                 getIvCannon5(), getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
     }
 
@@ -430,11 +440,11 @@ public abstract class PlayerShipController {
         return shipFun;
     }
 
-    public SceneManagerImpl getScene() {
+    public SceneManager getScene() {
         return scene;
     }
 
-    public Ship getPLAYER_SHIP() {
-        return PLAYER_SHIP;
+    public Ship getShipPlayer1() {
+        return shipPlayer1;
     }
 }
