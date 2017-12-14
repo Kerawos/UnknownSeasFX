@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pl.mareksowa.models.CurrentScene;
+import pl.mareksowa.models.managers.SceneManager;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
 import pl.mareksowa.models.SceneNameEquivalent;
 
@@ -29,13 +31,13 @@ public class StartController implements Initializable{
     @FXML private Button btnExit;
 
     private Image backgroundImage;
-    private SceneManagerImpl scene;
+    private CurrentScene scene;
 
     /**
      * Initializator
      */
     public void initialize(URL location, ResourceBundle resources) {
-        scene = SceneManagerImpl.getInstance();
+        scene = CurrentScene.getInstance();
         updateView();
         buttonsRegister();
     }
@@ -63,10 +65,10 @@ public class StartController implements Initializable{
      */
     private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
-            //scene.setCURRENT_CITY(CityName.CENTEROS);
-            scene.getShipMovement().refreshShipMove(scene.getPLAYER_SHIP());
+            scene.getShipMovementManager().refreshShipMove(scene.getShipPlayer1());
             Stage worldMap = (Stage) btnBeginNewJourney.getScene().getWindow();
-            scene.sceneChange(worldMap, scene.sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
+            scene.getSceneManager().sceneChange(worldMap,
+                    scene.getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });
     }
 
@@ -74,6 +76,6 @@ public class StartController implements Initializable{
      * Responsible for exit game
      */
     private void btnRegExit(){
-        btnExit.setOnMouseClicked(e-> SceneManagerImpl.getInstance().exitGame());
+        btnExit.setOnMouseClicked(e-> scene.getSceneManager().exitGame());
     }
 }
