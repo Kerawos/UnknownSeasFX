@@ -10,9 +10,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.mareksowa.models.CurrentScene;
-import pl.mareksowa.models.managers.SceneManager;
+import pl.mareksowa.models.managers.*;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
-import pl.mareksowa.models.managers.ShipGeneralManager;
 import pl.mareksowa.models.ships.Ship;
 
 /**
@@ -26,14 +25,18 @@ public abstract class PlayerShipController {
      */
     private Image backgroundImage;
     private Image bgShipImage = new Image("img/BackgroundShip.png");
-    private Ship shipPlayer1 = CurrentScene.getInstance().getShipPlayer1();
+    private Ship shipPlayerCurrent = CurrentScene.getInstance().getShipPlayerCurrent();
 
     /**
-     * Services initialization
+     * Services initialization mainly for children class
      */
-    @Autowired private ShipGeneralManager shipFun;
-    @Autowired private SceneManager scene;
-
+    @Autowired private CityManager cityManager;
+    @Autowired private SceneManager sceneManager;
+    @Autowired private ShipBuilderManager shipBuilderManager;
+    @Autowired private ShipCrewManager shipCrewManager;
+    @Autowired private ShipGeneralManager shipGeneralManager;
+    @Autowired private ShipMovementManager shipMovementManager;
+    @Autowired private ShipTradeManager shipTradeManager;
 
     /**
      * FX declarations
@@ -126,7 +129,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateGold(Ship shipPlayer){
-        shipFun.updateGold(shipPlayer, getLblPlayerGold());
+        getShipGeneralManager().updateGold(shipPlayer, getLblPlayerGold());
     }
 
     /**
@@ -134,7 +137,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateFood(Ship shipPlayer){
-        shipFun.updateFood(shipPlayer, getLblPlayerFood());
+        getShipGeneralManager().updateFood(shipPlayer, getLblPlayerFood());
     }
 
     /**
@@ -142,7 +145,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateAmmo(Ship shipPlayer){
-        shipFun.updateAmmo(shipPlayer, getLblPlayerAmmo());
+        getShipGeneralManager().updateAmmo(shipPlayer, getLblPlayerAmmo());
     }
 
     /**
@@ -150,7 +153,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateHp(Ship shipPlayer){
-        shipFun.updateHp(shipPlayer, getLblPlayerHp(), getPbShipHp());
+        getShipGeneralManager().updateHp(shipPlayer, getLblPlayerHp(), getPbShipHp());
     }
 
     /**
@@ -158,7 +161,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updatePower(Ship shipPlayer) {
-        shipFun.updatePower(shipPlayer, lblPlayerPower);
+        getShipGeneralManager().updatePower(shipPlayer, lblPlayerPower);
     }
 
     /**
@@ -166,7 +169,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateCharge(Ship shipPlayer) {
-        shipFun.updateCharge(shipPlayer, lblPlayerCharge);
+        getShipGeneralManager().updateCharge(shipPlayer, lblPlayerCharge);
     }
 
     /**
@@ -174,7 +177,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateSpeed(Ship shipPlayer){
-        shipFun.updateSpeed(shipPlayer, lblPlayerSpeed);
+        getShipGeneralManager().updateSpeed(shipPlayer, lblPlayerSpeed);
     }
 
     /**
@@ -182,7 +185,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateManeuver(Ship shipPlayer) {
-        shipFun.updateManeuver(shipPlayer, lblPlayerManeuver);
+        getShipGeneralManager().updateManeuver(shipPlayer, lblPlayerManeuver);
     }
 
     /**
@@ -190,7 +193,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateStorage(Ship shipPlayer){
-        shipFun.updateStorage(shipPlayer, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(),
+        getShipGeneralManager().updateStorage(shipPlayer, getIvStorage1(), getIvStorage2(), getIvStorage3(), getIvStorage4(),
                 getIvStorage5(), getIvStorage6(), getIvStorage7(), getIvStorage8(), getIvStorage9(), getIvStorage10());
     }
 
@@ -199,7 +202,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateCrew(Ship shipPlayer){
-        shipFun.updateCrew(shipPlayer, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(),
+        getShipGeneralManager().updateCrew(shipPlayer, getIvCrew1(), getIvCrew2(), getIvCrew3(), getIvCrew4(), getIvCrew5(),
                 getIvCrew6(), getIvCrew7(), getIvCrew8(),getIvCrew9(), getIvCrew10());
     }
 
@@ -208,7 +211,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateSail(Ship shipPlayer){
-        shipFun.updateSail(shipPlayer, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
+        getShipGeneralManager().updateSail(shipPlayer, getIvSail1(), getIvSail2(), getIvSail3(), getIvSail4(), getIvSail5(),
                 getIvSail6(), getIvSail7(), getIvSail8(), getIvSail9(), getIvSail10());
     }
 
@@ -217,7 +220,7 @@ public abstract class PlayerShipController {
      * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
      */
     private void updateCannon(Ship shipPlayer){
-        shipFun.updateCannon(shipPlayer, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(),
+        getShipGeneralManager().updateCannon(shipPlayer, getIvCannon1(),getIvCannon2(), getIvCannon3(), getIvCannon4(),
                 getIvCannon5(), getIvCannon6(), getIvCannon7(), getIvCannon8(), getIvCannon9(), getIvCannon10());
     }
 
@@ -436,15 +439,38 @@ public abstract class PlayerShipController {
         this.backgroundImage = backgroundImage;
     }
 
-    public ShipGeneralManager getShipFun() {
-        return shipFun;
+    public Ship getShipPlayerCurrent() {
+        return shipPlayerCurrent;
     }
 
-    public SceneManager getScene() {
-        return scene;
+    /**
+     * Services getters for children class
+     */
+    public CityManager getCityManager() {
+        return cityManager;
     }
 
-    public Ship getShipPlayer1() {
-        return shipPlayer1;
+    public SceneManager getSceneManager() {
+        return sceneManager;
+    }
+
+    public ShipBuilderManager getShipBuilderManager() {
+        return shipBuilderManager;
+    }
+
+    public ShipCrewManager getShipCrewManager() {
+        return shipCrewManager;
+    }
+
+    public ShipGeneralManager getShipGeneralManager() {
+        return shipGeneralManager;
+    }
+
+    public ShipMovementManager getShipMovementManager() {
+        return shipMovementManager;
+    }
+
+    public ShipTradeManager getShipTradeManager() {
+        return shipTradeManager;
     }
 }

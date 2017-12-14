@@ -29,17 +29,11 @@ public class SceneManagerImpl implements SceneManager {
     private GameTime gameTime;
     private int lastDayInVisitedCity;
 
-    /**
-     * Managers already set
-     */
     private SceneManagerImpl(){
+        //todo check if @service will work with private constructor here
         sceneNameEquivalent = new SceneNameEquivalent();
         gameTime = new GameTime();
     }
-
-    /**
-     * singleton construction
-     */
 
     @Override
     public void sceneChange(Stage stageName, String sceneName){
@@ -80,21 +74,22 @@ public class SceneManagerImpl implements SceneManager {
         this.backStage = backStage;
     }
 
-    /**
-     * Getters and Setters section
-     */
+    @Override
     public GameTime getGameTime() {
         return gameTime;
     }
 
+    @Override
     public void setGameTime(int dayToAdd) {
         this.gameTime.setDay(this.gameTime.getDay() + dayToAdd);
     }
 
+    @Override
     public int getLastDayInVisitedCity() {
         return lastDayInVisitedCity;
     }
 
+    @Override
     public void setLastDayInVisitedCity(int lastDayInVisitedCity) {
         this.lastDayInVisitedCity = lastDayInVisitedCity;
     }

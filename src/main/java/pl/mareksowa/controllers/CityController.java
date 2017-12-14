@@ -1,8 +1,8 @@
 package pl.mareksowa.controllers;
+
 /**
  * Import section
  */
-
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
 
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 public class CityController extends PlayerShipController implements Initializable {
 
     /**
-     * Lables
+     * Label declaration
      */
     @FXML private ImageView ivBackGround;
     @FXML private Label lblUpperText;
@@ -50,10 +51,10 @@ public class CityController extends PlayerShipController implements Initializabl
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (!getPLAYER_SHIP().getAchievement().isFirstTimeInCity()){
+        if (!getShipPlayerCurrent().getAchievement().isFirstTimeInCity()){
             //todo show info about city
             System.out.println("show info about city");
-            getPLAYER_SHIP().getAchievement().setFirstTimeInCity(true);
+            getShipPlayerCurrent().getAchievement().setFirstTimeInCity(true);
         }
     }
 
@@ -62,10 +63,10 @@ public class CityController extends PlayerShipController implements Initializabl
      * glitches. Enable only necessary functions to user. At the end update player ship.
      */
     private void updateScene(){
-        getScene().setLastDayInVisitedCity(getScene().getGameTime().getDay());
+        getSceneManager().setLastDayInVisitedCity(getSceneManager().getGameTime().getDay());
         disableAllViews();
         updateAllViews();
-        updatePlayerShip(getPLAYER_SHIP());
+        updatePlayerShip(getShipPlayerCurrent());
     }
 
     /**
@@ -85,9 +86,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegSmith(){
         btnSmith.setOnMouseClicked(click -> {
-            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
-            getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD));
+            getSceneManager().sceneChange(dockyard, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD));
         });
     }
 
@@ -97,9 +98,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegArmory(){
         btnArmory.setOnMouseClicked(click->{
-            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage market = (Stage) btnArmory.getScene().getWindow();
-            getScene().sceneChange(market, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ARMORY));
+            getSceneManager().sceneChange(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ARMORY));
         });
     }
 
@@ -109,9 +110,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegMarket(){
         btnMarket.setOnMouseClicked(click->{
-            getScene().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage market = (Stage) btnMarket.getScene().getWindow();
-            getScene().sceneChange(market, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.MARKET));
+            getSceneManager().sceneChange(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.MARKET));
         });
     }
 
@@ -132,9 +133,9 @@ public class CityController extends PlayerShipController implements Initializabl
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             //todo
-            getScene().getShipMovement().refreshShipMove(getPLAYER_SHIP());
+            CurrentScene.getInstance().getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
             Stage worldMap = (Stage) btnBack.getScene().getWindow();
-            getScene().sceneChange(worldMap, getScene().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
+            getSceneManager().sceneChange(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
         });
     }
 
@@ -163,7 +164,8 @@ public class CityController extends PlayerShipController implements Initializabl
         btnTavern.setVisible(true);
         btnBack.setVisible(true);
         lblUpperText.setWrapText(true);
-        lblTitle.setText(getScene().getCityFunctionality().convertCityNameToString(getScene().getCURRENT_CITY().getCityName()));
+        lblTitle.setText(CurrentScene.getInstance().getCityManager().convertCityNameToString(
+                CurrentScene.getInstance().getCurrentCity().getCityName()));
         btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
         btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
         btnArmory.setGraphic(new ImageView(new Image("img/Armory.png")));

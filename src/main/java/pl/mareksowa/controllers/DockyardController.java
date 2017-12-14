@@ -22,7 +22,7 @@ import java.util.ResourceBundle;
 public class DockyardController extends PlayerShipController implements Initializable{
 
     /**
-     * Labels
+     * Label declaration
      */
     @FXML ImageView ivBackGround;
 
@@ -71,10 +71,10 @@ public class DockyardController extends PlayerShipController implements Initiali
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (getPLAYER_SHIP().getAchievement().isFirstTimeInDockyard()){
+        if (getShipPlayerCurrent().getAchievement().isFirstTimeInDockyard()){
             //todo show info about city dockyard
             System.out.println("show info about city dockyard");
-            getPLAYER_SHIP().getAchievement().setFirstTimeInDockyard(true);
+            getShipPlayerCurrent().getAchievement().setFirstTimeInDockyard(true);
         }
     }
 
@@ -85,7 +85,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void updateScene(){
         disableAllViews();
         updateSmithDockyardView();
-        updatePlayerShip(getPLAYER_SHIP());
+        updatePlayerShip(getShipPlayerCurrent());
     }
 
     /**
@@ -141,23 +141,23 @@ public class DockyardController extends PlayerShipController implements Initiali
 
         btnAddStorageSpace.setVisible(true);
         btnAddStorageSpace.setGraphic(new ImageView(new Image("img/StorageEmpty.png")));
-        btnAddStorageSpace.setText("$" + (getPLAYER_SHIP().getStorageCapacity()
-                * getPLAYER_SHIP().getStorageCapacity() + getPLAYER_SHIP().getStorageCapacity()));
+        btnAddStorageSpace.setText("$" + (getShipPlayerCurrent().getStorageCapacity()
+                * getShipPlayerCurrent().getStorageCapacity() + getShipPlayerCurrent().getStorageCapacity()));
 
         btnAddCabin.setVisible(true);
         btnAddCabin.setGraphic(new ImageView(new Image("img/CrewEmpty.png")));
-        btnAddCabin.setText("$" + (getPLAYER_SHIP().getCabinCapacity()
-                * getPLAYER_SHIP().getCabinCapacity() + getPLAYER_SHIP().getCabinCapacity()+1));
+        btnAddCabin.setText("$" + (getShipPlayerCurrent().getCabinCapacity()
+                * getShipPlayerCurrent().getCabinCapacity() + getShipPlayerCurrent().getCabinCapacity()+1));
 
         btnAddSailSpace.setVisible(true);
         btnAddSailSpace.setGraphic(new ImageView(new Image("img/SailEmpty.png")));
-        btnAddSailSpace.setText("$" + (getPLAYER_SHIP().getSailCapacity()
-                * getPLAYER_SHIP().getSailCapacity()+ getPLAYER_SHIP().getSailCapacity()+10));
+        btnAddSailSpace.setText("$" + (getShipPlayerCurrent().getSailCapacity()
+                * getShipPlayerCurrent().getSailCapacity()+ getShipPlayerCurrent().getSailCapacity()+10));
 
         btnAddCannonSpace.setVisible(true);
         btnAddCannonSpace.setGraphic(new ImageView(new Image("img/CannonEmpty.png")));
-        btnAddCannonSpace.setText("$" + (getPLAYER_SHIP().getCannonCapacity()
-                * getPLAYER_SHIP().getCannonCapacity() + getPLAYER_SHIP().getCannonCapacity()+5));
+        btnAddCannonSpace.setText("$" + (getShipPlayerCurrent().getCannonCapacity()
+                * getShipPlayerCurrent().getCannonCapacity() + getShipPlayerCurrent().getCannonCapacity()+5));
 
         btnAddSail1.setVisible(true);
         btnAddSail1.setText("$" + new SailSmall().getPrice());
@@ -188,8 +188,8 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnRepair2.setText("$5");
         btnRepair3.setVisible(true);
         btnRepair3.setGraphic(new ImageView(new Image("img/Anvil.png")));
-        btnRepair3.setText("$" + (getPLAYER_SHIP().getEndurance()
-                - getPLAYER_SHIP().getCurrentEndurance()));
+        btnRepair3.setText("$" + (getShipPlayerCurrent().getEndurance()
+                - getShipPlayerCurrent().getCurrentEndurance()));
 
         btnBack.setVisible(true);
         updateShipBackgroundView();
@@ -229,7 +229,7 @@ public class DockyardController extends PlayerShipController implements Initiali
     private void btnRegBack(){
         btnBack.setOnMouseClicked(e-> {
             Stage dockyard = (Stage) btnBack.getScene().getWindow();
-            getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(getScene().getBackStage()));
+            getSceneManager().sceneChange(dockyard, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
         });
     }
 
@@ -238,8 +238,8 @@ public class DockyardController extends PlayerShipController implements Initiali
      */
     private void btnRegAddStorageSpace(){
         btnAddStorageSpace.setOnMouseClicked(click->{
-            if (getShipFun().canBuyStorage(getPLAYER_SHIP(), lblUpperText)){
-                getShipFun().addStorage(getPLAYER_SHIP());
+            if (getShipBuilderManager().canBuyStorage(getShipPlayerCurrent(), lblUpperText)){
+                getShipBuilderManager().addStorage(getShipPlayerCurrent());
                 updateScene();
             }
         });
@@ -251,8 +251,8 @@ public class DockyardController extends PlayerShipController implements Initiali
      */
     private void btnRegAddCabin(){
         btnAddCabin.setOnMouseClicked(e->{
-            if (getShipFun().canBuyCabin(getPLAYER_SHIP(), lblUpperText)){
-                getShipFun().addCabin(getPLAYER_SHIP());
+            if (getShipBuilderManager().canBuyCabin(getShipPlayerCurrent(), lblUpperText)){
+                getShipBuilderManager().addCabin(getShipPlayerCurrent());
                 updateScene();
             }
         });
@@ -264,8 +264,8 @@ public class DockyardController extends PlayerShipController implements Initiali
      */
     private void btnRegAddSailSpace(){
         btnAddSailSpace.setOnMouseClicked(e->{
-            if (getShipFun().canBuySailSpace(getPLAYER_SHIP(), lblUpperText)){
-                getShipFun().addSailSpace(getPLAYER_SHIP());
+            if (getShipBuilderManager().canBuySailSpace(getShipPlayerCurrent(), lblUpperText)){
+                getShipBuilderManager().addSailSpace(getShipPlayerCurrent());
                 updateScene();
             }
         });
@@ -276,8 +276,8 @@ public class DockyardController extends PlayerShipController implements Initiali
      */
     private void btnRegAddCannonSpace(){
         btnAddCannonSpace.setOnMouseClicked(e->{
-            if (getShipFun().canBuyCannonSpace(getPLAYER_SHIP(), lblUpperText)){
-                getShipFun().addCannonSpace(getPLAYER_SHIP());
+            if (getShipBuilderManager().canBuyCannonSpace(getShipPlayerCurrent(), lblUpperText)){
+                getShipBuilderManager().addCannonSpace(getShipPlayerCurrent());
                 updateScene();
             }
         });
@@ -287,84 +287,84 @@ public class DockyardController extends PlayerShipController implements Initiali
      * Responsible for ship repair instead of gold
      */
     private void btnRegRepair1(){
-        btnRepair1.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(), 1));
+        btnRepair1.setOnMouseClicked(e->repairShip(getShipPlayerCurrent(), 1));
     }
 
     /**
      * Responsible for ship repair instead of gold
      */
     private void btnRegRepair2(){
-        btnRepair2.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(), 5));
+        btnRepair2.setOnMouseClicked(e->repairShip(getShipPlayerCurrent(), 5));
     }
 
     /**
      * Responsible for ship total repair instead of gold
      */
     private void btnRegRepair3(){
-        btnRepair3.setOnMouseClicked(e->repairShip(getPLAYER_SHIP(),
-                getPLAYER_SHIP().getEndurance() - getPLAYER_SHIP().getCurrentEndurance()));
+        btnRepair3.setOnMouseClicked(e->repairShip(getShipPlayerCurrent(),
+                getShipPlayerCurrent().getEndurance() - getShipPlayerCurrent().getCurrentEndurance()));
     }
 
     private void repairShip(Ship playerShip, int toRepair){
-        if (getShipFun().canRepair(playerShip, toRepair, lblUpperText)){
-            getShipFun().repair(playerShip, toRepair);
+        if (getShipBuilderManager().canRepair(playerShip, toRepair, lblUpperText)){
+            getShipBuilderManager().repair(playerShip, toRepair);
             updateScene();
         }
     }
 
 
     private void addNewSail(Sail sailToAdd){
-       if (getShipFun().canBuySail(getPLAYER_SHIP(), sailToAdd, lblUpperText)){
-           getShipFun().buySail(getPLAYER_SHIP(), sailToAdd);
+       if (getShipTradeManager().canBuySail(getShipPlayerCurrent(), sailToAdd, lblUpperText)){
+           getShipTradeManager().buySail(getShipPlayerCurrent(), sailToAdd);
            updateScene();
        }
     }
 
     private void sellSail(Ship playerShip, int sailListNo){
-        if (getScene().getShipFunctionality().canSellSail(playerShip, sailListNo)){
-            getScene().getShipFunctionality().sellSail(playerShip, getPLAYER_SHIP().getSailList().get(sailListNo));
+        if (getShipTradeManager().canSellSail(playerShip, sailListNo)){
+            getShipTradeManager().sellSail(playerShip, getShipPlayerCurrent().getSailList().get(sailListNo));
             updateScene();
         }
     }
 
     private void btnRegSail1(){
-        getIvSail1().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 0));
+        getIvSail1().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 0));
     }
 
     private void btnRegSail2(){
-        getIvSail2().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 1));
+        getIvSail2().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 1));
     }
 
     private void btnRegSail3(){
-        getIvSail3().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 2));
+        getIvSail3().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 2));
     }
 
     private void btnRegSail4(){
-        getIvSail4().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 3));
+        getIvSail4().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 3));
     }
 
     private void btnRegSail5(){
-        getIvSail5().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 4));
+        getIvSail5().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 4));
     }
 
     private void btnRegSail6(){
-        getIvSail6().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 5));
+        getIvSail6().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 5));
     }
 
     private void btnRegSail7(){
-        getIvSail7().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 6));
+        getIvSail7().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 6));
     }
 
     private void btnRegSail8(){
-        getIvSail8().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 7));
+        getIvSail8().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 7));
     }
 
     private void btnRegSail9(){
-        getIvSail9().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 8));
+        getIvSail9().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 8));
     }
 
     private void btnRegSail10(){
-        getIvSail10().setOnMouseClicked(click->sellSail(getPLAYER_SHIP(), 9));
+        getIvSail10().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 9));
     }
 
     private void btnRegAddSailSmall(){

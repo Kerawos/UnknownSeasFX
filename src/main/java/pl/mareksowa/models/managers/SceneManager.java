@@ -1,6 +1,7 @@
 package pl.mareksowa.models.managers;
 
 import javafx.stage.Stage;
+import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 
 public interface SceneManager {
@@ -28,4 +29,12 @@ public interface SceneManager {
     SceneNameEquivalent.sceneEnumName getBackStage();
 
     void setBackStage(SceneNameEquivalent.sceneEnumName backStage);
+
+    GameTime getGameTime();
+
+    void setGameTime(int dayToAdd);
+
+    int getLastDayInVisitedCity();
+
+    void setLastDayInVisitedCity(int lastDayInVisitedCity);
 }

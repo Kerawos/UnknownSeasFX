@@ -1,5 +1,9 @@
 package pl.mareksowa.controllers;
 
+/**
+ * Imports section
+ */
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -7,7 +11,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import pl.mareksowa.models.managers.CityManager;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
 import pl.mareksowa.models.ships.Ship;
@@ -18,6 +21,9 @@ import java.util.ResourceBundle;
 
 public class MarketController extends PlayerShipController implements Initializable {
 
+    /**
+     * Label declarationa
+     */
     @FXML private ImageView ivBackGround;
     @FXML private Label lblTitle;
     @FXML private Label lblUpperText;
@@ -45,7 +51,6 @@ public class MarketController extends PlayerShipController implements Initializa
     private Image imgDecorations;
     private Image imgSilk;
     private Image imgSpices;
-    private CityManager cityManager;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -70,16 +75,16 @@ public class MarketController extends PlayerShipController implements Initializa
      * Method to inform new user about template possibilities. What is allowed, what not, what is here to do etc.
      */
     private void showTutorial(){
-        if (getPLAYER_SHIP().getAchievement().isFirstTimeInMarket()){
+        if (getShipPlayerCurrent().getAchievement().isFirstTimeInMarket()){
             //todo show info about city dockyard
             System.out.println("show info about city market");
-            getPLAYER_SHIP().getAchievement().setFirstTimeInMarket(true);
+            getShipPlayerCurrent().getAchievement().setFirstTimeInMarket(true);
         }
     }
 
     private void updateScene(){
         updateMarketView();
-        updatePlayerShip(getPLAYER_SHIP());
+        updatePlayerShip(getShipPlayerCurrent());
     }
 
     private void updateMarketView(){
@@ -98,14 +103,13 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void updateLabels(){
-        cityManager = getScene().getCityFunctionality();
-        lblPriceWheat.setText("Wheat: "+ cityManager.priceOf(GoodName.WHEAT) + "gold");
-        lblPriceClothes.setText("Clothes: "+ cityManager.priceOf(GoodName.CLOTHES) + "gold");
-        lblPriceWine.setText("Wine: "+ cityManager.priceOf(GoodName.WINE) + "gold");
-        lblPriceMahogany.setText("Mahogany: "+ cityManager.priceOf(GoodName.MAHOGANY) + "gold");
-        lblPriceDecorations.setText("Decorations: "+ cityManager.priceOf(GoodName.DECORATIONS) + "gold");
-        lblPriceSilk.setText("Silk: "+ cityManager.priceOf(GoodName.SILK) + "gold");
-        lblPriceSpices.setText("Spices: "+ cityManager.priceOf(GoodName.SPICES) + "gold");
+        lblPriceWheat.setText("Wheat: "+ getCityManager().priceOf(GoodName.WHEAT) + "gold");
+        lblPriceClothes.setText("Clothes: "+ getCityManager().priceOf(GoodName.CLOTHES) + "gold");
+        lblPriceWine.setText("Wine: "+ getCityManager().priceOf(GoodName.WINE) + "gold");
+        lblPriceMahogany.setText("Mahogany: "+ getCityManager().priceOf(GoodName.MAHOGANY) + "gold");
+        lblPriceDecorations.setText("Decorations: "+ getCityManager().priceOf(GoodName.DECORATIONS) + "gold");
+        lblPriceSilk.setText("Silk: "+ getCityManager().priceOf(GoodName.SILK) + "gold");
+        lblPriceSpices.setText("Spices: "+ getCityManager().priceOf(GoodName.SPICES) + "gold");
         lblUpperText.setText("Click good to buy it, to sell click equivalent in your ship");
     }
 
@@ -133,86 +137,86 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void buyGood(Ship playerShip, Good good){
-        if (getScene().getShipFunctionality().canBuyGood(playerShip, good)){
-            getScene().getShipFunctionality().buyGood(playerShip, good);
+        if (getShipTradeManager().canBuyGood(playerShip, good)){
+            getShipTradeManager().buyGood(playerShip, good);
             updateScene();
         }
     }
 
     private void sellGood(Ship playerShip, int storageListNo){
-        if (getScene().getShipFunctionality().canSellGood(playerShip, storageListNo)){
-            getScene().getShipFunctionality().sellGood(playerShip, getPLAYER_SHIP().getStorage().get(storageListNo),
-                    cityManager.getCitySellPrice(getPLAYER_SHIP().getStorage().get(storageListNo)));
+        if (getShipTradeManager().canSellGood(playerShip, storageListNo)){
+            getShipTradeManager().sellGood(playerShip, getShipPlayerCurrent().getStorage().get(storageListNo),
+                    getCityManager().getCitySellPrice(getShipPlayerCurrent().getStorage().get(storageListNo)));
             updateScene();
         }
     }
 
     private void setBtnAddWheat(){
-        btnAddWheat.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.WHEAT)));
+        btnAddWheat.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.WHEAT)));
     }
 
     private void setBtnAddClothes(){
-        btnAddClothes.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(),cityManager.getExistedGood(GoodName.CLOTHES)));
+        btnAddClothes.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(),getCityManager().getExistedGood(GoodName.CLOTHES)));
     }
 
     private void setBtnAddWine(){
-        btnAddWine.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.WINE)));
+        btnAddWine.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.WINE)));
     }
 
     private void setBtnAddMahogany(){
-        btnAddMahogany.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.MAHOGANY)));
+        btnAddMahogany.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.MAHOGANY)));
     }
 
     private void setBtnAddSilk(){
-        btnAddSilk.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.SILK)));
+        btnAddSilk.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.SILK)));
     }
 
     private void setBtnAddDecorations(){
-        btnAddDecorations.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.DECORATIONS)));
+        btnAddDecorations.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.DECORATIONS)));
     }
 
     private void setBtnAddSpices(){
-        btnAddSpices.setOnMouseClicked(click-> buyGood(getPLAYER_SHIP(), cityManager.getExistedGood(GoodName.SPICES)));
+        btnAddSpices.setOnMouseClicked(click-> buyGood(getShipPlayerCurrent(), getCityManager().getExistedGood(GoodName.SPICES)));
     }
 
     private void setIvStorage1(){
-        getIvStorage1().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 0));
+        getIvStorage1().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 0));
     }
 
     private void setIvStorage2(){
-        getIvStorage2().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 1));
+        getIvStorage2().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 1));
     }
 
     private void setIvStorage3(){
-        getIvStorage3().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 2));
+        getIvStorage3().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 2));
     }
 
     private void setIvStorage4(){
-        getIvStorage4().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 3));
+        getIvStorage4().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 3));
     }
 
     private void setIvStorage5(){
-        getIvStorage5().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 4));
+        getIvStorage5().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 4));
     }
 
     private void setIvStorage6(){
-        getIvStorage6().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 5));
+        getIvStorage6().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 5));
     }
 
     private void setIvStorage7(){
-        getIvStorage7().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 6));
+        getIvStorage7().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 6));
     }
 
     private void setIvStorage8(){
-        getIvStorage8().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 7));
+        getIvStorage8().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 7));
     }
 
     private void setIvStorage9(){
-        getIvStorage9().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 8));
+        getIvStorage9().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 8));
     }
 
     private void setIvStorage10(){
-        getIvStorage10().setOnMouseClicked(click->sellGood(getPLAYER_SHIP(), 9));
+        getIvStorage10().setOnMouseClicked(click->sellGood(getShipPlayerCurrent(), 9));
     }
 
 
@@ -220,7 +224,7 @@ public class MarketController extends PlayerShipController implements Initializa
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             Stage dockyard = (Stage) btnBack.getScene().getWindow();
-            getScene().sceneChange(dockyard, getScene().sceneNameFinderByEnum(getScene().getBackStage()));
+            getSceneManager().sceneChange(dockyard, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
         });
     }
 
