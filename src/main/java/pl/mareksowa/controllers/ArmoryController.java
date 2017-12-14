@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import pl.mareksowa.models.cannons.BigCannon;
+import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.cannons.LongCannon;
 import pl.mareksowa.models.cannons.ShortCannon;
 import pl.mareksowa.models.ships.Ship;
@@ -157,17 +158,28 @@ public class ArmoryController extends PlayerShipController implements Initializa
         }
     }
 
+    private void addNewCannon(Cannon cannonToAdd){
+        if (getShipTradeManager().canBuyCannon(getShipPlayerCurrent(), cannonToAdd, lblUpperText)){
+            getShipTradeManager().buyCannon(getShipPlayerCurrent(), cannonToAdd);
+        }
+    }
 
+    private void sellCannon(int cannonListNo){
+        if (getShipTradeManager().canSellCannon(getShipPlayerCurrent(), cannonListNo)){
+            getShipTradeManager().sellCannon(getShipPlayerCurrent(), getShipPlayerCurrent().getCannonList().get(cannonListNo));
+        }
+    }
 
     private void btnRegAddCannon1(){
-
+        btnAddCannon1.setOnMouseClicked(click->addNewCannon(new ShortCannon()));
     }
 
     private void btnRegAddCannon2(){
-
+        btnAddCannon2.setOnMouseClicked(click->addNewCannon(new LongCannon()));
     }
 
     private void btnRegAddCannon3(){
-
+        btnAddCannon3.setOnMouseClicked(click->addNewCannon(new BigCannon()));
     }
+
 }

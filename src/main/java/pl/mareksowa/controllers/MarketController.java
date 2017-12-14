@@ -45,7 +45,6 @@ public class MarketController extends PlayerShipController implements Initializa
     @FXML private Button btnAddSpices;
     @FXML private Button btnBack;
 
-    private Image imgFood;
     private Image imgWheat;
     private Image imgClothes;
     private Image imgWine;
@@ -63,7 +62,6 @@ public class MarketController extends PlayerShipController implements Initializa
 
     private void imgLoader(){
         setBackgroundImage(new Image("img/BackGround.png"));
-        imgFood = new Image("img/goods/Food.png");
         imgWheat = new Image("img/goods/Wheat.png");
         imgClothes = new Image("img/goods/Clothes.png");
         imgWine = new Image("img/goods/Wine.png");

@@ -322,51 +322,51 @@ public class DockyardController extends PlayerShipController implements Initiali
        }
     }
 
-    private void sellSail(Ship playerShip, int sailListNo){
-        if (getShipTradeManager().canSellSail(playerShip, sailListNo)){
-            getShipTradeManager().sellSail(playerShip, getShipPlayerCurrent().getSailList().get(sailListNo));
+    private void sellSail(int sailListNo){
+        if (getShipTradeManager().canSellSail(getShipPlayerCurrent(), sailListNo)){
+            getShipTradeManager().sellSail(getShipPlayerCurrent(), getShipPlayerCurrent().getSailList().get(sailListNo));
             updateScene();
         }
     }
 
     private void btnRegSail1(){
-        getIvSail1().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 0));
+        getIvSail1().setOnMouseClicked(click->sellSail( 0));
     }
 
     private void btnRegSail2(){
-        getIvSail2().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 1));
+        getIvSail2().setOnMouseClicked(click->sellSail( 1));
     }
 
     private void btnRegSail3(){
-        getIvSail3().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 2));
+        getIvSail3().setOnMouseClicked(click->sellSail( 2));
     }
 
     private void btnRegSail4(){
-        getIvSail4().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 3));
+        getIvSail4().setOnMouseClicked(click->sellSail( 3));
     }
 
     private void btnRegSail5(){
-        getIvSail5().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 4));
+        getIvSail5().setOnMouseClicked(click->sellSail(4));
     }
 
     private void btnRegSail6(){
-        getIvSail6().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 5));
+        getIvSail6().setOnMouseClicked(click->sellSail(5));
     }
 
     private void btnRegSail7(){
-        getIvSail7().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 6));
+        getIvSail7().setOnMouseClicked(click->sellSail(6));
     }
 
     private void btnRegSail8(){
-        getIvSail8().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 7));
+        getIvSail8().setOnMouseClicked(click->sellSail(7));
     }
 
     private void btnRegSail9(){
-        getIvSail9().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 8));
+        getIvSail9().setOnMouseClicked(click->sellSail(8));
     }
 
     private void btnRegSail10(){
-        getIvSail10().setOnMouseClicked(click->sellSail(getShipPlayerCurrent(), 9));
+        getIvSail10().setOnMouseClicked(click->sellSail(9));
     }
 
     private void btnRegAddSailSmall(){

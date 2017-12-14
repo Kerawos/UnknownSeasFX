@@ -64,7 +64,7 @@ public interface ShipTradeManager {
     void buySail(Ship shipPlayer, Sail sailToBuy);
 
     /**
-     *
+     * Method checks if capitan of listed ship can sell given sail
      * @param shipPlayer
      * @param sailsListNo
      * @return true if conditions have been met
@@ -93,6 +93,20 @@ public interface ShipTradeManager {
      * @param cannonToAdd
      */
     void buyCannon(Ship shipPlayer, Cannon cannonToAdd);
+
+    /**
+     * Method checks if capitan of listed ship can sell given cannon
+     * @param shipPlayer
+     * @param cannonsListNo
+     */
+    boolean canSellCannon(Ship shipPlayer, int cannonsListNo);
+
+    /**
+     * Method responsible for selling given cannon by capitan of listed ship
+     * @param shipPlayer
+     * @param cannonToSell
+     */
+    void sellCannon(Ship shipPlayer, Cannon cannonToSell);
 
     /**
      * Method checks if capitan of listed ship can buy armor

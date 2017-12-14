@@ -121,6 +121,16 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
     }
 
     @Override
+    public boolean canSellCannon(Ship shipPlayer, int cannonsListNo) {
+        return false;
+    }
+
+    @Override
+    public void sellCannon(Ship shipPlayer, Cannon cannonToSell) {
+
+    }
+
+    @Override
     public boolean canBuyArmor(Ship shipPlayer, Label lblUpperText) {
         return false;
     }
