@@ -109,20 +109,6 @@ public interface ShipTradeManager {
     void sellCannon(Ship shipPlayer, Cannon cannonToSell);
 
     /**
-     * Method checks if capitan of listed ship can buy armor
-     * @param shipPlayer
-     * @param lblUpperText
-     * @return true if conditions have been met
-     */
-    boolean canBuyArmor(Ship shipPlayer, Label lblUpperText);
-
-    /**
-     * Method responsible for buying armor by capitan of listed ship
-     * @param shipPlayer
-     */
-    void buyArmor(Ship shipPlayer);
-
-    /**
      * Method checks if capitan of listed ship can buy given ammo
      * @param shipPlayer
      * @param ammoQty

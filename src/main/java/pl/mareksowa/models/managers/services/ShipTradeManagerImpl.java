@@ -112,32 +112,50 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
 
     @Override
     public boolean canBuyCannon(Ship shipPlayer, Cannon cannonToAdd, Label lblUpperText) {
-        return false;
+        if (shipPlayer.getGold()>= cannonToAdd.getPrice()){
+            if (shipPlayer.getCannonCapacity() > shipPlayer.getCannonList().size()){
+                return true;
+            }else {
+                lblUpperText.setText("You don't have enough space..");
+                return false;
+            }
+        } else {
+            lblUpperText.setText("You don't have enough gold..");
+            return false;
+        }
     }
 
     @Override
     public void buyCannon(Ship shipPlayer, Cannon cannonToAdd) {
-
+        shipPlayer.getCannonList().add(cannonToAdd);
+        shipPlayer.setGold(shipPlayer.getGold()- cannonToAdd.getPrice());
     }
 
     @Override
     public boolean canSellCannon(Ship shipPlayer, int cannonsListNo) {
+        if (shipPlayer.getCannonList().size()>0){
+            String givenCannonName = shipPlayer.getCannonList().get(cannonsListNo).getClass().getName();
+            givenCannonName = givenCannonName.substring(givenCannonName.lastIndexOf(".")+1, givenCannonName.length());
+            for (int i = 0; i < shipPlayer.getCannonList().size(); i++) {
+                String currentCannonName = shipPlayer.getCannonList().get(i).getClass().getName();
+                currentCannonName = currentCannonName.substring(currentCannonName.lastIndexOf(".")+1, currentCannonName.length());
+                if (currentCannonName.equals(givenCannonName)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public void sellCannon(Ship shipPlayer, Cannon cannonToSell) {
-
-    }
-
-    @Override
-    public boolean canBuyArmor(Ship shipPlayer, Label lblUpperText) {
-        return false;
-    }
-
-    @Override
-    public void buyArmor(Ship shipPlayer) {
-
+        for (int i = 0; i < shipPlayer.getCannonList().size(); i++) {
+            if (shipPlayer.getCannonList().get(i).equals(cannonToSell)){
+                shipPlayer.setGold(shipPlayer.getGold() + cannonToSell.getPrice());
+                shipPlayer.getCannonList().remove(i);
+                break;
+            }
+        }
     }
 
     @Override

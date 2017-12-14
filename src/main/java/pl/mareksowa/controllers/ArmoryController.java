@@ -11,10 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
-import pl.mareksowa.models.cannons.BigCannon;
-import pl.mareksowa.models.cannons.Cannon;
-import pl.mareksowa.models.cannons.LongCannon;
-import pl.mareksowa.models.cannons.ShortCannon;
+import pl.mareksowa.models.cannons.*;
 import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
@@ -122,6 +119,17 @@ public class ArmoryController extends PlayerShipController implements Initializa
         btnRegAddCannon1();
         btnRegAddCannon2();
         btnRegAddCannon3();
+        btnRegSellCannon1();
+        btnRegSellCannon2();
+        btnRegSellCannon3();
+        btnRegSellCannon4();
+        btnRegSellCannon5();
+        btnRegSellCannon6();
+        btnRegSellCannon7();
+        btnRegSellCannon8();
+        btnRegSellCannon9();
+        btnRegSellCannon10();
+
         btnRegBack();
     }
 
@@ -130,10 +138,6 @@ public class ArmoryController extends PlayerShipController implements Initializa
             Stage armory = (Stage) btnBack.getScene().getWindow();
             getSceneManager().sceneChange(armory, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
         });
-    }
-
-    private void btnRegAddArmor(){
-
     }
 
     private void btnRegAddAmmo1(){
@@ -182,4 +186,50 @@ public class ArmoryController extends PlayerShipController implements Initializa
         btnAddCannon3.setOnMouseClicked(click->addNewCannon(new BigCannon()));
     }
 
+    /**
+     * Method to add new power to the ship. Armor is treated as cannon because also takes same cannon slot.
+     */
+    private void btnRegAddArmor(){
+        btnAddArmor.setOnMouseClicked(click->addNewCannon(new Armor()));
+    }
+
+    private void btnRegSellCannon1(){
+        getIvCannon1().setOnMouseClicked(click->sellCannon(0));
+    }
+
+    private void btnRegSellCannon2(){
+        getIvCannon2().setOnMouseClicked(click->sellCannon(1));
+    }
+
+    private void btnRegSellCannon3(){
+        getIvCannon3().setOnMouseClicked(click->sellCannon(2));
+    }
+
+    private void btnRegSellCannon4(){
+        getIvCannon4().setOnMouseClicked(click->sellCannon(3));
+    }
+
+    private void btnRegSellCannon5(){
+        getIvCannon5().setOnMouseClicked(click->sellCannon(4));
+    }
+
+    private void btnRegSellCannon6(){
+        getIvCannon6().setOnMouseClicked(click->sellCannon(5));
+    }
+
+    private void btnRegSellCannon7(){
+        getIvCannon7().setOnMouseClicked(click->sellCannon(6));
+    }
+
+    private void btnRegSellCannon8(){
+        getIvCannon8().setOnMouseClicked(click->sellCannon(7));
+    }
+
+    private void btnRegSellCannon9(){
+        getIvCannon9().setOnMouseClicked(click->sellCannon(8));
+    }
+
+    private void btnRegSellCannon10(){
+        getIvCannon10().setOnMouseClicked(click->sellCannon(9));
+    }
 }
