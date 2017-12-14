@@ -168,11 +168,11 @@ public class CityController extends PlayerShipController implements Initializabl
         lblUpperText.setWrapText(true);
         lblTitle.setText(CurrentScene.getInstance().getCityManager().convertCityNameToString(
                 CurrentScene.getInstance().getCurrentCity().getCityName()));
-        btnMarket.setGraphic(new ImageView(new Image("img/Market.png")));
-        btnSmith.setGraphic(new ImageView(new Image("img/Smith.png")));
-        btnArmory.setGraphic(new ImageView(new Image("img/Armory.png")));
-        btnTavern.setGraphic(new ImageView(new Image("img/Tavern.png")));
-        setBackgroundImage(new Image("img/CityRoyal.png"));
+        btnMarket.setGraphic(new ImageView(new Image("img/cities/Market.png")));
+        btnSmith.setGraphic(new ImageView(new Image("img/cities/Smith.png")));
+        btnArmory.setGraphic(new ImageView(new Image("img/cities/Armory.png")));
+        btnTavern.setGraphic(new ImageView(new Image("img/cities/Tavern.png")));
+        setBackgroundImage(new Image("img/cities/CityRoyal.png"));
         ivBackGround.setImage(getBackgroundImage());
         ivBackGround.fitWidthProperty().setValue(getBackgroundImage().getWidth());
         ivBackGround.fitHeightProperty().setValue(getBackgroundImage().getHeight());

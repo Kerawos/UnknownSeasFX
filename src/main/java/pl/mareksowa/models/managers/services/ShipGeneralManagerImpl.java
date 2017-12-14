@@ -94,7 +94,7 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
                     }
                 }
             } else {
-                storages[i].setImage(new Image("img/StorageEmpty.png"));
+                storages[i].setImage(new Image("img/goods/StorageEmpty.png"));
             }
         }
     }
@@ -135,7 +135,7 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
         //System.out.println("wielkosc zalogowego miejsca = " + PLAYER0.getStorageCapacity());
         //System.out.println("wielkosc zalogowych labeli = " + crews.length);
         for (int i = 0; i < shipPlayer.getCabinCapacity(); i++) {
-            crews[i].setImage(new Image("img/CrewEmpty.png"));
+            crews[i].setImage(new Image("img/crews/CrewEmpty.png"));
             //System.out.println("tutaj powienien dodac pierwszy obrazaek crew");
             if (shipPlayer.getCrewList().size()>0 ||
                     shipPlayer.getCrewList().size()>i){
@@ -156,25 +156,25 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
                 String sailName = shipPlayer.getSailList().get(i-1).getClass().getName();
                 switch (sailName.substring(sailName.lastIndexOf(".")+1, sailName.length())){
                     case "SailSmall":{
-                        sails[i-1].setImage(new Image("img/SailSmall.png"));
+                        sails[i-1].setImage(new Image("img/sails/SailSmall.png"));
                         break;
                     }
                     case "SailPirate":{
-                        sails[i-1].setImage(new Image("img/SailPirate.png"));
+                        sails[i-1].setImage(new Image("img/sails/SailPirate.png"));
                         break;
                     }
                     case "SailSharp":{
-                        sails[i-1].setImage(new Image("img/SailSharp.png"));
+                        sails[i-1].setImage(new Image("img/sails/SailSharp.png"));
                         break;
                     }
                     case "SailBig":{
-                        sails[i-1].setImage(new Image("img/SailBig.png"));
+                        sails[i-1].setImage(new Image("img/sails/SailBig.png"));
                         break;
                     }
                 }
 
             } else {
-                sails[i-1].setImage(new Image("img/SailEmpty.png"));
+                sails[i-1].setImage(new Image("img/sails/SailEmpty.png"));
             }
         }
 

@@ -77,7 +77,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
      * from time to time by java FX.
      */
     private void updateArmoryView(){
-        setBackgroundImage(new Image("img/BackGround.png"));
+        setBackgroundImage(new Image("img/scenes/BackGround.png"));
         ivBackGround.setImage(getBackgroundImage());
         lblTitle.setText("Armory");
         lblUpperText.setText("indicate part to add it to your ship");
@@ -88,22 +88,22 @@ public class ArmoryController extends PlayerShipController implements Initializa
         btnAddCannon1.setText("$" + new CannonShort().getPrice());
         btnAddCannon2.setText("$" + new CannonLong().getPrice());
         btnAddCannon3.setText("$" + new CannonBig().getPrice());
-        btnAddCannon1.setGraphic(new ImageView(new Image("img/ShortCannon.png")));
-        btnAddCannon2.setGraphic(new ImageView(new Image("img/LongCannon.png")));
-        btnAddCannon3.setGraphic(new ImageView(new Image("img/BigCannon.png")));
+        btnAddCannon1.setGraphic(new ImageView(new Image("img/cannons/CannonShort.png")));
+        btnAddCannon2.setGraphic(new ImageView(new Image("img/cannons/CannonLong.png")));
+        btnAddCannon3.setGraphic(new ImageView(new Image("img/cannons/CannonBig.png")));
 
         lblAddAmmo.setText("click to buy ammo");
         btnAddAmmo1.setText("$1");
         lblAmmo1.setText("+1 ammo");
-        btnAddAmmo1.setGraphic(new ImageView(new Image("img/Ammo.png")));
+        btnAddAmmo1.setGraphic(new ImageView(new Image("img/cannons/Ammo.png")));
         btnAddAmmo2.setText("$5");
         lblAmmo2.setText("+6 ammo");
-        btnAddAmmo2.setGraphic(new ImageView(new Image("img/Ammo6.png")));
+        btnAddAmmo2.setGraphic(new ImageView(new Image("img/cannons/Ammo6.png")));
 
         lblAddArmor.setText("click to buy extra armor");
         lblArmor.setText("+10% resistance");
         btnAddArmor.setText("$20");
-        btnAddArmor.setGraphic(new ImageView(new Image("img/Armor.png")));
+        btnAddArmor.setGraphic(new ImageView(new Image("img/cannons/Armor.png")));
 
 
         updateShipBackgroundView();
@@ -165,12 +165,14 @@ public class ArmoryController extends PlayerShipController implements Initializa
     private void addNewCannon(Cannon cannonToAdd){
         if (getShipTradeManager().canBuyCannon(getShipPlayerCurrent(), cannonToAdd, lblUpperText)){
             getShipTradeManager().buyCannon(getShipPlayerCurrent(), cannonToAdd);
+            updateScene();
         }
     }
 
     private void sellCannon(int cannonListNo){
         if (getShipTradeManager().canSellCannon(getShipPlayerCurrent(), cannonListNo)){
             getShipTradeManager().sellCannon(getShipPlayerCurrent(), getShipPlayerCurrent().getCannonList().get(cannonListNo));
+            updateScene();
         }
     }
 

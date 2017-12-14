@@ -49,7 +49,7 @@ public class StartController implements Initializable{
      * Updates views
      */
     private void updateView(){
-        backgroundImage = new Image("img/StartPage.png");
+        backgroundImage = new Image("img/scenes/StartPage.png");
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());

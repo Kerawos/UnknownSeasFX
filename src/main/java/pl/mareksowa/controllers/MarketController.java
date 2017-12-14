@@ -61,7 +61,7 @@ public class MarketController extends PlayerShipController implements Initializa
     }
 
     private void imgLoader(){
-        setBackgroundImage(new Image("img/BackGround.png"));
+        setBackgroundImage(new Image("img/scenes/BackGround.png"));
         imgWheat = new Image("img/goods/Wheat.png");
         imgClothes = new Image("img/goods/Clothes.png");
         imgWine = new Image("img/goods/Wine.png");

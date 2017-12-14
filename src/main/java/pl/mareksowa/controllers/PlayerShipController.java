@@ -26,7 +26,7 @@ public abstract class PlayerShipController {
      * some variables have default unchangeable initialization as 'scene'. Only getters for already initiate variables.
      */
     private Image backgroundImage;
-    private Image bgShipImage = new Image("img/BackgroundShip.png");
+    private Image bgShipImage = new Image("img/ships/BackgroundShip.png");
     private Ship shipPlayerCurrent = CurrentScene.getInstance().getShipPlayerCurrent();
 
     /**

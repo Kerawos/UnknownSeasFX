@@ -67,11 +67,11 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void imgLoader(){
-        bgPlayerShipOnMap = new Image("img/PlayerShipOnMap.png");
-        bgMapImage = new Image("img/map/Map.png");
-        indicatorGreen = new Image("img/map/MapGreen.png");
-        indicatorYellow = new Image("img/map/MapYellow.png");
-        indicatorRed = new Image("img/map/MapRed.png");
+        bgPlayerShipOnMap = new Image("img/ships/PlayerShipOnMap.png");
+        bgMapImage = new Image("img/maps/Map.png");
+        indicatorGreen = new Image("img/maps/MapGreen.png");
+        indicatorYellow = new Image("img/maps/MapYellow.png");
+        indicatorRed = new Image("img/maps/MapRed.png");
     }
 
     /**
