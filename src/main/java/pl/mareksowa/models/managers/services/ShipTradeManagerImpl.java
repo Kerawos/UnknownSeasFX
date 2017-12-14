@@ -103,7 +103,7 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
     public void sellSail(Ship shipPlayer, Sail sailToSell) {
         for (int i = 0; i < shipPlayer.getSailList().size(); i++) {
             if (shipPlayer.getSailList().get(i).equals(sailToSell)){
-                shipPlayer.setGold(shipPlayer.getGold() + sailToSell.getPrice());
+                shipPlayer.setGold(shipPlayer.getGold() + (sailToSell.getPrice()/2));
                 shipPlayer.getSailList().remove(i);
                 break;
             }
@@ -151,7 +151,7 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
     public void sellCannon(Ship shipPlayer, Cannon cannonToSell) {
         for (int i = 0; i < shipPlayer.getCannonList().size(); i++) {
             if (shipPlayer.getCannonList().get(i).equals(cannonToSell)){
-                shipPlayer.setGold(shipPlayer.getGold() + cannonToSell.getPrice());
+                shipPlayer.setGold(shipPlayer.getGold() + (cannonToSell.getPrice()/2));
                 shipPlayer.getCannonList().remove(i);
                 break;
             }
