@@ -2,11 +2,11 @@ package pl.mareksowa.models.cannons;
 /**
  * Model Class
  */
-public class BigCannon extends Cannon {
+public class CannonLong extends Cannon {
     /**
      * Variable of standard Model Class
      */
-    public BigCannon() {
-        super(35, 10);
+    public CannonLong() {
+        super(20, 7);
     }
 }

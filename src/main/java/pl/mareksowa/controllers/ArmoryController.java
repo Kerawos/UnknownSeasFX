@@ -82,12 +82,12 @@ public class ArmoryController extends PlayerShipController implements Initializa
         lblTitle.setText("Armory");
         lblUpperText.setText("indicate part to add it to your ship");
         lblAddCannon.setText("click to buy special cannon");
-        lblCannon1Str.setText("fire power: " + new ShortCannon().getStrength());
-        lblCannon2Str.setText("fire power: " + new LongCannon().getStrength());
-        lblCannon3Str.setText("fire power: " + new BigCannon().getStrength());
-        btnAddCannon1.setText("$" + new ShortCannon().getPrice());
-        btnAddCannon2.setText("$" + new LongCannon().getPrice());
-        btnAddCannon3.setText("$" + new BigCannon().getPrice());
+        lblCannon1Str.setText("fire power: " + new CannonShort().getStrength());
+        lblCannon2Str.setText("fire power: " + new CannonLong().getStrength());
+        lblCannon3Str.setText("fire power: " + new CannonBig().getStrength());
+        btnAddCannon1.setText("$" + new CannonShort().getPrice());
+        btnAddCannon2.setText("$" + new CannonLong().getPrice());
+        btnAddCannon3.setText("$" + new CannonBig().getPrice());
         btnAddCannon1.setGraphic(new ImageView(new Image("img/ShortCannon.png")));
         btnAddCannon2.setGraphic(new ImageView(new Image("img/LongCannon.png")));
         btnAddCannon3.setGraphic(new ImageView(new Image("img/BigCannon.png")));
@@ -175,15 +175,15 @@ public class ArmoryController extends PlayerShipController implements Initializa
     }
 
     private void btnRegAddCannon1(){
-        btnAddCannon1.setOnMouseClicked(click->addNewCannon(new ShortCannon()));
+        btnAddCannon1.setOnMouseClicked(click->addNewCannon(new CannonShort()));
     }
 
     private void btnRegAddCannon2(){
-        btnAddCannon2.setOnMouseClicked(click->addNewCannon(new LongCannon()));
+        btnAddCannon2.setOnMouseClicked(click->addNewCannon(new CannonLong()));
     }
 
     private void btnRegAddCannon3(){
-        btnAddCannon3.setOnMouseClicked(click->addNewCannon(new BigCannon()));
+        btnAddCannon3.setOnMouseClicked(click->addNewCannon(new CannonBig()));
     }
 
     /**

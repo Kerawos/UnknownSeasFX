@@ -101,18 +101,32 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     @Override
     public void updateCannon(Ship shipPlayer, ImageView... cannons) {
-        //System.out.println("wielkosc armatniego miejsca = " + PLAYER0.getCannonCapacity());
-        //System.out.println("wielkosc armatnich labeli = " + cannons.length);
-        for (int i = 0; i < shipPlayer.getCannonCapacity(); i++) {
-            cannons[i].setImage(new Image("img/CannonEmpty.png"));
-            //System.out.println("tutaj powienien dodac pierwszy obrazaek cannon");
-            if (shipPlayer.getCannonList().size()>0 ||
-                    shipPlayer.getCannonList().size()>i){
-                //System.out.println("z kolei tutaj jakbysmy mieli jakias cannon");
-                /// TODO: 06.11.2017 adding proper good
+        for (int i = 1; i <= shipPlayer.getCannonCapacity(); i++) {
+            if (shipPlayer.getCannonList().size() >= i && shipPlayer.getCannonList().size()>0){
+                String cannonName = shipPlayer.getCannonList().get(i-1).getClass().getName();
+                switch (cannonName.substring(cannonName.lastIndexOf(".")+1, cannonName.length())){
+                    case "Armor":{
+                        cannons[i-1].setImage(new Image("img/cannons/Armor.png"));
+                        break;
+                    }
+                    case "CannonShort":{
+                        cannons[i-1].setImage(new Image("img/cannons/CannonShort.png"));
+                        break;
+                    }
+                    case "CannonLong":{
+                        cannons[i-1].setImage(new Image("img/cannons/CannonLong.png"));
+                        break;
+                    }
+                    case "CannonBig":{
+                        cannons[i-1].setImage(new Image("img/cannons/CannonBig.png"));
+                        break;
+                    }
+                }
+
+            } else {
+                cannons[i-1].setImage(new Image("img/cannons/CannonEmpty.png"));
             }
         }
-        /// TODO: 06.11.2017
     }
 
 
@@ -139,8 +153,8 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
     public void updateSail(Ship shipPlayer, ImageView... sails) {
         for (int i = 1; i <= shipPlayer.getSailCapacity(); i++) {
             if (shipPlayer.getSailList().size() >= i && shipPlayer.getSailList().size()>0){
-                String shipName = shipPlayer.getSailList().get(i-1).getClass().getName();
-                switch (shipName.substring(shipName.lastIndexOf(".")+1, shipName.length())){
+                String sailName = shipPlayer.getSailList().get(i-1).getClass().getName();
+                switch (sailName.substring(sailName.lastIndexOf(".")+1, sailName.length())){
                     case "SailSmall":{
                         sails[i-1].setImage(new Image("img/SailSmall.png"));
                         break;
