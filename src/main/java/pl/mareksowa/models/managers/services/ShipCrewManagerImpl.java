@@ -5,6 +5,8 @@ package pl.mareksowa.models.managers.services;
  */
 
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.managers.ShipCrewManager;
@@ -13,7 +15,7 @@ import pl.mareksowa.models.ships.Ship;
 /**
  * Service responsible for all crew member behaviours. Hire, rebellion, hunger, die.
  */
-@Service
+@Repository
 public class ShipCrewManagerImpl implements ShipCrewManager{
 
     @Override

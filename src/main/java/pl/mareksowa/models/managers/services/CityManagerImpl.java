@@ -4,6 +4,8 @@ package pl.mareksowa.models.managers.services;
  * Import sections
  */
 
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.cities.*;
@@ -18,7 +20,7 @@ import java.util.Random;
 /**
  * This service is responsible for all logic connecting with city
  */
-@Service
+@Repository
 public class CityManagerImpl implements CityManager {
 
     /**

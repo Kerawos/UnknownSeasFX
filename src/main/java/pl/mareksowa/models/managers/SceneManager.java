@@ -1,9 +1,12 @@
 package pl.mareksowa.models.managers;
 
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 
+@Service
 public interface SceneManager {
 
     /**

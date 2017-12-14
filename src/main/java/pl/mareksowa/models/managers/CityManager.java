@@ -1,5 +1,6 @@
 package pl.mareksowa.models.managers;
 
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.cities.CityName;
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * This service is responsible for all logic connecting with city
  */
+@Service
 public interface CityManager {
 
     /**

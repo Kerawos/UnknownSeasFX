@@ -5,13 +5,15 @@ package pl.mareksowa.models.managers.services;
  */
 
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.ships.Ship;
 
 /**
  * Service responsible for implements listed interface - core ship upgrades like rebuilding ship, space, and extra places to additions.
  */
-@Service
+@Repository
 public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.ShipBuilderManager {
 
     @Override

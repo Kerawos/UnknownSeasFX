@@ -10,6 +10,8 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.managers.SceneManager;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
@@ -21,6 +23,7 @@ import java.util.ResourceBundle;
 /**
  * Control Game start view panel. Main menu panel
  */
+@Component
 public class StartController implements Initializable{
 
     /**

@@ -4,6 +4,7 @@ package pl.mareksowa.models.managers;
  * Imports section
  */
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.sails.Sail;
@@ -12,6 +13,7 @@ import pl.mareksowa.models.ships.Ship;
 /**
  * Interface responsible for buying and selling avery good, cannons, food, ammo for ship.
  */
+@Service
 public interface ShipTradeManager {
 
     /**

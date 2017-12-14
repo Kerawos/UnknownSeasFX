@@ -4,6 +4,8 @@ package pl.mareksowa.models.managers.services;
  * Imports section
  */
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.goods.Good;
@@ -15,7 +17,7 @@ import java.util.ArrayList;
 /**
  * Service responsible for trading and market on the ship.
  */
-@Service
+@Repository
 public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTradeManager {
 
 

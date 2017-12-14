@@ -6,6 +6,7 @@ package pl.mareksowa.models.managers;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.ships.Ship;
 
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.List;
 /**
  * Interface responsible for general ship behaviours, not specified. Every updates of ship controller.
  */
+@Service
 public interface ShipGeneralManager {
 
     /**

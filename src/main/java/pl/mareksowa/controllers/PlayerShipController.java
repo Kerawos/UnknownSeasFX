@@ -9,6 +9,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.managers.*;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
@@ -18,6 +19,7 @@ import pl.mareksowa.models.ships.Ship;
  * Lot of Controllers will using player ship functionality. Class is shortcut between implementations tons of repeat
  *stuff. Every controller using player ship need extend this controller.
  */
+@Component
 public abstract class PlayerShipController {
 
     /**
@@ -30,6 +32,8 @@ public abstract class PlayerShipController {
     /**
      * Services initialization mainly for children class
      */
+    //todo SPRING not work at this moment - to rapair this
+    /*
     @Autowired private CityManager cityManager;
     @Autowired private SceneManager sceneManager;
     @Autowired private ShipBuilderManager shipBuilderManager;
@@ -37,6 +41,8 @@ public abstract class PlayerShipController {
     @Autowired private ShipGeneralManager shipGeneralManager;
     @Autowired private ShipMovementManager shipMovementManager;
     @Autowired private ShipTradeManager shipTradeManager;
+     */
+
 
     /**
      * FX declarations
@@ -446,7 +452,9 @@ public abstract class PlayerShipController {
     /**
      * Services getters for children class
      */
-    public CityManager getCityManager() {
+    //todo SPRING NOT WORKING AT THIS MOMENT - TO REPAIR
+    /*
+     public CityManager getCityManager() {
         return cityManager;
     }
 
@@ -473,4 +481,35 @@ public abstract class PlayerShipController {
     public ShipTradeManager getShipTradeManager() {
         return shipTradeManager;
     }
+     */
+
+    // below temporary solutions - delete after spring will working
+    public CityManager getCityManager() {
+        return CurrentScene.getInstance().getCityManager();
+    }
+
+    public SceneManager getSceneManager() {
+        return CurrentScene.getInstance().getSceneManager();
+    }
+
+    public ShipBuilderManager getShipBuilderManager() {
+        return CurrentScene.getInstance().getShipBuilderManager();
+    }
+
+    public ShipCrewManager getShipCrewManager() {
+        return CurrentScene.getInstance().getShipCrewManager();
+    }
+
+    public ShipGeneralManager getShipGeneralManager() {
+        return CurrentScene.getInstance().getShipGeneralManager();
+    }
+
+    public ShipMovementManager getShipMovementManager() {
+        return CurrentScene.getInstance().getShipMovementManager();
+    }
+
+    public ShipTradeManager getShipTradeManager() {
+        return CurrentScene.getInstance().getShipTradeManager();
+    }
+
 }

@@ -4,11 +4,13 @@ package pl.mareksowa.models.managers;
  * Imports section
  */
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.ships.Ship;
 
 /**
  * Interface responsible for core ship upgrades like rebuilding ship, space, and extra places to additions.
  */
+@Service
 public interface ShipBuilderManager {
     /**
      * Method checks if indicated ship can be upgraded to extra storage space

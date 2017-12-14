@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
 import pl.mareksowa.models.ships.Ship;
@@ -19,10 +20,11 @@ import pl.mareksowa.models.ships.Ship;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Component
 public class MarketController extends PlayerShipController implements Initializable {
 
     /**
-     * Label declarationa
+     * Label declarations
      */
     @FXML private ImageView ivBackGround;
     @FXML private Label lblTitle;

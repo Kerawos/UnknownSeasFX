@@ -4,12 +4,14 @@ package pl.mareksowa.models.managers;
  * Imports section
  */
 import javafx.scene.control.Label;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
 
 /**
  * Interface responsible for all crew member behaviours. Hire, rebellion, hunger, die.
  */
+@Service
 public interface ShipCrewManager {
 
     /**

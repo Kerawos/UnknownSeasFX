@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 import pl.mareksowa.models.cannons.BigCannon;
 import pl.mareksowa.models.cannons.LongCannon;
 import pl.mareksowa.models.cannons.ShortCannon;
@@ -18,7 +19,7 @@ import pl.mareksowa.models.ships.Ship;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+@Component
 public class ArmoryController extends PlayerShipController implements Initializable{
 
 

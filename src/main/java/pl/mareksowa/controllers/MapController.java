@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
 /**
  * Control world map in this game. Managing player moving and entering to locations.
  */
+@Component
 public class MapController extends PlayerShipController implements Initializable {
 
     /**
@@ -279,7 +281,7 @@ public class MapController extends PlayerShipController implements Initializable
             getSceneManager().sceneChange(cityStage, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
         }
     }
-    
+
     private void btnRegMapInfo(){
         btnMapInfo.setOnMouseClicked(click-> System.out.println("map info clicked"));
     }

@@ -7,6 +7,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
@@ -19,7 +21,8 @@ import java.util.Map;
  * Singleton class which contain all managers. Holding current scene info, current state of player ship. Calling Scene
  * manager we can change directly scene also manage player ship.
  */
-@Service
+
+@Repository
 public class SceneManagerImpl implements SceneManager {
     /**
      * Variables declarations
@@ -29,7 +32,7 @@ public class SceneManagerImpl implements SceneManager {
     private GameTime gameTime;
     private int lastDayInVisitedCity;
 
-    private SceneManagerImpl(){
+    public SceneManagerImpl(){
         //todo check if @service will work with private constructor here
         sceneNameEquivalent = new SceneNameEquivalent();
         gameTime = new GameTime();

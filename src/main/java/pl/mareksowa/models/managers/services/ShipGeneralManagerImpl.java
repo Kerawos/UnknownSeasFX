@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.crews.Crew;
@@ -21,7 +23,7 @@ import java.util.List;
 /**
  * Service responsible for general ship behaviours, not specified. Every updates of ship controller.
  */
-@Service
+@Repository
 public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     private List<Ship> ships;

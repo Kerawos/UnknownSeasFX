@@ -6,6 +6,7 @@ package pl.mareksowa.models;
 import org.springframework.beans.factory.annotation.Autowired;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.managers.*;
+import pl.mareksowa.models.managers.services.*;
 import pl.mareksowa.models.ships.Ship;
 
 /**
@@ -39,13 +40,14 @@ public class CurrentScene
     /**
      * Services declarations;
      */
-    @Autowired private CityManager cityManager;
-    @Autowired private SceneManager sceneManager;
-    @Autowired private ShipBuilderManager shipBuilderManager;
-    @Autowired private ShipCrewManager shipCrewManager;
-    @Autowired private ShipGeneralManager shipGeneralManager;
-    @Autowired private ShipMovementManager shipMovementManager;
-    @Autowired private ShipTradeManager shipTradeManager;
+    //todo SPRING NOT WORK ('new' required at this moment ... ;(
+    @Autowired private CityManager cityManager = new CityManagerImpl();
+    @Autowired private SceneManager sceneManager = new SceneManagerImpl();
+    @Autowired private ShipBuilderManager shipBuilderManager = new ShipBuilderManagerImpl();
+    @Autowired private ShipCrewManager shipCrewManager = new ShipCrewManagerImpl();
+    @Autowired private ShipGeneralManager shipGeneralManager = new ShipGeneralManagerImpl();
+    @Autowired private ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
+    @Autowired private ShipTradeManager shipTradeManager = new ShipTradeManagerImpl();
 
     /**
      * Getters and setters section

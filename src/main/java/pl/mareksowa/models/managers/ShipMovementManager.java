@@ -1,9 +1,11 @@
 package pl.mareksowa.models.managers;
 
 import javafx.scene.image.ImageView;
+import org.springframework.stereotype.Service;
 import pl.mareksowa.models.ships.Ship;
 import pl.mareksowa.models.ships.ShipPosition;
 
+@Service
 public interface ShipMovementManager {
     ShipPosition getShipPosition(Ship shipPlayer);
     void setShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);

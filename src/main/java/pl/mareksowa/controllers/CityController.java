@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
  * Control specific city behaviours. Responsible for change city scenes like: go to dockyard, store etc. Also view
  * player ship statistics.
  */
+@Component
 public class CityController extends PlayerShipController implements Initializable {
 
     /**

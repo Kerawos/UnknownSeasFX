@@ -1,6 +1,8 @@
 package pl.mareksowa.models.managers.services;
 
 import javafx.scene.image.ImageView;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.sails.Sail;
@@ -13,7 +15,7 @@ import java.util.List;
 /**
  * Service responsible for ship movement, possible moves, current position, allowed moves.
  */
-@Service
+@Repository
 public class ShipMovementManagerImpl implements ShipMovementManager {
 
     /**
