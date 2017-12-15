@@ -49,11 +49,51 @@ public interface ShipCrewManager {
      */
     void ridOffCrewMember(Ship shipPlayer, Crew crewToFire);
 
+    /**
+     * Method will generate random crew member from all available at this moment potential members
+     * @return random crew member
+     */
     Crew generateRandomCrewMember();
 
+    /**
+     * Method generate or not person to tavern which player can hire
+     * @return 50% chance of random crew member
+     */
     Crew generateCrewToTavern();
 
+    /**
+     * Method will generate list of crew member for city
+     * @param capacityOfCityTavern
+     * @return list of crew members
+     */
     List<Crew> generateTavernList(int capacityOfCityTavern);
 
-    void updateTavernAvailableCrew(Crew crewMember, Label lblCrewName, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire);
+    /**
+     * Support method for updating every image view in controller
+     * @param crewMember
+     * @param lblCrewName
+     * @param lblCrewStrength
+     * @param lblCrewSalary
+     * @param lblCrewConsumption
+     * @param lblCrewProduction
+     * @param ivCrewToHire
+     */
+    void updateTavernAvailableCrew(Crew crewMember, Label lblCrewName, Label lblCrewStrength, Label lblCrewSalary,
+                                   Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire);
+
+    /**
+     * Method which check if capitan can buy listed food to ship
+     * @param shipPlayer
+     * @param foodCost
+     * @return tru if condition has been met
+     */
+    boolean canBuyFood(Ship shipPlayer, int foodCost);
+
+    /**
+     * Method which add given food quantity to the ship
+     * @param shipPlayer
+     * @param foodToAdd
+     * @param goldToPay
+     */
+    void buyFood(Ship shipPlayer, int foodToAdd, int goldToPay);
 }

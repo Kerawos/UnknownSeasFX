@@ -111,23 +111,18 @@ public interface ShipTradeManager {
     /**
      * Method checks if capitan of listed ship can buy given ammo
      * @param shipPlayer
-     * @param ammoQty
      * @param lblPlayerAmmo
      * @return true if conditions have been met
      */
-    boolean canBuyAmmo(Ship shipPlayer, int ammoQty, Label lblPlayerAmmo);
+    boolean canBuyAmmo(Ship shipPlayer, int ammoCost, Label lblPlayerAmmo);
 
     /**
      * Method responsible for buying given amount of ammo
      * @param shipPlayer
      * @param ammoQty
+     * @param ammoCost
      */
-    void buyAmmo(Ship shipPlayer, int ammoQty);
+    void buyAmmo(Ship shipPlayer, int ammoQty, int ammoCost);
 
-    /**
-     * Special method which is placed for bonus in amount of 6 pieces of ammo
-     * @param shipPlayer
-     */
-    void buyAmmo6(Ship shipPlayer);
 
 }

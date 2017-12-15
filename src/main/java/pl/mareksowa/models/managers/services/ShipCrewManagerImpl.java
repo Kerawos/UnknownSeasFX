@@ -3,15 +3,10 @@ package pl.mareksowa.models.managers.services;
 /**
  * Imports section
  */
-
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.crews.*;
 import pl.mareksowa.models.managers.ShipCrewManager;
 import pl.mareksowa.models.ships.Ship;
@@ -28,22 +23,24 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
 
     @Override
     public boolean canHireCrewMember(Ship shipPlayer, Crew crewToHire, Label lblUpperText) {
+        //todo
         return false;
     }
 
     @Override
     public void hireCrewMember(Ship shipPlayer, Crew crewToHire) {
-
+        //todo
     }
 
     @Override
     public boolean canGetRidOffCrewMember(Ship shipPlayer, Crew crewToFire, Label lblUpperText) {
+        //todo
         return false;
     }
 
     @Override
     public void ridOffCrewMember(Ship shipPlayer, Crew crewToFire) {
-
+        //todo
     }
 
     // 30% chance of DeckHand and Sailor, 20% chance of Chef, 10% chance of SeaWolf and Engineer.
@@ -128,5 +125,19 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
                 break;
             }
         }
+    }
+
+    @Override
+    public boolean canBuyFood(Ship shipPlayer, int foodCost) {
+        if (shipPlayer.getGold()>= foodCost){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void buyFood(Ship shipPlayer, int foodToAdd, int goldToPay) {
+        shipPlayer.setFood(shipPlayer.getFood() + foodToAdd);
+        shipPlayer.setGold(shipPlayer.getGold() - goldToPay);
     }
 }

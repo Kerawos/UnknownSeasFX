@@ -139,23 +139,16 @@ public class ArmoryController extends PlayerShipController implements Initializa
     }
 
     private void btnRegAddAmmo1(){
-        btnAddAmmo1.setOnMouseClicked(click->buyAmmo(getShipPlayerCurrent(), 1));
+        btnAddAmmo1.setOnMouseClicked(click->buyAmmo(getShipPlayerCurrent(), 1, 1));
     }
 
     private void btnRegAddAmmo2(){
-        btnAddAmmo2.setOnMouseClicked(click->buyAmmo6(getShipPlayerCurrent(), 5));
+        btnAddAmmo2.setOnMouseClicked(click->buyAmmo(getShipPlayerCurrent(), 6, 5));
     }
 
-    private void buyAmmo(Ship playerShip, int ammoQty){
-        if (getShipTradeManager().canBuyAmmo(playerShip, ammoQty, lblUpperText)){
-            getShipTradeManager().buyAmmo(playerShip, ammoQty);
-            updateScene();
-        }
-    }
-
-    private void buyAmmo6(Ship playerShip, int ammoQty){
-        if (getShipTradeManager().canBuyAmmo(playerShip, ammoQty, lblUpperText)){
-            getShipTradeManager().buyAmmo6(playerShip);
+    private void buyAmmo(Ship playerShip, int ammoQty, int ammoCost){
+        if (getShipTradeManager().canBuyAmmo(playerShip, ammoCost, lblUpperText)){
+            getShipTradeManager().buyAmmo(playerShip, ammoQty, ammoCost);
             updateScene();
         }
     }

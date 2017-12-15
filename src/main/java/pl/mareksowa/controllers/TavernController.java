@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.managers.SceneManager;
+import pl.mareksowa.models.ships.Ship;
 
 import java.net.URL;
 import java.util.List;
@@ -128,36 +129,60 @@ public class TavernController extends PlayerShipController implements Initializa
         btnRegBack();
     }
 
+    private void buyFood(Ship shipPLayer, int foodToAdd, int foodCost){
+        if (getShipCrewManager().canBuyFood(shipPLayer, foodCost)){
+            getShipCrewManager().buyFood(shipPLayer, foodToAdd, foodCost);
+            updateScene();
+        }
+    }
+
     private void btnRegFood1(){
-        //todo
+        btnFood1.setOnMouseClicked(click->buyFood(getShipPlayerCurrent(), 1, 1));
     }
 
     private void btnRegFood2(){
-        //todo
+        btnFood2.setOnMouseClicked(click->buyFood(getShipPlayerCurrent(), 6, 5));
     }
 
     private void btnRegFood3(){
-        //todo
+        btnFood3.setOnMouseClicked(click->buyFood(getShipPlayerCurrent(), 27, 20));
+    }
+
+    private void hireCrew(Ship shipPlayer, Crew crewToHIre, Label lblUpperText){
+        if (getShipCrewManager().canHireCrewMember(shipPlayer, crewToHIre, lblUpperText)){
+            getShipCrewManager().hireCrewMember(shipPlayer, crewToHIre);
+            updateScene();
+        }
     }
 
     private void btnRegHireCrew1(){
-        //todo
+        ivHireCrew1.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(0), lblUpperText));
     }
 
     private void btnRegHireCrew2(){
-        //todo
+        ivHireCrew2.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(1), lblUpperText));
     }
 
     private void btnRegHireCrew3(){
-        //todo
+        ivHireCrew3.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(2), lblUpperText));
     }
 
     private void btnRegHireCrew4(){
-        //todo
+        ivHireCrew4.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(3), lblUpperText));
+    }
+
+    private void fireCrew(Ship shipPlayer, Crew crewToFire, Label lblUpperText){
+        if (getShipCrewManager().canGetRidOffCrewMember(shipPlayer, crewToFire, lblUpperText)){
+            getShipCrewManager().ridOffCrewMember(shipPlayer, crewToFire);
+        }
     }
 
     private void btnRegFireCrew1(){
-        //todo
+        getIvCrew1().setOnMouseClicked(click->fireCrew(getShipPlayerCurrent(), getShipPlayerCurrent().getCrewList().get(0), lblUpperText));
     }
 
     private void btnRegFireCrew2(){

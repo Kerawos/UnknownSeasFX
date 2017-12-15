@@ -30,8 +30,6 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addStorage(Ship shipPlayer) {
-        System.out.println("powinno nam zabrac: " + (shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
-                + shipPlayer.getStorageCapacity()));
         shipPlayer.setGold(shipPlayer.getGold() - (shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
                 + shipPlayer.getStorageCapacity()));
         shipPlayer.setStorageCapacity(shipPlayer.getStorageCapacity()+1);

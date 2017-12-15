@@ -159,8 +159,8 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
     }
 
     @Override
-    public boolean canBuyAmmo(Ship shipPlayer, int ammoQty, Label lblPlayerAmmo) {
-        if (shipPlayer.getGold()>=ammoQty){
+    public boolean canBuyAmmo(Ship shipPlayer, int ammoCost, Label lblPlayerAmmo) {
+        if (shipPlayer.getGold()>=ammoCost){
             return true;
         }
         lblPlayerAmmo.setText("you don't have enough gold..");
@@ -168,14 +168,9 @@ public class ShipTradeManagerImpl implements pl.mareksowa.models.managers.ShipTr
     }
 
     @Override
-    public void buyAmmo(Ship shipPlayer, int ammoQty) {
-        shipPlayer.setGold(shipPlayer.getGold() - ammoQty);
+    public void buyAmmo(Ship shipPlayer, int ammoQty, int ammoCost) {
+        shipPlayer.setGold(shipPlayer.getGold() - ammoCost);
         shipPlayer.setAmmo(shipPlayer.getAmmo() + ammoQty);
     }
 
-    @Override
-    public void buyAmmo6(Ship shipPlayer) {
-        shipPlayer.setGold(shipPlayer.getGold() - 5);
-        shipPlayer.setAmmo(shipPlayer.getAmmo() + 6);
-    }
 }

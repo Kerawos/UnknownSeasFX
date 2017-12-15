@@ -321,4 +321,6 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
         }
         return 0;
     }
+
+
 }
