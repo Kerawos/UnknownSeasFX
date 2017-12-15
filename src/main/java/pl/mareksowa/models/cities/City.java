@@ -1,5 +1,6 @@
 package pl.mareksowa.models.cities;
 
+import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.managers.services.ShipMovementManagerImpl;
@@ -34,6 +35,7 @@ public abstract class City {
     private int slaveRequest;
 
     private List<Good> goodList;
+    private List<Crew> crewTavernList;
 
     public ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
 
@@ -181,6 +183,14 @@ public abstract class City {
 
     public void setGoodList(List<Good> goodList) {
         this.goodList = goodList;
+    }
+
+    public List<Crew> getCrewTavernList() {
+        return crewTavernList;
+    }
+
+    public void setCrewTavernList(List<Crew> crewTavernList) {
+        this.crewTavernList = crewTavernList;
     }
 
     /**

@@ -32,6 +32,12 @@ public interface CityManager {
     void updateCityGoods(City city);
 
     /**
+     * Method update all crews member available in the city
+     * @param city
+     */
+    void updateCityCrewTavern(City city);
+
+    /**
      * Method calculate price of given good in the city and more
      * @param goodName
      * @return price of given good

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.cities.*;
+import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.managers.CityManager;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
@@ -75,6 +76,14 @@ public class CityManagerImpl implements CityManager {
         goodList.add(new Good(GoodName.SILK, generateRandomPriceFromTo(6, 8) + city.getSilkRequest()));
         goodList.add(new Good(GoodName.SPICES, generateRandomPriceFromTo(7, 9) + city.getSpicesRequest()));
         city.setGoodList(goodList);
+    }
+
+    @Override
+    public void updateCityCrewTavern(City city) {
+        List<Crew> tavernCrewList = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            tavernCrewList.add(4());
+        }
     }
 
     @Override
