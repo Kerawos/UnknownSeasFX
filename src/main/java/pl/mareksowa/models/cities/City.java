@@ -37,7 +37,6 @@ public abstract class City {
     private List<Good> goodList;
     private List<Crew> crewTavernList;
 
-    public ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
 
     /**
      * Empty constructor
@@ -167,14 +166,6 @@ public abstract class City {
 
     public void setSlaveRequest(int slaveRequest) {
         this.slaveRequest = slaveRequest;
-    }
-
-    public ShipMovementManager getShipMovementManager() {
-        return shipMovementManager;
-    }
-
-    public void setShipMovementManager(ShipMovementManager shipMovementManager) {
-        this.shipMovementManager = shipMovementManager;
     }
 
     public List<Good> getGoodList() {

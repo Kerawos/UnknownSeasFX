@@ -80,10 +80,7 @@ public class CityManagerImpl implements CityManager {
 
     @Override
     public void updateCityCrewTavern(City city) {
-        List<Crew> tavernCrewList = new ArrayList<>();
-        for (int i = 0; i < 4; i++) {
-            tavernCrewList.add(4());
-        }
+        city.setCrewTavernList(CurrentScene.getInstance().getShipCrewManager().generateTavernList(4));
     }
 
     @Override

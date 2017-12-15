@@ -276,7 +276,7 @@ public class MapController extends PlayerShipController implements Initializable
             CurrentScene.getInstance().setCurrentCity(city);
             if (getSceneManager().getLastDayInVisitedCity()!=getSceneManager().getGameTime().getDay()){
                 getCityManager().updateCityGoods(CurrentScene.getInstance().getCurrentCity());
-                getShipCrewManager().generateTavernList(4);
+                getCityManager().updateCityCrewTavern(CurrentScene.getInstance().getCurrentCity());
             }
             Stage cityStage = (Stage) btnMainMenu.getScene().getWindow();
             getSceneManager().sceneChange(cityStage, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
