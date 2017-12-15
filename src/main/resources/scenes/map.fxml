@@ -11,7 +11,7 @@
    <children>
       <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="31.0" text="gold" wrapText="true">
+      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="52.0" text="gold" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="12.0" />
          </font>
@@ -74,17 +74,17 @@
       <ImageView fx:id="ivSail8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivSail9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivSail10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="592.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
+      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="593.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="549.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
+      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="468.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="497.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
+      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="439.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
@@ -127,7 +127,22 @@
             <Font name="Segoe Print" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="lblMovePoints" layoutX="202.0" layoutY="436.0" prefHeight="22.0" prefWidth="70.0" text="move" wrapText="true">
+      <Label fx:id="lblMovePoints" layoutX="140.0" layoutY="377.0" prefHeight="22.0" prefWidth="70.0" text="move" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewSalary" layoutX="227.0" layoutY="511.0" prefHeight="22.0" prefWidth="37.0" text="salary" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewConsumption" layoutX="227.0" layoutY="536.0" prefHeight="22.0" prefWidth="37.0" text="consumption" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewProduction" layoutX="229.0" layoutY="560.0" prefHeight="22.0" prefWidth="37.0" text="production" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>

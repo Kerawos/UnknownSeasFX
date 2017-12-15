@@ -183,7 +183,7 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     @Override
     public void updateGold(Ship shipPlayer, Label lblPlayerGold) {
-        lblPlayerGold.setText(String.valueOf(shipPlayer.getGold()));
+        lblPlayerGold.setText(shipPlayer.getGold() + "g");
     }
 
     @Override
@@ -256,7 +256,7 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
     }
 
 
-    private int calcShipSpeed(Ship shipPlayer) throws IllegalArgumentException{
+    private int calcShipSpeed(Ship shipPlayer){
         if (shipPlayer.getSailList()==null){
             throw new IllegalArgumentException("Sails are null");
         }
@@ -289,7 +289,10 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
         return power;
     }
 
-    private int calcCrewSalary(Ship shipPlayer) {
+    private int calcCrewSalary(Ship shipPlayer) throws IllegalArgumentException{
+        if (shipPlayer.getCrewList()==null){
+            return 0;
+        }
         int totalCrewSalary = 0;
         for (Crew crew : shipPlayer.getCrewList()) {
             totalCrewSalary+=crew.getSalary();
@@ -298,18 +301,24 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
     }
 
     private int calcCrewFoodConsumption(Ship shipPlayer){
+        if (shipPlayer.getCrewList()==null){
+            return 1;
+        }
         int totalCrewFoodConsumption = 0;
         for (Crew crew : shipPlayer.getCrewList()) {
             totalCrewFoodConsumption+=crew.getConsumption();
         }
-        return totalCrewFoodConsumption;
+        return totalCrewFoodConsumption +1; //one provided by capitan
     }
 
     private int calcCrewProduction(Ship shipPlayer){
+        if (shipPlayer.getCrewList()==null){
+            return 0;
+        }
         int totalCrewProduction = 0;
         for (Crew crew : shipPlayer.getCrewList()) {
             totalCrewProduction+=crew.getProduction();
         }
-        return totalCrewProduction;
+        return 0;
     }
 }
