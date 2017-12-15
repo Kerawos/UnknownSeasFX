@@ -38,7 +38,7 @@ public abstract class City {
     private List<Good> goodList;
     private List<Crew> crewTavernList;
 
-    private ShipMovementManager shipMovementManager = CurrentScene.getInstance().getShipMovementManager();
+    private ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
 
     /**
      * Empty constructor

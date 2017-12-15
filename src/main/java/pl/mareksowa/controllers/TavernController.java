@@ -29,21 +29,25 @@ public class TavernController extends PlayerShipController implements Initializa
     @FXML private Label lblTitle;
     @FXML private Label lblUpperText;
 
+    @FXML private Label lblCrew1Name;
     @FXML private Label lblCrew1Str;
     @FXML private Label lblCrew1Sal;
     @FXML private Label lblCrew1Con;
     @FXML private Label lblCrew1Pro;
 
+    @FXML private Label lblCrew2Name;
     @FXML private Label lblCrew2Str;
     @FXML private Label lblCrew2Sal;
     @FXML private Label lblCrew2Con;
     @FXML private Label lblCrew2Pro;
 
+    @FXML private Label lblCrew3Name;
     @FXML private Label lblCrew3Str;
     @FXML private Label lblCrew3Sal;
     @FXML private Label lblCrew3Con;
     @FXML private Label lblCrew3Pro;
 
+    @FXML private Label lblCrew4Name;
     @FXML private Label lblCrew4Str;
     @FXML private Label lblCrew4Sal;
     @FXML private Label lblCrew4Con;
@@ -67,11 +71,11 @@ public class TavernController extends PlayerShipController implements Initializa
     }
 
     private void updateTavernView(){
-        List<Crew> crewCityTavernList = getShipCrewManager().generateTavernList(4);
-        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(0), lblCrew1Str, lblCrew1Sal, lblCrew1Con, lblCrew1Pro, ivHireCrew1);
-        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(1), lblCrew2Str, lblCrew2Sal, lblCrew2Con, lblCrew2Pro, ivHireCrew2);
-        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(2), lblCrew3Str, lblCrew3Sal, lblCrew3Con, lblCrew3Pro, ivHireCrew3);
-        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(3), lblCrew4Str, lblCrew4Sal, lblCrew4Con, lblCrew4Pro, ivHireCrew4);
+        List<Crew> crewCityTavernList = CurrentScene.getInstance().getCurrentCity().getCrewTavernList();
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(0), lblCrew1Name, lblCrew1Str, lblCrew1Sal, lblCrew1Con, lblCrew1Pro, ivHireCrew1);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(1), lblCrew2Name, lblCrew2Str, lblCrew2Sal, lblCrew2Con, lblCrew2Pro, ivHireCrew2);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(2), lblCrew3Name, lblCrew3Str, lblCrew3Sal, lblCrew3Con, lblCrew3Pro, ivHireCrew3);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(3), lblCrew4Name, lblCrew4Str, lblCrew4Sal, lblCrew4Con, lblCrew4Pro, ivHireCrew4);
         updateBackgroundView();
         updateShipBackgroundView();
     }

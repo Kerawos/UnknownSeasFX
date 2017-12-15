@@ -49,7 +49,7 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     // 30% chance of DeckHand and Sailor, 20% chance of Chef, 10% chance of SeaWolf and Engineer.
     @Override
     public Crew generateRandomCrewMember() {
-        int rndInt = new Random().nextInt(9);
+        int rndInt = new Random().nextInt(10);
         if (rndInt<=2){
             return new DeckHand();
         } else if (rndInt>2 && rndInt<=5){
@@ -65,7 +65,9 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
 
     @Override
     public Crew generateCrewToTavern() {
-        switch (new Random().nextInt()){
+        int rndInt = new Random().nextInt(2);
+        System.out.println("wynik zalogi to:" + rndInt);
+        switch (rndInt){
             case 0:{
                 return new NoOne();
             }
@@ -88,35 +90,42 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     }
 
     @Override
-    public void updateTavernAvailableCrew(Crew crewMember, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire){
+    public void updateTavernAvailableCrew(Crew crewMember, Label lblCrewName, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire){
+        String crewName = crewMember.getClass().getName();
+        crewName = crewName.substring(crewName.lastIndexOf(".")+1, crewName.length());
+        lblCrewName.setText(crewName);
         lblCrewStrength.setText("strength: " + crewMember.getStrength());
         lblCrewSalary.setText("salary: " + crewMember.getSalary());
         lblCrewConsumption.setText("consumption: " + crewMember.getConsumption());
         lblCrewProduction.setText("production: " + crewMember.getProduction());
-        String crewName = crewMember.getClass().getName();
-        switch (crewName.substring(crewName.lastIndexOf(".")+1, crewName.length())){
+        switch (crewName){
             case "DeckHand":{
-                ivCrewToHire.setImage(new Image("img/crews/DeckHand.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewMemberDeckHand.png"));
                 break;
             }
             case "Sailor":{
-                ivCrewToHire.setImage(new Image("img/crews/Sailor.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewMemberSailor.png"));
                 break;
             }
             case "Chef":{
-                ivCrewToHire.setImage(new Image("img/crews/Chef.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewMemberChef.png"));
                 break;
             }
             case "Engineer":{
-                ivCrewToHire.setImage(new Image("img/crews/Engineer.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewMemberEngineer.png"));
                 break;
             }
             case "SeaWolf":{
-                ivCrewToHire.setImage(new Image("img/crews/SeaWolf.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewMemberSeaWolf.png"));
                 break;
             }
             case "NoOne":{
-                ivCrewToHire.setImage(new Image("img/crews/Empty.png"));
+                ivCrewToHire.setImage(new Image("img/crews/CrewEmpty.png"));
+                lblCrewName.setText("No one available here");
+                lblCrewStrength.setText("");
+                lblCrewSalary.setText("");
+                lblCrewConsumption.setText("");
+                lblCrewProduction.setText("");
                 break;
             }
         }

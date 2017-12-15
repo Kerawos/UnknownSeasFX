@@ -55,5 +55,5 @@ public interface ShipCrewManager {
 
     List<Crew> generateTavernList(int capacityOfCityTavern);
 
-    void updateTavernAvailableCrew(Crew crewMember, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire);
+    void updateTavernAvailableCrew(Crew crewMember, Label lblCrewName, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire);
 }

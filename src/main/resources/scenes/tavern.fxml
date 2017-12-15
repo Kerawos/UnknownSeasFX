@@ -128,7 +128,7 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew2Str" layoutX="204.0" layoutY="170.0" prefHeight="18.0" prefWidth="120.0" text="str" wrapText="true">
+      <Label fx:id="lblCrew2Str" layoutX="204.0" layoutY="247.0" prefHeight="18.0" prefWidth="120.0" text="str" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
@@ -138,12 +138,12 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew4Str" layoutX="551.0" layoutY="170.0" prefHeight="18.0" prefWidth="120.0" text="str" wrapText="true">
+      <Label fx:id="lblCrew4Str" layoutX="551.0" layoutY="247.0" prefHeight="18.0" prefWidth="120.0" text="str" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew2Sal" layoutX="204.0" layoutY="188.0" prefHeight="18.0" prefWidth="120.0" text="sal" wrapText="true">
+      <Label fx:id="lblCrew2Sal" layoutX="204.0" layoutY="265.0" prefHeight="18.0" prefWidth="120.0" text="sal" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
@@ -153,12 +153,12 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew4Sal" layoutX="551.0" layoutY="188.0" prefHeight="18.0" prefWidth="120.0" text="sal" wrapText="true">
+      <Label fx:id="lblCrew4Sal" layoutX="551.0" layoutY="265.0" prefHeight="18.0" prefWidth="120.0" text="sal" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew2Con" layoutX="204.0" layoutY="206.0" prefHeight="18.0" prefWidth="120.0" text="con" wrapText="true">
+      <Label fx:id="lblCrew2Con" layoutX="204.0" layoutY="283.0" prefHeight="18.0" prefWidth="120.0" text="con" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
@@ -168,12 +168,12 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew4Con" layoutX="551.0" layoutY="206.0" prefHeight="18.0" prefWidth="120.0" text="con" wrapText="true">
+      <Label fx:id="lblCrew4Con" layoutX="551.0" layoutY="283.0" prefHeight="18.0" prefWidth="120.0" text="con" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew2Pro" layoutX="204.0" layoutY="224.0" prefHeight="18.0" prefWidth="120.0" text="pro" wrapText="true">
+      <Label fx:id="lblCrew2Pro" layoutX="204.0" layoutY="301.0" prefHeight="18.0" prefWidth="120.0" text="pro" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
@@ -183,14 +183,34 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrew4Pro" layoutX="551.0" layoutY="224.0" prefHeight="18.0" prefWidth="120.0" text="pro" wrapText="true">
+      <Label fx:id="lblCrew4Pro" layoutX="551.0" layoutY="301.0" prefHeight="18.0" prefWidth="120.0" text="pro" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <ImageView fx:id="ivHireCrew1" fitHeight="45.0" fitWidth="45.0" layoutX="119.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivHireCrew2" fitHeight="45.0" fitWidth="45.0" layoutX="119.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivHireCrew3" fitHeight="45.0" fitWidth="45.0" layoutX="464.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fx:id="ivHireCrew4" fitHeight="45.0" fitWidth="45.0" layoutX="460.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew1" fitHeight="45.0" fitWidth="45.0" layoutX="152.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew2" fitHeight="45.0" fitWidth="45.0" layoutX="156.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew3" fitHeight="45.0" fitWidth="45.0" layoutX="495.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew4" fitHeight="45.0" fitWidth="45.0" layoutX="495.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblCrew1Name" layoutX="144.0" layoutY="59.0" prefHeight="18.0" prefWidth="120.0" text="name" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrew2Name" layoutX="141.0" layoutY="231.0" prefHeight="18.0" prefWidth="120.0" text="name" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrew3Name" layoutX="491.0" layoutY="59.0" prefHeight="18.0" prefWidth="120.0" text="name" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrew4Name" layoutX="491.0" layoutY="231.0" prefHeight="18.0" prefWidth="120.0" text="name" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

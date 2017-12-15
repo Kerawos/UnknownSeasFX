@@ -7,6 +7,6 @@ public class SeaWolf extends Crew {
      * Variable of Model Class
      */
     public SeaWolf() {
-        super(3, 5, 2, -1);
+        super(4, 5, 2, -1);
     }
 }
