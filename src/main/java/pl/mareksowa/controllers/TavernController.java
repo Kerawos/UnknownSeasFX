@@ -63,7 +63,7 @@ public class TavernController extends PlayerShipController implements Initializa
     private void updateTavernView(){
 
 
-
+        updateBackgroundView();
         updateShipBackgroundView();
     }
 

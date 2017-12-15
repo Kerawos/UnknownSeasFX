@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
 
+import java.util.List;
+
 /**
  * Interface responsible for all crew member behaviours. Hire, rebellion, hunger, die.
  */
@@ -44,4 +46,10 @@ public interface ShipCrewManager {
      * @param crewToFire
      */
     void ridOffCrewMember(Ship shipPlayer, Crew crewToFire);
+
+    Crew generateRandomCrewMember();
+
+    Crew generateCrewToTavern();
+
+    List<Crew> generateTavernList(int capacityOfCityTavern);
 }

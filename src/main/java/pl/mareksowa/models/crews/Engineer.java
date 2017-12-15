@@ -5,12 +5,8 @@ package pl.mareksowa.models.crews;
 public class Engineer extends Crew {
     /**
      * Variable of Model Class
-     * @param strength
-     * @param salary
-     * @param consumption
-     * @param production
      */
-    public Engineer(int strength, int salary, int consumption, int production) {
+    public Engineer() {
         super(1, 5, 2, 5);
     }
 }

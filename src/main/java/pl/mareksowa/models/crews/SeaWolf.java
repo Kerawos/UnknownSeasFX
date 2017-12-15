@@ -5,12 +5,8 @@ package pl.mareksowa.models.crews;
 public class SeaWolf extends Crew {
     /**
      * Variable of Model Class
-     * @param strength
-     * @param salary
-     * @param consumption
-     * @param production
      */
-    public SeaWolf(int strength, int salary, int consumption, int production) {
+    public SeaWolf() {
         super(3, 5, 2, -1);
     }
 }
