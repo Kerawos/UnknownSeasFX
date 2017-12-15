@@ -208,29 +208,17 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     @Override
     public void updateCrewSalary(Ship shipPlayer, Label lblCrewSalary) {
-        int totalCrewSalary = 0;
-        for (Crew crew : shipPlayer.getCrewList()) {
-            totalCrewSalary+=crew.getSalary();
-        }
-        lblCrewSalary.setText(totalCrewSalary + "g");
+        lblCrewSalary.setText(calcCrewSalary(shipPlayer) + "g");
     }
 
     @Override
     public void updateCrewFoodConsumption(Ship shipPlayer, Label lblCrewConsumption) {
-        int totalCrewFoodConsumption = 0;
-        for (Crew crew : shipPlayer.getCrewList()) {
-            totalCrewFoodConsumption+=crew.getConsumption();
-        }
-        lblCrewConsumption.setText(totalCrewFoodConsumption+"");
+        lblCrewConsumption.setText(calcCrewFoodConsumption(shipPlayer)+"");
     }
 
     @Override
     public void updateCrewProduction(Ship shipPlayer, Label lblCrewProduction) {
-        int totalCrewProduction = 0;
-        for (Crew crew : shipPlayer.getCrewList()) {
-            totalCrewProduction+=crew.getProduction();
-        }
-        lblCrewProduction.setText(totalCrewProduction+"");
+        lblCrewProduction.setText(calcCrewProduction(shipPlayer)+"");
     }
 
     @Override
@@ -299,5 +287,29 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
             power+=cannon.getStrength();
         }
         return power;
+    }
+
+    private int calcCrewSalary(Ship shipPlayer) {
+        int totalCrewSalary = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewSalary+=crew.getSalary();
+        }
+        return totalCrewSalary;
+    }
+
+    private int calcCrewFoodConsumption(Ship shipPlayer){
+        int totalCrewFoodConsumption = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewFoodConsumption+=crew.getConsumption();
+        }
+        return totalCrewFoodConsumption;
+    }
+
+    private int calcCrewProduction(Ship shipPlayer){
+        int totalCrewProduction = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewProduction+=crew.getProduction();
+        }
+        return totalCrewProduction;
     }
 }
