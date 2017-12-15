@@ -145,7 +145,6 @@ public class DockyardController extends PlayerShipController implements Initiali
         btnAddStorageSpace.setGraphic(new ImageView(new Image("img/goods/StorageEmpty.png")));
         btnAddStorageSpace.setText("$" + (getShipPlayerCurrent().getStorageCapacity()
                 * getShipPlayerCurrent().getStorageCapacity() + getShipPlayerCurrent().getStorageCapacity()));
-
         btnAddCabin.setVisible(true);
         btnAddCabin.setGraphic(new ImageView(new Image("img/crews/CrewEmpty.png")));
         btnAddCabin.setText("$" + (getShipPlayerCurrent().getCabinCapacity()

@@ -20,7 +20,7 @@
             <Font name="Segoe Print" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="31.0" text="gold" wrapText="true">
+      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="57.0" text="gold" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="12.0" />
          </font>

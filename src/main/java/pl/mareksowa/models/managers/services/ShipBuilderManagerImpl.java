@@ -30,8 +30,10 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addStorage(Ship shipPlayer) {
-        shipPlayer.setGold(shipPlayer.getGold()- shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
-                + shipPlayer.getStorageCapacity());
+        System.out.println("powinno nam zabrac: " + (shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
+                + shipPlayer.getStorageCapacity()));
+        shipPlayer.setGold(shipPlayer.getGold() - (shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
+                + shipPlayer.getStorageCapacity()));
         shipPlayer.setStorageCapacity(shipPlayer.getStorageCapacity()+1);
     }
 
@@ -49,8 +51,8 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addCannonSpace(Ship shipPlayer) {
-        shipPlayer.setGold(shipPlayer.getGold()- shipPlayer.getCannonCapacity() * shipPlayer.getCannonCapacity()
-                + shipPlayer.getCannonCapacity()+5);
+        shipPlayer.setGold(shipPlayer.getGold()- (shipPlayer.getCannonCapacity() * shipPlayer.getCannonCapacity()
+                + shipPlayer.getCannonCapacity()+5));
         shipPlayer.setCannonCapacity(shipPlayer.getCannonCapacity() + 1);
     }
 
@@ -68,8 +70,8 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addCabin(Ship shipPlayer) {
-        shipPlayer.setGold(shipPlayer.getGold()- shipPlayer.getCabinCapacity() * shipPlayer.getCabinCapacity()
-                + shipPlayer.getCabinCapacity()+1);
+        shipPlayer.setGold(shipPlayer.getGold()- (shipPlayer.getCabinCapacity() * shipPlayer.getCabinCapacity()
+                + shipPlayer.getCabinCapacity()+1));
         shipPlayer.setCabinCapacity(shipPlayer.getCabinCapacity()+1);
     }
 
@@ -87,8 +89,8 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addSailSpace(Ship shipPlayer) {
-        shipPlayer.setGold(shipPlayer.getGold() - shipPlayer.getSailCapacity()
-                * shipPlayer.getSailCapacity() + shipPlayer.getSailCapacity()+10);
+        shipPlayer.setGold(shipPlayer.getGold() - (shipPlayer.getSailCapacity()
+                * shipPlayer.getSailCapacity() + shipPlayer.getSailCapacity()+10));
         shipPlayer.setSailCapacity(shipPlayer.getSailCapacity() + 1);
     }
 
