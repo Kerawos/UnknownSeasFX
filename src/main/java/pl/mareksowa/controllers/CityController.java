@@ -124,7 +124,9 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegTavern(){
         btnTavern.setOnMouseClicked(click->{
-            //todo
+            getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
+            Stage tavern = (Stage) btnTavern.getScene().getWindow();
+            getSceneManager().sceneChange(tavern, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.TAVERN));
         });
     }
 

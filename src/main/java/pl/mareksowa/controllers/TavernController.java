@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 
 import java.net.URL;
@@ -68,5 +69,13 @@ public class TavernController extends PlayerShipController implements Initializa
 
     private void buttonsRegister(){
 
+        btnRegBack();
+    }
+
+    private void btnRegBack(){
+        btnBack.setOnMouseClicked(e-> {
+            Stage armory = (Stage) btnBack.getScene().getWindow();
+            getSceneManager().sceneChange(armory, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
+        });
     }
 }

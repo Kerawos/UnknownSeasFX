@@ -59,7 +59,7 @@ public abstract class PlayerShipController {
     @FXML private ProgressBar pbShipHp;
 
     //todo delete this initialization of image view
-    @FXML private ImageView ivBackGroundShip = new ImageView();
+    @FXML private ImageView ivBackGroundShip;
     @FXML private ImageView ivBackGround;
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
@@ -109,11 +109,17 @@ public abstract class PlayerShipController {
      * This method will change current scene background image
      */
     public void updateShipBackgroundView(){
+        if (getIvBackGroundShip()==null){
+            setIvBackGroundShip(new ImageView());
+        }
         ivBackGroundShip.setImage(getBgShipImage());
     }
 
     public void updateBackgroundView(){
-        ivBackGround = new ImageView(backgroundImage);
+        if (getIvBackGround()==null){
+            setIvBackGround(new ImageView());
+        }
+        ivBackGround.setImage(getBackgroundImage());
     }
 
     /**
@@ -268,6 +274,18 @@ public abstract class PlayerShipController {
 
     public ImageView getIvBackGroundShip() {
         return ivBackGroundShip;
+    }
+
+    public void setIvBackGroundShip(ImageView ivBackGroundShip) {
+        this.ivBackGroundShip = ivBackGroundShip;
+    }
+
+    public ImageView getIvBackGround() {
+        return ivBackGround;
+    }
+
+    public void setIvBackGround(ImageView ivBackGround) {
+        this.ivBackGround = ivBackGround;
     }
 
     public Label getLblPlayerAmmo() {

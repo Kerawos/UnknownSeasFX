@@ -77,8 +77,6 @@ public class ArmoryController extends PlayerShipController implements Initializa
      * from time to time by java FX.
      */
     private void updateArmoryView(){
-        setBackgroundImage(new Image("img/scenes/BackGround.png"));
-        ivBackGround.setImage(getBackgroundImage());
         lblTitle.setText("Armory");
         lblUpperText.setText("indicate part to add it to your ship");
         lblAddCannon.setText("click to buy special cannon");
@@ -105,7 +103,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
         btnAddArmor.setText("$20");
         btnAddArmor.setGraphic(new ImageView(new Image("img/cannons/Armor.png")));
 
-
+        updateBackgroundView();
         updateShipBackgroundView();
     }
 
