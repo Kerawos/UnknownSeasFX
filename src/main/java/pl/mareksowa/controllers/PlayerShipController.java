@@ -25,7 +25,7 @@ public abstract class PlayerShipController {
     /**
      * some variables have default unchangeable initialization as 'scene'. Only getters for already initiate variables.
      */
-    private Image backgroundImage;
+    private Image backgroundImage = new Image("img/scenes/Background.png");
     private Image bgShipImage = new Image("img/ships/BackgroundShip.png");
     private Ship shipPlayerCurrent = CurrentScene.getInstance().getShipPlayerCurrent();
 
@@ -60,6 +60,7 @@ public abstract class PlayerShipController {
 
     //todo delete this initialization of image view
     @FXML private ImageView ivBackGroundShip = new ImageView();
+    @FXML private ImageView ivBackGround;
     @FXML private ImageView ivStorage1;
     @FXML private ImageView ivStorage2;
     @FXML private ImageView ivStorage3;
@@ -109,6 +110,10 @@ public abstract class PlayerShipController {
      */
     public void updateShipBackgroundView(){
         ivBackGroundShip.setImage(getBgShipImage());
+    }
+
+    public void updateBackgroundView(){
+        ivBackGround = new ImageView(backgroundImage);
     }
 
     /**
