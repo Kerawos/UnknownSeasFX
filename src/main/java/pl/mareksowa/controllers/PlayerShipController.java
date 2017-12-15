@@ -55,6 +55,9 @@ public abstract class PlayerShipController {
     @FXML private Label lblPlayerManeuver;
     @FXML private Label lblPlayerPower;
     @FXML private Label lblPlayerCharge;
+    @FXML private Label lblCrewSalary;
+    @FXML private Label lblCrewConsumption;
+    @FXML private Label lblCrewProduction;
 
     @FXML private ProgressBar pbShipHp;
 
@@ -134,6 +137,9 @@ public abstract class PlayerShipController {
         updateCharge(shipPlayer);
         updatePower(shipPlayer);
         updateSpeed(shipPlayer);
+        updateCrewSalary(shipPlayer);
+        updateCrewFoodConsumption(shipPlayer);
+        updateCrewProduction(shipPlayer);
         updateManeuver(shipPlayer);
         updateStorage(shipPlayer);
         updateCrew(shipPlayer);
@@ -187,6 +193,30 @@ public abstract class PlayerShipController {
      */
     private void updateCharge(Ship shipPlayer) {
         getShipGeneralManager().updateCharge(shipPlayer, lblPlayerCharge);
+    }
+
+    /**
+     * Method will update crew salary requirement displayed to user.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateCrewSalary(Ship shipPlayer) {
+        getShipGeneralManager().updateCrewSalary(shipPlayer, lblCrewSalary);
+    }
+
+    /**
+     * Method will update crew food consumption requirement displayed to user.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateCrewFoodConsumption(Ship shipPlayer) {
+        getShipGeneralManager().updateCrewFoodConsumption(shipPlayer, lblCrewConsumption);
+    }
+
+    /**
+     * Method will update crew production displayed to user.
+     * @param shipPlayer indicate which player will be updating. *for later possibility of multiplayer.
+     */
+    private void updateCrewProduction(Ship shipPlayer) {
+        getShipGeneralManager().updateCrewProduction(shipPlayer, lblCrewProduction);
     }
 
     /**
@@ -266,6 +296,22 @@ public abstract class PlayerShipController {
 
     public Label getLblPlayerManeuver() {
         return lblPlayerManeuver;
+    }
+
+    public Label getLblCrewSalary() {
+        return lblCrewSalary;
+    }
+
+    public Label getLblCrewConsumption() {
+        return lblCrewConsumption;
+    }
+
+    public Label getLblCrewProduction() {
+        return lblCrewProduction;
+    }
+
+    public void setLblCrewProduction(Label lblCrewProduction) {
+        this.lblCrewProduction = lblCrewProduction;
     }
 
     public Image getBgShipImage() {

@@ -106,6 +106,27 @@ public interface ShipGeneralManager {
     void updatePower(Ship shipPlayer, Label lblPlayerPower);
 
     /**
+     * Method responsible for update salary of crew of given ship
+     * @param shipPlayer
+     * @param lblCrewSalary
+     */
+    void updateCrewSalary(Ship shipPlayer, Label lblCrewSalary);
+
+    /**
+     * Method responsible for update consumption of food of crew of given ship
+     * @param shipPlayer
+     * @param lblCrewConsumption
+     */
+    void updateCrewFoodConsumption(Ship shipPlayer, Label lblCrewConsumption);
+
+    /**
+     * Method responsible for update production on the ship of crew of given ship
+     * @param shipPlayer
+     * @param lblCrewProduction
+     */
+    void updateCrewProduction(Ship shipPlayer, Label lblCrewProduction);
+
+    /**
      * Method responsible for update speed of given ship
      * @param shipPlayer
      * @param lblPlayerSpeed

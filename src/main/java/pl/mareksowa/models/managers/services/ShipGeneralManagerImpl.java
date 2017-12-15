@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
@@ -203,6 +204,33 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
     @Override
     public void updatePower(Ship shipPlayer, Label lblPlayerPower) {
         lblPlayerPower.setText(String.valueOf(calcShipPower(shipPlayer)));
+    }
+
+    @Override
+    public void updateCrewSalary(Ship shipPlayer, Label lblCrewSalary) {
+        int totalCrewSalary = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewSalary+=crew.getSalary();
+        }
+        lblCrewSalary.setText(totalCrewSalary + "g");
+    }
+
+    @Override
+    public void updateCrewFoodConsumption(Ship shipPlayer, Label lblCrewConsumption) {
+        int totalCrewFoodConsumption = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewFoodConsumption+=crew.getConsumption();
+        }
+        lblCrewConsumption.setText(totalCrewFoodConsumption+"");
+    }
+
+    @Override
+    public void updateCrewProduction(Ship shipPlayer, Label lblCrewProduction) {
+        int totalCrewProduction = 0;
+        for (Crew crew : shipPlayer.getCrewList()) {
+            totalCrewProduction+=crew.getProduction();
+        }
+        lblCrewProduction.setText(totalCrewProduction+"");
     }
 
     @Override

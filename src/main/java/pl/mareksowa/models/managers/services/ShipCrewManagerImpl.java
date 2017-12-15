@@ -66,7 +66,6 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     @Override
     public Crew generateCrewToTavern() {
         int rndInt = new Random().nextInt(2);
-        System.out.println("wynik zalogi to:" + rndInt);
         switch (rndInt){
             case 0:{
                 return new NoOne();

@@ -52,6 +52,8 @@ public class MapController extends PlayerShipController implements Initializable
     @FXML private Label lblGameTime;
     @FXML private Label lblMovePoints;
 
+
+
     private Image bgPlayerShipOnMap;
     private Image bgMapImage;
     private Image indicatorGreen;

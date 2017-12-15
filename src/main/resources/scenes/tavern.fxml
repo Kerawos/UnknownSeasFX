@@ -15,7 +15,7 @@
             <Font name="Segoe Print" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="lblTitle" layoutX="603.0" layoutY="14.0" prefHeight="43.0" prefWidth="183.0" text="Label" wrapText="true">
+      <Label fx:id="lblTitle" layoutX="647.0" layoutY="10.0" prefHeight="43.0" prefWidth="183.0" text="Label" wrapText="true">
          <font>
             <Font name="Segoe Print" size="24.0" />
          </font>
@@ -213,24 +213,24 @@
          </font>
       </Label>
       <Button fx:id="btnFood1" layoutX="336.0" layoutY="58.0" mnemonicParsing="false" />
-      <Label fx:id="lblFood" layoutX="324.0" layoutY="25.0" prefHeight="22.0" prefWidth="183.0" text="food" wrapText="true">
+      <Label fx:id="lblFood" layoutX="324.0" layoutY="32.0" prefHeight="22.0" prefWidth="183.0" text="food" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblFood1Price" layoutX="382.0" layoutY="62.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
+      <Label fx:id="lblFood1Price" layoutX="404.0" layoutY="72.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
       <Button fx:id="btnFood2" layoutX="336.0" layoutY="121.0" mnemonicParsing="false" />
       <Button fx:id="btnFood3" layoutX="336.0" layoutY="186.0" mnemonicParsing="false" />
-      <Label fx:id="lblFood2Price" layoutX="382.0" layoutY="124.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
+      <Label fx:id="lblFood2Price" layoutX="404.0" layoutY="133.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
-      <Label fx:id="lblFood3Price" layoutX="382.0" layoutY="190.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
+      <Label fx:id="lblFood3Price" layoutX="404.0" layoutY="202.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
