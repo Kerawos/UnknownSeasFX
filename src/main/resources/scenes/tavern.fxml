@@ -88,7 +88,6 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Button>
-      <Button fx:id="btnHireCrew1" layoutX="122.0" layoutY="81.0" mnemonicParsing="false" />
       <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="497.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
@@ -109,9 +108,6 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Button fx:id="btnHireCrew3" layoutX="468.0" layoutY="81.0" mnemonicParsing="false" />
-      <Button fx:id="btnHireCrew4" layoutX="468.0" layoutY="166.0" mnemonicParsing="false" />
-      <Button fx:id="btnHireCrew2" layoutX="122.0" layoutY="166.0" mnemonicParsing="false" />
       <Label fx:id="lblCrew1Str" layoutX="204.0" layoutY="81.0" prefHeight="18.0" prefWidth="120.0" text="str" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
@@ -192,5 +188,9 @@
             <Font name="Segoe Print Bold" size="10.0" />
          </font>
       </Label>
+      <ImageView fx:id="ivHireCrew1" fitHeight="45.0" fitWidth="45.0" layoutX="119.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew2" fitHeight="45.0" fitWidth="45.0" layoutX="119.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew3" fitHeight="45.0" fitWidth="45.0" layoutX="464.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivHireCrew4" fitHeight="45.0" fitWidth="45.0" layoutX="460.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </Pane>

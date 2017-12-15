@@ -8,10 +8,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
+import pl.mareksowa.models.CurrentScene;
+import pl.mareksowa.models.crews.Crew;
+import pl.mareksowa.models.managers.SceneManager;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -43,10 +49,10 @@ public class TavernController extends PlayerShipController implements Initializa
     @FXML private Label lblCrew4Con;
     @FXML private Label lblCrew4Pro;
 
-    @FXML private Button btnHireCrew1;
-    @FXML private Button btnHireCrew2;
-    @FXML private Button btnHireCrew3;
-    @FXML private Button btnHireCrew4;
+    @FXML private ImageView ivHireCrew1;
+    @FXML private ImageView ivHireCrew2;
+    @FXML private ImageView ivHireCrew3;
+    @FXML private ImageView ivHireCrew4;
     @FXML private Button btnBack;
 
     @Override
@@ -61,8 +67,11 @@ public class TavernController extends PlayerShipController implements Initializa
     }
 
     private void updateTavernView(){
-
-
+        List<Crew> crewCityTavernList = getShipCrewManager().generateTavernList(4);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(0), lblCrew1Str, lblCrew1Sal, lblCrew1Con, lblCrew1Pro, ivHireCrew1);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(1), lblCrew2Str, lblCrew2Sal, lblCrew2Con, lblCrew2Pro, ivHireCrew2);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(2), lblCrew3Str, lblCrew3Sal, lblCrew3Con, lblCrew3Pro, ivHireCrew3);
+        getShipCrewManager().updateTavernAvailableCrew(crewCityTavernList.get(3), lblCrew4Str, lblCrew4Sal, lblCrew4Con, lblCrew4Pro, ivHireCrew4);
         updateBackgroundView();
         updateShipBackgroundView();
     }

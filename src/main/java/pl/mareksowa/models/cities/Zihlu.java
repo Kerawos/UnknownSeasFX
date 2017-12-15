@@ -6,7 +6,7 @@ public class Zihlu extends City {
      */
     public Zihlu(){
         setCityName(CityName.ZIHLU);
-        setCityPosition(shipMovementManager.getPositionField17());
+        setCityPosition(getShipMovementManager().getPositionField17());
         setFoodRequest(0);
         setAmmoRequest(0);
         setCrewRequest(0);

@@ -4,10 +4,14 @@ package pl.mareksowa.models.managers.services;
  * Imports section
  */
 
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.crews.*;
 import pl.mareksowa.models.managers.ShipCrewManager;
 import pl.mareksowa.models.ships.Ship;
@@ -81,5 +85,40 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
             tavernCrewList.add(generateCrewToTavern());
         }
         return tavernCrewList;
+    }
+
+    @Override
+    public void updateTavernAvailableCrew(Crew crewMember, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire){
+        lblCrewStrength.setText("strength: " + crewMember.getStrength());
+        lblCrewSalary.setText("salary: " + crewMember.getSalary());
+        lblCrewConsumption.setText("consumption: " + crewMember.getConsumption());
+        lblCrewProduction.setText("production: " + crewMember.getProduction());
+        String crewName = crewMember.getClass().getName();
+        switch (crewName.substring(crewName.lastIndexOf(".")+1, crewName.length())){
+            case "DeckHand":{
+                ivCrewToHire.setImage(new Image("img/crews/DeckHand.png"));
+                break;
+            }
+            case "Sailor":{
+                ivCrewToHire.setImage(new Image("img/crews/Sailor.png"));
+                break;
+            }
+            case "Chef":{
+                ivCrewToHire.setImage(new Image("img/crews/Chef.png"));
+                break;
+            }
+            case "Engineer":{
+                ivCrewToHire.setImage(new Image("img/crews/Engineer.png"));
+                break;
+            }
+            case "SeaWolf":{
+                ivCrewToHire.setImage(new Image("img/crews/SeaWolf.png"));
+                break;
+            }
+            case "NoOne":{
+                ivCrewToHire.setImage(new Image("img/crews/Empty.png"));
+                break;
+            }
+        }
     }
 }

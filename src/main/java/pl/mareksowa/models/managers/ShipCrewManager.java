@@ -3,7 +3,9 @@ package pl.mareksowa.models.managers;
 /**
  * Imports section
  */
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
@@ -52,4 +54,6 @@ public interface ShipCrewManager {
     Crew generateCrewToTavern();
 
     List<Crew> generateTavernList(int capacityOfCityTavern);
+
+    void updateTavernAvailableCrew(Crew crewMember, Label lblCrewStrength, Label lblCrewSalary, Label lblCrewConsumption, Label lblCrewProduction, ImageView ivCrewToHire);
 }

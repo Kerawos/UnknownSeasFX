@@ -1,5 +1,6 @@
 package pl.mareksowa.models.cities;
 
+import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.managers.ShipMovementManager;
@@ -37,6 +38,7 @@ public abstract class City {
     private List<Good> goodList;
     private List<Crew> crewTavernList;
 
+    private ShipMovementManager shipMovementManager = CurrentScene.getInstance().getShipMovementManager();
 
     /**
      * Empty constructor
@@ -182,6 +184,10 @@ public abstract class City {
 
     public void setCrewTavernList(List<Crew> crewTavernList) {
         this.crewTavernList = crewTavernList;
+    }
+
+    public ShipMovementManager getShipMovementManager() {
+        return shipMovementManager;
     }
 
     /**
