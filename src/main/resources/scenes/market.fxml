@@ -20,7 +20,7 @@
             <Font name="Segoe Print" size="24.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="31.0" text="gold" wrapText="true">
+      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="55.0" text="gold" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="12.0" />
          </font>
@@ -89,17 +89,17 @@
          </font>
       </Button>
       <Button fx:id="btnAddWheat" layoutX="167.0" layoutY="71.0" mnemonicParsing="false" />
-      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="497.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
+      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="439.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="549.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
+      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="468.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="592.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
+      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="593.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>
@@ -148,6 +148,21 @@
       <Label fx:id="lblPriceSpices" layoutX="664.0" layoutY="274.0" prefHeight="18.0" prefWidth="120.0" text="price" wrapText="true">
          <font>
             <Font name="Segoe Print Bold" size="10.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewSalary" layoutX="227.0" layoutY="511.0" prefHeight="22.0" prefWidth="37.0" text="salary" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewConsumption" layoutX="227.0" layoutY="536.0" prefHeight="22.0" prefWidth="37.0" text="consu" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewProduction" layoutX="227.0" layoutY="560.0" prefHeight="22.0" prefWidth="37.0" text="produ" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
    </children>
