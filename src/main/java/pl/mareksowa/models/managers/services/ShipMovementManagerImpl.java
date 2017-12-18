@@ -3,14 +3,12 @@ package pl.mareksowa.models.managers.services;
 import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
 import javafx.util.Duration;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
-import pl.mareksowa.models.FieldColor;
+import pl.mareksowa.models.maps.FieldColor;
 import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.ships.Ship;
-import pl.mareksowa.models.ships.ShipPosition;
+import pl.mareksowa.models.maps.MapPosition;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,17 +22,17 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     /**
      * Variable declaration
      */
-    private ShipPosition currentPosition;
+    private MapPosition currentPosition;
 
 
     @Override
-    public ShipPosition getShipPosition(Ship shipPlayer) {
-        return shipPlayer.getShipPosition();
+    public MapPosition getShipPosition(Ship shipPlayer) {
+        return shipPlayer.getMapPosition();
     }
 
     @Override
-    public void moveShipTo(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
-        shipPlayer.setShipPosition(destination);
+    public void moveShipTo(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setMapPosition(destination);
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.millis(500));
         translateTransition.setNode(ivBgPlayerShip);
@@ -44,8 +42,8 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     }
 
     @Override
-    public void moveShipToFast(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
-        shipPlayer.setShipPosition(destination);
+    public void moveShipToFast(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setMapPosition(destination);
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.seconds(0.01));
         translateTransition.setNode(ivBgPlayerShip);
@@ -56,99 +54,99 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
 
     @Override
-    public void setHardShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
-        shipPlayer.setShipPosition(destination);
-        ivBgPlayerShip.setX(shipPlayer.getShipPosition().getLayoutX());
-        ivBgPlayerShip.setY(shipPlayer.getShipPosition().getLayoutY());
+    public void setHardShipPosition(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setMapPosition(destination);
+        ivBgPlayerShip.setX(shipPlayer.getMapPosition().getLayoutX());
+        ivBgPlayerShip.setY(shipPlayer.getMapPosition().getLayoutY());
     }
 
     @Override
-    public ShipPosition getPositionField1() {
-        return new ShipPosition(160,290, FieldColor.RED);
+    public MapPosition getPositionField1() {
+        return new MapPosition(160,290, FieldColor.RED);
     }
 
     @Override
-    public ShipPosition getPositionField2() {
-        return new ShipPosition(50,245, FieldColor.RED);
+    public MapPosition getPositionField2() {
+        return new MapPosition(50,245, FieldColor.RED);
     }
 
     @Override
-    public ShipPosition getPositionField3() {
-        return new ShipPosition(55,155, FieldColor.RED);
+    public MapPosition getPositionField3() {
+        return new MapPosition(55,155, FieldColor.RED);
     }
 
     @Override
-    public ShipPosition getPositionField4() {
-        return new ShipPosition(70,75, FieldColor.YELLOW);
+    public MapPosition getPositionField4() {
+        return new MapPosition(70,75, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField5() {
-        return new ShipPosition(200,60, FieldColor.YELLOW);
+    public MapPosition getPositionField5() {
+        return new MapPosition(200,60, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField6() {
-        return new ShipPosition(295,60, FieldColor.GREEN);
+    public MapPosition getPositionField6() {
+        return new MapPosition(295,60, FieldColor.GREEN);
     }
 
     @Override
-    public ShipPosition getPositionField7() {
-        return new ShipPosition(380,75, FieldColor.YELLOW);
+    public MapPosition getPositionField7() {
+        return new MapPosition(380,75, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField8() {
-        return new ShipPosition(470,65, FieldColor.YELLOW);
+    public MapPosition getPositionField8() {
+        return new MapPosition(470,65, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField9() {
-        return new ShipPosition(550,60, FieldColor.YELLOW);
+    public MapPosition getPositionField9() {
+        return new MapPosition(550,60, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField10() {
-        return new ShipPosition(640,5, FieldColor.YELLOW);
+    public MapPosition getPositionField10() {
+        return new MapPosition(640,5, FieldColor.YELLOW);
     }
 
     @Override
-    public ShipPosition getPositionField11() {
-        return new ShipPosition(690,100, FieldColor.RED);
+    public MapPosition getPositionField11() {
+        return new MapPosition(690,100, FieldColor.RED);
     }
 
     @Override
-    public ShipPosition getPositionField12() {
-        return new ShipPosition(605,150, FieldColor.RED);
+    public MapPosition getPositionField12() {
+        return new MapPosition(605,150, FieldColor.RED);
     }
 
     @Override
-    public ShipPosition getPositionField13() {
-        return new ShipPosition(535,215, FieldColor.GREEN);
+    public MapPosition getPositionField13() {
+        return new MapPosition(535,215, FieldColor.GREEN);
     }
 
     @Override
-    public ShipPosition getPositionField14() {
-        return new ShipPosition(380,255, FieldColor.GREEN);
+    public MapPosition getPositionField14() {
+        return new MapPosition(380,255, FieldColor.GREEN);
     }
 
     @Override
-    public ShipPosition getPositionField15() {
-        return new ShipPosition(375,155, FieldColor.GREEN);
+    public MapPosition getPositionField15() {
+        return new MapPosition(375,155, FieldColor.GREEN);
     }
 
     @Override
-    public ShipPosition getPositionField16() {
-        return new ShipPosition(550,320, FieldColor.GREEN);
+    public MapPosition getPositionField16() {
+        return new MapPosition(550,320, FieldColor.GREEN);
     }
 
     @Override
-    public ShipPosition getPositionField17() {
-        return new ShipPosition(640,335, FieldColor.GREEN);
+    public MapPosition getPositionField17() {
+        return new MapPosition(640,335, FieldColor.GREEN);
     }
 
     @Override
-    public boolean isMoveAllowed(ShipPosition currentPosition, ShipPosition destination) {
+    public boolean isMoveAllowed(MapPosition currentPosition, MapPosition destination) {
         for (int i = 0; i < getFields().size(); i++) {
             if (getFields().get(i).equals(currentPosition)){
                 if (i==0){
@@ -198,15 +196,15 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     }
 
     @Override
-    public boolean isEnterCityAllowed(ShipPosition currentPosition, ShipPosition cityToEnterPosition) {
+    public boolean isEnterCityAllowed(MapPosition currentPosition, MapPosition cityToEnterPosition) {
         if (currentPosition.equals(cityToEnterPosition)){
             return true;
         }
         return false;
     }
 
-    private List<ShipPosition> getFields(){
-        List<ShipPosition> fields = new ArrayList<>();
+    private List<MapPosition> getFields(){
+        List<MapPosition> fields = new ArrayList<>();
         fields.add(getPositionField1());
         fields.add(getPositionField2());
         fields.add(getPositionField3());
@@ -258,11 +256,11 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     }
 
 
-    public ShipPosition getCurrentPosition() {
+    public MapPosition getCurrentPosition() {
         return currentPosition;
     }
 
-    public void setCurrentPosition(ShipPosition currentPosition) {
+    public void setCurrentPosition(MapPosition currentPosition) {
         this.currentPosition = currentPosition;
     }
 

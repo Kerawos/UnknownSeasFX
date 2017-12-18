@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
-import pl.mareksowa.models.ships.ShipPosition;
+import pl.mareksowa.models.maps.MapPosition;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -267,7 +267,7 @@ public class MapController extends PlayerShipController implements Initializable
         });
     }
 
-    private void shipGetShipMovementManager(ShipPosition destination){
+    private void shipGetShipMovementManager(MapPosition destination){
         if (getShipMovementManager().isMoveAllowed(getShipMovementManager().getShipPosition(getShipPlayerCurrent()), destination)
                 && getShipMovementManager().canShipMove(getShipPlayerCurrent(), 1)){
             getShipMovementManager().moveShipTo(getShipPlayerCurrent(), destination, ivPlayerCurrentPosition);
@@ -277,7 +277,7 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void enterCity(City city){
-        if (getShipMovementManager().isEnterCityAllowed(getShipPlayerCurrent().getShipPosition(), city.getCityPosition())){
+        if (getShipMovementManager().isEnterCityAllowed(getShipPlayerCurrent().getMapPosition(), city.getCityPosition())){
             CurrentScene.getInstance().setCurrentCity(city);
             if (getSceneManager().getLastDayInVisitedCity()!=getSceneManager().getGameTime().getDay()){
                 getCityManager().updateCityGoods(CurrentScene.getInstance().getCurrentCity());
@@ -302,7 +302,7 @@ public class MapController extends PlayerShipController implements Initializable
             if (!getShipPlayerCurrent().getAchievement().isFirstTimeInWorldMap()){
                 getShipMovementManager().moveShipToFast(getShipPlayerCurrent(), getShipMovementManager().getPositionField14(), ivPlayerCurrentPosition);
             } else {
-                getShipMovementManager().moveShipToFast(getShipPlayerCurrent(), getShipPlayerCurrent().getShipPosition(), ivPlayerCurrentPosition);
+                getShipMovementManager().moveShipToFast(getShipPlayerCurrent(), getShipPlayerCurrent().getMapPosition(), ivPlayerCurrentPosition);
             }
             sceneLoaded = true;
         }

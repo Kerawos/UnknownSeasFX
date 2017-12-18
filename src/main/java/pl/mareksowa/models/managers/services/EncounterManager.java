@@ -3,7 +3,9 @@ package pl.mareksowa.models.managers.services;
  * Imports section
  */
 import org.springframework.stereotype.Service;
-import pl.mareksowa.models.EncounterType;
+import pl.mareksowa.models.maps.EncounterType;
+import pl.mareksowa.models.maps.FieldColor;
+import pl.mareksowa.models.ships.Ship;
 
 import java.util.Random;
 
@@ -15,15 +17,15 @@ public class EncounterManager {
 
     /**
      * Method generate encounter based on game map color field
-     * @param fieldColor
+     * @param shipPlayer
      * @return random encounter type
      */
-    public EncounterType generateEncounterType(String fieldColor){
+    public EncounterType generateEncounterType(Ship shipPlayer){
         int random = new Random().nextInt(3);
-        if (fieldColor.equals("Green")){
+        if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.GREEN){
             random+=2;
         }
-        if (fieldColor.equals("Red")){
+        if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.RED){
             random-=2;
         }
         switch (random){
@@ -52,6 +54,4 @@ public class EncounterManager {
                 return EncounterType.EMPTY;
         }
     }
-
-
 }

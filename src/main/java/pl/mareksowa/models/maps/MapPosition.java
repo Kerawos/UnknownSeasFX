@@ -1,24 +1,36 @@
-package pl.mareksowa.models.ships;
+package pl.mareksowa.models.maps;
 
-import pl.mareksowa.models.FieldColor;
+/**
+ * Class responsible for holding position on the map
+ */
+public class MapPosition {
 
-public class ShipPosition {
-
+    /**
+     * Variables declaration
+     */
     private int layoutX;
     private int layoutY;
     private FieldColor fieldColor;
 
-    public ShipPosition(int layoutX, int layoutY) {
+    /**
+     * Constructors
+     * @param layoutX
+     * @param layoutY
+     */
+    public MapPosition(int layoutX, int layoutY) {
         this.layoutX = layoutX;
         this.layoutY = layoutY;
     }
 
-    public ShipPosition(int layoutX, int layoutY, FieldColor fieldColor) {
+    public MapPosition(int layoutX, int layoutY, FieldColor fieldColor) {
         this.layoutX = layoutX;
         this.layoutY = layoutY;
         this.fieldColor = fieldColor;
     }
 
+    /**
+     * Getters and setters
+     */
     public int getLayoutX() {
         return layoutX;
     }
@@ -48,7 +60,7 @@ public class ShipPosition {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        ShipPosition that = (ShipPosition) o;
+        MapPosition that = (MapPosition) o;
 
         if (layoutX != that.layoutX) return false;
         return layoutY == that.layoutY;

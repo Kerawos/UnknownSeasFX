@@ -4,6 +4,7 @@ package pl.mareksowa.models.ships;
  */
 import pl.mareksowa.models.cannons.Cannon;
 import pl.mareksowa.models.goods.Good;
+import pl.mareksowa.models.maps.MapPosition;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.crews.Crew;
 
@@ -27,7 +28,7 @@ public class Ship {
     private int food;
     private int ammo;
     private ShipAchievement achievement;
-    private ShipPosition shipPosition;
+    private MapPosition mapPosition;
     private int movePossibility;
 
     /**
@@ -48,7 +49,7 @@ public class Ship {
         cannonList = new ArrayList<>();
         sailList = new ArrayList<>();
         achievement = new ShipAchievement();
-        shipPosition = new ShipPosition(0,0);
+        mapPosition = new MapPosition(0,0);
 
     }
 
@@ -167,12 +168,12 @@ public class Ship {
         this.achievement = achievement;
     }
 
-    public ShipPosition getShipPosition() {
-        return shipPosition;
+    public MapPosition getMapPosition() {
+        return mapPosition;
     }
 
-    public void setShipPosition(ShipPosition shipPosition) {
-        this.shipPosition = shipPosition;
+    public void setMapPosition(MapPosition mapPosition) {
+        this.mapPosition = mapPosition;
     }
 
     public int getMovePossibility() {

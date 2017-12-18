@@ -1,11 +1,10 @@
 package pl.mareksowa.models.cities;
 
-import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.managers.services.ShipMovementManagerImpl;
-import pl.mareksowa.models.ships.ShipPosition;
+import pl.mareksowa.models.maps.MapPosition;
 
 import java.util.List;
 
@@ -18,7 +17,7 @@ public abstract class City {
      * Each city should be very unique. In one case some cities will value spices, other not etc.
      */
     private CityName cityName;
-    private ShipPosition cityPosition;
+    private MapPosition cityPosition;
     private int foodRequest;
     private int ammoRequest;
     private int crewRequest;
@@ -58,11 +57,11 @@ public abstract class City {
         this.cityName = cityName;
     }
 
-    public ShipPosition getCityPosition() {
+    public MapPosition getCityPosition() {
         return cityPosition;
     }
 
-    public void setCityPosition(ShipPosition cityPosition) {
+    public void setCityPosition(MapPosition cityPosition) {
         this.cityPosition = cityPosition;
     }
 
