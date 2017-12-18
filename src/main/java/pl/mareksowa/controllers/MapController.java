@@ -102,8 +102,11 @@ public class MapController extends PlayerShipController implements Initializable
     private void checkEncounter(){
         if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
             System.out.println("spotkanie losowe na morzu");
+            getSceneManager().updateDay(getPaneScene());
+
             CurrentScene.getInstance().getSceneManager().setGameTime(+1);
             getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
+
             updateScene();
         }
     }
@@ -268,10 +271,11 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void shipGetShipMovementManager(ShipPosition destination){
-        if (getShipMovementManager().isMoveAllowed(getShipMovementManager().getShipPosition(getShipPlayerCurrent()), destination)){
+        if (getShipMovementManager().isMoveAllowed(getShipMovementManager().getShipPosition(getShipPlayerCurrent()), destination)
+                && getShipMovementManager().canShipMove(getShipPlayerCurrent(), 1)){
             getShipMovementManager().moveShipTo(getShipPlayerCurrent(), destination, ivPlayerCurrentPosition);
             updateMovePoints();
-            updatePlayerShipPosition();
+            updateScene();
         }
     }
 
@@ -305,7 +309,6 @@ public class MapController extends PlayerShipController implements Initializable
             }
             sceneLoaded = true;
         }
-        System.out.println("statek jest na: " + getShipPlayerCurrent().getShipPosition().getLayoutX() + " : " + getShipPlayerCurrent().getShipPosition().getLayoutY());
     }
 
 }

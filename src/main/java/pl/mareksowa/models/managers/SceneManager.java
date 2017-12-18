@@ -17,7 +17,18 @@ public interface SceneManager {
      */
     void sceneChange(Stage stageName, String sceneName);
 
+    /**
+     * Method to initialize change scene from one to another with animation
+     * @param stageName
+     * @param sceneName
+     * @param pane
+     */
     void sceneChangeInit(Stage stageName, String sceneName, Pane pane);
+
+    /**
+     * Method will display screen with next day
+     */
+    void updateDay(Pane pane);
 
     /**
      * Method allowed find proper scene name as string inputed predefined enum scene name. Condition: map scene names

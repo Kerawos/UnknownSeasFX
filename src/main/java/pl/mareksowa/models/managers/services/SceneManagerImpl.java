@@ -3,6 +3,7 @@ package pl.mareksowa.models.managers.services;
  * Imports section
  */
 import javafx.animation.FadeTransition;
+import javafx.animation.ParallelTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -10,18 +11,24 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.managers.SceneManager;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Singleton class which contain all managers. Holding current scene info, current state of player ship. Calling Scene
@@ -143,4 +150,22 @@ public class SceneManagerImpl implements SceneManager {
         fadeTransition.setDuration(Duration.millis(800));
         fadeTransition.play();
     }
+
+    @Override
+    public void updateDay(Pane pane) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(400), pane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(1);
+        fadeTransition.play();
+        fadeTransition.setOnFinished(event -> {
+            System.out.println("dupa");
+            FadeTransition fadeTransition2 = new FadeTransition(Duration.millis(100), pane);
+            fadeTransition2.setFromValue(1);
+            fadeTransition2.setToValue(0.3);
+            fadeTransition2.setCycleCount(2);
+            fadeTransition2.setAutoReverse(true);
+            fadeTransition2.play();
+        });
+    }
+
 }

@@ -35,7 +35,7 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     public void moveShipTo(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
         shipPlayer.setShipPosition(destination);
         TranslateTransition translateTransition = new TranslateTransition();
-        translateTransition.setDuration(Duration.seconds(1));
+        translateTransition.setDuration(Duration.millis(500));
         translateTransition.setNode(ivBgPlayerShip);
         translateTransition.setToX(destination.getLayoutX());
         translateTransition.setToY(destination.getLayoutY());
@@ -242,7 +242,9 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public void updateShipMove(Ship shipPlayer, int moveToPerform) {
+        System.out.println(shipPlayer.getMovePossibility());
         shipPlayer.setMovePossibility(shipPlayer.getMovePossibility() - moveToPerform);
+        System.out.println(shipPlayer.getMovePossibility());
     }
 
     @Override
