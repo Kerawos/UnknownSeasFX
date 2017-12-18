@@ -148,77 +148,77 @@ public class TavernController extends PlayerShipController implements Initializa
         btnFood3.setOnMouseClicked(click->buyFood(getShipPlayerCurrent(), 27, 20));
     }
 
-    private void hireCrew(Ship shipPlayer, Crew crewToHIre, Label lblUpperText){
-        if (getShipCrewManager().canHireCrewMember(shipPlayer, crewToHIre, lblUpperText)){
-            getShipCrewManager().hireCrewMember(shipPlayer, crewToHIre);
+    private void hireCrew(Crew crewToHIre, Label lblUpperText){
+        if (getShipCrewManager().canHireCrewMember(getShipPlayerCurrent(), crewToHIre, lblUpperText)){
+            getShipCrewManager().hireCrewMember(getShipPlayerCurrent(), crewToHIre);
             updateScene();
         }
     }
 
     private void btnRegHireCrew1(){
-        ivHireCrew1.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+        ivHireCrew1.setOnMouseClicked(click->hireCrew(
                 CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(0), lblUpperText));
     }
 
     private void btnRegHireCrew2(){
-        ivHireCrew2.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+        ivHireCrew2.setOnMouseClicked(click->hireCrew(
                 CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(1), lblUpperText));
     }
 
     private void btnRegHireCrew3(){
-        ivHireCrew3.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+        ivHireCrew3.setOnMouseClicked(click->hireCrew(
                 CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(2), lblUpperText));
     }
 
     private void btnRegHireCrew4(){
-        ivHireCrew4.setOnMouseClicked(click->hireCrew(getShipPlayerCurrent(),
+        ivHireCrew4.setOnMouseClicked(click->hireCrew(
                 CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(3), lblUpperText));
     }
 
-    private void fireCrew(Ship shipPlayer, Crew crewToFire, Label lblUpperText){
-        if (getShipCrewManager().canGetRidOffCrewMember(shipPlayer, crewToFire, lblUpperText)){
-            getShipCrewManager().ridOffCrewMember(shipPlayer, crewToFire);
+    private void fireCrew(int crewListNo){
+        if (getShipCrewManager().canGetRidOffCrewMember(getShipPlayerCurrent(), crewListNo)){
+            getShipCrewManager().ridOffCrewMember(getShipPlayerCurrent(), getShipPlayerCurrent().getCrewList().get(crewListNo));
         }
     }
 
     private void btnRegFireCrew1(){
-        getIvCrew1().setOnMouseClicked(click->fireCrew(getShipPlayerCurrent(), getShipPlayerCurrent().getCrewList().get(0), lblUpperText));
+        getIvCrew1().setOnMouseClicked(click->fireCrew(0));
     }
 
     private void btnRegFireCrew2(){
-        //todo
+        getIvCrew2().setOnMouseClicked(click->fireCrew(1));
     }
 
     private void btnRegFireCrew3(){
-        //todo
+        getIvCrew3().setOnMouseClicked(click->fireCrew(2));
     }
 
     private void btnRegFireCrew4(){
-        //todo
+        getIvCrew4().setOnMouseClicked(click->fireCrew(3));
     }
 
     private void btnRegFireCrew5(){
-        //todo
+        getIvCrew5().setOnMouseClicked(click->fireCrew(4));
     }
 
     private void btnRegFireCrew6(){
-        //todo
+        getIvCrew6().setOnMouseClicked(click->fireCrew(5));
     }
 
     private void btnRegFireCrew7(){
-        //todo
+        getIvCrew7().setOnMouseClicked(click->fireCrew(6));
     }
 
     private void btnRegFireCrew8(){
-        //todo
+        getIvCrew8().setOnMouseClicked(click->fireCrew(7));
     }
 
     private void btnRegFireCrew9(){
-        //todo
+        getIvCrew9().setOnMouseClicked(click->fireCrew(8));
     }
 
     private void btnRegFireCrew10(){
-        //todo
+        getIvCrew10().setOnMouseClicked(click->fireCrew(9));
     }
 
     private void btnRegBack(){

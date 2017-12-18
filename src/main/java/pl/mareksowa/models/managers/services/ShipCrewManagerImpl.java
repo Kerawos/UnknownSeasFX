@@ -23,24 +23,43 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
 
     @Override
     public boolean canHireCrewMember(Ship shipPlayer, Crew crewToHire, Label lblUpperText) {
-        //todo
+        if (shipPlayer.getCabinCapacity() > shipPlayer.getCrewList().size()){
+            return true;
+        }
+        lblUpperText.setText("You don't have enough space..");
         return false;
+
     }
 
     @Override
     public void hireCrewMember(Ship shipPlayer, Crew crewToHire) {
-        //todo
+        shipPlayer.getCrewList().add(crewToHire);
     }
 
     @Override
-    public boolean canGetRidOffCrewMember(Ship shipPlayer, Crew crewToFire, Label lblUpperText) {
-        //todo
+    public boolean canGetRidOffCrewMember(Ship shipPlayer, int crewListNo) {
+        if (shipPlayer.getCrewList().size()>0){
+            String givenCrewName = shipPlayer.getCrewList().get(crewListNo).getClass().getName();
+            givenCrewName = givenCrewName.substring(givenCrewName.lastIndexOf(".")+1, givenCrewName.length());
+            for (int i = 0; i < shipPlayer.getCrewList().size(); i++) {
+                String currentCrewName = shipPlayer.getCrewList().get(i).getClass().getName();
+                currentCrewName = currentCrewName.substring(currentCrewName.lastIndexOf(".")+1, currentCrewName.length());
+                if (currentCrewName.equals(givenCrewName)){
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     @Override
     public void ridOffCrewMember(Ship shipPlayer, Crew crewToFire) {
-        //todo
+        for (int i = 0; i < shipPlayer.getCrewList().size(); i++) {
+            if (shipPlayer.getCrewList().get(i).equals(crewToFire)){
+                shipPlayer.getCrewList().remove(i);
+                break;
+            }
+        }
     }
 
     // 30% chance of DeckHand and Sailor, 20% chance of Chef, 10% chance of SeaWolf and Engineer.

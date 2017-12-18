@@ -36,11 +36,10 @@ public interface ShipCrewManager {
     /**
      * Method checks if capitan of listed ship can get rid of given crew member
      * @param shipPlayer
-     * @param crewToFire
-     * @param lblUpperText
+     * @param crewListNo
      * @return true if conditions have been met
      */
-    boolean canGetRidOffCrewMember(Ship shipPlayer, Crew crewToFire, Label lblUpperText);
+    boolean canGetRidOffCrewMember(Ship shipPlayer, int crewListNo);
 
     /**
      * Method responsible for fire given crew member by capitan of listed ship
