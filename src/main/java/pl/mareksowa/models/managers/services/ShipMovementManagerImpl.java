@@ -1,6 +1,8 @@
 package pl.mareksowa.models.managers.services;
 
+import javafx.animation.TranslateTransition;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -30,7 +32,30 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
     }
 
     @Override
-    public void setShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
+    public void moveShipTo(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setShipPosition(destination);
+        TranslateTransition translateTransition = new TranslateTransition();
+        translateTransition.setDuration(Duration.seconds(1));
+        translateTransition.setNode(ivBgPlayerShip);
+        translateTransition.setToX(destination.getLayoutX());
+        translateTransition.setToY(destination.getLayoutY());
+        translateTransition.play();
+    }
+
+    @Override
+    public void moveShipToFast(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
+        shipPlayer.setShipPosition(destination);
+        TranslateTransition translateTransition = new TranslateTransition();
+        translateTransition.setDuration(Duration.seconds(0.01));
+        translateTransition.setNode(ivBgPlayerShip);
+        translateTransition.setToX(destination.getLayoutX());
+        translateTransition.setToY(destination.getLayoutY());
+        translateTransition.play();
+    }
+
+
+    @Override
+    public void setHardShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip) {
         shipPlayer.setShipPosition(destination);
         ivBgPlayerShip.setX(shipPlayer.getShipPosition().getLayoutX());
         ivBgPlayerShip.setY(shipPlayer.getShipPosition().getLayoutY());

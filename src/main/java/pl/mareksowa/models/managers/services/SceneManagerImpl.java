@@ -3,6 +3,7 @@ package pl.mareksowa.models.managers.services;
  * Imports section
  */
 import javafx.animation.FadeTransition;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -122,8 +123,8 @@ public class SceneManagerImpl implements SceneManager {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setNode(pane);
         fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.setDuration(Duration.millis(100));
+        fadeTransition.setToValue(0.3);
+        fadeTransition.setDuration(Duration.millis(200));
         fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

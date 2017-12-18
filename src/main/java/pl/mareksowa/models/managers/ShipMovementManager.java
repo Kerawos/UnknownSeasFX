@@ -8,7 +8,9 @@ import pl.mareksowa.models.ships.ShipPosition;
 @Service
 public interface ShipMovementManager {
     ShipPosition getShipPosition(Ship shipPlayer);
-    void setShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);
+    void moveShipTo(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);
+    void moveShipToFast(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);
+    void setHardShipPosition(Ship shipPlayer, ShipPosition destination, ImageView ivBgPlayerShip);
     ShipPosition getPositionField1();
     ShipPosition getPositionField2();
     ShipPosition getPositionField3();

@@ -59,6 +59,8 @@ public class MapController extends PlayerShipController implements Initializable
     private Image indicatorYellow;
     private Image indicatorRed;
 
+    private boolean sceneLoaded;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         imgLoader();
@@ -94,6 +96,7 @@ public class MapController extends PlayerShipController implements Initializable
         updatePlayerShip(getShipPlayerCurrent());
         updatePlayerShipPosition();
         checkEncounter();
+
     }
 
     private void checkEncounter(){
@@ -117,7 +120,7 @@ public class MapController extends PlayerShipController implements Initializable
         updateFieldIndicatorView();
         updateShipBackgroundView();
         lblGameTime.setText("Day: " + CurrentScene.getInstance().getSceneManager().getGameTime().getDay());
-        lblMovePoints.setText("getShipMovementManager(): " + getShipMovementManager().getRemainShipMove(getShipPlayerCurrent()));
+        lblMovePoints.setText("Move left: " + getShipMovementManager().getRemainShipMove(getShipPlayerCurrent()));
     }
 
     private void updateMovePoints(){
@@ -181,94 +184,94 @@ public class MapController extends PlayerShipController implements Initializable
     private void ivRegField1GothShai(){
         ivField1GothShai.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(0));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField1());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField1());
         });
     }
 
     private void ivRegField2(){
-        ivField2.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField2()));
+        ivField2.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField2()));
     }
     private void ivRegField3(){
-        ivField3.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField3()));
+        ivField3.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField3()));
     }
 
     private void ivRegField4Masumba(){
         ivField4Masumba.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(1));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField4());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField4());
         });
     }
 
     private void ivRegField5(){
-        ivField5.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField5()));
+        ivField5.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField5()));
     }
 
     private void ivRegField6MilaDoce(){
         ivField6MilaDoce.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(2));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField6());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField6());
         });
     }
 
     private void ivRegField7(){
-        ivField7.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField7()));
+        ivField7.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField7()));
     }
 
     private void ivRegField8(){
-        ivField8.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField8()));
+        ivField8.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField8()));
     }
 
     private void ivRegField9(){
-        ivField9.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField9()));
+        ivField9.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField9()));
     }
 
     private void ivRegField10Balados(){
         ivField10Balados.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(3));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField10());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField10());
         });
     }
 
     private void ivRegField11(){
-        ivField11.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField11()));
+        ivField11.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField11()));
     }
 
     private void ivRegField12(){
-        ivField12.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField12()));
+        ivField12.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField12()));
     }
 
     private void ivRegField13(){
-        ivField13.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField13()));
+        ivField13.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField13()));
     }
 
     private void ivRegField14Centeros(){
         ivField14Centeros.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(4));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField14());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField14());
                 });
 
     }
 
     private void ivRegField15(){
-        ivField15.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField15()));
+        ivField15.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField15()));
     }
 
     private void ivRegField16(){
-        ivField16.setOnMouseClicked(click-> shipgetShipMovementManager(getShipMovementManager().getPositionField16()));
+        ivField16.setOnMouseClicked(click-> shipGetShipMovementManager(getShipMovementManager().getPositionField16()));
     }
 
     private void ivRegField17Zihlu(){
         ivField17Zihlu.setOnMouseClicked(click-> {
             enterCity(getCityManager().getAllCities().get(5));
-            shipgetShipMovementManager(getShipMovementManager().getPositionField17());
+            shipGetShipMovementManager(getShipMovementManager().getPositionField17());
         });
     }
 
-    private void shipgetShipMovementManager(ShipPosition destination){
+    private void shipGetShipMovementManager(ShipPosition destination){
         if (getShipMovementManager().isMoveAllowed(getShipMovementManager().getShipPosition(getShipPlayerCurrent()), destination)){
-            getShipMovementManager().setShipPosition(getShipPlayerCurrent(), destination, ivPlayerCurrentPosition);
+            getShipMovementManager().moveShipTo(getShipPlayerCurrent(), destination, ivPlayerCurrentPosition);
             updateMovePoints();
-            updateScene();
+            updatePlayerShipPosition();
         }
     }
 
@@ -293,12 +296,16 @@ public class MapController extends PlayerShipController implements Initializable
     }
 
     private void updatePlayerShipPosition(){
-        ivPlayerCurrentPosition.setImage(bgPlayerShipOnMap);
-        if (!getShipPlayerCurrent().getAchievement().isFirstTimeInWorldMap()){
-            getShipMovementManager().setShipPosition(getShipPlayerCurrent(), getShipMovementManager().getPositionField14(), ivPlayerCurrentPosition);
-        } else {
-         getShipMovementManager().setShipPosition(getShipPlayerCurrent(), getShipPlayerCurrent().getShipPosition(), ivPlayerCurrentPosition);
+        if (!sceneLoaded){
+            ivPlayerCurrentPosition.setImage(bgPlayerShipOnMap);
+            if (!getShipPlayerCurrent().getAchievement().isFirstTimeInWorldMap()){
+                getShipMovementManager().moveShipToFast(getShipPlayerCurrent(), getShipMovementManager().getPositionField14(), ivPlayerCurrentPosition);
+            } else {
+                getShipMovementManager().moveShipToFast(getShipPlayerCurrent(), getShipPlayerCurrent().getShipPosition(), ivPlayerCurrentPosition);
+            }
+            sceneLoaded = true;
         }
+        System.out.println("statek jest na: " + getShipPlayerCurrent().getShipPosition().getLayoutX() + " : " + getShipPlayerCurrent().getShipPosition().getLayoutY());
     }
 
 }
