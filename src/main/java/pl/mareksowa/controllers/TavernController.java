@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
+import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.managers.SceneManager;
 import pl.mareksowa.models.ships.Ship;
@@ -148,31 +149,30 @@ public class TavernController extends PlayerShipController implements Initializa
         btnFood3.setOnMouseClicked(click->buyFood(getShipPlayerCurrent(), 27, 20));
     }
 
-    private void hireCrew(Crew crewToHIre, Label lblUpperText){
-        if (getShipCrewManager().canHireCrewMember(getShipPlayerCurrent(), crewToHIre, lblUpperText)){
-            getShipCrewManager().hireCrewMember(getShipPlayerCurrent(), crewToHIre, CurrentScene.getInstance().getCurrentCity());
+    private void hireCrew(int crewListNo, Label lblUpperText){
+        City currentCity = CurrentScene.getInstance().getCurrentCity();
+        Crew crewToHire = currentCity.getCrewTavernList().get(crewListNo);
+        if (getShipCrewManager().canHireCrewMember(getShipPlayerCurrent(), crewToHire, lblUpperText)){
+            getShipCrewManager().hireCrewMember(getShipPlayerCurrent(), crewToHire);
+            getCityManager().removeCityCrewMember(currentCity, crewListNo);
             updateScene();
         }
     }
 
     private void btnRegHireCrew1(){
-        ivHireCrew1.setOnMouseClicked(click->hireCrew(
-                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(0), lblUpperText));
+        ivHireCrew1.setOnMouseClicked(click->hireCrew(0, lblUpperText));
     }
 
     private void btnRegHireCrew2(){
-        ivHireCrew2.setOnMouseClicked(click->hireCrew(
-                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(1), lblUpperText));
+        ivHireCrew2.setOnMouseClicked(click->hireCrew(1, lblUpperText));
     }
 
     private void btnRegHireCrew3(){
-        ivHireCrew3.setOnMouseClicked(click->hireCrew(
-                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(2), lblUpperText));
+        ivHireCrew3.setOnMouseClicked(click->hireCrew(2, lblUpperText));
     }
 
     private void btnRegHireCrew4(){
-        ivHireCrew4.setOnMouseClicked(click->hireCrew(
-                CurrentScene.getInstance().getCurrentCity().getCrewTavernList().get(3), lblUpperText));
+        ivHireCrew4.setOnMouseClicked(click->hireCrew(3, lblUpperText));
     }
 
     private void fireCrew(int crewListNo){

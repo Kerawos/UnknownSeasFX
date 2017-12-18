@@ -85,7 +85,16 @@ public class CityManagerImpl implements CityManager {
 
     @Override
     public void removeCityCrewMember(City city, int crewListNo) {
-        
+        if (city.getCrewTavernList()==null){
+            throw new IllegalArgumentException("crews in tavern in the city is null");
+        }
+        if (city.getCrewTavernList().size()<1){
+            throw new IllegalArgumentException("crews in tavern in the city is not greater than 0");
+        }
+        if (crewListNo>city.getCrewTavernList().size() || crewListNo<city.getCrewTavernList().size()){
+            throw new IllegalArgumentException("given crewListNo is not corrected");
+        }
+        city.getCrewTavernList().remove(crewListNo);
     }
 
     @Override

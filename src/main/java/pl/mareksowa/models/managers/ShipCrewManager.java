@@ -32,7 +32,7 @@ public interface ShipCrewManager {
      * @param shipPlayer
      * @param crewToHire
      */
-    void hireCrewMember(Ship shipPlayer, Crew crewToHire, City currentCity);
+    void hireCrewMember(Ship shipPlayer, Crew crewToHire);
 
     /**
      * Method checks if capitan of listed ship can get rid of given crew member

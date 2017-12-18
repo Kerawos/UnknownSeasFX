@@ -35,9 +35,8 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     }
 
     @Override
-    public void hireCrewMember(Ship shipPlayer, Crew crewToHire, City currentCity) {
+    public void hireCrewMember(Ship shipPlayer, Crew crewToHire) {
         shipPlayer.getCrewList().add(crewToHire);
-        currentCity.getCrewTavernList().remove(crewToHire);
 
     }
 
