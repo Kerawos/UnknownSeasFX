@@ -14,6 +14,6 @@ public class StartingShip {
      */
     public Ship getStartingShip(){
         return new Ship(1,1,1,
-                100,50,1,100,5,0);
+                100,50,1,1000,5,0);
     }
 }

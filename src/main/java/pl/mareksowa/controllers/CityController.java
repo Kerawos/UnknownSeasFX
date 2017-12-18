@@ -136,8 +136,6 @@ public class CityController extends PlayerShipController implements Initializabl
      */
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
-            //todo
-            CurrentScene.getInstance().getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
             Stage worldMap = (Stage) btnBack.getScene().getWindow();
             getSceneManager().sceneChangeInit(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP), getPaneScene());
         });

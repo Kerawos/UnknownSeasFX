@@ -18,6 +18,10 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public boolean canBuyStorage(Ship shipPlayer, Label lblUpperText) {
+        if (shipPlayer.getStorageCapacity()>9){
+            lblUpperText.setText("There is no more space in the ship");
+            return false;
+        }
         int storagePrice = shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
                 + shipPlayer.getStorageCapacity();
         if (shipPlayer.getGold()>= storagePrice){
@@ -37,6 +41,10 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public boolean canBuyCannonSpace(Ship shipPlayer, Label lblUpperText) {
+        if (shipPlayer.getCannonCapacity()>9){
+            lblUpperText.setText("There is no more space in the ship");
+            return false;
+        }
         int cannonPrice = shipPlayer.getCannonCapacity() * shipPlayer.getCannonCapacity()
                 + shipPlayer.getCannonCapacity()+5;
         if (shipPlayer.getGold()>= cannonPrice){
@@ -56,6 +64,10 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public boolean canBuyCabin(Ship shipPlayer, Label lblUpperText) {
+        if (shipPlayer.getCabinCapacity()>9){
+            lblUpperText.setText("There is no more space in the ship");
+            return false;
+        }
         int cabinPrice = shipPlayer.getCabinCapacity() * shipPlayer.getCabinCapacity()
                 + shipPlayer.getCabinCapacity()+1;
         if (shipPlayer.getGold()>= cabinPrice){
@@ -75,6 +87,10 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public boolean canBuySailSpace(Ship shipPlayer, Label lblUpperText) {
+        if (shipPlayer.getSailCapacity()>9){
+            lblUpperText.setText("There is no more space in the ship");
+            return false;
+        }
         int sailPrice = shipPlayer.getSailCapacity()
                 * shipPlayer.getSailCapacity() + shipPlayer.getSailCapacity()+10;
         if (shipPlayer.getGold()>= sailPrice){

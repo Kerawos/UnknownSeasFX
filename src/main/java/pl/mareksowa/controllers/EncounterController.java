@@ -9,6 +9,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
+import pl.mareksowa.models.CurrentScene;
+import pl.mareksowa.models.SceneNameEquivalent;
 
 
 import java.net.URL;
@@ -25,8 +27,13 @@ public class EncounterController extends PlayerShipController implements Initial
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        getEncounter();
         updateScene();
         buttonsRegister();
+    }
+
+    private void getEncounter(){
+        CurrentScene.getInstance().getEncounterManager().generateEncounterType("Red");
     }
 
     private void updateScene(){
@@ -43,8 +50,10 @@ public class EncounterController extends PlayerShipController implements Initial
 
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click-> {
-            Stage map = (Stage) btnBack.getScene().getWindow();
-            getSceneManager().sceneChangeInit(map, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()), getPaneScene());
+            //CurrentScene.getInstance().getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
+            System.out.println("player move2 : " + getShipMovementManager().getRemainShipMove(getShipPlayerCurrent()));
+            Stage worldMap = (Stage) btnBack.getScene().getWindow();
+            getSceneManager().sceneChangeInit(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP), getPaneScene());
         });
     }
 }

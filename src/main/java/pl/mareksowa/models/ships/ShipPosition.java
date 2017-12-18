@@ -5,6 +5,7 @@ public class ShipPosition {
     private int layoutX;
     private int layoutY;
 
+
     public ShipPosition(int layoutX, int layoutY) {
         this.layoutX = layoutX;
         this.layoutY = layoutY;
@@ -25,6 +26,8 @@ public class ShipPosition {
     public void setLayoutY(int layoutY) {
         this.layoutY = layoutY;
     }
+
+
 
     @Override
     public boolean equals(Object o) {

@@ -48,6 +48,7 @@ public class CurrentScene
     @Autowired private ShipGeneralManager shipGeneralManager = new ShipGeneralManagerImpl();
     @Autowired private ShipMovementManager shipMovementManager = new ShipMovementManagerImpl();
     @Autowired private ShipTradeManager shipTradeManager = new ShipTradeManagerImpl();
+    @Autowired private EncounterManager encounterManager = new EncounterManager();
 
     /**
      * Getters and setters section
@@ -110,4 +111,7 @@ public class CurrentScene
         return shipTradeManager;
     }
 
+    public EncounterManager getEncounterManager() {
+        return encounterManager;
+    }
 }

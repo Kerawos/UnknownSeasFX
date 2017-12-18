@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="paneScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.EncounterController">
+   <children>
+      <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="lblTitle" layoutX="603.0" layoutY="14.0" prefHeight="43.0" prefWidth="183.0" text="Label" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerGold" layoutX="32.0" layoutY="436.0" prefHeight="22.0" prefWidth="54.0" text="gold" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerFood" layoutX="91.0" layoutY="436.0" prefHeight="22.0" prefWidth="31.0" text="food" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerAmmo" layoutX="156.0" layoutY="436.0" prefHeight="22.0" prefWidth="37.0" text="amm" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivStorage1" fitHeight="45.0" fitWidth="45.0" layoutX="272.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage2" fitHeight="45.0" fitWidth="45.0" layoutX="321.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage3" fitHeight="45.0" fitWidth="45.0" layoutX="370.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage4" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage5" fitHeight="45.0" fitWidth="45.0" layoutX="468.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage6" fitHeight="45.0" fitWidth="45.0" layoutX="517.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage7" fitHeight="45.0" fitWidth="45.0" layoutX="566.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivStorage10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="432.0" pickOnBounds="true" preserveRatio="true" />
+      <ProgressBar fx:id="pbShipHp" layoutX="63.0" layoutY="608.0" prefHeight="18.0" prefWidth="112.0" progress="0.0" />
+      <Label fx:id="lblPlayerHp" layoutX="30.0" layoutY="606.0" prefHeight="22.0" prefWidth="37.0" text="hp" wrapText="true">
+         <font>
+            <Font name="Segoe Print Bold" size="12.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="ivCrew1" fitHeight="45.0" fitWidth="45.0" layoutX="272.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew2" fitHeight="45.0" fitWidth="45.0" layoutX="321.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew3" fitHeight="45.0" fitWidth="45.0" layoutX="370.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew4" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew5" fitHeight="45.0" fitWidth="45.0" layoutX="468.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew6" fitHeight="45.0" fitWidth="45.0" layoutX="517.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew7" fitHeight="45.0" fitWidth="45.0" layoutX="566.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCrew10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="484.0" pickOnBounds="true" preserveRatio="true" />
+
+      <ImageView fx:id="ivCannon1" fitHeight="45.0" fitWidth="45.0" layoutX="272.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon2" fitHeight="45.0" fitWidth="45.0" layoutX="321.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon3" fitHeight="45.0" fitWidth="45.0" layoutX="370.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon4" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon5" fitHeight="45.0" fitWidth="45.0" layoutX="468.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon6" fitHeight="45.0" fitWidth="45.0" layoutX="517.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon7" fitHeight="45.0" fitWidth="45.0" layoutX="566.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivCannon10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="536.0" pickOnBounds="true" preserveRatio="true" />
+
+      <ImageView fx:id="ivSail1" fitHeight="45.0" fitWidth="45.0" layoutX="272.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail2" fitHeight="45.0" fitWidth="45.0" layoutX="321.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail3" fitHeight="45.0" fitWidth="45.0" layoutX="370.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail4" fitHeight="45.0" fitWidth="45.0" layoutX="419.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail5" fitHeight="45.0" fitWidth="45.0" layoutX="468.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail6" fitHeight="45.0" fitWidth="45.0" layoutX="517.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail7" fitHeight="45.0" fitWidth="45.0" layoutX="566.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail8" fitHeight="45.0" fitWidth="45.0" layoutX="615.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail9" fitHeight="45.0" fitWidth="45.0" layoutX="664.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="ivSail10" fitHeight="45.0" fitWidth="45.0" layoutX="713.0" layoutY="589.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="btnBack" layoutX="661.0" layoutY="368.0" mnemonicParsing="false" text="To World Map">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Button>
+      <Label fx:id="lblPlayerSpeed" layoutX="227.0" layoutY="593.0" prefHeight="22.0" prefWidth="37.0" text="spd" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerPower" layoutX="227.0" layoutY="468.0" prefHeight="22.0" prefWidth="37.0" text="pwr" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerCharge" layoutX="227.0" layoutY="439.0" prefHeight="22.0" prefWidth="37.0" text="chr" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblPlayerManeuver" layoutX="227.0" layoutY="617.0" prefHeight="22.0" prefWidth="37.0" text="manu" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewSalary" layoutX="227.0" layoutY="511.0" prefHeight="22.0" prefWidth="37.0" text="salary" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewConsumption" layoutX="227.0" layoutY="536.0" prefHeight="22.0" prefWidth="37.0" text="consu" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblCrewProduction" layoutX="227.0" layoutY="560.0" prefHeight="22.0" prefWidth="37.0" text="produ" wrapText="true">
+         <font>
+            <Font name="Segoe Print" size="12.0" />
+         </font>
+      </Label>
+   </children>
+</Pane>
