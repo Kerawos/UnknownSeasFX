@@ -142,7 +142,7 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
-      <Label fx:id="lblCrewProduction" layoutX="229.0" layoutY="560.0" prefHeight="22.0" prefWidth="37.0" text="production" wrapText="true">
+      <Label fx:id="lblCrewProduction" layoutX="227.0" layoutY="560.0" prefHeight="22.0" prefWidth="37.0" text="production" wrapText="true">
          <font>
             <Font name="Segoe Print" size="12.0" />
          </font>

@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -28,12 +29,11 @@ import java.util.List;
 public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     private List<Ship> ships;
-    private ShipMovementManagerImpl shipMovementImpl;
+    //todo spring
+    @Autowired private ShipMovementManagerImpl shipMovementImpl  = new ShipMovementManagerImpl();
 
     public ShipGeneralManagerImpl() {
         ships = new ArrayList<>();
-        addShip(new StartingShip().getStartingShip());
-        shipMovementImpl = new ShipMovementManagerImpl();
     }
 
     @Override

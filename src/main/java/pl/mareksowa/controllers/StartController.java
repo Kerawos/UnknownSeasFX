@@ -16,6 +16,7 @@ import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.managers.SceneManager;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
 import pl.mareksowa.models.SceneNameEquivalent;
+import pl.mareksowa.models.ships.StartingShip;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -68,6 +69,7 @@ public class StartController implements Initializable{
      */
     private void btnRegBeginNewJourney(){
         btnBeginNewJourney.setOnMouseClicked(e-> {
+            createPlayer1();
             scene.getShipMovementManager().refreshShipMove(scene.getShipPlayerCurrent());
             Stage worldMap = (Stage) btnBeginNewJourney.getScene().getWindow();
             scene.getSceneManager().sceneChange(worldMap,
@@ -75,6 +77,12 @@ public class StartController implements Initializable{
         });
     }
 
+    /**
+     * creating ship player 1
+     */
+    private void createPlayer1(){
+        scene.getShipGeneralManager().addShip(new StartingShip().getStartingShip());
+    }
     /**
      * Responsible for exit game
      */
