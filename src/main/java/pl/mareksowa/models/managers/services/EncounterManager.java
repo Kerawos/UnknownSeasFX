@@ -13,6 +13,11 @@ import java.util.Random;
 @Service
 public class EncounterManager {
 
+    /**
+     * Method generate encounter based on game map color field
+     * @param fieldColor
+     * @return random encounter type
+     */
     public EncounterType generateEncounterType(String fieldColor){
         int random = new Random().nextInt(3);
         if (fieldColor.equals("Green")){
@@ -47,4 +52,6 @@ public class EncounterManager {
                 return EncounterType.EMPTY;
         }
     }
+
+
 }
