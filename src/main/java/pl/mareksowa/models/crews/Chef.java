@@ -7,6 +7,6 @@ public class Chef extends Crew {
      * Variable of Model Class
      */
     public Chef() {
-        super(1, 5, -3, 2);
+        super(1, 5, -2, 2);
     }
 }

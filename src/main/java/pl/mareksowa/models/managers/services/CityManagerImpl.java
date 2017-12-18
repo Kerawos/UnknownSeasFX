@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.cities.*;
 import pl.mareksowa.models.crews.Crew;
+import pl.mareksowa.models.crews.NoOne;
 import pl.mareksowa.models.managers.CityManager;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.goods.GoodName;
@@ -91,10 +92,10 @@ public class CityManagerImpl implements CityManager {
         if (city.getCrewTavernList().size()<1){
             throw new IllegalArgumentException("crews in tavern in the city is not greater than 0");
         }
-        if (crewListNo>city.getCrewTavernList().size() || crewListNo<city.getCrewTavernList().size()){
+        if (crewListNo>city.getCrewTavernList().size() || crewListNo<0){
             throw new IllegalArgumentException("given crewListNo is not corrected");
         }
-        city.getCrewTavernList().remove(crewListNo);
+        city.getCrewTavernList().set(crewListNo, new NoOne());
     }
 
     @Override

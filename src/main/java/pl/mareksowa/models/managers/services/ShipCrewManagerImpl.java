@@ -26,7 +26,10 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     public boolean canHireCrewMember(Ship shipPlayer, Crew crewToHire, Label lblUpperText) {
         String crewName = crewToHire.getClass().getName();
         crewName = crewName.substring(crewName.lastIndexOf(".")+1, crewName.length());
-        if (shipPlayer.getCabinCapacity() > shipPlayer.getCrewList().size() || crewName.equals("NoOne")){
+        if (crewName.equals("NoOne")){
+            return false;
+        }
+        if (shipPlayer.getCabinCapacity() > shipPlayer.getCrewList().size()){
             return true;
         }
         lblUpperText.setText("You don't have enough space..");

@@ -321,11 +321,11 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
         if (shipPlayer.getCrewList()==null){
             return 1;
         }
-        int totalCrewFoodConsumption = 0;
+        int totalCrewFoodConsumption = 1; //one provided by capitan
         for (Crew crew : shipPlayer.getCrewList()) {
             totalCrewFoodConsumption+=crew.getConsumption();
         }
-        return totalCrewFoodConsumption +1; //one provided by capitan
+        return totalCrewFoodConsumption>0?totalCrewFoodConsumption:1;
     }
 
     private int calcCrewProduction(Ship shipPlayer){
