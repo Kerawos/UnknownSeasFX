@@ -90,7 +90,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnSmith.setOnMouseClicked(click -> {
             getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage dockyard = (Stage) btnSmith.getScene().getWindow();
-            getSceneManager().sceneChange(dockyard, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD));
+            getSceneManager().sceneChangeInit(dockyard, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.DOCKYARD), getPaneScene());
         });
     }
 
@@ -102,7 +102,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnArmory.setOnMouseClicked(click->{
             getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage market = (Stage) btnArmory.getScene().getWindow();
-            getSceneManager().sceneChange(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ARMORY));
+            getSceneManager().sceneChangeInit(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ARMORY), getPaneScene());
         });
     }
 
@@ -114,7 +114,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnMarket.setOnMouseClicked(click->{
             getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage market = (Stage) btnMarket.getScene().getWindow();
-            getSceneManager().sceneChange(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.MARKET));
+            getSceneManager().sceneChangeInit(market, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.MARKET), getPaneScene());
         });
     }
 
@@ -126,7 +126,7 @@ public class CityController extends PlayerShipController implements Initializabl
         btnTavern.setOnMouseClicked(click->{
             getSceneManager().setBackStage(SceneNameEquivalent.sceneEnumName.CITY);
             Stage tavern = (Stage) btnTavern.getScene().getWindow();
-            getSceneManager().sceneChange(tavern, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.TAVERN));
+            getSceneManager().sceneChangeInit(tavern, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.TAVERN), getPaneScene());
         });
     }
 
@@ -139,7 +139,7 @@ public class CityController extends PlayerShipController implements Initializabl
             //todo
             CurrentScene.getInstance().getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
             Stage worldMap = (Stage) btnBack.getScene().getWindow();
-            getSceneManager().sceneChange(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
+            getSceneManager().sceneChangeInit(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP), getPaneScene());
         });
     }
 

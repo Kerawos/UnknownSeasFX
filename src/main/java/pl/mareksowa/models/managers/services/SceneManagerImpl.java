@@ -4,6 +4,8 @@ package pl.mareksowa.models.managers.services;
  */
 import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -39,6 +41,11 @@ public class SceneManagerImpl implements SceneManager {
         //todo check if @service will work with private constructor here
         sceneNameEquivalent = new SceneNameEquivalent();
         gameTime = new GameTime();
+    }
+
+    @Override
+    public void sceneChangeInit(Stage stageName, String sceneName, Pane pane){
+        fadePaneAnimationOut(pane, stageName, sceneName);
     }
 
     @Override
@@ -111,12 +118,28 @@ public class SceneManagerImpl implements SceneManager {
     }
 
     @Override
-    public void fadeOut(Pane pane) {
-        fadePaneAnimation(pane, 1, 0, 500);
+    public void fadePaneAnimationOut(Pane pane, Stage stageName, String sceneName) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setNode(pane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setDuration(Duration.millis(100));
+        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                sceneChange(stageName, sceneName);
+            }
+        });
+        fadeTransition.play();
     }
 
     @Override
-    public void fadeIn(Pane pane) {
-        fadePaneAnimation(pane, 0, 1, 500);
+    public void fadePaneAnimationIn(Pane pane) {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setNode(pane);
+        fadeTransition.setFromValue(0);
+        fadeTransition.setToValue(1);
+        fadeTransition.setDuration(Duration.millis(800));
+        fadeTransition.play();
     }
 }

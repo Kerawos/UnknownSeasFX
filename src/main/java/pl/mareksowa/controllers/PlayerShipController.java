@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
@@ -47,6 +48,8 @@ public abstract class PlayerShipController {
     /**
      * FX declarations
      */
+    @FXML private Pane paneScene;
+
     @FXML private Label lblPlayerGold;
     @FXML private Label lblPlayerFood;
     @FXML private Label lblPlayerAmmo;
@@ -516,6 +519,10 @@ public abstract class PlayerShipController {
 
     public Ship getShipPlayerCurrent() {
         return shipPlayerCurrent;
+    }
+
+    public Pane getPaneScene() {
+        return paneScene;
     }
 
     /**

@@ -17,6 +17,8 @@ public interface SceneManager {
      */
     void sceneChange(Stage stageName, String sceneName);
 
+    void sceneChangeInit(Stage stageName, String sceneName, Pane pane);
+
     /**
      * Method allowed find proper scene name as string inputed predefined enum scene name. Condition: map scene names
      * must be predefined earlier.
@@ -55,11 +57,11 @@ public interface SceneManager {
      * Method generating simple out scene animation
      * @param pane
      */
-    void fadeOut(Pane pane);
+    void fadePaneAnimationOut(Pane pane, Stage stageName, String sceneName);
 
     /**
      * Method generating simple in scene animation
      * @param pane
      */
-    void fadeIn(Pane pane);
+    void fadePaneAnimationIn(Pane pane);
 }

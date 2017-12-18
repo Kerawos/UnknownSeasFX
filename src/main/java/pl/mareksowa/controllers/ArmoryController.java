@@ -134,7 +134,7 @@ public class ArmoryController extends PlayerShipController implements Initializa
     private void btnRegBack(){
         btnBack.setOnMouseClicked(e-> {
             Stage armory = (Stage) btnBack.getScene().getWindow();
-            getSceneManager().sceneChange(armory, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
+            getSceneManager().sceneChangeInit(armory, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()), getPaneScene());
         });
     }
 

@@ -53,7 +53,6 @@ public class MapController extends PlayerShipController implements Initializable
     @FXML private Label lblMovePoints;
 
 
-
     private Image bgPlayerShipOnMap;
     private Image bgMapImage;
     private Image indicatorGreen;
@@ -281,7 +280,7 @@ public class MapController extends PlayerShipController implements Initializable
                 getCityManager().updateCityCrewTavern(CurrentScene.getInstance().getCurrentCity());
             }
             Stage cityStage = (Stage) btnMainMenu.getScene().getWindow();
-            getSceneManager().sceneChange(cityStage, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY));
+            getSceneManager().sceneChangeInit(cityStage, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.CITY), getPaneScene());
         }
     }
 

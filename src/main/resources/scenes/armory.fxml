@@ -6,7 +6,7 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.ArmoryController">
+<Pane fx:id="paneScene" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.mareksowa.controllers.ArmoryController">
    <children>
       <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" layoutX="-7.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />

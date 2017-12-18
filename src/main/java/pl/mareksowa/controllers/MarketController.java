@@ -223,7 +223,7 @@ public class MarketController extends PlayerShipController implements Initializa
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click->{
             Stage dockyard = (Stage) btnBack.getScene().getWindow();
-            getSceneManager().sceneChange(dockyard, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()));
+            getSceneManager().sceneChangeInit(dockyard, getSceneManager().sceneNameFinderByEnum(getSceneManager().getBackStage()), getPaneScene());
         });
     }
 

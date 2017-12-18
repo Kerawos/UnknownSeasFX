@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,7 @@ public class StartController implements Initializable{
     /**
      * Labels
      */
+    @FXML private Pane paneScene;
     @FXML private ImageView ivStartPage;
     @FXML private Button btnBeginNewJourney;
     @FXML private Button btnExit;
@@ -72,8 +74,8 @@ public class StartController implements Initializable{
             createPlayer1();
             scene.getShipMovementManager().refreshShipMove(scene.getShipPlayerCurrent());
             Stage worldMap = (Stage) btnBeginNewJourney.getScene().getWindow();
-            scene.getSceneManager().sceneChange(worldMap,
-                    scene.getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP));
+            scene.getSceneManager().sceneChangeInit(worldMap,
+                    scene.getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP), paneScene);
         });
     }
 
