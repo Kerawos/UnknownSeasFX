@@ -7,6 +7,7 @@ package pl.mareksowa.controllers;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -35,6 +36,7 @@ public class StartController implements Initializable{
     @FXML private ImageView ivStartPage;
     @FXML private Button btnBeginNewJourney;
     @FXML private Button btnExit;
+    @FXML private Label lblGameInfo;
 
     private Image backgroundImage;
     private CurrentScene scene;
@@ -52,6 +54,7 @@ public class StartController implements Initializable{
      * Updates views
      */
     private void updateView(){
+        lblGameInfo.setText("v 0.5a 12-2017 by Marek Sowa");
         backgroundImage = new Image("img/scenes/StartPage.png");
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
