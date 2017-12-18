@@ -4,6 +4,9 @@ package pl.mareksowa.models.managers.services;
  * Import sections
  */
 
+import javafx.animation.FadeTransition;
+import javafx.scene.layout.Pane;
+import javafx.util.Duration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -134,4 +137,8 @@ public class CityManagerImpl implements CityManager {
     public int generateRandomPriceFromTo(int minPrice, int maxPrice){
         return new Random().nextInt(maxPrice - minPrice) + minPrice;
     }
+
+
+
+
 }

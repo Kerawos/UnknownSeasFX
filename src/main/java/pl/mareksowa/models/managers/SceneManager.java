@@ -1,5 +1,6 @@
 package pl.mareksowa.models.managers;
 
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -40,4 +41,25 @@ public interface SceneManager {
     int getLastDayInVisitedCity();
 
     void setLastDayInVisitedCity(int lastDayInVisitedCity);
+
+    /**
+     * Method to get some simple animation between change scene
+     * @param pane
+     * @param valueFrom
+     * @param valueTo
+     * @param durationMillis
+     */
+    void fadePaneAnimation(Pane pane, int valueFrom, int valueTo, int durationMillis);
+
+    /**
+     * Method generating simple out scene animation
+     * @param pane
+     */
+    void fadeOut(Pane pane);
+
+    /**
+     * Method generating simple in scene animation
+     * @param pane
+     */
+    void fadeIn(Pane pane);
 }

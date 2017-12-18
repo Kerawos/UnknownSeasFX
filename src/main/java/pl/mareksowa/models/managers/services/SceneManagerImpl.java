@@ -2,11 +2,14 @@ package pl.mareksowa.models.managers.services;
 /**
  * Imports section
  */
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
@@ -95,5 +98,25 @@ public class SceneManagerImpl implements SceneManager {
     @Override
     public void setLastDayInVisitedCity(int lastDayInVisitedCity) {
         this.lastDayInVisitedCity = lastDayInVisitedCity;
+    }
+
+    @Override
+    public void fadePaneAnimation(Pane pane, int valueFrom, int valueTo, int durationMillis){
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setNode(pane);
+        fadeTransition.setFromValue(valueFrom);
+        fadeTransition.setToValue(valueTo);
+        fadeTransition.setDuration(Duration.millis(durationMillis));
+        fadeTransition.play();
+    }
+
+    @Override
+    public void fadeOut(Pane pane) {
+        fadePaneAnimation(pane, 1, 0, 500);
+    }
+
+    @Override
+    public void fadeIn(Pane pane) {
+        fadePaneAnimation(pane, 0, 1, 500);
     }
 }
