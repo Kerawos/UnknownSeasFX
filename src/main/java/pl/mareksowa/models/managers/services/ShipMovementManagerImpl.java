@@ -6,6 +6,7 @@ import javafx.util.Duration;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
+import pl.mareksowa.models.FieldColor;
 import pl.mareksowa.models.managers.ShipMovementManager;
 import pl.mareksowa.models.sails.Sail;
 import pl.mareksowa.models.ships.Ship;
@@ -63,87 +64,87 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public ShipPosition getPositionField1() {
-        return new ShipPosition(160,290);
+        return new ShipPosition(160,290, FieldColor.RED);
     }
 
     @Override
     public ShipPosition getPositionField2() {
-        return new ShipPosition(50,245);
+        return new ShipPosition(50,245, FieldColor.RED);
     }
 
     @Override
     public ShipPosition getPositionField3() {
-        return new ShipPosition(55,155);
+        return new ShipPosition(55,155, FieldColor.RED);
     }
 
     @Override
     public ShipPosition getPositionField4() {
-        return new ShipPosition(70,75);
+        return new ShipPosition(70,75, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField5() {
-        return new ShipPosition(200,60);
+        return new ShipPosition(200,60, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField6() {
-        return new ShipPosition(295,60);
+        return new ShipPosition(295,60, FieldColor.GREEN);
     }
 
     @Override
     public ShipPosition getPositionField7() {
-        return new ShipPosition(380,75);
+        return new ShipPosition(380,75, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField8() {
-        return new ShipPosition(470,65);
+        return new ShipPosition(470,65, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField9() {
-        return new ShipPosition(550,60);
+        return new ShipPosition(550,60, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField10() {
-        return new ShipPosition(640,5);
+        return new ShipPosition(640,5, FieldColor.YELLOW);
     }
 
     @Override
     public ShipPosition getPositionField11() {
-        return new ShipPosition(690,100);
+        return new ShipPosition(690,100, FieldColor.RED);
     }
 
     @Override
     public ShipPosition getPositionField12() {
-        return new ShipPosition(605,150);
+        return new ShipPosition(605,150, FieldColor.RED);
     }
 
     @Override
     public ShipPosition getPositionField13() {
-        return new ShipPosition(535,215);
+        return new ShipPosition(535,215, FieldColor.GREEN);
     }
 
     @Override
     public ShipPosition getPositionField14() {
-        return new ShipPosition(380,255);
+        return new ShipPosition(380,255, FieldColor.GREEN);
     }
 
     @Override
     public ShipPosition getPositionField15() {
-        return new ShipPosition(375,155);
+        return new ShipPosition(375,155, FieldColor.GREEN);
     }
 
     @Override
     public ShipPosition getPositionField16() {
-        return new ShipPosition(550,320);
+        return new ShipPosition(550,320, FieldColor.GREEN);
     }
 
     @Override
     public ShipPosition getPositionField17() {
-        return new ShipPosition(640,335);
+        return new ShipPosition(640,335, FieldColor.GREEN);
     }
 
     @Override

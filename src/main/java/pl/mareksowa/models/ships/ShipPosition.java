@@ -1,14 +1,22 @@
 package pl.mareksowa.models.ships;
 
+import pl.mareksowa.models.FieldColor;
+
 public class ShipPosition {
 
     private int layoutX;
     private int layoutY;
-
+    private FieldColor fieldColor;
 
     public ShipPosition(int layoutX, int layoutY) {
         this.layoutX = layoutX;
         this.layoutY = layoutY;
+    }
+
+    public ShipPosition(int layoutX, int layoutY, FieldColor fieldColor) {
+        this.layoutX = layoutX;
+        this.layoutY = layoutY;
+        this.fieldColor = fieldColor;
     }
 
     public int getLayoutX() {
@@ -27,7 +35,13 @@ public class ShipPosition {
         this.layoutY = layoutY;
     }
 
+    public FieldColor getFieldColor() {
+        return fieldColor;
+    }
 
+    public void setFieldColor(FieldColor fieldColor) {
+        this.fieldColor = fieldColor;
+    }
 
     @Override
     public boolean equals(Object o) {
