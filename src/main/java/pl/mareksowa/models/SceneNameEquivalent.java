@@ -11,7 +11,7 @@ public class SceneNameEquivalent {
     /**
      * enums equivalents names
      */
-    public enum sceneEnumName {START_PAGE, WORLD_MAP, CITY, DOCKYARD, MARKET, ARMORY, TAVERN}
+    public enum sceneEnumName {START_PAGE, WORLD_MAP, CITY, DOCKYARD, MARKET, ARMORY, TAVERN, ENCOUNTER}
 
     /**
      * Map storing scene names and enums equivalents
@@ -38,6 +38,7 @@ public class SceneNameEquivalent {
         resultMap.put(sceneEnumName.MARKET, "scenes/market.fxml");
         resultMap.put(sceneEnumName.ARMORY, "scenes/armory.fxml");
         resultMap.put(sceneEnumName.TAVERN, "scenes/tavern.fxml");
+        resultMap.put(sceneEnumName.ENCOUNTER, "scenes/encounter.fxml");
 
         return resultMap;
     }

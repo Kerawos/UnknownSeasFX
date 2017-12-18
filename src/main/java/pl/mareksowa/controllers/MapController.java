@@ -96,18 +96,14 @@ public class MapController extends PlayerShipController implements Initializable
         updatePlayerShip(getShipPlayerCurrent());
         updatePlayerShipPosition();
         checkEncounter();
-
     }
 
     private void checkEncounter(){
         if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
-            System.out.println("spotkanie losowe na morzu");
-            getSceneManager().updateDay(getPaneScene());
-
             CurrentScene.getInstance().getSceneManager().setGameTime(+1);
             getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
-
-            updateScene();
+            Stage encounter = (Stage) btnMainMenu.getScene().getWindow();
+            getSceneManager().sceneChangeInit(encounter, String.valueOf(SceneNameEquivalent.sceneEnumName.ENCOUNTER), getPaneScene());
         }
     }
 
