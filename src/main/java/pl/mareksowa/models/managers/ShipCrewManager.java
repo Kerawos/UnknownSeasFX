@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Service;
+import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.crews.Crew;
 import pl.mareksowa.models.ships.Ship;
 
@@ -31,7 +32,7 @@ public interface ShipCrewManager {
      * @param shipPlayer
      * @param crewToHire
      */
-    void hireCrewMember(Ship shipPlayer, Crew crewToHire);
+    void hireCrewMember(Ship shipPlayer, Crew crewToHire, City currentCity);
 
     /**
      * Method checks if capitan of listed ship can get rid of given crew member

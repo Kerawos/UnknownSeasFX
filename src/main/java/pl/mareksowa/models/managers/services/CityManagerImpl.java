@@ -84,6 +84,11 @@ public class CityManagerImpl implements CityManager {
     }
 
     @Override
+    public void removeCityCrewMember(City city, int crewListNo) {
+        
+    }
+
+    @Override
     public int priceOf(GoodName goodName){
         List<Good> goodList = CurrentScene.getInstance().getCurrentCity().getGoodList();
         for (int i = 0; i < goodList.size(); i++) {

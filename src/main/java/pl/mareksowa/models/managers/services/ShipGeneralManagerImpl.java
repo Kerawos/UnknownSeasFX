@@ -133,18 +133,36 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
     @Override
     public void updateCrew(Ship shipPlayer, ImageView... crews) {
-        //System.out.println("wielkosc zalogowego miejsca = " + PLAYER0.getStorageCapacity());
-        //System.out.println("wielkosc zalogowych labeli = " + crews.length);
-        for (int i = 0; i < shipPlayer.getCabinCapacity(); i++) {
-            crews[i].setImage(new Image("img/crews/CrewEmpty.png"));
-            //System.out.println("tutaj powienien dodac pierwszy obrazaek crew");
-            if (shipPlayer.getCrewList().size()>0 ||
-                    shipPlayer.getCrewList().size()>i){
-                //System.out.println("z kolei tutaj jakbysmy mieli jakias zaloge");
-                /// TODO: 06.11.2017 adding proper good
+        for (int i = 1; i <= shipPlayer.getCabinCapacity(); i++) {
+            if (shipPlayer.getCrewList().size() >= i && shipPlayer.getCrewList().size()>0){
+                String crewName = shipPlayer.getCrewList().get(i-1).getClass().getName();
+                switch (crewName.substring(crewName.lastIndexOf(".")+1, crewName.length())){
+                    case "DeckHand":{
+                        crews[i-1].setImage(new Image("img/crews/CrewMemberDeckHand.png"));
+                        break;
+                    }
+                    case "Sailor":{
+                        crews[i-1].setImage(new Image("img/crews/CrewMemberSailor.png"));
+                        break;
+                    }
+                    case "Chef":{
+                        crews[i-1].setImage(new Image("img/crews/CrewMemberChef.png"));
+                        break;
+                    }
+                    case "Engineer":{
+                        crews[i-1].setImage(new Image("img/crews/CrewMemberEngineer.png"));
+                        break;
+                    }
+                    case "SeaWolf":{
+                        crews[i-1].setImage(new Image("img/crews/CrewMemberSeaWolf.png"));
+                        break;
+                    }
+                }
+
+            } else {
+                crews[i-1].setImage(new Image("img/crews/CrewEmpty.png"));
             }
         }
-        /// TODO: 06.11.2017
     }
 
 
@@ -178,7 +196,6 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
                 sails[i-1].setImage(new Image("img/sails/SailEmpty.png"));
             }
         }
-
     }
 
     @Override

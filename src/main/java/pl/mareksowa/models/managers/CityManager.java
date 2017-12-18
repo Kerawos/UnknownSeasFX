@@ -38,6 +38,13 @@ public interface CityManager {
     void updateCityCrewTavern(City city);
 
     /**
+     * Method remove crew member from city tavern
+     * @param city
+     * @param crewListNo
+     */
+    void removeCityCrewMember(City city, int crewListNo);
+
+    /**
      * Method calculate price of given good in the city and more
      * @param goodName
      * @return price of given good

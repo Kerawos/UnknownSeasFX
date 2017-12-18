@@ -7,6 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Repository;
+import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.crews.*;
 import pl.mareksowa.models.managers.ShipCrewManager;
 import pl.mareksowa.models.ships.Ship;
@@ -23,7 +24,9 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
 
     @Override
     public boolean canHireCrewMember(Ship shipPlayer, Crew crewToHire, Label lblUpperText) {
-        if (shipPlayer.getCabinCapacity() > shipPlayer.getCrewList().size()){
+        String crewName = crewToHire.getClass().getName();
+        crewName = crewName.substring(crewName.lastIndexOf(".")+1, crewName.length());
+        if (shipPlayer.getCabinCapacity() > shipPlayer.getCrewList().size() || crewName.equals("NoOne")){
             return true;
         }
         lblUpperText.setText("You don't have enough space..");
@@ -32,8 +35,10 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     }
 
     @Override
-    public void hireCrewMember(Ship shipPlayer, Crew crewToHire) {
+    public void hireCrewMember(Ship shipPlayer, Crew crewToHire, City currentCity) {
         shipPlayer.getCrewList().add(crewToHire);
+        currentCity.getCrewTavernList().remove(crewToHire);
+
     }
 
     @Override

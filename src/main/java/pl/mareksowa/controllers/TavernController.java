@@ -150,7 +150,7 @@ public class TavernController extends PlayerShipController implements Initializa
 
     private void hireCrew(Crew crewToHIre, Label lblUpperText){
         if (getShipCrewManager().canHireCrewMember(getShipPlayerCurrent(), crewToHIre, lblUpperText)){
-            getShipCrewManager().hireCrewMember(getShipPlayerCurrent(), crewToHIre);
+            getShipCrewManager().hireCrewMember(getShipPlayerCurrent(), crewToHIre, CurrentScene.getInstance().getCurrentCity());
             updateScene();
         }
     }
@@ -178,6 +178,7 @@ public class TavernController extends PlayerShipController implements Initializa
     private void fireCrew(int crewListNo){
         if (getShipCrewManager().canGetRidOffCrewMember(getShipPlayerCurrent(), crewListNo)){
             getShipCrewManager().ridOffCrewMember(getShipPlayerCurrent(), getShipPlayerCurrent().getCrewList().get(crewListNo));
+            updateScene();
         }
     }
 
