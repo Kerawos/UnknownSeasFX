@@ -1,5 +1,9 @@
 package pl.mareksowa.models.managers;
 
+/**
+ * Imports section
+ */
+
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
@@ -7,6 +11,9 @@ import org.springframework.stereotype.Service;
 import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 
+/**
+ * This service is responsible for all logic connecting with scene
+ */
 @Service
 public interface SceneManager {
 

@@ -1,5 +1,8 @@
 package pl.mareksowa.models.managers;
 
+/**
+ * Imports section
+ */
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.cities.City;

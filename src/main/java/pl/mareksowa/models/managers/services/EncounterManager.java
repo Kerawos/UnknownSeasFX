@@ -22,14 +22,12 @@ public class EncounterManager {
      */
     public EncounterType generateEncounterType(Ship shipPlayer){
         int random = new Random().nextInt(5)-1;
-        System.out.println("random 1 = " + random);
         if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.GREEN){
             random+=1;
         }
         if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.RED){
             random-=1;
         }
-        System.out.println("random = " + random);
         switch (random){
             case -2:{
                 return EncounterType.PIRATE;

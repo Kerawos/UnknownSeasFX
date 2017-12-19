@@ -42,18 +42,22 @@ public class EncounterController extends PlayerShipController implements Initial
 
     private void getEncounter(){
         switch (encounterManager.generateEncounterType(getShipPlayerCurrent())){
-            case ADVENTURE:{
-
-                break;
-            }
+//            case ADVENTURE:{
+//
+//                break;
+//            }
 
             default:{ //works as Empty also
-                setIvBackGround(new ImageView(new Image("img/encounters/EncounterEmpty.png")));
-                lblTitle.setText("Capitan! There is nothing to report..");
-                txtInfo.setText("You encounter endless typical ocean. Another day is gone. Crew is going to eat and sleep.");
+                scenarioEmpty();
                 break;
             }
         }
+    }
+
+    private void scenarioEmpty(){
+        setBackgroundImage(new Image("img/encounters/EncounterEmpty.png"));
+        lblTitle.setText("Capitan! There is nothing to report..");
+        txtInfo.setText("You encounter endless typical ocean. Another day is gone. Crew is going to eat and sleep.");
     }
 
     private void updateScene(){
@@ -67,7 +71,6 @@ public class EncounterController extends PlayerShipController implements Initial
     }
 
     private void updateEncounterViews(){
-        lblTitle.setText(encounterManager.generateEncounterType(getShipPlayerCurrent())+ " type");
         txtInfo.setWrapText(true);
         updateBackgroundView();
         updateShipBackgroundView();
@@ -77,7 +80,6 @@ public class EncounterController extends PlayerShipController implements Initial
     private void btnRegBack(){
         btnBack.setOnMouseClicked(click-> {
             //CurrentScene.getInstance().getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
-            System.out.println("player move2 : " + getShipMovementManager().getRemainShipMove(getShipPlayerCurrent()));
             Stage worldMap = (Stage) btnBack.getScene().getWindow();
             getSceneManager().sceneChangeInit(worldMap, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.WORLD_MAP), getPaneScene());
         });

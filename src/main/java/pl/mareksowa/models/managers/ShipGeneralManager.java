@@ -12,7 +12,7 @@ import pl.mareksowa.models.ships.Ship;
 import java.util.List;
 
 /**
- * Interface responsible for general ship behaviours, not specified. Every updates of ship controller.
+ * Service responsible for general ship behaviours, not specified. Every updates of ship controller.
  */
 @Service
 public interface ShipGeneralManager {
