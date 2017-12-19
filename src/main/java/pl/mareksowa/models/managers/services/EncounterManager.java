@@ -21,13 +21,15 @@ public class EncounterManager {
      * @return random encounter type
      */
     public EncounterType generateEncounterType(Ship shipPlayer){
-        int random = new Random().nextInt(3);
+        int random = new Random().nextInt(5)-1;
+        System.out.println("random 1 = " + random);
         if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.GREEN){
-            random+=2;
+            random+=1;
         }
         if (shipPlayer.getMapPosition().getFieldColor()== FieldColor.RED){
-            random-=2;
+            random-=1;
         }
+        System.out.println("random = " + random);
         switch (random){
             case -2:{
                 return EncounterType.PIRATE;

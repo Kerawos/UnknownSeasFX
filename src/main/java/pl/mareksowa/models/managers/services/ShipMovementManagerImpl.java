@@ -241,9 +241,7 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public void updateShipMove(Ship shipPlayer, int moveToPerform) {
-        System.out.println(shipPlayer.getMovePossibility());
         shipPlayer.setMovePossibility(shipPlayer.getMovePossibility() - moveToPerform);
-        System.out.println(shipPlayer.getMovePossibility());
     }
 
     @Override

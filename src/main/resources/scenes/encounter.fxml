@@ -10,7 +10,7 @@
    <children>
       <ImageView fx:id="ivBackGround" fitHeight="640.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="ivBackGroundShip" fitHeight="244.0" fitWidth="800.0" layoutY="417.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblTitle" layoutX="603.0" layoutY="14.0" prefHeight="43.0" prefWidth="183.0" text="Label" wrapText="true">
+      <Label fx:id="lblTitle" layoutX="15.0" layoutY="14.0" prefHeight="43.0" prefWidth="183.0" text="Label" wrapText="true">
          <font>
             <Font name="Segoe Print" size="24.0" />
          </font>

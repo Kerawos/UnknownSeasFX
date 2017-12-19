@@ -50,7 +50,9 @@ public class Ship {
         sailList = new ArrayList<>();
         achievement = new ShipAchievement();
         mapPosition = new MapPosition(0,0);
+    }
 
+    public Ship() {
     }
 
     /**

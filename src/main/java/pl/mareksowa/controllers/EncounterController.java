@@ -8,9 +8,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
+import pl.mareksowa.models.managers.services.EncounterManager;
 
 
 import java.net.URL;
@@ -24,6 +26,8 @@ public class EncounterController extends PlayerShipController implements Initial
 
     @FXML private Button btnBack;
     @FXML private Label lblTitle;
+    //todo spring not working at this moment
+    @Autowired private EncounterManager encounterManager = new EncounterManager();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -33,10 +37,12 @@ public class EncounterController extends PlayerShipController implements Initial
     }
 
     private void getEncounter(){
-        CurrentScene.getInstance().getEncounterManager().generateEncounterType("Red");
+
     }
 
     private void updateScene(){
+
+        updatePlayerShip(getShipPlayerCurrent());
         updateEncounterViews();
     }
 
@@ -45,7 +51,11 @@ public class EncounterController extends PlayerShipController implements Initial
     }
 
     private void updateEncounterViews(){
-        lblTitle.setText("koniec dnia nic sie nie dzieje");
+        lblTitle.setText(encounterManager.generateEncounterType(getShipPlayerCurrent())+ " type");
+
+        updateBackgroundView();
+        updateShipBackgroundView();
+
     }
 
     private void btnRegBack(){
