@@ -56,4 +56,8 @@ public class EncounterManager {
                 return EncounterType.EMPTY;
         }
     }
+
+    public void generateRandomAdventure(){
+
+    }
 }
