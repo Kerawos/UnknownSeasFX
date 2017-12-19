@@ -24,6 +24,8 @@ import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.GameTime;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.managers.SceneManager;
+import pl.mareksowa.models.maps.EncounterType;
+import pl.mareksowa.models.ships.Ship;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -166,6 +168,11 @@ public class SceneManagerImpl implements SceneManager {
             fadeTransition2.setAutoReverse(true);
             fadeTransition2.play();
         });
+    }
+
+    public void updateEncounter(Ship shipPlayer, EncounterType encounterType){
+
+
     }
 
 }

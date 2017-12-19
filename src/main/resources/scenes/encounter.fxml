@@ -118,5 +118,6 @@
             <Font name="Segoe Print" size="12.0" />
          </font>
       </Label>
+      <TextArea fx:id="txtInfo" layoutX="22.0" layoutY="64.0" prefHeight="350.0" prefWidth="289.0" />
    </children>
 </Pane>
