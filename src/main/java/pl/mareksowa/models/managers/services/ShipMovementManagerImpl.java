@@ -32,6 +32,9 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public void moveShipTo(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        if (shipPlayer==null || destination==null || ivBgPlayerShip==null){
+            throw new IllegalArgumentException("Arguments cannot be null");
+        }
         shipPlayer.setMapPosition(destination);
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.millis(500));
@@ -43,6 +46,9 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public void moveShipToFast(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        if (shipPlayer==null || destination==null || ivBgPlayerShip==null){
+            throw new IllegalArgumentException("Arguments cannot be null");
+        }
         shipPlayer.setMapPosition(destination);
         TranslateTransition translateTransition = new TranslateTransition();
         translateTransition.setDuration(Duration.seconds(0.01));
@@ -55,6 +61,9 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public void setHardShipPosition(Ship shipPlayer, MapPosition destination, ImageView ivBgPlayerShip) {
+        if (shipPlayer==null || destination==null || ivBgPlayerShip==null){
+            throw new IllegalArgumentException("Arguments cannot be null");
+        }
         shipPlayer.setMapPosition(destination);
         ivBgPlayerShip.setX(shipPlayer.getMapPosition().getLayoutX());
         ivBgPlayerShip.setY(shipPlayer.getMapPosition().getLayoutY());
@@ -233,7 +242,10 @@ public class ShipMovementManagerImpl implements ShipMovementManager {
 
     @Override
     public boolean canShipMove(Ship shipPlayer, int moveToPerform) {
-        if (getRemainShipMove(shipPlayer)>=moveToPerform){
+        if (shipPlayer==null){
+            throw new IllegalArgumentException("Ship cannot be null");
+        }
+        if (getRemainShipMove(shipPlayer)>=moveToPerform && moveToPerform>0){
             return true;
         }
         return false;
