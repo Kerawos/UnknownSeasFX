@@ -69,6 +69,9 @@ public class CityManagerImpl implements CityManager {
 
     @Override
     public void updateCityGoods(City city) {
+        if (city==null){
+            throw new IllegalArgumentException("City cannot be null");
+        }
         List<Good> goodList = new ArrayList<>();
         int priceTemp = generateRandomPriceFromTo(1, 3) + city.getWheatRequest();
         goodList.add(new Good(GoodName.WHEAT, priceTemp>0?priceTemp:1));
@@ -84,11 +87,20 @@ public class CityManagerImpl implements CityManager {
 
     @Override
     public void updateCityCrewTavern(City city) {
+        if (city==null){
+            throw new IllegalArgumentException("City cannot be null");
+        }
         city.setCrewTavernList(CurrentScene.getInstance().getShipCrewManager().generateTavernList(4));
     }
 
     @Override
     public void removeCityCrewMember(City city, int crewListNo) {
+        if (city==null){
+            throw new IllegalArgumentException("City cannot be null");
+        }
+        if (crewListNo>city.getCrewTavernList().size() || crewListNo<0){
+            throw new IllegalArgumentException("Crew number out of range");
+        }
         if (city.getCrewTavernList()==null){
             throw new IllegalArgumentException("crews in tavern in the city is null");
         }
@@ -109,7 +121,7 @@ public class CityManagerImpl implements CityManager {
                 return goodList.get(i).getPrice();
             }
         }
-        return 999;
+        throw new IllegalArgumentException("Price not found");
     }
 
     @Override
@@ -129,8 +141,7 @@ public class CityManagerImpl implements CityManager {
                 return g.getPrice();
             }
         }
-        System.out.println("towaru nie znalezniono");
-        return 999;
+        throw new IllegalArgumentException("Good not found");
     }
 
     @Override
