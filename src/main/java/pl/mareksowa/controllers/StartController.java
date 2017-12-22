@@ -22,6 +22,7 @@ import pl.mareksowa.models.ships.StartingShip;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 /**
  * Control Game start view panel. Main menu panel
@@ -59,7 +60,9 @@ public class StartController implements Initializable{
         ivStartPage.setImage(backgroundImage);
         ivStartPage.fitWidthProperty().setValue(backgroundImage.getWidth());
         ivStartPage.fitHeightProperty().setValue(backgroundImage.getHeight());
+
     }
+
 
     /**
      * Logic of behaviour of all buttons in city scene

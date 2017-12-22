@@ -26,8 +26,39 @@ public class CurrentScene
         return ourInstance;
     }
 
-    private CurrentScene() {
-    }
+//    private CityManager cityManager;
+//    private SceneManager sceneManager;
+//    private ShipBuilderManager shipBuilderManager;
+//    private ShipCrewManager shipCrewManager;
+//    private ShipGeneralManager shipGeneralManager;
+//    private ShipMovementManager shipMovementManager;
+//    private ShipTradeManager shipTradeManager;
+//    private EncounterManager encounterManager;
+//
+//    @Autowired
+//    private CurrentScene(CityManager cityManager, SceneManager sceneManager, ShipBuilderManager shipBuilderManager,
+//                         ShipCrewManager shipCrewManager, ShipGeneralManager shipGeneralManager, ShipMovementManager
+//                                 shipMovementManager, ShipTradeManager shipTradeManager, EncounterManager encounterManager) {
+//        this.cityManager = cityManager;
+//        this.sceneManager = sceneManager;
+//        this.shipBuilderManager = shipBuilderManager;
+//        this.shipCrewManager = shipCrewManager;
+//        this.shipGeneralManager = shipGeneralManager;
+//        this.shipMovementManager = shipMovementManager;
+//        this.shipTradeManager = shipTradeManager;
+//        this.encounterManager = encounterManager;
+//    }
+
+//    @Autowired private CurrentScene(){
+//        this.cityManager = cityManager;
+//        this.sceneManager = sceneManager;
+//        this.shipBuilderManager = shipBuilderManager;
+//        this.shipCrewManager = shipCrewManager;
+//        this.shipGeneralManager = shipGeneralManager;
+//        this.shipMovementManager = shipMovementManager;
+//        this.shipTradeManager = shipTradeManager;
+//        this.encounterManager = encounterManager;
+//    }
 
     /**
      * Variables declarations, from this class indicated from capital letter
