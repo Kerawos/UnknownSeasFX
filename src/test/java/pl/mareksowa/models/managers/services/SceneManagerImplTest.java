@@ -44,6 +44,6 @@ public class SceneManagerImplTest {
             assertEquals("Map does not contain proper enum name yet..", e.getMessage());
         }
     }
-    
+
 
 }
