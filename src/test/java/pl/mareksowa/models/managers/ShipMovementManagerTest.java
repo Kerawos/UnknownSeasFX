@@ -138,7 +138,7 @@ public class ShipMovementManagerTest {
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField15(), shipMovementManager.getPositionField14()));
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField16(), shipMovementManager.getPositionField15()));
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField17(), shipMovementManager.getPositionField16()));
-        //special moves
+        //special moves on the map
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField7(), shipMovementManager.getPositionField15()));
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField15(), shipMovementManager.getPositionField7()));
         assertTrue(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField13(), shipMovementManager.getPositionField16()));
@@ -149,7 +149,6 @@ public class ShipMovementManagerTest {
         assertFalse(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField2(), shipMovementManager.getPositionField5()));
         assertFalse(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField4(), shipMovementManager.getPositionField1()));
         assertFalse(shipMovementManager.isMoveAllowed(shipMovementManager.getPositionField1(), shipMovementManager.getPositionField17()));
-
-
     }
+
 }
