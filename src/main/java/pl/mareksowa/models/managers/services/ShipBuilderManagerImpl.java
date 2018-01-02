@@ -34,6 +34,9 @@ public class ShipBuilderManagerImpl implements pl.mareksowa.models.managers.Ship
 
     @Override
     public void addStorage(Ship shipPlayer) {
+        if (shipPlayer==null){
+            throw new IllegalArgumentException("Ship cannot be null");
+        }
         shipPlayer.setGold(shipPlayer.getGold() - (shipPlayer.getStorageCapacity() * shipPlayer.getStorageCapacity()
                 + shipPlayer.getStorageCapacity()));
         shipPlayer.setStorageCapacity(shipPlayer.getStorageCapacity()+1);

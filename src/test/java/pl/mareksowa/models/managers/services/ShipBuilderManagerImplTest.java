@@ -1,6 +1,5 @@
 package pl.mareksowa.models.managers.services;
 
-import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -23,10 +22,26 @@ public class ShipBuilderManagerImplTest {
     }
 
     @Test public void testStorageManagement() {
+        assertEquals(0, new Ship().getStorageCapacity());
         Ship ship = new Ship();
-        ship.setStorageCapacity(5);
+        assertTrue(shipBuilderManager.canBuyStorage(ship, null));
+        ship.setStorageCapacity(9);
         ship.setGold(500);
-        Label label;
-        assertTrue(shipBuilderManager.canBuyStorage(ship, label));
+        assertEquals(9, ship.getStorageCapacity());
+        shipBuilderManager.addStorage(ship);
+        assertEquals(10, ship.getStorageCapacity());
+        try {
+            shipBuilderManager.addStorage(null);
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "Ship cannot be null");
+        }
+        Label label = new Label();
+        try{
+            shipBuilderManager.canBuyStorage(ship, label);
+        } catch (IllegalArgumentException e){
+            assertEquals(e.getMessage(), "There is no more space in the ship");
+        }
+
+
     }
 }
