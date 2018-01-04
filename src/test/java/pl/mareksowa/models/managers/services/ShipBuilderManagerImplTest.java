@@ -35,13 +35,33 @@ public class ShipBuilderManagerImplTest {
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "Ship cannot be null");
         }
+        assertEquals(410, ship.getGold());
+        assertEquals(0, ship.getCannonCapacity());
+        shipBuilderManager.addCannonSpace(ship);
+        assertEquals(1, ship.getCannonCapacity());
+        assertEquals(405, ship.getGold());
+        assertEquals(0, ship.getCabinCapacity());
+        shipBuilderManager.addCabin(ship);
+        assertEquals(1, ship.getCabinCapacity());
+        assertEquals(404, ship.getGold());
+        assertEquals(0, ship.getSailCapacity());
+        shipBuilderManager.addSailSpace(ship);
+        assertEquals(1, ship.getSailCapacity());
+        assertEquals(394, ship.getGold());
+        assertEquals(0, ship.getCurrentEndurance());
+        shipBuilderManager.repair(ship, 25);
+        assertEquals(25, ship.getCurrentEndurance());
+        assertEquals(369, ship.getGold());
+    }
+
+    @Test
+    public void testCanBuy() {
+        Ship ship = new Ship();
         Label label = new Label();
         try{
             shipBuilderManager.canBuyStorage(ship, label);
         } catch (IllegalArgumentException e){
             assertEquals(e.getMessage(), "There is no more space in the ship");
         }
-
-
     }
 }
