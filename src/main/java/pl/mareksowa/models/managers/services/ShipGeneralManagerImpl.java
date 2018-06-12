@@ -269,7 +269,7 @@ public class ShipGeneralManagerImpl implements ShipGeneralManager {
         for (Crew crew : shipPlayer.getCrewList()) {
             charge+=crew.getStrength();
         }
-        return charge + 5; // 5 is Capitan charge power
+        return charge + 5; // 5 is Capitan charge power as basic
     }
 
 

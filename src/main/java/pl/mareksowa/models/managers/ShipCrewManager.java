@@ -96,4 +96,7 @@ public interface ShipCrewManager {
      * @param goldToPay
      */
     void buyFood(Ship shipPlayer, int foodToAdd, int goldToPay);
+
+
+    String feedCrew(Ship shipPlayer);
 }

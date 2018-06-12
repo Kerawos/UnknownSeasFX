@@ -166,4 +166,21 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
         shipPlayer.setFood(shipPlayer.getFood() + foodToAdd);
         shipPlayer.setGold(shipPlayer.getGold() - goldToPay);
     }
+
+    @Override
+    public String feedCrew(Ship shipPlayer) {
+        StringBuilder sb = new StringBuilder();
+        for (Crew crew : shipPlayer.getCrewList()) {
+            if (shipPlayer.getFood()>=crew.getConsumption()){
+                shipPlayer.setFood(shipPlayer.getFood()-crew.getConsumption());
+            } else {
+                shipPlayer.getCrewList().remove(crew);
+                sb.append(crew.getClass().getName() + " felt hungry and left your ship with ");
+                //todo maybe bunt zalogi?
+            }
+        }
+        return sb.toString();
+    }
+
+
 }

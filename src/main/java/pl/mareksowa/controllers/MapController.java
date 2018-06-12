@@ -104,6 +104,8 @@ public class MapController extends PlayerShipController implements Initializable
             getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
             Stage encounter = (Stage) btnMainMenu.getScene().getWindow();
             getSceneManager().sceneChangeInit(encounter, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ENCOUNTER), getPaneScene());
+            //after encounter crew have to eat
+            //todo feed crew
         }
     }
 
