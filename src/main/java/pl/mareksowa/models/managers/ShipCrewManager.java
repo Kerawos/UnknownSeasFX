@@ -97,8 +97,8 @@ public interface ShipCrewManager {
      */
     void buyFood(Ship shipPlayer, int foodToAdd, int goldToPay);
 
+    List<Crew> feedCrew(Ship shipPlayer);
 
-    String feedCrew(Ship shipPlayer);
+    String crewRebellion(Ship shipPlayer, List<Crew> rebellions);
 
-    void crewRebellion(Ship shipPlayer);
 }

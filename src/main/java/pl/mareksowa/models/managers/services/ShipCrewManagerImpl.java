@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Repository;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.crews.*;
+import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.managers.ShipCrewManager;
 import pl.mareksowa.models.ships.Ship;
 
@@ -168,23 +169,26 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
     }
 
     @Override
-    public String feedCrew(Ship shipPlayer) {
-        StringBuilder sb = new StringBuilder();
+    public List<Crew> feedCrew(Ship shipPlayer) {
+        List<Crew> rebellions = new ArrayList<>();
         for (Crew crew : shipPlayer.getCrewList()) {
             if (shipPlayer.getFood()>=crew.getConsumption()){
                 shipPlayer.setFood(shipPlayer.getFood()-crew.getConsumption());
             } else {
+                rebellions.add(crew);
                 shipPlayer.getCrewList().remove(crew);
-                sb.append(crew.getClass().getName() + " felt hungry and left your ship with ");
-                //todo maybe bunt zalogi?
             }
         }
-        return sb.toString();
+        return rebellions;
     }
 
-    @Override
-    public void crewRebellion(Ship shipPlayer) {
+    public String crewRebellion(Ship shipPlayer, List<Crew> rebellions) {
+        StringBuilder sb = new StringBuilder();
+        List<Good> goods = new ArrayList<>();
+        goods = shipPlayer.getStorage();
 
+
+        return sb.toString();
     }
 
 

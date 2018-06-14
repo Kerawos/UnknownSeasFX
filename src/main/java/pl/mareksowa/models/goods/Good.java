@@ -1,6 +1,6 @@
 package pl.mareksowa.models.goods;
 
-public class Good {
+public class Good implements Comparable<Good>{
 
    private GoodName name;
    private int price;
@@ -28,5 +28,10 @@ public class Good {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    @Override
+    public int compareTo(Good good) {
+        return this.getPrice()>good.getPrice()? this.getPrice() : good.getPrice();
     }
 }
