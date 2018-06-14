@@ -95,18 +95,18 @@ public class MapController extends PlayerShipController implements Initializable
         updateAllViews();
         updatePlayerShip(getShipPlayerCurrent());
         updatePlayerShipPosition();
-        checkEncounter();
+        //day end?
+        if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
+            checkEncounter();
+            updateDay();
+        }
     }
 
     private void checkEncounter(){
-        if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
-            CurrentScene.getInstance().getSceneManager().setGameTime(+1);
-            getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
-            Stage encounter = (Stage) btnMainMenu.getScene().getWindow();
-            getSceneManager().sceneChangeInit(encounter, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ENCOUNTER), getPaneScene());
-            //after encounter crew have to eat
-            //todo feed crew
-        }
+        CurrentScene.getInstance().getSceneManager().setGameTime(+1);
+        getShipMovementManager().refreshShipMove(getShipPlayerCurrent());
+        Stage encounter = (Stage) btnMainMenu.getScene().getWindow();
+        getSceneManager().sceneChangeInit(encounter, getSceneManager().sceneNameFinderByEnum(SceneNameEquivalent.sceneEnumName.ENCOUNTER), getPaneScene());
     }
 
     private void disableAllViews(){
@@ -307,6 +307,12 @@ public class MapController extends PlayerShipController implements Initializable
             }
             sceneLoaded = true;
         }
+    }
+
+    private void updateDay(){
+        //after encounter crew have to eat
+        //todo feed crew
+        getShipPlayerCurrent()
     }
 
 }

@@ -182,5 +182,10 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
         return sb.toString();
     }
 
+    @Override
+    public void crewRebellion(Ship shipPlayer) {
+
+    }
+
 
 }

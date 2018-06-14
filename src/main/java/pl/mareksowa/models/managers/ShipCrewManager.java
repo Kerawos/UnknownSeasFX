@@ -99,4 +99,6 @@ public interface ShipCrewManager {
 
 
     String feedCrew(Ship shipPlayer);
+
+    void crewRebellion(Ship shipPlayer);
 }
