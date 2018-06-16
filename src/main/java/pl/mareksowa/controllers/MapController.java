@@ -14,9 +14,14 @@ import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.SceneNameEquivalent;
 import pl.mareksowa.models.cities.City;
+import pl.mareksowa.models.crews.Crew;
+import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.maps.MapPosition;
 
 import java.net.URL;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -92,14 +97,23 @@ public class MapController extends PlayerShipController implements Initializable
      * Method to refresh scene after each action
      */
     private void updateScene(){
+        int x;
         updateAllViews();
         updatePlayerShip(getShipPlayerCurrent());
         updatePlayerShipPosition();
-        //day end?
+        //check if day end?
         if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
             checkEncounter();
             updateDay();
+            List<Crew> rebellions = getShipCrewManager().feedCrew(getShipPlayerCurrent());
+            x = rebellions.size();
+            if (x>0){
+                List<Good> goodsLost = getShipPlayerCurrent().getStorage();
+                goodsLost.sort(Good::compareTo);
+                getShipCrewManager().crewRebellion(getShipPlayerCurrent(), rebellions, goodsLost);
+            }
         }
+
     }
 
     private void checkEncounter(){

@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import pl.mareksowa.models.CurrentScene;
 import pl.mareksowa.models.managers.*;
+import pl.mareksowa.models.managers.services.ComparatorGoods;
 import pl.mareksowa.models.managers.services.SceneManagerImpl;
 import pl.mareksowa.models.ships.Ship;
 
@@ -586,6 +587,10 @@ public abstract class PlayerShipController {
 
     public ShipTradeManager getShipTradeManager() {
         return CurrentScene.getInstance().getShipTradeManager();
+    }
+
+    public ComparatorGoods getComparatorGoods() {
+        return CurrentScene.getInstance().getComparatorGoods();
     }
 
 }

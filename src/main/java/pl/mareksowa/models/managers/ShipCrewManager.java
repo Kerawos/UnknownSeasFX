@@ -9,6 +9,7 @@ import javafx.scene.image.ImageView;
 import org.springframework.stereotype.Service;
 import pl.mareksowa.models.cities.City;
 import pl.mareksowa.models.crews.Crew;
+import pl.mareksowa.models.goods.Good;
 import pl.mareksowa.models.ships.Ship;
 
 import java.util.List;
@@ -99,6 +100,6 @@ public interface ShipCrewManager {
 
     List<Crew> feedCrew(Ship shipPlayer);
 
-    String crewRebellion(Ship shipPlayer, List<Crew> rebellions);
+    void crewRebellion(Ship shipPlayer, List<Crew> rebellions, List<Good> goodsToStole);
 
 }
