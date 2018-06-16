@@ -182,13 +182,17 @@ public class ShipCrewManagerImpl implements ShipCrewManager{
         return rebellions;
     }
 
-    public String crewRebellion(Ship shipPlayer, List<Crew> rebellions) {
+    public void crewRebellion(Ship shipPlayer, List<Crew> rebellions, List<Good> goodsToStole) {
         StringBuilder sb = new StringBuilder();
         List<Good> goods = new ArrayList<>();
         goods = shipPlayer.getStorage();
-
-
-        return sb.toString();
+        for (Good good : goods) {
+            for (Good good1 : goodsToStole) {
+                if (good.equals(good1)){
+                    shipPlayer.getStorage().remove(good);
+                }
+            }
+        }
     }
 
 
