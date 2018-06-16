@@ -97,21 +97,27 @@ public class MapController extends PlayerShipController implements Initializable
      * Method to refresh scene after each action
      */
     private void updateScene(){
-        int x;
         updateAllViews();
         updatePlayerShip(getShipPlayerCurrent());
         updatePlayerShipPosition();
-        //check if day end?
-        if (getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1){
+        if (isEndOfDay()){
             checkEncounter();
-            updateDay();
-            List<Crew> rebellions = getShipCrewManager().feedCrew(getShipPlayerCurrent());
-            x = rebellions.size();
-            if (x>0){
-                List<Good> goodsLost = getShipPlayerCurrent().getStorage();
-                goodsLost.sort(Good::compareTo);
-                getShipCrewManager().crewRebellion(getShipPlayerCurrent(), rebellions, goodsLost);
-            }
+            updateDayEnd();
+        }
+    }
+
+    private boolean isEndOfDay(){
+        return getShipMovementManager().getRemainShipMove(getShipPlayerCurrent())<1? true : false;
+    }
+
+    private void updateDayEnd(){
+        int x;
+        List<Crew> rebellions = getShipCrewManager().feedCrew(getShipPlayerCurrent());
+        x = rebellions.size();
+        if (x>0){
+            List<Good> goodsLost = getShipPlayerCurrent().getStorage();
+            goodsLost.sort(Good::compareTo);
+            getShipCrewManager().crewRebellion(getShipPlayerCurrent(), rebellions, goodsLost);
         }
 
     }
@@ -321,12 +327,6 @@ public class MapController extends PlayerShipController implements Initializable
             }
             sceneLoaded = true;
         }
-    }
-
-    private void updateDay(){
-        //after encounter crew have to eat
-        //todo feed crew
-        getShipPlayerCurrent()
     }
 
 }
