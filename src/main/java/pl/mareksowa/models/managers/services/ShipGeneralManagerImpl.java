@@ -20,14 +20,32 @@ import pl.mareksowa.models.managers.ShipGeneralManager;
 import pl.mareksowa.models.sails.Sail;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
  * Service responsible for general ship behaviours, not specified. Every updates of ship controller.
  */
+
+
+
+
 @Repository
 public class ShipGeneralManagerImpl implements ShipGeneralManager {
 
+//    public double  Kryska (Date Data , String Name, String usage...){
+//        for(usage :: oneUsage){
+//            if(oneUsage==Nails){
+//                price= price + 450;
+//            }else if(oneUsage==NaislAdd){
+//
+//            }
+//        }
+//        if (usage==Nails){
+//            price = 500;
+//        }
+//        return
+//    }
     private List<Ship> ships;
     //todo spring
     @Autowired private ShipMovementManagerImpl shipMovementImpl  = new ShipMovementManagerImpl();
